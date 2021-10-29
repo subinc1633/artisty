@@ -1,5 +1,20 @@
 {
   "name": "Artisty",
   "private": true,
-  "dependencies": {}
+  "scripts": {
+    "webpack": "webpack --watch --mode=development",
+    "prod": "webpack --watch --mode=production",
+    "postinstall": "webpack"
+  },
+  "dependencies": {
+    "@babel/core": "^7.15.8",
+    "@babel/preset-env": "^7.15.8",
+    "@babel/preset-react": "^7.14.5",
+    "babel-loader": "^8.2.3",
+    "preset-react": "^1.0.0",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "webpack": "^5.61.0",
+    "webpack-cli": "^4.9.1"
+  }
 }
