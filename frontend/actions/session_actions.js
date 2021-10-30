@@ -4,12 +4,12 @@ export const RECEIVE_CURRENT_USER = 'RECEIVE_CURRENT_USER';
 export const LOGOUT_CURRENT_USER = 'LOGOUT_CURRENT_USER';
 export const RECEIVE_ERRORS = 'RECEIVE_ERRORS';
 
-const receiveCurrentUser = user => ({
+export const receiveCurrentUser = user => ({
     type: RECEIVE_CURRENT_USER,
     user
 });
 
-const logoutCurrentUser = () => ({
+export const logoutCurrentUser = () => ({
     type: LOGOUT_CURRENT_USER
 });
 
@@ -19,13 +19,13 @@ export const receiveErrors = errors => ({
 })
 
 export const signup = formUser => dispatch => (
-    SessionApiUtil.signup(formUser).then(user => dispatch(receiveCurrentUser(user)))
+    SessionApiUtil.signup(formUser).then(user => dispatch(receiveCurrentUser(user))).fail(console.log('no'))
 );
 
 export const login = formUser => dispatch => (
-    SessionApiUtil.login(formUser).then(user => dispatch(receiveCurrentUser(user)))
+    SessionApiUtil.login(formUser).then(user => dispatch(receiveCurrentUser(user))).fail(console.log('no'))
 );
 
 export const logout = () => dispatch => (
-    SessionApiUtil.logout().then(() => dispatch(logoutCurrentUser()))
+    SessionApiUtil.logout().then(() => dispatch(logoutCurrentUser())).fail(console.log('no'))
 );

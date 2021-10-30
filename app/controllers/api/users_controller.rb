@@ -1,17 +1,17 @@
-class UsersController < ApplicationController
+class Api::UsersController < ApplicationController
     def create
         @user = User.new(user_params)
-        if user.save!
+        if @user.save!
             login!(@user)
-            redirect_to root_url
+            render 'api/users/show'
         else
-            flash.now[:errors] = @user.errors.full_messages, status: 422
+            flash.now[:errors] = @user.errors.full_messages
         end
     end
 
     private
 
     def user_params
-        params.require(:user).permit(:email, :password)
+        params.require(:user).permit(:email, :password, :name)
     end
 end
