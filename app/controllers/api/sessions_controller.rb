@@ -10,12 +10,15 @@ class Api::SessionsController < ApplicationController
             login!(@user)
             render 'api/users/show'
         else
-            flash.now[:errors] = ['Invalid email or password.']
+            render json: ['Invalid email or password.'], status: 401
         end
     end
 
     def destroy
-        logout!
-        render 'api/users/show'
+        @user = current_user
+        if @user
+            logout!
+            render 'api/users/show'
+        end
     end
 end

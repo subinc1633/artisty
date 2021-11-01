@@ -1,41 +1,26 @@
 import React from 'react';
+// import LoginFormContainer from '../session/login_form_container';
+import { Link } from 'react-router-dom';
 
 // function Welcome() {
 //     const []
 // }
 
-class Welcome extends React.Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            isActive: false
-        }
-
-        this.toggleActive = this.toggleActive.bind(this);
-    }
-    
-    toggleActive() {
-        this.setState({isActive: !this.state.isActive});
-    }
-
-    render() {
-        const loggedIn = (
-            <div>
-                <nav><button onClick={this.props.logout}></button></nav>
-                <h1>Welcome, {this.props.currentUser}!</h1>
-            </div>
-        );
-
-        const loggedOut = (
+const Welcome = ({ currentUser, logout }) => {
+    if (currentUser) {
+        return (
             <nav>
-                <button className={this.state.isActive ? 'active_modal' : null} onClick={this.toggleActive}>Login</button>
+                <button onClick={logout}>Log out</button>
+                <h1>Welcome, {currentUser.name}!</h1>
             </nav>
         );
-
+    } else {
         return (
-            this.props.currentUser ? loggedIn : loggedOut
-        )
-    }
-};
+            <nav>
+                <Link to="/login"><button>Log in</button></Link>
+            </nav>
+        );
+    };
+}
 
 export default Welcome;

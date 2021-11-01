@@ -1,5 +1,5 @@
 import React from 'react';
-import WelcomeContainer from '../welcome/welcome_container';
+import { Link } from 'react-router-dom';
 
 class SessionForm extends React.Component {
     constructor(props) {
@@ -11,17 +11,23 @@ class SessionForm extends React.Component {
         };
 
         this.handleSubmit = this.handleSubmit.bind(this);
+        // this.toggleActive = this.toggleActive.bind(this);
     }
 
     handleSubmit(e) {
         e.preventDefault();
         const user = Object.assign({}, this.state);
         this.props.processForm(user);
+        this.props.history.push('/');
     }
 
     update(field) {
         return e => this.setState({[field]: e.currentTarget.value});
     }
+
+    // toggleActive() {
+    //     this.setState({ active: !this.state.active });
+    // }
 
     renderErrors() {
         return (
@@ -49,25 +55,32 @@ class SessionForm extends React.Component {
             )}
         };
 
+        // <div id={this.state.active ? 'modal-display' : 'modal'}>
+
         return (
             <div>
-                <h2>{this.props.formType}</h2>
-                <form onSubmit={this.handleSubmit}>
-                    <label>Email<br/>
-                        <input
-                            type="text"
-                            value={this.state.email}
-                            onChange={this.update('email')} />
-                    </label><br/>
-                    { signingUp() }
-                    <label>Password<br/>
-                        <input
-                            type="password"
-                            value={this.state.password} 
-                            onChange={this.update('password')} />
-                    </label><br/><br/>
-                    <button>{this.props.formType}</button>
-                </form>
+                {/* <div className="modal-content"> */}
+                    {/* <span className="close" onClick={this.toggleActive}>&times;</span> */}
+                    <Link to="/signup"><button>Sign up</button></Link>
+                    <h2>{this.props.formType}</h2>
+                    { this.renderErrors() }
+                    <form onSubmit={this.handleSubmit}>
+                        <label>Email<br/>
+                            <input
+                                type="text"
+                                value={this.state.email}
+                                onChange={this.update('email')} />
+                        </label><br/>
+                        { signingUp() }
+                        <label>Password<br/>
+                            <input
+                                type="password"
+                                value={this.state.password} 
+                                onChange={this.update('password')} />
+                        </label><br/><br/>
+                        <button>{this.props.formType}</button>
+                    </form>
+                {/* </div> */}
             </div>
         );
     }

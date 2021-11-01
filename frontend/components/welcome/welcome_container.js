@@ -3,8 +3,10 @@ import { logout } from '../../actions/session_actions';
 import Welcome from './welcome';
 
 const mSTP = ({ session, entities: { users } }) => {
-    return { user: users[session.id],
-    isActive: false }
+    debugger
+    return {
+        currentUser: users[session.id]
+    }
 };
 
 const mDTP = dispatch => ({
