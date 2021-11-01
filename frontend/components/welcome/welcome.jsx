@@ -1,12 +1,7 @@
 import React from 'react';
-// import LoginFormContainer from '../session/login_form_container';
 import { Link } from 'react-router-dom';
 
-// function Welcome() {
-//     const []
-// }
-
-const Welcome = ({ currentUser, logout }) => {
+const Welcome = ({ currentUser, logout, clearErrors }) => {
     if (currentUser) {
         return (
             <nav>
@@ -17,7 +12,7 @@ const Welcome = ({ currentUser, logout }) => {
     } else {
         return (
             <nav>
-                <Link to="/login"><button>Log in</button></Link>
+                <Link to="/login"><button onClick={clearErrors}>Log in</button></Link>
             </nav>
         );
     };
