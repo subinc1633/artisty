@@ -29,17 +29,13 @@ export const signup = formUser => dispatch => (
     err => dispatch(receiveErrors(err.responseJSON)))
 );
 
-export const login = formUser => dispatch => {
-    debugger
-    
-    return (SessionApiUtil.login(formUser)
+export const login = formUser => dispatch => (
+    SessionApiUtil.login(formUser)
     .then(user => {
-        debugger
         dispatch(receiveCurrentUser(user)); dispatch(clearErrors())},
     err => {
-        debugger
-        dispatch(receiveErrors(err.responseJSON))}))
-};
+        dispatch(receiveErrors(err.responseJSON))})
+);
 
 export const logout = () => dispatch => (
     SessionApiUtil.logout().then(() => dispatch(logoutCurrentUser()))
