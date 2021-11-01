@@ -2,7 +2,10 @@ class Api::SessionsController < ApplicationController
     before_action :ensure_logged_in, only: [:destroy]
 
     def create
-        @user = User.find_by_credentials(params[:user][:email], params[:user][:password])
+        @user = User.find_by_credentials(
+            params[:user][:email],
+            params[:user][:password]
+        )
         if @user
             login!(@user)
             render 'api/users/show'
@@ -13,6 +16,6 @@ class Api::SessionsController < ApplicationController
 
     def destroy
         logout!
-        redirect_to root_url
+        render 'api/users/show'
     end
 end

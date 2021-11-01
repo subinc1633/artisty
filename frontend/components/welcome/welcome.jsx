@@ -21,8 +21,8 @@ class Welcome extends React.Component {
     render() {
         const loggedIn = (
             <div>
+                <nav><button onClick={this.props.logout}></button></nav>
                 <h1>Welcome, {this.props.currentUser}!</h1>
-                <button onClick={this.props.logout}></button>
             </div>
         );
 

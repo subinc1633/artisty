@@ -1,10 +1,11 @@
+import React from 'react';
 import SessionForm from './session_form';
 import { connect } from 'react-redux';
 import { signup } from '../../actions/session_actions';
 
-const mSTP = (state, ownProps) => ({
-    errors: Object.values(state.errors),
-    formType: 'signup'
+const mSTP = ({ errors }) => ({
+    errors: errors.session,
+    formType: 'Sign up'
 });
 
 const mDTP = dispatch => ({

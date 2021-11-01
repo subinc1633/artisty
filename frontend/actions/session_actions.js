@@ -4,9 +4,9 @@ export const RECEIVE_CURRENT_USER = 'RECEIVE_CURRENT_USER';
 export const LOGOUT_CURRENT_USER = 'LOGOUT_CURRENT_USER';
 export const RECEIVE_ERRORS = 'RECEIVE_ERRORS';
 
-export const receiveCurrentUser = user => ({
+export const receiveCurrentUser = currentUser => ({
     type: RECEIVE_CURRENT_USER,
-    user
+    currentUser
 });
 
 export const logoutCurrentUser = () => ({
@@ -19,13 +19,21 @@ export const receiveErrors = errors => ({
 })
 
 export const signup = formUser => dispatch => (
-    SessionApiUtil.signup(formUser).then(user => dispatch(receiveCurrentUser(user))).fail(console.log('no'))
+    SessionApiUtil.signup(formUser).then(user => (
+        dispatch(receiveCurrentUser(user))
+        ), err => (
+            dispatch(receiveErrors(err.responseJSON))
+        ))
 );
 
 export const login = formUser => dispatch => (
-    SessionApiUtil.login(formUser).then(user => dispatch(receiveCurrentUser(user))).fail(console.log('no'))
+    SessionApiUtil.login(formUser).then(user => (
+        dispatch(receiveCurrentUser(user))
+    ), err => (
+        dispatch(receiveErrors(err.responseJSON))
+    ))
 );
 
 export const logout = () => dispatch => (
-    SessionApiUtil.logout().then(() => dispatch(logoutCurrentUser())).fail(console.log('no'))
+    SessionApiUtil.logout().then(() => dispatch(logoutCurrentUser()))
 );

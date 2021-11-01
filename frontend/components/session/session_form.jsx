@@ -1,4 +1,5 @@
 import React from 'react';
+import WelcomeContainer from '../welcome/welcome_container';
 
 class SessionForm extends React.Component {
     constructor(props) {
@@ -22,9 +23,21 @@ class SessionForm extends React.Component {
         return e => this.setState({[field]: e.currentTarget.value});
     }
 
+    renderErrors() {
+        return (
+            <ul>
+                {this.props.errors.map((error, i) => (
+                    <li key={`error-${i}`}>
+                        {error}
+                    </li>
+                ))}
+            </ul>
+        );
+    }
+
     render() {
         const signingUp = () => {
-            if (this.props.formType === 'signup') {
+            if (this.props.formType === 'Sign up') {
                 return (
                 <label>Name<br />
                     <input
@@ -52,7 +65,7 @@ class SessionForm extends React.Component {
                             type="password"
                             value={this.state.password} 
                             onChange={this.update('password')} />
-                    </label><br />
+                    </label><br/><br/>
                     <button>{this.props.formType}</button>
                 </form>
             </div>
