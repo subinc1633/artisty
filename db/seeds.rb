@@ -211,9 +211,41 @@ item13 = Item.create!(
     avg_rating: 4
 )
 
+shop1 = Shop.create!(
+    name: 'Yuzuland',
+    description: 'a place where yuzu thrives',
+    ig_handle: 'little.whitepeach'
+)
 
+shop2 = Shop.create!(
+    name: 'Geeeeee',
+    description: 'I''m Gee',
+    ig_handle: 'img_ee'
+)
 
+shop3 = Shop.create!(
+    name: 'YH',
+    description: 'Hello',
+    ig_handle: 'youngha1m'
+)
 
+shop4 = Shop.create!(
+    name: '8eanie',
+    description: 'doodl',
+    ig_handle: '8eanie_'
+)
 
+category1 = Category.create!(
+    title: 'Food',
+    description: 'Because we like to eat'
+)
 
+category2 = Category.create!(
+    title: 'Fanart',
+    description: 'Fanart of different creative works'
+)
 
+category3 = Category.create!(
+    title: 'Miscellaneous',
+    description: 'Original characters, backgrounds, etc.'
+)
