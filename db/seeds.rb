@@ -8,7 +8,7 @@
 
 User.delete_all
 
-user1 = User.create(email: 'notadog@odg.com', password: 'woofwoof', name: 'Good Boy')
+user1 = User.create(email: 'peperoroll@gmail.com', password: 'peppero', name: 'Soybean')
 user2 = User.create(email: 'ricenkimchi@gmail.com', password: 'aggressivehr', name: 'Lucas')
 user3 = User.create(email: 'tostnbutta@gmail.com', password: 'thumbelina', name: 'Tim')
 user4 = User.create(email: 'imjay@yahoo.com', password: 'kevslilbro', name: 'J')
@@ -18,5 +18,5 @@ user7 = User.create(email: 'yoomnom@gmail.com', password: 'omnomnom', name: 'Yoo
 user8 = User.create(email: 'leetlebeast@gmail.com', password: 'bronze', name: 'Joyceeee')
 user9 = User.create(email: 'foobia@gmail.com', password: 'toughcookie', name: 'Julia')
 user10 = User.create(email: 'sussss@gmail.com', password: 'codyisthebest', name: 'Susanoo')
-user11 = User.create(email: 'lowkeysavage@gmail.com', password: 'gentlegiant', name: 'Noelle')
+user11 = User.create(email: 'lowkeysavage@gmail.com', password: 'gentlegiant', name: 'Noel')
 user12 = User.create(email: 'cherryberry@gmail.com', password: 'winterx3', name: 'Churro')

@@ -15,8 +15,19 @@ class SessionForm extends React.Component {
 
     handleSubmit(e) {
         e.preventDefault();
-        const user = Object.assign({}, this.state);
-        this.props.processForm(user).then(() => this.props.history.push('/'));
+        const currentUser = Object.assign({}, this.state);
+        const process = user => this.props.processForm(user);
+        const demoUser = Object.assign({}, {
+            email: 'peperoroll@gmail.com',
+            password: 'peppero',
+            name: 'Soybean'
+        });
+
+        if (currentUser.email) {
+            return process(currentUser);
+        } else {
+            return process(demoUser)
+        }
     }
 
     update(field) {
@@ -51,7 +62,8 @@ class SessionForm extends React.Component {
 
         return (
             <div>
-                <Link to="/signup" onClick={this.props.clearErrors}><button>Sign up</button></Link>
+                <Link to="/signup" onClick={this.props.clearErrors}><button>Sign up</button></Link><br/>
+                <button onClick={this.handleSubmit}>Demo User</button>
                 <h2>{this.props.formType}</h2>
                 { this.renderErrors() }
                 <form onSubmit={this.handleSubmit}>

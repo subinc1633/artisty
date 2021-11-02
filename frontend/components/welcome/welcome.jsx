@@ -11,11 +11,11 @@ const Welcome = ({ currentUser, logout, clearErrors }) => {
         );
     } else {
         return (
-            <nav>
+            <nav className='display'>
                 <Link to="/login"><button onClick={clearErrors}>Log in</button></Link>
             </nav>
         );
-    };
+    }
 }
 
 export default Welcome;
