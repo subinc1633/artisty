@@ -6,7 +6,7 @@ const Welcome = ({ currentUser, logout, clearErrors }) => {
         return (
             <nav>
                 <button onClick={logout}>Log out</button>
-                <h1>Welcome, {currentUser.name}!</h1>
+                <h1>Welcome, <Link to={`/users/${currentUser.id}`}>{currentUser.name}</Link>!</h1>
             </nav>
         );
     } else {

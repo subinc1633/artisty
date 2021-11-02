@@ -23,11 +23,7 @@ class SessionForm extends React.Component {
             name: 'Soybean'
         });
 
-        if (currentUser.email) {
-            return process(currentUser);
-        } else {
-            return process(demoUser)
-        }
+        currentUser.email ? process(currentUser) : process(demoUser);
     }
 
     update(field) {
