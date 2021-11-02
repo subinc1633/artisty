@@ -1,5 +1,6 @@
 import { connect } from 'react-redux';
-import { logout, clearErrors } from '../../actions/session_actions';
+import { logout } from '../../actions/session_actions';
+import { openModal } from '../../actions/modal_actions';
 import Welcome from './welcome';
 
 const mSTP = ({ session, entities: { users } }) => ({
@@ -8,7 +9,7 @@ const mSTP = ({ session, entities: { users } }) => ({
 
 const mDTP = dispatch => ({
     logout: () => dispatch(logout()),
-    clearErrors: () => dispatch(clearErrors())
+    openModal: modal => dispatch(openModal(modal))
 });
 
 export default connect(mSTP, mDTP)(Welcome);

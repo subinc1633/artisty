@@ -2,6 +2,7 @@ import React from 'react';
 import SessionForm from './session_form';
 import { connect } from 'react-redux';
 import { login, clearErrors } from '../../actions/session_actions';
+import { openModal, closeModal } from '../../actions/modal_actions';
 
 const mSTP = ({ errors }) => ({
     errors: errors.session,
@@ -10,6 +11,12 @@ const mSTP = ({ errors }) => ({
 
 const mDTP = (dispatch) => ({
     processForm: user => dispatch(login(user)),
+    otherForm: (
+        <button onClick={() => dispatch(openModal('sign up'))}>
+            Register
+        </button>
+    ),
+    closeModal: () => dispatch(closeModal()),
     clearErrors: () => dispatch(clearErrors())
 });
 

@@ -1,0 +1,10 @@
+@import './fonts.scss';
+
+$font: 'DM Sans', sans-serif;
+$font-size: 14px;
+$font-weight: 500;
+$color: rgb(34, 34, 34);
+
+body {
+    font-family: $font;
+}

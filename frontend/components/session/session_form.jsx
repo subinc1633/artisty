@@ -26,7 +26,8 @@ class SessionForm extends React.Component {
             email: 'peperoroll@gmail.com',
             password: 'peppero'
         });
-        return this.props.processForm(demoUser);
+        this.props.processForm(demoUser);
+        return this.props.closeModal();
     }
 
     update(field) {
@@ -35,6 +36,7 @@ class SessionForm extends React.Component {
 
     renderErrors() {
         return (
+            this.props.errors ? (
             <ul>
                 {this.props.errors.map((error, i) => (
                     <li key={`error-${i}`}>
@@ -42,6 +44,7 @@ class SessionForm extends React.Component {
                     </li>
                 ))}
             </ul>
+            ) : null
         );
     }
 
@@ -61,12 +64,9 @@ class SessionForm extends React.Component {
 
         return (
             <div>
-                <Link to="/signup" onClick={this.props.clearErrors}><button>Sign up</button></Link><br/>
-                <button onClick={this.loginDemo}>Demo User</button>
-                <h2>{this.props.formType}</h2>
                 { this.renderErrors() }
                 <form onSubmit={this.handleSubmit}>
-                    <label>Email<br/>
+                    <label>Email address<br/>
                         <input
                             type="text"
                             value={this.state.email}
@@ -79,7 +79,11 @@ class SessionForm extends React.Component {
                             value={this.state.password} 
                             onChange={this.update('password')} />
                     </label><br/><br/>
-                    <button>{this.props.formType}</button>
+                    <button className='process'>{this.props.formType}</button>
+                    <br/><br/>
+                    OR
+                    <br /><br />
+                    <button className='demo' onClick={this.loginDemo}>Login as Demo User</button>
                 </form>
             </div>
         );
