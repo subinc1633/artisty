@@ -12,7 +12,8 @@ const Welcome = ({ currentUser, logout, clearErrors }) => {
     } else {
         return (
             <nav className='display'>
-                <Link to="/login"><button onClick={clearErrors}>Log in</button></Link>
+                <Link to='/login'><button onClick={clearErrors}>Log in</button></Link>
+                <Link to='/signup'><button onClick={clearErrors}>Sign up</button></Link>
             </nav>
         );
     }

@@ -1,12 +1,16 @@
 import React from 'react';
-import WelcomeContainer from '../welcome/welcome_container';
+import WelcomeContainer from '../nav_bar/welcome_container';
+import { Link } from 'react-router-dom';
 
 const Splash = () => (
     <div>
         <header>
-            <h3>Artisty</h3>
+            <Link to='/'><h3>Artisty</h3></Link>
             <WelcomeContainer />
         </header>
+        <section>
+            
+        </section>
     </div>
 );
 

@@ -23,7 +23,7 @@ class UserShow extends React.Component {
                 <div>
                     <h1>{action.user.name}</h1>
                     <button>Edit Profile</button><br/>
-                    <Link to="/">Favorite items</Link> <Link to="/">Favorite shops</Link> <Link to="/">Create collection</Link>
+                    <Link to='/'>Favorite items</Link> <Link to='/'>Favorite shops</Link> <Link to='/'>Create collection</Link>
                 </div>
             ) : null
         );

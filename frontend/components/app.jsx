@@ -8,10 +8,10 @@ import UserShowContainer from './users/user_show_container';
 
 const App = () => (
     <div>
-        <Route path="/" component={Splash} />
-        <Route path="/users/:userId" component={UserShowContainer} />
-        <AuthRoute path="/login" component={LoginFormContainer} />
-        <AuthRoute path="/signup" component={SignupFormContainer} />
+        <Route path='/' component={Splash} />
+        <Route path='/users/:userId' component={UserShowContainer} />
+        <AuthRoute path='/login' component={LoginFormContainer} />
+        <AuthRoute path='/signup' component={SignupFormContainer} />
     </div>
 );
 
