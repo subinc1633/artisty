@@ -1,0 +1,1 @@
+json.extract! item, :id, :title, :description, :image_url, :price, :options, :favorite, :fav_count
