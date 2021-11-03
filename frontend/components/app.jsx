@@ -8,19 +8,12 @@ import Modal from './modal/modal';
 
 const App = () => (
     <div>
-<<<<<<< HEAD
-        <Route path='/' component={Splash} />
-        <Route path='/users/:userId' component={UserShowContainer} />
-        <AuthRoute path='/login' component={LoginFormContainer} />
-        <AuthRoute path='/signup' component={SignupFormContainer} />
-=======
         <NavBarContainer />
         <Modal />
         <Switch>
             <Route exact path="/" component={Splash} />
             <Route path="/users/:userId" component={UserShowContainer} />
         </Switch>
->>>>>>> splash
     </div>
 );
 

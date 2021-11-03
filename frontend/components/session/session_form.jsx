@@ -59,15 +59,6 @@ class SessionForm extends React.Component {
         const signingUp = () => {
             if (this.props.formType === 'Sign up') {
                 return (
-<<<<<<< HEAD
-                <label>Name<br />
-                    <input
-                        type='text'
-                        value={this.state.name}
-                        onChange={this.update('name')} />
-                    <br />
-                </label>
-=======
                     <label><br />Name<br />
                         <input
                             type="text"
@@ -86,38 +77,23 @@ class SessionForm extends React.Component {
                     <br /><br />
                     <button className='demo' onClick={this.loginDemo}>Login as Demo User</button>
                 </div>
->>>>>>> splash
             )}
         };
 
         return (
             <div>
-<<<<<<< HEAD
-                <button onClick={this.handleSubmit}>Demo User</button>
-                <h2>{this.props.formType}</h2>
-=======
->>>>>>> splash
                 { this.renderErrors() }
                 <form className='session-form' onSubmit={this.handleSubmit}>
                     <label>Email address<br/>
                         <input
-<<<<<<< HEAD
-                            type='text'
-=======
                             type="email"
->>>>>>> splash
                             value={this.state.email}
                             onChange={this.update('email')} />
                     </label><br/>
                     <label>Password<br/>
                         <input
-<<<<<<< HEAD
-                            type='password'
-                            value={this.state.password} 
-=======
                             type="password"
                             value={this.state.password}
->>>>>>> splash
                             onChange={this.update('password')} />
                     </label>
                     { signingUp() }
