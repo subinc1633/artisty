@@ -2,7 +2,7 @@ import React from 'react';
 import SessionForm from './session_form';
 import { connect } from 'react-redux';
 import { login, clearErrors } from '../../actions/session_actions';
-import { openModal, closeModal } from '../../actions/modal_actions';
+import { closeModal } from '../../actions/modal_actions';
 
 const mSTP = ({ errors }) => ({
     errors: errors.session,

@@ -32,15 +32,17 @@ const Modal = ({ modal, signInForm, signUpForm, closeModal }) => {
 
     return (
         <div>
-            <span className='modal-close' onClick={closeModal}>✕</span><br />
             <div className='modal-background' onClick={closeModal}>
-                <div className='modal-content' onClick={e => e.stopPropagation()}>
-                    <div className='modal-header'>
-                        <h3 className='modal-title'>{title}</h3>
-                        { otherForm }
-                    </div>
-                    <div className='modal-body'>
-                        { component }
+                <div className='modal-close-section'>
+                    <span className='modal-close' onClick={closeModal}>&times;</span>
+                    <div className='modal-content' onClick={e => e.stopPropagation()}>
+                        <div className='modal-header'>
+                            <h3 className='modal-title'>{title}</h3>
+                            { otherForm }
+                        </div>
+                        <div className='modal-body'>
+                            { component }
+                        </div>
                     </div>
                 </div>
             </div>

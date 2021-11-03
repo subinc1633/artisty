@@ -9,7 +9,7 @@ const App = () => (
     <div>
         <Modal />
         <Switch>
-            <Route path="/" component={Splash} />
+            <Route exact path="/" component={Splash} />
             <Route path="/users/:userId" component={UserShowContainer} />
         </Switch>
     </div>

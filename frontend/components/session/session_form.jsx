@@ -17,7 +17,8 @@ class SessionForm extends React.Component {
     handleSubmit(e) {
         e.preventDefault();
         const currentUser = Object.assign({}, this.state);
-        return this.props.processForm(currentUser);
+        this.props.processForm(currentUser);
+        currentUser.email ? this.props.closeModal() : null;
     }
 
     loginDemo(e) {
@@ -39,7 +40,7 @@ class SessionForm extends React.Component {
             this.props.errors ? (
             <ul>
                 {this.props.errors.map((error, i) => (
-                    <li key={`error-${i}`}>
+                    <li key={`error-${i}`} className='form-errors'>
                         {error}
                     </li>
                 ))}
@@ -52,13 +53,24 @@ class SessionForm extends React.Component {
         const signingUp = () => {
             if (this.props.formType === 'Sign up') {
                 return (
-                <label>Name<br />
-                    <input
-                        type="text"
-                        value={this.state.name}
-                        onChange={this.update('name')} />
-                    <br />
-                </label>
+                    <label><br />Name<br />
+                        <input
+                            type="text"
+                            value={this.state.name}
+                            onChange={this.update('name')} />
+                    </label>
+                );
+            }
+        };
+
+        const loggingIn = () => {
+            if (this.props.formType === 'Sign in') {
+                return (
+                <div>
+                    <h3 className='line'><span>OR</span></h3>
+                    <br /><br />
+                    <button className='demo' onClick={this.loginDemo}>Login as Demo User</button>
+                </div>
             )}
         };
 
@@ -68,22 +80,21 @@ class SessionForm extends React.Component {
                 <form className='session-form' onSubmit={this.handleSubmit}>
                     <label>Email address<br/>
                         <input
-                            type="text"
+                            type="email"
                             value={this.state.email}
                             onChange={this.update('email')} />
                     </label><br/>
-                    { signingUp() }
                     <label>Password<br/>
                         <input
                             type="password"
-                            value={this.state.password} 
+                            value={this.state.password}
                             onChange={this.update('password')} />
-                    </label><br/><br/>
+                    </label>
+                    { signingUp() }
+                    <br /><br />
                     <button className='process'>{this.props.formType}</button>
                     <br/><br/>
-                    <h3 className='line'><span>OR</span></h3>
-                    <br /><br />
-                    <button className='demo' onClick={this.loginDemo}>Login as Demo User</button>
+                    { loggingIn() }
                 </form>
             </div>
         );
