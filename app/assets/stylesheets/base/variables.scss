@@ -1,10 +1,12 @@
 @import './fonts.scss';
 
-$font: 'DM Sans', sans-serif;
+$font: 'Work Sans', sans-serif;
+$sec-font: 'Gilda Display', serif;
 $font-size: 14px;
-$font-weight: 500;
+$font-weight: 300;
 $color: rgb(34, 34, 34);
 $lighter-gray: rgb(82, 82, 82);
+$lightest-gray: rgb(239, 239, 239);
 
 body {
     font-family: $font;

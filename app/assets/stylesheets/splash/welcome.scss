@@ -1,0 +1,19 @@
+.welcome {
+    font-family: $sec-font;
+    font-size: 45px;
+    font-weight: 400;
+    text-align: center;
+    background-color: rgb(250, 236, 213);
+    height: 200px;
+    padding-top: 30px;
+    border-top: 2px solid rgb(222, 222, 222);
+    a {
+        color: $color;
+        transition: ease-in 0.2s;
+        padding-bottom: 1px;
+        text-decoration: 2px solid underline;
+        &:hover {
+            color: rgb(142, 135, 124);
+        }
+    }
+}

@@ -1,13 +1,12 @@
 import React from 'react';
 import WelcomeContainer from '../welcome/welcome_container';
+import ItemIndexContainer from '../items/item_index_container';
 
 const Splash = () => (
-    <div>
-        <header>
-            <h2 className='artisty'>Artisty</h2>
-            <WelcomeContainer />
-        </header>
-    </div>
+    <header>
+        <WelcomeContainer />
+        <ItemIndexContainer />
+    </header>
 );
 
 export default Splash;

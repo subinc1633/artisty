@@ -1,20 +1,11 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-const Welcome = ({ currentUser, logout, openModal }) => {
+const Welcome = ({ currentUser }) => {
     if (currentUser) {
-        return (
-            <nav>
-                <button onClick={logout}>Log out</button>
-                <h1>Welcome, <Link to={`/users/${currentUser.id}`}>{currentUser.name}</Link>!</h1>
-            </nav>
-        );
+        return (<h1 className='welcome'>Welcome back, <Link to={`/users/${currentUser.id}`}>{currentUser.name}</Link>!</h1>)
     } else {
-        return (
-            <nav className='display'>
-                <button onClick={() => openModal('sign in')}>Sign in</button>
-            </nav>
-        );
+        return (<h1 className='welcome'>Find a new piece of art from artists worldwide.</h1>);
     }
 }
 

@@ -1,0 +1,22 @@
+.nav-bar {
+    width: 100%;
+    margin: 10px 0 5px 0;
+    font-weight: $font-weight;
+    ul {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        li button {
+            border: none;
+            &:hover {
+                transform: none;
+                box-shadow: none;
+                background-color: $lightest-gray;
+            }
+        }
+    }
+    ul.bottom-nav {
+        font-size: 14px;
+        padding-bottom: 10px;
+    }
+}

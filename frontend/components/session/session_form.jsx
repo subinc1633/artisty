@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Redirect } from 'react-router-dom';
 
 class SessionForm extends React.Component {
     constructor(props) {
@@ -18,7 +18,12 @@ class SessionForm extends React.Component {
         e.preventDefault();
         const currentUser = Object.assign({}, this.state);
         this.props.processForm(currentUser);
-        currentUser.email ? this.props.closeModal() : null;
+        if (currentUser.email) {
+            this.props.closeModal();
+            return (<Redirect to="/" />)
+        } else {
+            null
+        };
     }
 
     loginDemo(e) {
@@ -28,7 +33,8 @@ class SessionForm extends React.Component {
             password: 'peppero'
         });
         this.props.processForm(demoUser);
-        return this.props.closeModal();
+        this.props.closeModal();
+        return (<Redirect to="/" />)
     }
 
     update(field) {
