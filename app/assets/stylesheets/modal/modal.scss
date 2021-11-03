@@ -28,11 +28,11 @@
 
 .modal-close {
     cursor: pointer;
-    font-size: 25px;
+    font-size: 40px;
     line-height: 45px;
     border-radius: 50%;
     transform: scale(0);
-    transition: ease-out 0.25s;
+    transition: ease-out 0.15s;
     &:hover {
         color: $lighter-gray;
     }

@@ -4,7 +4,7 @@ import WelcomeContainer from '../welcome/welcome_container';
 const Splash = () => (
     <div>
         <header>
-            <h3>Artisty</h3>
+            <h2 className='artisty'>Artisty</h2>
             <WelcomeContainer />
         </header>
     </div>
