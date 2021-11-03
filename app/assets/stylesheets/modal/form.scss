@@ -1,0 +1,53 @@
+form.session-form {
+    input {
+        font-size: 16px;
+        font-weight: 400;
+        font-family: $font;
+        color: $lighter-gray;
+        width: 330px;
+        margin: 15px 0px 15px 0px;
+        padding: 10px 5px;
+        border-radius: 5px;
+        border: 1px solid rgb(219, 219, 219);
+        box-shadow: inset 0px 0px 2px rgb(219, 219, 219);
+        // align-items: center;
+        transition: ease-in 0.2s;
+        &:hover {
+            border-color: $color;
+        }
+        &:focus {
+            outline: none;
+            border-color: $color;
+        }
+    }
+}
+
+.process {
+    background-color: $color;
+    color: white;
+    border: none;
+    height: 45px;
+    transition: ease-in 0.15s;
+    &:hover{
+        background-color: rgb(47, 47, 47);
+    }
+}
+
+.form-errors {
+    font-size: 14px;
+    line-height: 16px;
+    padding-bottom: 15px;
+    font-style: italic;
+}
+
+h3.line {
+    width: 100%;
+    text-align: center;
+    border-bottom: 1px solid rgb(219, 219, 219);
+    line-height: 0.1em;
+    margin: 15px 0 0;
+    span {
+        background-color: white;
+        padding: 10px 10px;
+    }
+}

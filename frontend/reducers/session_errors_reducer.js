@@ -1,4 +1,9 @@
+<<<<<<< HEAD
 import { RECEIVE_ERRORS, CLEAR_ERRORS } from '../actions/session_actions';
+=======
+import { CLOSE_MODAL } from "../actions/modal_actions";
+import { RECEIVE_ERRORS, CLEAR_ERRORS } from "../actions/session_actions";
+>>>>>>> splash
 
 const sessionErrorsReducer = (state = [], action) => {
     Object.freeze(state);
@@ -6,6 +11,8 @@ const sessionErrorsReducer = (state = [], action) => {
         case RECEIVE_ERRORS:
             return action.errors;
         case CLEAR_ERRORS:
+            return [];
+        case CLOSE_MODAL:
             return [];
         default:
             return state;

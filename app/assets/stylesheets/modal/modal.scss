@@ -1,0 +1,74 @@
+.modal-background {
+    display: flex;
+    position: fixed;
+    justify-content: center;
+    align-items: center;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.modal-content {
+    width: 400px;
+    height: 500px;
+    background-color: white;
+    border-radius: 20px;
+    text-align: center;
+    position: relative;
+    overflow: auto;
+}
+
+.modal-close-section {
+    width: 400px;
+    display: fixed;
+    text-align: right;
+}
+
+.modal-close {
+    cursor: pointer;
+    font-size: 40px;
+    line-height: 45px;
+    border-radius: 50%;
+    transform: scale(0);
+    transition: ease-out 0.15s;
+    &:hover {
+        color: $lighter-gray;
+    }
+}
+
+.modal-header {
+    padding: 30px 25px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    .modal-title {
+        display: flex;
+        font-size: 25px;
+        text-align: left;
+    }
+    .register-button {
+        position: absolute;
+        text-align: center;
+        margin: 15px 25px;
+        right: 0;
+        background-color: white;
+        transition: ease 0.1s;
+    }
+}
+
+.modal-body {
+    button {
+        width: 350px;
+        height: 40px;
+        .process {
+            color: white;
+            background-color: $color;
+        }
+        .demo {
+            color: $color;
+            background-color: white;
+        }
+    }
+}
