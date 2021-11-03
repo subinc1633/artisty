@@ -4,6 +4,7 @@ class Item < ApplicationRecord
     validates :avg_rating, inclusion: { in: (1..5) }
     validates :favorite, inclusion: { in: [true, false]}
 
+    has_many_attached :photos
     belongs_to :shop
     belongs_to :category
 end

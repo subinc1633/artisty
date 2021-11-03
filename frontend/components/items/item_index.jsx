@@ -8,6 +8,9 @@ class ItemIndex extends React.Component {
     
     render() {
         const { items } = this.props;
+        items.forEach(item => {
+            console.log(item)
+        })
 
         return (
             <div>
