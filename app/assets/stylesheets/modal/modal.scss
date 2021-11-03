@@ -1,3 +1,5 @@
+@import './form.scss';
+
 .modal-background {
     display: flex;
     position: fixed;
@@ -12,7 +14,7 @@
 
 .modal-close {
     display: block;
-    position: fixed;
+    position: relative;
     justify-content: flex-end;
     flex-direction: row;
     z-index: 1;
@@ -31,31 +33,31 @@
 }
 
 .modal-header {
+    padding: 30px 15px 30px 15px;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 15px;
     .modal-title {
         display: flex;
         font-size: 25px;
         text-align: left;
-        z-index:2;
     }
-    button {
+    .register-button {
         position: absolute;
+        text-align: center;
         margin: 15px;
         right: 0;
         background-color: white;
+        transition: ease 0.1s;
         &:hover {
-            width: 82px;
-            height: 40px;
+            transform: scale(1.02) perspective(1px);
+            font-size: $font-size;
             box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.1);
         }
     }
 }
 
 .modal-body {
-    padding: 15px;
     button {
         width: 350px;
         height: 40px;

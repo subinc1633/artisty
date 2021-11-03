@@ -3,27 +3,31 @@ import { connect } from 'react-redux';
 import LoginFormContainer from '../session/login_form_container';
 import SignupFormContainer from '../session/signup_form_container';
 import { clearErrors } from '../../actions/session_actions';
-import { openModal, closeModal } from '../../actions/modal_actions';
+import { closeModal, openModal } from '../../actions/modal_actions';
 
-const Modal = ({ modal, closeModal }) => {
+const Modal = ({ modal, signInForm, signUpForm, closeModal }) => {
     if (!modal) {
         return null
-    }
-    // debugger
-
-    let component;
-    switch (modal) {
-        case 'sign in':
-            component = <LoginFormContainer />
-            break;
-        case 'sign up':
-            component = <SignupFormContainer />
-        default:
-            return null;
     }
 
     const capitalizeModal = () => {
         return modal.charAt(0).toUpperCase() + modal.slice(1);
+    }
+
+    let component, otherForm, title;
+    switch (modal) {
+        case 'sign in':
+            otherForm = signUpForm;
+            component = <LoginFormContainer />;
+            title = 'Sign in';
+            break;
+        case 'sign up':
+            otherForm = signInForm;
+            component = <SignupFormContainer />;
+            title = 'Create your account'
+            break;
+        default:
+            return null;
     }
 
     return (
@@ -32,8 +36,8 @@ const Modal = ({ modal, closeModal }) => {
             <div className='modal-background' onClick={closeModal}>
                 <div className='modal-content' onClick={e => e.stopPropagation()}>
                     <div className='modal-header'>
-                        <h3 className='modal-title'>{capitalizeModal()}</h3>
-                        <button onClick={() => openModal('sign up')}>Register</button>
+                        <h3 className='modal-title'>{title}</h3>
+                        { otherForm }
                     </div>
                     <div className='modal-body'>
                         { component }
@@ -49,7 +53,17 @@ const mSTP = state => ({
 });
 
 const mDTP = dispatch => ({
-    closeModal: () => dispatch(closeModal())
+    closeModal: () => dispatch(closeModal()),
+    signUpForm: (
+        <button className='register-button' onClick={() => {dispatch(openModal('sign up')); dispatch(clearErrors())}}>
+            Register
+        </button>
+    ),
+    signInForm: (
+        <button className='register-button' onClick={() => { dispatch(openModal('sign in')); dispatch(clearErrors()) }}>
+            Sign in
+        </button>
+    )
 });
 
 export default connect(mSTP, mDTP)(Modal);

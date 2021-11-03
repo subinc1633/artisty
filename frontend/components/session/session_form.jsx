@@ -65,7 +65,7 @@ class SessionForm extends React.Component {
         return (
             <div>
                 { this.renderErrors() }
-                <form onSubmit={this.handleSubmit}>
+                <form className='session-form' onSubmit={this.handleSubmit}>
                     <label>Email address<br/>
                         <input
                             type="text"
@@ -81,7 +81,7 @@ class SessionForm extends React.Component {
                     </label><br/><br/>
                     <button className='process'>{this.props.formType}</button>
                     <br/><br/>
-                    OR
+                    <h3 className='line'><span>OR</span></h3>
                     <br /><br />
                     <button className='demo' onClick={this.loginDemo}>Login as Demo User</button>
                 </form>
