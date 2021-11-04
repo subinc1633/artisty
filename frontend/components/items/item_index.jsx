@@ -14,16 +14,12 @@ class ItemIndex extends React.Component {
                 <ul>
                     {
                         items.map(item => {
-                            // const img = item.photoUrl[0];
                             return (
                                 <SingleItem
-                                    // key={img.id}
                                     key={item.id}
                                     item={item}
-                                    // url={img.url}
-                                    // filename={img.filename}
                                 />
-                            );
+                            )
                         })
                     }
                 </ul>
