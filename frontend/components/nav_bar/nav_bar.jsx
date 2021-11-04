@@ -1,5 +1,4 @@
 import React from 'react';
-// import CategoryForm from '';
 import { Link } from 'react-router-dom';
 
 const NavigationBar = props => {
