@@ -1,0 +1,9 @@
+.page-not-found {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    h1 {
+        font-family: $sec-font;
+        font-size: 35px;
+    }
+}

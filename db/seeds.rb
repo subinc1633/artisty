@@ -52,31 +52,26 @@ category1 = Category.create!(
     title: 'Fanart',
     description: 'Fanart of different creative works'
 )
-category1.photos.attach(io: File.open(Rails.root.join('app', 'assets', 'images', 'store3', 'jjk.jpeg')), filename: 'jjk.jpeg')
 
 category2 = Category.create!(
     title: 'Food & Drinks',
     description: 'Because we like to eat'
 )
-category2.photos.attach(io: File.open(Rails.root.join('app', 'assets', 'images', 'store1', 'chicken.png')), filename: 'chicken.png')
 
 category3 = Category.create!(
     title: 'Nature & Landscape',
     description: 'Drawings of different natural views'
 )
-category3.photos.attach(io: File.open(Rails.root.join('app', 'assets', 'images', 'store3', 'clouds.jpeg')), filename: 'clouds.jpeg')
 
 category4 = Category.create!(
     title: 'Original Characters',
     description: 'Characters created by the artists themselves'
 )
-category4.photos.attach(io: File.open(Rails.root.join('app', 'assets', 'images', 'store4', 'tomato.jpeg')), filename: 'tomato.jpeg')
 
 category5 = Category.create!(
     title: 'Stickers & Accessories',
     description: 'Decorative items'
 )
-category5.photos.attach(io: File.open(Rails.root.join('app', 'assets', 'images', 'store2', 'todoroki.jpeg')), filename: 'todoroki.jpeg')
 
 item1 = Item.create!(
     shop_id: 1,
@@ -91,7 +86,6 @@ item1 = Item.create!(
     fav_count: 1003,
     avg_rating: 4.5
 )
-item1.photos.attach(io: File.open(Rails.root.join('app', 'assets', 'images', 'store1', 'chicken.png')), filename: 'chicken.png')
 
 item2 = Item.create!(
     shop_id: 1,
@@ -106,7 +100,6 @@ item2 = Item.create!(
     fav_count: 3023,
     avg_rating: 4.8
 )
-item2.photos.attach(io: File.open(Rails.root.join('app', 'assets', 'images', 'store1', 'wwy.png')), filename: 'wwy.png')
 
 item3 = Item.create!(
     shop_id: 1,
@@ -121,7 +114,6 @@ item3 = Item.create!(
     fav_count: 1083,
     avg_rating: 5
 )
-item3.photos.attach(io: File.open(Rails.root.join('app', 'assets', 'images', 'store1', 'star.jpeg')), filename: 'star.jpeg')
 
 item4 = Item.create!(
     shop_id: 2,
@@ -136,11 +128,6 @@ item4 = Item.create!(
     fav_count: 3934,
     avg_rating: 5
 )
-item4.photos.attach(io: File.open(Rails.root.join('app', 'assets', 'images', 'store2', 'bakugou.jpeg')), filename: 'bakugou.jpeg')
-item4.photos.attach(io: File.open(Rails.root.join('app', 'assets', 'images', 'store2', 'deku.jpeg')), filename: 'deku.jpeg')
-item4.photos.attach(io: File.open(Rails.root.join('app', 'assets', 'images', 'store2', 'todoroki.jpeg')), filename: 'todoroki.jpeg')
-item4.photos.attach(io: File.open(Rails.root.join('app', 'assets', 'images', 'store2', 'ochako.jpeg')), filename: 'ochako.jpeg')
-item4.photos.attach(io: File.open(Rails.root.join('app', 'assets', 'images', 'store2', 'tsuyu.jpeg')), filename: 'tsuyu.jpeg')
 
 item5 = Item.create!(
     shop_id: 2,
@@ -152,7 +139,6 @@ item5 = Item.create!(
     fav_count: 1134,
     avg_rating: 5
 )
-item5.photos.attach(io: File.open(Rails.root.join('app', 'assets', 'images', 'store2', 'get-out.jpeg')), filename: 'get-out.jpeg')
 
 item6 = Item.create!(
     shop_id: 3,
@@ -164,7 +150,6 @@ item6 = Item.create!(
     fav_count: 2012,
     avg_rating: 4.8
 )
-item6.photos.attach(io: File.open(Rails.root.join('app', 'assets', 'images', 'store3', 'pepero.jpeg')), filename: 'pepero.jpeg')
 
 item7 = Item.create!(
     shop_id: 3,
@@ -176,7 +161,6 @@ item7 = Item.create!(
     fav_count: 2304,
     avg_rating: 4.5
 )
-item7.photos.attach(io: File.open(Rails.root.join('app', 'assets', 'images', 'store3', 'power.jpeg')), filename: 'power.jpeg')
 
 item8 = Item.create!(
     shop_id: 3,
@@ -188,7 +172,6 @@ item8 = Item.create!(
     fav_count: 1049,
     avg_rating: 4.6
 )
-item8.photos.attach(io: File.open(Rails.root.join('app', 'assets', 'images', 'store3', 'mj.jpeg')), filename: 'mj.jpeg')
 
 item9 = Item.create!(
     shop_id: 3,
@@ -200,7 +183,6 @@ item9 = Item.create!(
     fav_count: 4895,
     avg_rating: 4.9
 )
-item9.photos.attach(io: File.open(Rails.root.join('app', 'assets', 'images', 'store3', 'jjk.jpeg')), filename: 'jjk.jpeg')
 
 item10 = Item.create!(
     shop_id: 3,
@@ -212,7 +194,6 @@ item10 = Item.create!(
     fav_count: 2393,
     avg_rating: 4.7
 )
-item10.photos.attach(io: File.open(Rails.root.join('app', 'assets', 'images', 'store3', 'clouds.jpeg')), filename: 'clouds.jpeg')
 
 item11 = Item.create!(
     shop_id: 4,
@@ -224,7 +205,6 @@ item11 = Item.create!(
     fav_count: 233,
     avg_rating: 4.5
 )
-item11.photos.attach(io: File.open(Rails.root.join('app', 'assets', 'images', 'store4', 'kh.png')), filename: 'kh.png')
 
 item12 = Item.create!(
     shop_id: 4,
@@ -236,7 +216,6 @@ item12 = Item.create!(
     fav_count: 2354,
     avg_rating: 4.7
 )
-item12.photos.attach(io: File.open(Rails.root.join('app', 'assets', 'images', 'store4', 'zed.jpeg')), filename: 'zed.jpeg')
 
 item13 = Item.create!(
     shop_id: 4,
@@ -248,7 +227,6 @@ item13 = Item.create!(
     fav_count: 2093,
     avg_rating: 4.5
 )
-item13.photos.attach(io: File.open(Rails.root.join('app', 'assets', 'images', 'store4', 'some-dude.jpeg')), filename: 'some-dude.jpeg')
 
 item14 = Item.create!(
     shop_id: 4,
@@ -260,7 +238,6 @@ item14 = Item.create!(
     fav_count: 23,
     avg_rating: 2.8
 )
-item14.photos.attach(io: File.open(Rails.root.join('app', 'assets', 'images', 'store4', 'ez.jpeg')), filename: 'ez.jpeg')
 
 item15 = Item.create!(
     shop_id: 4,
@@ -275,10 +252,6 @@ item15 = Item.create!(
     fav_count: 3133,
     avg_rating: 4
 )
-item15.photos.attach(io: File.open(Rails.root.join('app', 'assets', 'images', 'store4', 'cait.jpeg')), filename: 'cait.jpeg')
-item15.photos.attach(io: File.open(Rails.root.join('app', 'assets', 'images', 'store4', 'jinx.jpeg')), filename: 'jinx.jpeg')
-item15.photos.attach(io: File.open(Rails.root.join('app', 'assets', 'images', 'store4', 'graves.jpeg')), filename: 'graves.jpeg')
-item15.photos.attach(io: File.open(Rails.root.join('app', 'assets',
 
 item16 = Item.create!(
     shop_id: 4,
@@ -290,4 +263,3 @@ item16 = Item.create!(
     fav_count: 2305,
     avg_rating: 4.2
 )
-item16.photos.attach(io: File.open(Rails.root.join('app', 'assets', 'images', 'store4', 'tomato.jpeg')), filename: 'tomato.jpeg')
