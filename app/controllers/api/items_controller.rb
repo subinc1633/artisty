@@ -1,9 +1,4 @@
 class Api::ItemsController < ApplicationController
-  def index
-    @items = Item.with_attached_photos.all
-    render :index
-  end
-  
   def show
     @item = Item.with_attached_photos.find_by(id: params[:id])
     render :show

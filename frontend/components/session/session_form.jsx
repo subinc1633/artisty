@@ -1,5 +1,4 @@
 import React from 'react';
-import { Redirect } from 'react-router';
 
 class SessionForm extends React.Component {
     constructor(props) {
@@ -24,15 +23,6 @@ class SessionForm extends React.Component {
             },
             () => null
         );
-        // debugger
-        // if (!this.props.errors) {
-        //     debugger
-        //     ;
-            
-        // } else {
-        //     debugger
-        //     return null;
-        // };
     }
 
     loginDemo(e) {
