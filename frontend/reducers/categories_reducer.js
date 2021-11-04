@@ -11,8 +11,6 @@ const categoryReducer = (state = {}, action) => {
             return action.categories;
         case RECEIVE_CATEGORY:
             return Object.assign({}, state, { [action.category.id]: action.category });
-        case RECEIVE_ITEM:
-            return Object.assign({}, state, { [action.item.id]: action.item });
         default:
             return state;
     }

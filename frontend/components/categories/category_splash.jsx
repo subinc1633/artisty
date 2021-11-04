@@ -1,7 +1,7 @@
 import React from 'react';
-import CategoryIndexItem from './category_index_item';
+import CategorySplashItem from './category_splash_item';
 
-class CategoryIndex extends React.Component {
+class CategorySplash extends React.Component {
     componentDidMount() {
         this.props.fetchCategories();
     }
@@ -9,12 +9,13 @@ class CategoryIndex extends React.Component {
     render() {
         return (
             <div>
-                <ul>
+                <ul className='category-splash-container'>
                     {
                         this.props.categories.map(category => (
-                            <CategoryIndexItem
+                            <CategorySplashItem
                                 key={category.id}
                                 category={category}
+                                url={category.photoUrl[0].url}
                             />
                         ))
                     }
@@ -24,4 +25,4 @@ class CategoryIndex extends React.Component {
     }
 };
 
-export default CategoryIndex;
+export default CategorySplash;

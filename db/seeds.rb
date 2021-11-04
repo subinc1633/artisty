@@ -52,26 +52,31 @@ category1 = Category.create!(
     title: 'Fanart',
     description: 'Fanart of different creative works'
 )
+category1.photos.attach(io: File.open(Rails.root.join('app', 'assets', 'images', 'store3', 'jjk.jpeg')), filename: 'jjk.jpeg')
 
 category2 = Category.create!(
     title: 'Food & Drinks',
     description: 'Because we like to eat'
 )
+category2.photos.attach(io: File.open(Rails.root.join('app', 'assets', 'images', 'store1', 'chicken.png')), filename: 'chicken.png')
 
 category3 = Category.create!(
     title: 'Nature & Landscape',
     description: 'Drawings of different natural views'
 )
+category3.photos.attach(io: File.open(Rails.root.join('app', 'assets', 'images', 'store3', 'clouds.jpeg')), filename: 'clouds.jpeg')
 
 category4 = Category.create!(
     title: 'Original Characters',
     description: 'Characters created by the artists themselves'
 )
+category4.photos.attach(io: File.open(Rails.root.join('app', 'assets', 'images', 'store4', 'tomato.jpeg')), filename: 'tomato.jpeg')
 
 category5 = Category.create!(
     title: 'Stickers & Accessories',
     description: 'Decorative items'
 )
+category5.photos.attach(io: File.open(Rails.root.join('app', 'assets', 'images', 'store2', 'todoroki.jpeg')), filename: 'todoroki.jpeg')
 
 item1 = Item.create!(
     shop_id: 1,

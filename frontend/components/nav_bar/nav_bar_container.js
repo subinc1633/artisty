@@ -4,8 +4,9 @@ import { logout } from '../../actions/session_actions';
 import { openModal } from '../../actions/modal_actions';
 import NavigationBar from './nav_bar';
 
-const mSTP = ({ session, entities: { users } }) => ({
-    currentUser: users[session.id]
+const mSTP = ({ session, entities: { users, categories } }) => ({
+    currentUser: users[session.id],
+    categories
 });
 
 const mDTP = dispatch => ({
