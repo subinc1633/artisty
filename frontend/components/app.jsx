@@ -6,6 +6,7 @@ import NavBarContainer from './nav_bar/nav_bar_container';
 import UserShowContainer from './users/user_show_container';
 import Modal from './modal/modal';
 import ItemShowContainer from './items/item_show_container';
+import CategoryIndexContainer from './categories/category_index_container';
 
 const App = () => (
     <div>
@@ -14,6 +15,7 @@ const App = () => (
         <Switch>
             <Route exact path='/' component={Splash} />
             <Route path='/users/:userId' component={UserShowContainer} />
+            <Route path='/categories' component={CategoryIndexContainer} />
             <Route path='/items/:itemId' component={ItemShowContainer} />
         </Switch>
     </div>

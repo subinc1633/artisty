@@ -1,6 +1,6 @@
 import React from 'react';
-// import CategoryForm from '';
 import { Link } from 'react-router-dom';
+import { fetchCategories } from '../../actions/category_actions';
 
 const NavigationBar = props => {
     const { currentUser, logout, openModal } = props;
