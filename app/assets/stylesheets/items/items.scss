@@ -1,0 +1,15 @@
+// Place all the styles related to the Items controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.index-image {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 50%;
+    transition: ease-in 0.15s;
+    &:hover {
+        transform: scale(1.1);
+        box-shadow: $shadow;
+    }
+}

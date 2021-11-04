@@ -8,20 +8,23 @@ class ItemIndex extends React.Component {
     
     render() {
         const { items } = this.props;
-        items.forEach(item => {
-            console.log(item)
-        })
 
         return (
             <div>
                 <ul>
                     {
-                        items.map(item => (
-                            <SingleItem
-                                key={item.id}
-                                item={item}
-                            />
-                        ))
+                        items.map(item => {
+                            // const img = item.photoUrl[0];
+                            return (
+                                <SingleItem
+                                    // key={img.id}
+                                    key={item.id}
+                                    item={item}
+                                    // url={img.url}
+                                    // filename={img.filename}
+                                />
+                            );
+                        })
                     }
                 </ul>
             </div>

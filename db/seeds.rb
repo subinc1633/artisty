@@ -49,26 +49,40 @@ shop4 = Shop.create!(
 )
 
 category1 = Category.create!(
-    title: 'Food',
-    description: 'Because we like to eat'
-)
-
-category2 = Category.create!(
     title: 'Fanart',
     description: 'Fanart of different creative works'
 )
+category1.photos.attach(io: File.open(Rails.root.join('app', 'assets', 'images', 'store3', 'jjk.jpeg')), filename: 'jjk.jpeg')
+
+category2 = Category.create!(
+    title: 'Food & Drinks',
+    description: 'Because we like to eat'
+)
+category2.photos.attach(io: File.open(Rails.root.join('app', 'assets', 'images', 'store1', 'chicken.png')), filename: 'chicken.png')
 
 category3 = Category.create!(
-    title: 'Miscellaneous',
-    description: 'Original characters, backgrounds, etc.'
+    title: 'Nature & Landscape',
+    description: 'Drawings of different natural views'
 )
+category3.photos.attach(io: File.open(Rails.root.join('app', 'assets', 'images', 'store3', 'clouds.jpeg')), filename: 'clouds.jpeg')
+
+category4 = Category.create!(
+    title: 'Original Characters',
+    description: 'Characters created by the artists themselves'
+)
+category4.photos.attach(io: File.open(Rails.root.join('app', 'assets', 'images', 'store4', 'tomato.jpeg')), filename: 'tomato.jpeg')
+
+category5 = Category.create!(
+    title: 'Stickers & Accessories',
+    description: 'Decorative items'
+)
+category5.photos.attach(io: File.open(Rails.root.join('app', 'assets', 'images', 'store2', 'todoroki.jpeg')), filename: 'todoroki.jpeg')
 
 item1 = Item.create!(
     shop_id: 1,
     category_id: 1,
     title: 'Fried Chicken',
     description: 'Because chicken',
-    image_url: 'app/assets/images/chicken.png',
     price: 11.00,
     options: {
         size: ['10 x 10', '15 x 15', '20 x 20']
@@ -77,172 +91,182 @@ item1 = Item.create!(
     fav_count: 1003,
     avg_rating: 4.5
 )
+item1.photos.attach(io: File.open(Rails.root.join('app', 'assets', 'images', 'store1', 'chicken.png')), filename: 'chicken.png')
 
 item2 = Item.create!(
     shop_id: 1,
     category_id: 2,
     title: 'Weathering With You - Blue Sky',
     description: '10/10 movie with one of my favorite lines that takes my breath away.',
-    image_url: 'app/assets/images/wwy.png',
     price: 15.00,
+    options: {
+        size: ['10 x 10', '15 x 15', '20 x 20']
+    },
     favorite: false,
     fav_count: 3023,
     avg_rating: 4.8
 )
+item2.photos.attach(io: File.open(Rails.root.join('app', 'assets', 'images', 'store1', 'wwy.png')), filename: 'wwy.png')
 
 item3 = Item.create!(
     shop_id: 1,
     category_id: 3,
     title: 'Star Goddess',
     description: 'Some Naiad or goddess',
-    image_url: 'app/assets/images/star.jpeg',
     price: 20.00,
+    options: {
+        size: ['10 x 10', '15 x 15', '20 x 20']
+    },
     favorite: false,
     fav_count: 1083,
     avg_rating: 5
 )
+item3.photos.attach(io: File.open(Rails.root.join('app', 'assets', 'images', 'store1', 'star.jpeg')), filename: 'star.jpeg')
 
 item4 = Item.create!(
     shop_id: 2,
     category_id: 2,
     title: 'MHA Stickers',
     description: 'Cute My Hero Academia stickers!! Each set contains 20 stickers.',
-    image_url: 'app/assets/images/deku.png',
     price: 5.00,
     options: {
-        character: ['bakugou', 'deku', 'todoroki', 'uraraka', 'tsuyu']
+        character: ['bakugou', 'deku', 'todoroki', 'ochako', 'tsuyu']
     },
     favorite: false,
     fav_count: 3934,
     avg_rating: 5
 )
+item4.photos.attach(io: File.open(Rails.root.join('app', 'assets', 'images', 'store2', 'bakugou.jpeg')), filename: 'bakugou.jpeg')
+item4.photos.attach(io: File.open(Rails.root.join('app', 'assets', 'images', 'store2', 'deku.jpeg')), filename: 'deku.jpeg')
+item4.photos.attach(io: File.open(Rails.root.join('app', 'assets', 'images', 'store2', 'todoroki.jpeg')), filename: 'todoroki.jpeg')
+item4.photos.attach(io: File.open(Rails.root.join('app', 'assets', 'images', 'store2', 'ochako.jpeg')), filename: 'ochako.jpeg')
+item4.photos.attach(io: File.open(Rails.root.join('app', 'assets', 'images', 'store2', 'tsuyu.jpeg')), filename: 'tsuyu.jpeg')
 
 item5 = Item.create!(
     shop_id: 2,
     category_id: 2,
     title: 'Get Out Portrait',
     description: 'A scene from the movie "Get Out."',
-    image_url: 'app/assets/images/get-out.jpeg',
     price: 20.50,
     favorite: false,
     fav_count: 1134,
     avg_rating: 5
 )
+item5.photos.attach(io: File.open(Rails.root.join('app', 'assets', 'images', 'store2', 'get-out.jpeg')), filename: 'get-out.jpeg')
 
 item6 = Item.create!(
     shop_id: 3,
     category_id: 3,
     title: 'Pepero',
     description: 'Pepero is gr8',
-    image_url: 'app/assets/images/pepero.jpeg',
     price: 17.50,
     favorite: false,
     fav_count: 2012,
     avg_rating: 4.8
 )
+item6.photos.attach(io: File.open(Rails.root.join('app', 'assets', 'images', 'store3', 'pepero.jpeg')), filename: 'pepero.jpeg')
 
 item7 = Item.create!(
     shop_id: 3,
     category_id: 2,
     title: 'Power Fanart',
     description: 'Power best gril',
-    image_url: 'app/assets/images/power.jpeg',
     price: 14.00,
     favorite: false,
     fav_count: 2304,
     avg_rating: 4.5
 )
+item7.photos.attach(io: File.open(Rails.root.join('app', 'assets', 'images', 'store3', 'power.jpeg')), filename: 'power.jpeg')
 
 item8 = Item.create!(
     shop_id: 3,
     category_id: 2,
     title: 'Schwoop',
     description: '<3 mj',
-    image_url: 'app/assets/images/mj.jpeg',
     price: 18.00,
     favorite: false,
     fav_count: 1049,
     avg_rating: 4.6
 )
+item8.photos.attach(io: File.open(Rails.root.join('app', 'assets', 'images', 'store3', 'mj.jpeg')), filename: 'mj.jpeg')
 
 item9 = Item.create!(
     shop_id: 3,
     category_id: 2,
     title: 'Jujutsu Kaisen Fanart',
     description: 'Salmon',
-    image_url: 'app/assets/images/jjk.jpeg',
     price: 21.00,
     favorite: false,
     fav_count: 4895,
     avg_rating: 4.9
 )
+item9.photos.attach(io: File.open(Rails.root.join('app', 'assets', 'images', 'store3', 'jjk.jpeg')), filename: 'jjk.jpeg')
 
 item10 = Item.create!(
     shop_id: 3,
     category_id: 2,
     title: 'Clouds',
     description: 'Wow clouds',
-    image_url: 'app/assets/images/clouds.jpeg',
     price: 15.00,
     favorite: false,
     fav_count: 2393,
     avg_rating: 4.7
 )
+item10.photos.attach(io: File.open(Rails.root.join('app', 'assets', 'images', 'store3', 'clouds.jpeg')), filename: 'clouds.jpeg')
 
 item11 = Item.create!(
     shop_id: 4,
     category_id: 2,
     title: 'One Sky One Destiny',
     description: 'KH best game evr',
-    image_url: 'app/assets/images/kh.png',
     price: 10.00,
     favorite: false,
     fav_count: 233,
     avg_rating: 4.5
 )
+item11.photos.attach(io: File.open(Rails.root.join('app', 'assets', 'images', 'store4', 'kh.png')), filename: 'kh.png')
 
 item12 = Item.create!(
     shop_id: 4,
     category_id: 2,
     title: 'Zed',
     description: '"The unseen blade is the deadliest."',
-    image_url: 'app/assets/images/zed.jpeg',
     price: 15.00,
     favorite: false,
     fav_count: 2354,
     avg_rating: 4.7
 )
+item12.photos.attach(io: File.open(Rails.root.join('app', 'assets', 'images', 'store4', 'zed.jpeg')), filename: 'zed.jpeg')
 
 item13 = Item.create!(
     shop_id: 4,
     category_id: 3,
     title: 'Some dude',
     description: 'Idk who u r',
-    image_url: 'app/assets/images/some-dude.jpeg',
     price: 15.00,
     favorite: false,
     fav_count: 2093,
     avg_rating: 4.5
 )
+item13.photos.attach(io: File.open(Rails.root.join('app', 'assets', 'images', 'store4', 'some-dude.jpeg')), filename: 'some-dude.jpeg')
 
 item14 = Item.create!(
     shop_id: 4,
     category_id: 2,
     title: 'Ez',
     description: 'u belong in a museum!!!',
-    image_url: 'app/assets/images/ez.jpeg',
     price: 100.00,
     favorite: false,
     fav_count: 23,
     avg_rating: 2.8
 )
+item14.photos.attach(io: File.open(Rails.root.join('app', 'assets', 'images', 'store4', 'ez.jpeg')), filename: 'ez.jpeg')
 
 item15 = Item.create!(
     shop_id: 4,
     category_id: 2,
     title: 'Leeg ADCs',
     description: 'Pick a character pls',
-    image_url: 'app/assets/images/mf.jpeg',
     price: 5.00,
     options: {
         character: ['jinx', 'mf', 'graves', 'caitlyn']
@@ -251,3 +275,19 @@ item15 = Item.create!(
     fav_count: 3133,
     avg_rating: 4
 )
+item15.photos.attach(io: File.open(Rails.root.join('app', 'assets', 'images', 'store4', 'cait.jpeg')), filename: 'cait.jpeg')
+item15.photos.attach(io: File.open(Rails.root.join('app', 'assets', 'images', 'store4', 'jinx.jpeg')), filename: 'jinx.jpeg')
+item15.photos.attach(io: File.open(Rails.root.join('app', 'assets', 'images', 'store4', 'graves.jpeg')), filename: 'graves.jpeg')
+item15.photos.attach(io: File.open(Rails.root.join('app', 'assets',
+
+item16 = Item.create!(
+    shop_id: 4,
+    category_id: 4,
+    title: 'Tomato',
+    description: 'This is a tomato',
+    price: 15.00,
+    favorite: false,
+    fav_count: 2305,
+    avg_rating: 4.2
+)
+item16.photos.attach(io: File.open(Rails.root.join('app', 'assets', 'images', 'store4', 'tomato.jpeg')), filename: 'tomato.jpeg')

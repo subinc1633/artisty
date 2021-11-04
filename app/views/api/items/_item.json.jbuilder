@@ -1,1 +1,1 @@
-json.extract! item, :id, :title, :description, :image_url, :price, :options, :favorite, :fav_count
+json.extract! item, :id, :title, :description, :price, :options, :favorite, :fav_count

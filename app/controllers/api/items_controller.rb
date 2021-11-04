@@ -1,6 +1,6 @@
 class Api::ItemsController < ApplicationController
   def index
-    @items = Item.all
+    @items = Item.with_attached_photos.all
     render :index
   end
   
@@ -11,6 +11,6 @@ class Api::ItemsController < ApplicationController
 
   private
   def item_params
-    params.require(:item).permit(photos: [])
+    params.require(:item).permit(:photos)
   end
 end
