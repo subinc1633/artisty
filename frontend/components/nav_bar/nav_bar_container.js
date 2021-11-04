@@ -1,6 +1,5 @@
-import React from 'react';
 import { connect } from 'react-redux';
-import { Link } from 'react-router';
+import { withRouter } from 'react-router';
 import { logout } from '../../actions/session_actions';
 import { openModal } from '../../actions/modal_actions';
 import NavigationBar from './nav_bar';
@@ -14,4 +13,4 @@ const mDTP = dispatch => ({
     openModal: modal => dispatch(openModal(modal))
 });
 
-export default connect(mSTP, mDTP)(NavigationBar);
+export default withRouter(connect(mSTP, mDTP)(NavigationBar));

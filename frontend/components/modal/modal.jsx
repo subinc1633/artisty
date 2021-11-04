@@ -10,10 +10,6 @@ const Modal = ({ modal, signInForm, signUpForm, closeModal }) => {
         return null
     }
 
-    const capitalizeModal = () => {
-        return modal.charAt(0).toUpperCase() + modal.slice(1);
-    }
-
     let component, otherForm, title;
     switch (modal) {
         case 'sign in':

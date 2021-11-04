@@ -1,10 +1,11 @@
-import React from 'react';
 import SessionForm from './session_form';
 import { connect } from 'react-redux';
+import { withRouter } from 'react-router';
 import { login, clearErrors } from '../../actions/session_actions';
 import { closeModal } from '../../actions/modal_actions';
 
-const mSTP = ({ errors }) => ({
+const mSTP = ({ errors, session }) => ({
+    session,
     errors: errors.session,
     formType: 'Sign in'
 });
@@ -15,4 +16,4 @@ const mDTP = (dispatch) => ({
     clearErrors: () => dispatch(clearErrors())
 });
 
-export default connect(mSTP, mDTP)(SessionForm);
+export default withRouter(connect(mSTP, mDTP)(SessionForm));

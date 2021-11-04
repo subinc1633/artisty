@@ -1,5 +1,5 @@
 import React from 'react';
-import { Redirect } from 'react-router-dom';
+import { Redirect } from 'react-router';
 
 class SessionForm extends React.Component {
     constructor(props) {
@@ -17,13 +17,22 @@ class SessionForm extends React.Component {
     handleSubmit(e) {
         e.preventDefault();
         const currentUser = Object.assign({}, this.state);
-        this.props.processForm(currentUser);
-        if (currentUser.email) {
-            this.props.closeModal();
-            return (<Redirect to="/" />)
-        } else {
-            null
-        };
+        this.props.processForm(currentUser).then(
+            () => {
+                this.props.closeModal();
+                this.props.history.push('/');
+            },
+            () => null
+        );
+        // debugger
+        // if (!this.props.errors) {
+        //     debugger
+        //     ;
+            
+        // } else {
+        //     debugger
+        //     return null;
+        // };
     }
 
     loginDemo(e) {
@@ -34,7 +43,7 @@ class SessionForm extends React.Component {
         });
         this.props.processForm(demoUser);
         this.props.closeModal();
-        return (<Redirect to="/" />)
+        this.props.history.push('/');
     }
 
     update(field) {

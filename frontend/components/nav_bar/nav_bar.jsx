@@ -1,12 +1,21 @@
 import React from 'react';
+// import CategoryForm from '';
 import { Link } from 'react-router-dom';
 
-const NavigationBar = ({ currentUser, logout, openModal }) => (
+const NavigationBar = props => {
+    const { currentUser, logout, openModal } = props;
+    
+    const loggingOut = () => {
+        logout();
+        props.history.push('/');
+    };
+    
+    return (
     <nav className='nav-bar'>
         <ul>
             <li><Link to="/"><h2 className='artisty'>Artisty</h2></Link></li>
             <li>searchbar</li>
-            <li>{currentUser ? <button onClick={logout}>Log out</button> : <button onClick={() => openModal('sign in')}>Sign in</button>}</li>
+            <li>{currentUser ? <button onClick={() => loggingOut()}>Log out</button> : <button onClick={() => openModal('sign in')}>Sign in</button>}</li>
             <li>shoppingcart</li>
         </ul><br/>
         <ul className='bottom-nav'>
@@ -17,6 +26,6 @@ const NavigationBar = ({ currentUser, logout, openModal }) => (
             <li>Stickers & Accessories</li>
         </ul>
     </nav>
-);
+)};
 
 export default NavigationBar;
