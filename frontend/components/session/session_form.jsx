@@ -24,15 +24,6 @@ class SessionForm extends React.Component {
             },
             () => null
         );
-        // debugger
-        // if (!this.props.errors) {
-        //     debugger
-        //     ;
-            
-        // } else {
-        //     debugger
-        //     return null;
-        // };
     }
 
     loginDemo(e) {
