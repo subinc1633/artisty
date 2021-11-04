@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { FaSearch, FaArrowLeft } from 'react-icons/fa';
+import { IoArrowBack, IoSearch } from 'react-icons/io5'
 
 class PageNotFound extends React.Component { 
     render () {
@@ -14,9 +14,9 @@ class PageNotFound extends React.Component {
                         <p>Sorry, the page you're looking for is not found.</p><br/>
                         <p className='searchbar'>
                             <input type='text' placeholder='Search for anything' />
-                        <button type='submit'><FaSearch /></button>
+                        <button type='submit'><IoSearch /></button>
                         </p><br/>
-                    <Link to='/'><FaArrowLeft className='redirect-arrow-left' /> Go back to Artisty.com</Link>
+                    <Link to='/'><IoArrowBack className='redirect-arrow-left' /> Go back to Artisty.com</Link>
                 </section>
             </div>
         );

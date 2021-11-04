@@ -18,6 +18,8 @@
         }
         .searchbar {
             display: flex;
+            margin: 10px 0;
+            width: 40vw;
             input {
                 @include search-bar;
             }
@@ -28,16 +30,16 @@
         }
 
         a {
-            line-height: 18px;
             .redirect-arrow-left {
-                font-size: 15px;
+                font-size: 12px;
+                font-weight: 600;
                 margin-right: 8px;
                 transition: cubic-bezier(0.23, 1, 0.320, 1) 0.3s;
             }
             &:hover {
                 color: rgb(116, 106, 90);
                 .redirect-arrow-left {
-                    margin-left: -12px;
+                    margin-left: -10px;
                     margin-right: 18px;
                 }
             }
