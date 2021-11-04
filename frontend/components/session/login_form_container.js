@@ -1,7 +1,7 @@
 import SessionForm from './session_form';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router';
-import { login, clearErrors } from '../../actions/session_actions';
+import { login } from '../../actions/session_actions';
 import { closeModal } from '../../actions/modal_actions';
 
 const mSTP = ({ errors, session }) => ({
@@ -12,8 +12,7 @@ const mSTP = ({ errors, session }) => ({
 
 const mDTP = (dispatch) => ({
     processForm: user => dispatch(login(user)),
-    closeModal: () => dispatch(closeModal()),
-    clearErrors: () => dispatch(clearErrors())
+    closeModal: () => dispatch(closeModal())
 });
 
 export default withRouter(connect(mSTP, mDTP)(SessionForm));

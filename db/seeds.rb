@@ -6,6 +6,8 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
+require 'open-uri'
+
 User.delete_all
 Item.delete_all
 Shop.delete_all
@@ -52,31 +54,36 @@ category1 = Category.create!(
     title: 'Fanart',
     description: 'Fanart of different creative works'
 )
-category1.photos.attach(io: File.open(Rails.root.join('app', 'assets', 'images', 'store3', 'jjk.jpeg')), filename: 'jjk.jpeg')
+category1file = open('https://artisty-seeds.s3.amazonaws.com/wwy.png')
+category1.photos.attach(io: category1file, filename: 'wwy.jpeg')
 
 category2 = Category.create!(
     title: 'Food & Drinks',
     description: 'Because we like to eat'
 )
-category2.photos.attach(io: File.open(Rails.root.join('app', 'assets', 'images', 'store1', 'chicken.png')), filename: 'chicken.png')
+category2file = open('https://artisty-seeds.s3.amazonaws.com/chicken.png')
+category2.photos.attach(io: category2file, filename: 'chicken.png')
 
 category3 = Category.create!(
     title: 'Nature & Landscape',
     description: 'Drawings of different natural views'
 )
-category3.photos.attach(io: File.open(Rails.root.join('app', 'assets', 'images', 'store3', 'clouds.jpeg')), filename: 'clouds.jpeg')
+category3file = open('https://artisty-seeds.s3.amazonaws.com/clouds.jpeg')
+category3.photos.attach(io: category3file, filename: 'clouds.jpeg')
 
 category4 = Category.create!(
     title: 'Original Characters',
     description: 'Characters created by the artists themselves'
 )
-category4.photos.attach(io: File.open(Rails.root.join('app', 'assets', 'images', 'store4', 'tomato.jpeg')), filename: 'tomato.jpeg')
+category4file = open('https://artisty-seeds.s3.amazonaws.com/tomato.jpeg')
+category4.photos.attach(io: category4file, filename: 'tomato.jpeg')
 
 category5 = Category.create!(
     title: 'Stickers & Accessories',
     description: 'Decorative items'
 )
-category5.photos.attach(io: File.open(Rails.root.join('app', 'assets', 'images', 'store2', 'todoroki.jpeg')), filename: 'todoroki.jpeg')
+category5file = open('https://artisty-seeds.s3.amazonaws.com/todoroki.jpeg')
+category5.photos.attach(io: category5file, filename: 'todoroki.jpeg')
 
 item1 = Item.create!(
     shop_id: 1,

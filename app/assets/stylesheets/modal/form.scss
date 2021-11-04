@@ -1,24 +1,9 @@
 form.session-form {
     input {
-        font-size: 16px;
-        font-weight: 400;
-        font-family: $font;
-        color: $lighter-gray;
+        @include form-input;
         width: 330px;
         margin: 15px 0px 15px 0px;
-        padding: 10px 5px;
         border-radius: 5px;
-        border: 1px solid rgb(219, 219, 219);
-        box-shadow: inset 0px 0px 2px rgb(219, 219, 219);
-        // align-items: center;
-        transition: ease-in 0.2s;
-        &:hover {
-            border-color: $color;
-        }
-        &:focus {
-            outline: none;
-            border-color: $color;
-        }
     }
 }
 

@@ -1,0 +1,39 @@
+@mixin form-input {
+    font-size: 16px;
+    font-weight: 400;
+    font-family: $font;
+    color: $lighter-gray;
+    padding: 10px 5px 10px 10px;
+    border: 1px solid rgb(219, 219, 219);
+    box-shadow: inset 0px 0px 2px rgb(219, 219, 219);
+    transition: ease-in 0.2s;
+    &:hover {
+        border-color: $color;
+    }
+    &:focus {
+        outline: none;
+        border-color: $color;
+    }
+}
+
+@mixin search-bar {
+    @include form-input;
+    width: 550px;
+    height: 20px;
+    border-radius: 30px;
+    padding-right: 50px;
+}
+
+@mixin search-button {
+    border-radius: 0 30px 30px 0;
+    width: 50px;
+    height:42px;
+    margin-left: -50px;
+    border: none;
+    font-size: 17px;
+    &:hover {
+        transform: none;
+        background-color: $color;
+        color: #ffffff;
+    }
+}

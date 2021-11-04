@@ -1,7 +1,11 @@
 .not-found-background {
     width: 100%;
-    height: 100%;
+    height: 100vh;
     background-color: $yellow-background;
+    .not-found-bar {
+        padding: 10px 0 10px 20px;
+        background-color: #ffffff;
+    }
     .page-not-found {
         position: absolute;
         top: 50%;
@@ -12,7 +16,32 @@
             font-size: 35px;
             padding-bottom: 25px;
         }
-    
+        .searchbar {
+            display: flex;
+            input {
+                @include search-bar;
+            }
+
+            button {
+                @include search-button;
+            }
+        }
+
+        a {
+            line-height: 18px;
+            .redirect-arrow-left {
+                font-size: 15px;
+                margin-right: 8px;
+                transition: cubic-bezier(0.23, 1, 0.320, 1) 0.3s;
+            }
+            &:hover {
+                color: rgb(116, 106, 90);
+                .redirect-arrow-left {
+                    margin-left: -12px;
+                    margin-right: 18px;
+                }
+            }
+        }
     }
 }
 

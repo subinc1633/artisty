@@ -7,17 +7,19 @@ import Modal from './modal/modal';
 import ItemShowContainer from './items/item_show_container';
 // import CategoryIndexContainer from './categories/category_splash_container';
 
-const App = () => (
-    <div>
-        <Modal />
-        <Switch>
-            <Route exact path='/' component={Splash} />
-            <Route path='/users/:userId' component={UserShowContainer} />
-            {/* <Route path='/categories' component={CategoryIndexContainer} /> */}
-            <Route path='/items/:itemId' component={ItemShowContainer} />
-            <Redirect to='/404' />
-        </Switch>
-    </div>
-);
+const App = () => {
+    return (
+        <div style={{backgroundColor: 'white'}}>
+            <Modal />
+            <Switch>
+                <Route exact path='/' component={Splash} />
+                <Route path='/users/:userId' component={UserShowContainer} />
+                {/* <Route path='/categories' component={CategoryIndexContainer} /> */}
+                <Route path='/items/:itemId' component={ItemShowContainer} />
+                <Redirect to='/404' />
+            </Switch>
+        </div>
+    )
+};
 
 export default App;
