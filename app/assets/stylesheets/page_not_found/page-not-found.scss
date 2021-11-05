@@ -18,11 +18,12 @@
             padding-bottom: 25px;
         }
         .searchbar {
+            @include search-bar;
             display: flex;
             margin: 10px 0;
             transition: ease-in 0.1s;
             input {
-                @include search-bar;
+                @include search-bar-input;
                 width: 40%;
             }
 

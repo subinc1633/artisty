@@ -1,15 +1,18 @@
 @import './fonts.scss';
 
-$font: 'Red Hat Text', sans-serif;
+$font: 'Graphik Regular', sans-serif;
+$light-font: 'Graphik Light', sans-serif;
+$bold-font: 'Graphik Medium', sans-serif;
+$lighter-font: 'Graphik Extra Light', sans-serif;
 $sec-font: 'Gilda Display', serif;
 $font-size: 14px;
-$font-weight: 300;
-$color: rgb(34, 34, 34);
-$lighter-gray: rgb(82, 82, 82);
-$light-gray: rgb(151, 151, 151);
-$lightest-gray: rgb(239, 239, 239);
-$yellow-border: rgb(228, 213, 186);
-$yellow-background: rgb(250, 236, 213);
+$font-weight: 200;
+$color: #222222;
+$lighter-gray: #525252;
+$light-gray: #979797;
+$lightest-gray: #efefef;
+$yellow-border: #e4d5ba;
+$yellow-background: #faecd5;
 $shadow: 0px 6px 15px rgba(0, 0, 0, 0.1);
 
 body {

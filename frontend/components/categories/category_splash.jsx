@@ -16,8 +16,8 @@ class CategorySplash extends React.Component {
                                 key={category.id}
                                 category={category}
                                 url={category.photoUrl[0].url}
-                            />
-                        ))
+                            />)
+                        )
                     }
                 </ul>
             </div>

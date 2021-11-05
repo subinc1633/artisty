@@ -1,12 +1,5 @@
 .welcome {
-    font-family: $sec-font;
-    font-size: 45px;
-    font-weight: 400;
-    text-align: center;
-    background-color: $yellow-background;
-    height: 180px;
-    padding-top: 35px;
-    border-top: 2px solid rgb(222, 222, 222);
+    @include page-header;
     a {
         color: $color;
         transition: ease-in 0.2s;

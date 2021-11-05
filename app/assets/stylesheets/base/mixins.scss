@@ -1,16 +1,17 @@
 @mixin form-input {
     font-size: 16px;
-    font-weight: 400;
-    font-family: $font;
+    font-weight: 700;
+    font-family: $light-font;
+    letter-spacing: 0.5px;
     padding: 10px 5px 10px 10px;
-    border: 1px solid rgb(219, 219, 219);
-    box-shadow: inset 0px 0px 2px rgb(219, 219, 219);
+    border: 1px solid #dbdbdb;
+    box-shadow: inset 0px 0px 2px #dbdbdb;
     transition: ease-in 0.2s;
     &::placeholder {
         color: $light-gray;
     }
     &:hover {
-        border-color: $color;
+        border-color: $light-gray;
     }
     &:focus {
         outline: none;
@@ -20,6 +21,10 @@
 }
 
 @mixin search-bar {
+    height: 42px;
+}
+
+@mixin search-bar-input {
     @include form-input;
     width: 550px;
     height: 20px;
@@ -40,4 +45,15 @@
         background-color: $color;
         color: #ffffff;
     }
+}
+
+@mixin page-header {
+    font-family: $sec-font;
+    font-size: 45px;
+    font-weight: 400;
+    text-align: center;
+    background-color: $yellow-background;
+    height: 180px;
+    padding-top: 35px;
+    border-top: 2px solid rgb(222, 222, 222);
 }

@@ -19,9 +19,33 @@
             padding-top: 7px;
             width: 38px;   
         }
+        .nav-searchbar {
+            @include search-bar;
+            width: 70%;
+            input {
+                @include search-bar-input;
+                font-weight: 200;
+                width: 75%;
+                background-color: #f4f4f4;
+                border: 2px solid $color;
+                padding-left: 20px;
+                &:focus {
+                    background-color: #ffffff;
+                    box-shadow: inset 0px 0px 4px #dbdbdb;
+                }
+            }
+            button {
+                @include search-button;
+                padding-bottom: 8px;
+            }
+        }
     }
     ul.bottom-nav {
         font-size: 14px;
+        font-weight: 500;
+        font-family: $light-font;
+        text-align: center;
+        padding-top: 5px;
         padding-bottom: 10px;
     }
 }

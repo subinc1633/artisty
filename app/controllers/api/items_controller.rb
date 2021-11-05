@@ -1,6 +1,6 @@
 class Api::ItemsController < ApplicationController
   def show
-    @item = Item.with_attached_photos.find_by(id: params[:id])
+    @item = Item.with_attached_photos.find(params[:id])
     render :show
   end
 
