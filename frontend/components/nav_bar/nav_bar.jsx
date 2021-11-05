@@ -16,7 +16,7 @@ const NavigationBar = props => {
             <li><Link to="/"><h2 className='artisty'>Artisty</h2></Link></li>
             <li>searchbar</li>
             <li>{currentUser ? <button onClick={() => loggingOut()}>Log out</button> : <button onClick={() => openModal('sign in')}>Sign in</button>}</li>
-            <li><IoCartOutline /></li>
+            <li><button class='cart'><IoCartOutline /></button></li>
         </ul><br/>
         <ul className='bottom-nav'>
             <li>Fanart</li>

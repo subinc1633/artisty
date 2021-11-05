@@ -15,10 +15,6 @@
             border-radius: 50%;
             border: 1px solid $yellow-border;
             transition: ease-in 0.15s;
-            &:hover {
-                transform: scale(1.1);
-                box-shadow: $shadow;
-            }
         }
         p {
             margin-top: 10px;
@@ -27,8 +23,13 @@
             font-weight: 400;
         }
         &:hover {
+            .category-splash-image {
+                transform: scale(1.1);
+                box-shadow: $shadow;
+            }
             border-bottom: 2px solid rgb(89, 89, 89);
             color: rgb(126, 126, 126);
+            cursor: pointer;
         }
     }
 }

@@ -11,6 +11,7 @@
         top: 50%;
         transform: translateY(-50%);
         margin-left: 50px;
+        width: 100%;
         h1 {
             font-family: $sec-font;
             font-size: 35px;
@@ -19,9 +20,10 @@
         .searchbar {
             display: flex;
             margin: 10px 0;
-            width: 40vw;
+            transition: ease-in 0.1s;
             input {
                 @include search-bar;
+                width: 40%;
             }
 
             button {
