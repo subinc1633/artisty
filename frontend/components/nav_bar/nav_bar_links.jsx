@@ -1,6 +1,6 @@
 import React from 'react';
 
-const NavBarLink = ({ category} ) => (
+const NavBarLink = ({ category }) => (
     <li>
         {category.title}
     </li>

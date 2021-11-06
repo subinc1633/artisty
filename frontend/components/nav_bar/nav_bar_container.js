@@ -5,10 +5,11 @@ import { openModal } from '../../actions/modal_actions';
 import { fetchCategories } from '../../actions/category_actions';
 import NavigationBar from './nav_bar';
 
-const mSTP = ({ session, entities: { users, categories } }) => ({
-    currentUser: users[session.id],
-    categories: Object.values(categories)
-});
+const mSTP = ({ session, entities }) => {
+    return ({
+    currentUser: entities.users[session.id],
+    navCategories: Object.values(entities.categories),
+})};
 
 const mDTP = dispatch => ({
     logout: () => dispatch(logout()),

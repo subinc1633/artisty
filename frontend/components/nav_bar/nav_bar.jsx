@@ -9,7 +9,7 @@ class NavigationBar extends React.Component {
     }
 
     render() {
-        const { currentUser, categories, logout, openModal } = this.props;
+        const { currentUser, navCategories, logout, openModal } = this.props;
         
         const loggingOut = () => {
             logout();
@@ -29,11 +29,10 @@ class NavigationBar extends React.Component {
             </ul><br/>
             <ul className='bottom-nav'>
                 {
-                    categories.map(category => (
-                        <NavBarLink
-                            key={category.id}
-                            category={category}
-                        />
+                    navCategories.map(category => (
+                        <Link to={`/categories/${category.id}`}>
+                            <NavBarLink key={category.id} category={category}/>
+                        </Link>
                     )) 
                 }
                 <li>All Categories</li>

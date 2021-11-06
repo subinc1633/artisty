@@ -6,7 +6,6 @@ class Api::CategoriesController < ApplicationController
 
   def show
     @category = Category.with_attached_photos.find(params[:id])
-    @items = @category.items
     render 'api/categories/show'
   end
 end

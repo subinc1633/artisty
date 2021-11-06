@@ -19,7 +19,7 @@ const App = () => {
                 <Route path='/users/:userId' component={UserShowContainer} />
                 <Route path='/categories/:categoryId' component={CategoryShowContainer} />
                 <Route path='/items/:itemId' component={ItemShowContainer} />
-                {/* <Route path='/categories' component={CategoryIndexContainer} /> */}
+                <Route path='/categories' component={CategoryIndexContainer} />
                 <Redirect to='/404' />
             </Switch>
         </div>
