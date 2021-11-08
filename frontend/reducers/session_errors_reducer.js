@@ -1,5 +1,5 @@
 import { CLOSE_MODAL } from "../actions/modal_actions";
-import { RECEIVE_ERRORS, CLEAR_ERRORS } from "../actions/session_actions";
+import { RECEIVE_ERRORS, CLEAR_ERRORS } from "../actions/error_actions";
 
 const sessionErrorsReducer = (state = [], action) => {
     Object.freeze(state);

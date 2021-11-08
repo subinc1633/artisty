@@ -39,6 +39,9 @@ class ItemShow extends React.Component {
                                     ))
                                 }
                             </div>
+                            <div className='reviews'>
+
+                            </div>
                         </div>
                         <div className='right-item-column'>
                             {item.shop_id}
