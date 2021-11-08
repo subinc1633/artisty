@@ -8,12 +8,14 @@ import ItemShowContainer from './items/item_show_container';
 import NavBarContainer from './nav_bar/nav_bar_container';
 import CategoryIndexContainer from './categories/category_index_container';
 import CategoryShowContainer from './categories/category_show_container';
+import Footer from './footer/footer';
 
 const App = () => {
     return (
-        <div style={{backgroundColor: 'white'}}>
+        <div>
             <NavBarContainer />
             <Modal />
+            <Footer />
             <Switch>
                 <Route exact path='/' component={Splash} />
                 <Route path='/users/:userId' component={UserShowContainer} />

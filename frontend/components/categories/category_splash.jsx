@@ -11,9 +11,9 @@ class CategorySplash extends React.Component {
             <div>
                 <ul className='category-splash-container'>
                     {
-                        this.props.categories.map(category => (
+                        this.props.categories.map((category, idx) => (
                             <CategorySplashItem
-                                key={category.id}
+                                key={idx}
                                 category={category}
                                 url={category.photoUrl[0].url}
                             />)

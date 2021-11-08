@@ -1,0 +1,22 @@
+.carousel-container {
+    max-width: 795px;
+    min-width: 550px;
+    max-height: 100%;
+    overflow: hidden;
+}
+
+.carousel-inner {
+    white-space: nowrap;
+    animation: fadeIn ease-in 0.5s;
+    background-color: #ffffff;
+}
+
+@keyframes fadeIn {
+    0% { opacity: 1 }
+    100% { opacity: 0 }
+}
+
+.carousel-item {
+    display: inline-block;
+    width: 100%;
+}

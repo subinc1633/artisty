@@ -1,4 +1,29 @@
-// Place all the styles related to the Items controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+.item-show-page {
+    display: flex;
+    justify-content: space-evenly;
+}
 
+.carousel-container {
+    
+    position: relative;
+    margin: auto;
+}
+
+.thumbnail-image {
+
+}
+
+.item-image {
+    width: 40vw;
+}
+
+.left-item-column {
+
+}
+
+.right-item-column {
+    h1 {
+        font-family: $sec-font;
+        font-size: 25px;
+    }
+}

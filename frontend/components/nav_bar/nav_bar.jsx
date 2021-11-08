@@ -7,9 +7,15 @@ class NavigationBar extends React.Component {
     componentDidMount() {
         this.props.fetchCategories();
     }
+    
+    componentDidUpdate(prevProps) {
+        if (this.props.categoryId !== prevProps.categoryId) {
+            this.props.fetchCategories();
+        }
+    }
 
     render() {
-        const { currentUser, navCategories, logout, openModal } = this.props;
+        const { currentUser, navCategories, categoryId, logout, openModal } = this.props;
         
         const loggingOut = () => {
             logout();
@@ -29,13 +35,16 @@ class NavigationBar extends React.Component {
             </ul><br/>
             <ul className='bottom-nav'>
                 {
-                    navCategories.map(category => (
-                        <Link to={`/categories/${category.id}`}>
-                            <NavBarLink key={category.id} category={category}/>
-                        </Link>
-                    )) 
+                    navCategories.map((category, idx) => (
+                        <NavBarLink key={idx} category={category}/>
+                    ))
                 }
-                <li>All Categories</li>
+                {/* <li>Fanart</li>
+                <li>Food & Drinks</li>
+                <li>Nature & Landscape</li>
+                <li>Original Characters</li>
+                <li>Stickers & Accessories</li>
+                <li>All Categories</li> */}
             </ul>
         </nav>
         )

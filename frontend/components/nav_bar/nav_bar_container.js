@@ -5,10 +5,11 @@ import { openModal } from '../../actions/modal_actions';
 import { fetchCategories } from '../../actions/category_actions';
 import NavigationBar from './nav_bar';
 
-const mSTP = ({ session, entities }) => {
+const mSTP = ({ session, entities }, { match }) => {
     return ({
     currentUser: entities.users[session.id],
     navCategories: Object.values(entities.categories),
+    categoryId: match.params.categoryId
 })};
 
 const mDTP = dispatch => ({

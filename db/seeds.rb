@@ -92,7 +92,7 @@ item1 = Item.create!(
     description: 'Because chicken',
     price: 11.00,
     options: {
-        size: ['10 x 10', '15 x 15', '20 x 20']
+        Size: ['10 x 10', '15 x 15', '20 x 20']
     },
     favorite: false,
     fav_count: 1003,
@@ -108,7 +108,7 @@ item2 = Item.create!(
     description: '10/10 movie with one of my favorite lines that takes my breath away.',
     price: 15.00,
     options: {
-        size: ['10 x 10', '15 x 15', '20 x 20']
+        Size: ['10 x 10', '15 x 15', '20 x 20']
     },
     favorite: false,
     fav_count: 3023,
@@ -124,7 +124,7 @@ item3 = Item.create!(
     description: 'Some Naiad or goddess',
     price: 20.00,
     options: {
-        size: ['10 x 10', '15 x 15', '20 x 20']
+        Size: ['10 x 10', '15 x 15', '20 x 20']
     },
     favorite: false,
     fav_count: 1083,
@@ -140,7 +140,7 @@ item4 = Item.create!(
     description: 'Cute My Hero Academia stickers!! Each set contains 20 stickers.',
     price: 5.00,
     options: {
-        character: ['bakugou', 'deku', 'todoroki', 'ochako', 'tsuyu']
+        Character: ['Bakugou', 'Deku', 'Todoroki', 'Ochako', 'Tsuyu']
     },
     favorite: false,
     fav_count: 3934,
@@ -294,7 +294,7 @@ item15 = Item.create!(
     description: 'Pick a character pls',
     price: 5.00,
     options: {
-        character: ['jinx', 'mf', 'graves', 'caitlyn']
+        Character: ['Jinx', 'MF', 'Graves', 'Caitlyn']
     },
     favorite: false,
     fav_count: 3133,

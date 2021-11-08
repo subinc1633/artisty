@@ -1,8 +1,10 @@
 import { connect } from 'react-redux';
 import ItemShow from './item_show';
+import { fetchItem } from '../../actions/item_actions';
 
-const mSTP = (state, ownProps) => ({
-    item: state.entities.items[ownProps.match.params.itemId]
+const mSTP = (state, { match }) => ({
+    itemId: match.params.itemId,
+    item: state.entities.items[match.params.itemId]
 });
 
 const mDTP = dispatch => ({
