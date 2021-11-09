@@ -6,7 +6,8 @@ class ReviewIndex extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            openForm: false
+            openForm: false,
+            avgRating: 0
         }
 
         this.openReviewForm = this.openReviewForm.bind(this);
@@ -24,6 +25,7 @@ class ReviewIndex extends React.Component {
     
     render() {
         const { reviews, items, users, currentUser, updateReview } = this.props;
+        
         const reviewIndexItems = () => {
             if (reviews) {
                 return reviews.map(review => (
