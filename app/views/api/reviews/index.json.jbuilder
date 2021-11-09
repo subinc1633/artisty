@@ -1,3 +1,1 @@
-json.array! @reviews.each do |review|
-    json.extract! review, :id, :reviewer_id, :item_id, :rating, :content, :created_at
-end
+json.array! @reviews, :id, :reviewer_id, :item_id, :rating, :content

@@ -1,18 +1,19 @@
 import { connect } from 'react-redux';
-import { allReviews } from '../../reducers/selectors';
-import { fetchReviews, updateReview } from '../../actions/review_actions';
+import { fetchReviews, updateReview, createReview } from '../../actions/review_actions';
 import ReviewIndex from './review_index';
 
-const mSTP = state => ({
-    reviews: allReviews(state),
-    users: Object.values(state.entities.users),
-    items: Object.values(state.entities.items),
+const mSTP = (state, ownProps) => ({
+    reviews: Object.values(ownProps.item.reviews),
+    reviewers: Object.values(state.entities.users),
+    item: ownProps.item,
     currentUser: state.entities.users[state.session.id]
 });
 
 const mDTP = dispatch => ({
-    fetchReviews: () => dispatch(fetchReviews()),
-    updateReviews: (itemId, review) => dispatch(updateReview(itemId, review))
+    fetchReviews: itemid => dispatch(fetchReviews(itemid)),
+    updateReview: (itemId, review) => dispatch(updateReview(itemId, review)),
+    deleteReview: (itemId, reviewId) => dispatch(deleteReview(itemId, reviewId)),
+    createReview: (itemId, review) => dispatch(createReview(itemId, review))
 });
 
 export default connect(mSTP, mDTP)(ReviewIndex)

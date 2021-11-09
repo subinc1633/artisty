@@ -41,7 +41,7 @@ class ItemShow extends React.Component {
                                 }
                             </div>
                             <div className='reviews'>
-                                <ReviewIndexContainer />
+                                <ReviewIndexContainer item={item} />
                             </div>
                         </div>
                         <div className='right-item-column'>

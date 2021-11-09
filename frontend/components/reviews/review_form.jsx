@@ -1,27 +1,39 @@
 import React, { useState } from 'react';
 import { IoStar, IoStarOutline } from 'react-icons/io5';
 
-const ReviewForm = () => {
+const ReviewForm = props => {
     const [rating, setRating] = useState(0);
     const [hover, setHover] = useState(0);
+    const [content, setContent] = useState('');
+    const [openForm, setOpenForm] = useState(true);
+    const [state, setState] = useState({});
+    
+    const handleSubmit = e => {
+        e.preventDefault();
+        const review = {
+            content: content,
+            rating: rating,
+            reviewer_id: props.currentUser.id,
+            item_id: props.itemId
+        };
+        props.createReview(props.itemId, review)
+        .then(() => setState(review));
+        setOpenForm(false);
+        return state;
+    }
 
-    return (
+    const updateContent = () => {
+        return e => setContent(e.currentTarget.value);
+    }
+
+    return openForm ? (
         <div>
-            <form className='review-form'>
-                <label>Choose a star rating:</label>
+            <form className='review-form' onSubmit={(e) => handleSubmit(e)}>
+                <label>Choose a star rating:</label><br/>
                 {
                     [...Array(5)].map((star, idx) => {
                         const ratingValue = idx + 1
                         return (
-                            // <button
-                            //     key={idx}
-                            //     className='review-star-button'
-                            //     onClick={() => this.setState({ rating: idx })}
-                            //     onMouseEnter={() => this.setState({ hover: idx })}
-                            //     onMouseLeave={() => this.setState({ hover: this.state.rating })}
-                            // >
-                            //     { (this.state.hover || this.state.rating) >= idx ? <span className='filled-star'><IoStar/></span> : <span className='empty-star'><IoStarOutline/></span> }
-                            // </button>
                             <label key={idx}>
                                 <input
                                     type='radio'
@@ -33,15 +45,20 @@ const ReviewForm = () => {
                                     <IoStar className='star' onMouseEnter={() => setHover(ratingValue)} onMouseLeave={() => setHover(0)} />
                                 : <IoStarOutline className='star' onMouseEnter={() => setHover(ratingValue)} onMouseLeave={() => setHover(0)} />}
                             </label>
-                    )})
+                        );
+                    })
                 }<br/><br/>
-                <label>
-                    <textarea className='content'>Write your review here!</textarea>
-                </label>
+                <textarea
+                    className='content'
+                    rows='10'
+                    cols='60'
+                    onChange={updateContent()}
+                    defaultValue='Write your review here!'>
+                </textarea><br/>
                 <button>Submit</button>
             </form>
         </div>
-    )
+    ) : null;
 };
 
 export default ReviewForm;

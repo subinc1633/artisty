@@ -23,8 +23,8 @@
 }
 
 .item-image {
-    width: 40vw;
-    height: 35vw;
+    width: 45vw;
+    height: 60vh;
     object-fit: cover;
 }
 
@@ -35,6 +35,7 @@
 
 .right-item-column {
     line-height: 30px;
+    width: 30%;
     h1 {
         font-family: $sec-font;
         font-size: 25px;
