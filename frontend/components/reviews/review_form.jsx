@@ -1,10 +1,10 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { IoStar, IoStarOutline } from 'react-icons/io5';
 
 const ReviewForm = props => {
     const [rating, setRating] = useState(0);
     const [hover, setHover] = useState(0);
-    const [content, setContent] = useState('');
+    const [content, setContent] = useState(props.content);
     const [openForm, setOpenForm] = useState(true);
     const [state, setState] = useState({});
     
@@ -19,16 +19,30 @@ const ReviewForm = props => {
         props.createReview(props.itemId, review)
         .then(() => setState(review));
         setOpenForm(false);
-        return state;
     }
 
     const updateContent = () => {
         return e => setContent(e.currentTarget.value);
     }
 
+    const renderErrors = () => {
+        return (
+            props.errors ? (
+                <ul className='form-errors'>
+                    {props.errors.map((error, i) => (
+                        <li key={`${i}`}>
+                            {error}
+                        </li>
+                    ))}
+                </ul>
+            ) : null
+        )
+    }
+
     return openForm ? (
         <div>
             <form className='review-form' onSubmit={(e) => handleSubmit(e)}>
+                {renderErrors()}
                 <label>Choose a star rating:</label><br/>
                 {
                     [...Array(5)].map((star, idx) => {
@@ -55,7 +69,7 @@ const ReviewForm = props => {
                     onChange={updateContent()}
                     defaultValue='Write your review here!'>
                 </textarea><br/>
-                <button>Submit</button>
+                <button>Submit</button> or <span className='review-form-link' onClick={() => setOpenForm(false)}>Close</span>
             </form>
         </div>
     ) : null;

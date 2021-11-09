@@ -55,3 +55,23 @@
     padding-top: 35px;
     border-top: 2px solid rgb(222, 222, 222);
 }
+
+@mixin dark-button {
+    background-color: $color;
+    color: white;
+    border: none;
+    height: 45px;
+    transition: ease-in 0.15s;
+    &:hover{
+        background-color: rgb(47, 47, 47);
+    }
+}
+
+@mixin white-button {
+    border: none;
+    &:hover {
+        transform: none;
+        box-shadow: none;
+        background-color: $lightest-gray;
+    }
+}

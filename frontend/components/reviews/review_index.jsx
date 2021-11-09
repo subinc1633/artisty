@@ -10,37 +10,58 @@ class ReviewIndex extends React.Component {
             avgRating: 0
         }
 
-        this.openReviewForm = this.openReviewForm.bind(this);
+        this.toggleOpen = this.toggleOpen.bind(this);
     }
 
-    openReviewForm(e) {
+    toggleOpen(e) {
         e.preventDefault();
-        this.setState({ openForm: true });
+        if (this.state.openForm) {
+            this.setState({ openForm: false });
+        } else {
+            this.setState({ openForm: true });
+        }
     }
 
     componentDidMount() {
         this.props.fetchReviews(this.props.item.id);
+        this.props.fetchUsers();
+    }
+
+    componentDidUpdate(prevProps) {
+        if (this.props.item.reviews !== prevProps.item.reviews) {
+            this.props.fetchReviews(this.props.item.id);
+        }
     }
     
     render() {
-        const { reviews, currentUser, reviewers, item, createReview, updateReview, deleteReview } = this.props;
+        const { reviews, currentUser, reviewers, item, errors, fetchReviews, createReview, updateReview, deleteReview } = this.props;
 
-        const reviewIndexItems = reviews.map((review, idx) => (
-            <ReviewIndexItem 
+        const reviewIndexItems = [];
+        
+        reviews ? reviews.forEach((review, idx) => (
+            reviewIndexItems.unshift(<ReviewIndexItem 
                 key={idx}
                 review={review}
                 reviewers={reviewers}
+                fetchReviews={fetchReviews}
                 item={item}
                 currentUser={currentUser}
                 updateReview={updateReview}
                 deleteReview={deleteReview}
-            />
-        ));
+            />)
+        )) : null;
 
         const checkOpen = () => {
             if (this.state.openForm) {
-                this.state.openForm = false;
-                return <ReviewForm createReview={createReview} itemId={item.id} currentUser={currentUser} />
+                return <ReviewForm
+                    fetchReviews={fetchReviews} 
+                    createReview={createReview}
+                    itemId={item.id}
+                    content=''
+                    currentUser={currentUser}
+                    errors={errors}
+                    onChange={this.toggleOpen}
+                />
             } else {
                 return null;
             }
@@ -52,7 +73,7 @@ class ReviewIndex extends React.Component {
         return (
             <div className='review-index'>
                 <h1>{reviewIndexItems.length} Reviews</h1>
-                { currentUser ? (<button className='create-review-button' onClick={this.openReviewForm}>Create a review</button>) : null }
+                {currentUser ? <button className='create-review-button' onClick={this.toggleOpen}>Create a review</button> : null}
                 {checkOpen()}
                 <ul>
                     {checkForReview}

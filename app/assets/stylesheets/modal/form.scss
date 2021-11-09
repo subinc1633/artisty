@@ -8,14 +8,7 @@ form.session-form {
 }
 
 .process {
-    background-color: $color;
-    color: white;
-    border: none;
-    height: 45px;
-    transition: ease-in 0.15s;
-    &:hover{
-        background-color: rgb(47, 47, 47);
-    }
+    @include dark-button;
 }
 
 .form-errors {
@@ -33,6 +26,6 @@ h3.line {
     margin: 15px 0 0;
     span {
         background-color: white;
-        padding: 10px 10px;
+        padding: 10px;
     }
 }

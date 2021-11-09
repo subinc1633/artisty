@@ -12,6 +12,13 @@ class CategoryShow extends React.Component {
         this.props.fetchCategory(this.props.categoryId)
         .then(res => this.setState({ action: res }));
     }
+
+    componentDidUpdate(prevProps) {
+        if (this.props.categoryId !== prevProps.categoryId) {
+            this.props.fetchCategory(this.props.categoryId)
+                .then(res => this.setState({ action: res }));
+        }
+    }
     
     render() {
         const { action } = this.state;

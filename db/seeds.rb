@@ -12,6 +12,7 @@ User.delete_all
 Item.delete_all
 Shop.delete_all
 Category.delete_all
+Review.delete_all
 
 user1 = User.create!(email: 'peperoroll@gmail.com', password: 'peppero', name: 'Soybean')
 user2 = User.create!(email: 'ricenkimchi@gmail.com', password: 'aggressivehr', name: 'Lucas')

@@ -1,7 +1,7 @@
 import React from 'react';
 import ReviewForm from './review_form';
 import { Link } from 'react-router-dom';
-import { IoStar, IoStarOutline } from 'react-icons/io5';
+import { IoStar, IoStarOutline, IoThumbsUpSharp } from 'react-icons/io5';
 
 class ReviewIndexItem extends React.Component {
     constructor(props) {
@@ -10,46 +10,63 @@ class ReviewIndexItem extends React.Component {
             openForm: false
         }
 
-        this.handleClick = this.handleClick.bind(this);
+        this.updateReview = this.updateReview.bind(this);
+        this.removeReview = this.removeReview.bind(this);
     }
 
-    handleClick(e) {
+    componentDidMount() {
+        this.props.fetchUsers;
+    }
+
+    removeReview(e) {
+        e.preventDefault;
+        this.props.deleteReview(this.props.item.id, this.props.review.id);
+    }
+
+    updateReview(e) {
         e.preventDefault();
         this.setState({ openForm: true });
+        this.props.updateReview(this.props.item.id, this.props.review.id);
     }
     
     render() {
-        const { review, currentUser, reviewers, item } = this.props;
+        const { review, currentUser, reviewers, item} = this.props;
         const reviewer = () => {
             for (const reviewer of reviewers) {
-                if (reviewer.id === review.reviewerId) return reviewer
+                if (reviewer.id === review.reviewerId) return reviewer;
             }
         }
-        // debugger
+
         const reviewedItem = item;
 
         const date = new Date();
         const options = { year: 'numeric', month: 'short', day: 'numeric' };
         const currentDate = date.toLocaleDateString(undefined, options);
         
-        return this.state.openForm ? (<ReviewForm reviewedItem={reviewedItem} review={review} />) : (
-            <div>
+        if (reviewer()) {
+            return this.state.openForm ? (<ReviewForm content={review.content} reviewedItem={reviewedItem} review={review} />) : (
+            <div className='review-item'>
                 <Link to={`/users/${reviewer().id}`}>{reviewer().name}</Link> {currentDate}
-                <p>
+                <p className='review-rating'>
                     {
                         [...Array(5)].map((star, idx) => (
                             idx + 1 <= review.rating ? <IoStar key={idx}/> : <IoStarOutline key={idx}/>)
                         )
                     }
                 </p>
-                <p>{review.content}</p>
-
+                <p className='review-content'>{review.content}</p>
+                <br/>
                 <p>Purchased item:</p>
                 <img className='review-thumbnail' src={`${reviewedItem.photoUrl[0].url}`} /> <Link to={`/items/${reviewedItem.id}`}>{reviewedItem.title}</Link>
-                
-                <button>Helpful?</button> { currentUser === reviewer ? <span className='edit-link' onClick={this.handleClick}>Edit Review</span> : null}
+                <br/>
+                    <button className='helpful-button'><IoThumbsUpSharp/> Helpful?</button>
+                    {currentUser === reviewer() ?
+                        <p>
+                            <span className='edit-delete-link' onClick={this.updateReview}>Edit</span> | 
+                            <span className='edit-delete-link' onClick={this.removeReview}>Delete</span>
+                        </p> : null }
             </div>
-        )
+        )} else { return null }
     }
 };
 

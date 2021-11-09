@@ -40,4 +40,18 @@
         font-family: $sec-font;
         font-size: 25px;
     }
+    select {
+        @include form-input;
+        width: 80%;
+        height: 45px;
+        border-radius: 5px;
+        box-shadow: 0 0 10px $lightest-gray;
+        &:hover {
+            box-shadow: 0 0 10px #d4d4d4;
+        }
+    }
+    button {
+        @include dark-button;
+        width: 80%;
+    }
 }

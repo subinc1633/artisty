@@ -1,1 +1,3 @@
-json.array! @reviews, :id, :reviewer_id, :item_id, :rating, :content
+json.array! @reviews.each do |review|
+    json.partial! 'api/reviews/review', review: review
+end

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_11_08_170910) do
+ActiveRecord::Schema.define(version: 2021_11_09_163056) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -54,8 +54,8 @@ ActiveRecord::Schema.define(version: 2021_11_08_170910) do
     t.integer "fav_count", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.decimal "avg_rating", null: false
     t.json "options", default: {}
+    t.integer "avg_rating"
     t.index ["shop_id", "category_id"], name: "index_items_on_shop_id_and_category_id"
     t.index ["title"], name: "index_items_on_title"
   end

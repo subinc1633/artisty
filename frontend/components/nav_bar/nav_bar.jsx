@@ -15,7 +15,7 @@ class NavigationBar extends React.Component {
     }
 
     render() {
-        const { currentUser, navCategories, categoryId, logout, openModal } = this.props;
+        const { currentUser, navCategories, logout, openModal } = this.props;
         
         const loggingOut = () => {
             logout();
@@ -28,7 +28,7 @@ class NavigationBar extends React.Component {
                 <li><Link to="/"><h2 className='artisty'>Artisty</h2></Link></li>
                     <li className='nav-searchbar'>
                         <input type='text' placeholder='Search for anything' />
-                        <button className='nav-search-button' type='submit'><span><IoSearch /></span></button>
+                        <button type='submit'><span><IoSearch /></span></button>
                     </li>
                 <li>{currentUser ? <button onClick={() => loggingOut()}>Log out</button> : <button onClick={() => openModal('sign in')}>Sign in</button>}</li>
                 <li><button className='cart'><IoCartOutline /></button></li>
@@ -39,12 +39,7 @@ class NavigationBar extends React.Component {
                         <NavBarLink key={idx} category={category}/>
                     ))
                 }
-                {/* <li>Fanart</li>
-                <li>Food & Drinks</li>
-                <li>Nature & Landscape</li>
-                <li>Original Characters</li>
-                <li>Stickers & Accessories</li>
-                <li>All Categories</li> */}
+                <li><Link to='/categories'>All Categories</Link></li>
             </ul>
         </nav>
         )

@@ -1,8 +1,8 @@
 export const fetchReviews = itemId => (
     $.ajax({
         method: 'GET',
-        url: `/api/items/${itemId}/reviews`
-    })
+        url: `/api/items/${itemId}`
+    }).then(item => item.reviews)
 );
 
 export const createReview = (itemId, review) => (

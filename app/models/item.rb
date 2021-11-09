@@ -1,7 +1,7 @@
 class Item < ApplicationRecord
     validates :shop_id, :category_id, presence: true
     validates :title, :description, :price, :fav_count, presence: true
-    validates :avg_rating, inclusion: { in: (1..5) }
+    validates :avg_rating, inclusion: { in: (0..5) }
     validates :favorite, inclusion: { in: [true, false]}
 
     has_many_attached :photos
