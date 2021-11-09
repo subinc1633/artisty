@@ -5,7 +5,7 @@ class Item < ApplicationRecord
     validates :favorite, inclusion: { in: [true, false]}
 
     has_many_attached :photos
-    has_many :reviews, dependent: destroy
+    has_many :reviews
     belongs_to :shop
     belongs_to :category
 end

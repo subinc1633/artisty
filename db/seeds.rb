@@ -96,7 +96,7 @@ item1 = Item.create!(
     },
     favorite: false,
     fav_count: 1003,
-    avg_rating: 4.5
+    avg_rating: 0
 )
 item1file = open('https://artisty-seeds.s3.amazonaws.com/chicken.png')
 item1.photos.attach(io: item1file, filename: 'chicken.png')
@@ -112,7 +112,7 @@ item2 = Item.create!(
     },
     favorite: false,
     fav_count: 3023,
-    avg_rating: 4.8
+    avg_rating: 0
 )
 item2file = open('https://artisty-seeds.s3.amazonaws.com/wwy.png')
 item2.photos.attach(io: item2file, filename: 'wwy.png')
@@ -128,7 +128,7 @@ item3 = Item.create!(
     },
     favorite: false,
     fav_count: 1083,
-    avg_rating: 5
+    avg_rating: 0
 )
 item3file = open('https://artisty-seeds.s3.amazonaws.com/star.jpeg')
 item3.photos.attach(io: item3file, filename: 'star.jpeg')
@@ -144,7 +144,7 @@ item4 = Item.create!(
     },
     favorite: false,
     fav_count: 3934,
-    avg_rating: 5
+    avg_rating: 0
 )
 item4file = open('https://artisty-seeds.s3.amazonaws.com/bakugou.jpeg')
 item4.photos.attach(io: item4file, filename: 'bakugou.jpeg')
@@ -165,7 +165,7 @@ item5 = Item.create!(
     price: 20.50,
     favorite: false,
     fav_count: 1134,
-    avg_rating: 5
+    avg_rating: 0
 )
 item5file = open('https://artisty-seeds.s3.amazonaws.com/get-out.jpeg')
 item5.photos.attach(io: item5file, filename: 'get-out.jpeg')
@@ -178,7 +178,7 @@ item6 = Item.create!(
     price: 17.50,
     favorite: false,
     fav_count: 2012,
-    avg_rating: 4.8
+    avg_rating: 0
 )
 item6file = open('https://artisty-seeds.s3.amazonaws.com/pepero.jpeg')
 item6.photos.attach(io: item6file, filename: 'pepero.jpeg')
@@ -191,7 +191,7 @@ item7 = Item.create!(
     price: 14.00,
     favorite: false,
     fav_count: 2304,
-    avg_rating: 4.5
+    avg_rating: 0
 )
 item7file = open('https://artisty-seeds.s3.amazonaws.com/power.jpeg')
 item7.photos.attach(io: item7file, filename: 'power.jpeg')
@@ -204,7 +204,7 @@ item8 = Item.create!(
     price: 18.00,
     favorite: false,
     fav_count: 1049,
-    avg_rating: 4.6
+    avg_rating: 0
 )
 item8file = open('https://artisty-seeds.s3.amazonaws.com/mj.jpeg')
 item8.photos.attach(io: item8file, filename: 'mj.jpeg')
@@ -217,7 +217,7 @@ item9 = Item.create!(
     price: 21.00,
     favorite: false,
     fav_count: 4895,
-    avg_rating: 4.9
+    avg_rating: 0
 )
 item9file = open('https://artisty-seeds.s3.amazonaws.com/jjk.jpeg')
 item9.photos.attach(io: item9file, filename: 'jjk.jpeg')
@@ -230,7 +230,7 @@ item10 = Item.create!(
     price: 15.00,
     favorite: false,
     fav_count: 2393,
-    avg_rating: 4.7
+    avg_rating: 0
 )
 item10file = open('https://artisty-seeds.s3.amazonaws.com/clouds.jpeg')
 item10.photos.attach(io: item10file, filename: 'clouds.jpeg')
@@ -243,7 +243,7 @@ item11 = Item.create!(
     price: 10.00,
     favorite: false,
     fav_count: 233,
-    avg_rating: 4.5
+    avg_rating: 0
 )
 item11file = open('https://artisty-seeds.s3.amazonaws.com/kh.png')
 item11.photos.attach(io: item11file, filename: 'kh.png')
@@ -256,7 +256,7 @@ item12 = Item.create!(
     price: 15.00,
     favorite: false,
     fav_count: 2354,
-    avg_rating: 4.7
+    avg_rating: 0
 )
 item12file = open('https://artisty-seeds.s3.amazonaws.com/zed.jpeg')
 item12.photos.attach(io: item12file, filename: 'zed.jpeg')
@@ -269,7 +269,7 @@ item13 = Item.create!(
     price: 15.00,
     favorite: false,
     fav_count: 2093,
-    avg_rating: 4.5
+    avg_rating: 0
 )
 item13file = open('https://artisty-seeds.s3.amazonaws.com/some-dude.jpeg')
 item13.photos.attach(io: item13file, filename: 'some-dude.jpeg')
@@ -282,7 +282,7 @@ item14 = Item.create!(
     price: 100.00,
     favorite: false,
     fav_count: 23,
-    avg_rating: 2.8
+    avg_rating: 0
 )
 item14file = open('https://artisty-seeds.s3.amazonaws.com/ez.jpeg')
 item14.photos.attach(io: item14file, filename: 'ez.jpeg')
@@ -298,7 +298,7 @@ item15 = Item.create!(
     },
     favorite: false,
     fav_count: 3133,
-    avg_rating: 4
+    avg_rating: 0
 )
 item15file = open('https://artisty-seeds.s3.amazonaws.com/jinx.jpeg')
 item15.photos.attach(io: item15file, filename: 'jinx.jpeg')
@@ -317,7 +317,7 @@ item16 = Item.create!(
     price: 15.00,
     favorite: false,
     fav_count: 2305,
-    avg_rating: 4.2
+    avg_rating: 0
 )
 item16file = open('https://artisty-seeds.s3.amazonaws.com/tomato.jpeg')
 item16.photos.attach(io: item16file, filename: 'tomato.jpeg')

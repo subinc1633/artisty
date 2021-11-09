@@ -1,4 +1,4 @@
-export const allReviews = ({ reviews }) => Object.keys(reviews).map(id => reviews[id]);
+export const allReviews = ({ reviews }) => reviews ? Object.keys(reviews).map(id => reviews[id]) : null;
 
 export const itemsByCategoryId = ({ items }, categoryId) => {
     const itemsByCategoryId = [];

@@ -15,7 +15,6 @@ const App = () => {
         <div>
             <NavBarContainer />
             <Modal />
-            <Footer />
             <Switch>
                 <Route exact path='/' component={Splash} />
                 <Route path='/users/:userId' component={UserShowContainer} />
@@ -24,6 +23,7 @@ const App = () => {
                 <Route path='/categories' component={CategoryIndexContainer} />
                 <Redirect to='/404' />
             </Switch>
+            <Footer />
         </div>
     )
 };

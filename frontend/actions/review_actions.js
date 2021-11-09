@@ -26,25 +26,25 @@ export const reviewError = error => ({
     error
 });
 
-export const fetchReviews = () => dispatch => (
-    ReviewApiUtil.fetchReviews().then(reviews => dispatch(receiveAllReviews(reviews)))
+export const fetchReviews = itemId => dispatch => (
+    ReviewApiUtil.fetchReviews(itemId).then(reviews => dispatch(receiveAllReviews(reviews)))
 );
 
-export const createReview = review => dispatch => (
-    ReviewApiUtil.createReview(review).then(review => {
+export const createReview = (itemId, review) => dispatch => (
+    ReviewApiUtil.createReview(itemId, review).then(review => {
         dispatch(receiveReview(review));
         dispatch(clearErrors())
     }, (err => dispatch(receiveErrors(err.responseJSON))))
 );
 
-export const updateReview = review => dispatch => (
-    ReviewApiUtil.updateReview(review).then(review => {
+export const updateReview = (itemId, review) => dispatch => (
+    ReviewApiUtil.updateReview(itemId, review).then(review => {
         dispatch(receiveReview(review));
         dispatch(clearErrors())
     },
     err => dispatch(receiveErrors(err.responseJSON)))
 );
 
-export const deleteReview = reviewId => dispatch => (
-    ReviewApiUtil.deleteReview(reviewId).then(() => dispatch(removeReview(reviewId)))
+export const deleteReview = (itemId, reviewId) => dispatch => (
+    ReviewApiUtil.deleteReview(itemId, reviewId).then(() => dispatch(removeReview(reviewId)))
 );

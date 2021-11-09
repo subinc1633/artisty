@@ -1,6 +1,7 @@
 import React from 'react';
 import OptionValueItem from './option_value_item';
 import Carousel from './carousel';
+import ReviewIndexContainer from '../reviews/review_index_container';
 
 class ItemShow extends React.Component {
     constructor(props) {
@@ -26,7 +27,7 @@ class ItemShow extends React.Component {
         });
 
         return (
-            <div>
+            <div className='item-show-container'>
                 { !item ? null :
                 (
                     <div className='item-show-page'>
@@ -40,7 +41,7 @@ class ItemShow extends React.Component {
                                 }
                             </div>
                             <div className='reviews'>
-
+                                <ReviewIndexContainer />
                             </div>
                         </div>
                         <div className='right-item-column'>

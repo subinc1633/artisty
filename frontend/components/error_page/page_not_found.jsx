@@ -11,7 +11,7 @@ class PageNotFound extends React.Component {
                 </nav>
                 <section className='page-not-found'>
                     <h1>Ooops... nothing to see here!</h1>
-                        <p>Sorry, the page you're looking for is not found.</p><br/>
+                        <p>Sorry, the page you're looking for is not available.</p><br/>
                         <p className='searchbar'>
                             <input type='text' placeholder='Search for anything' />
                         <button type='submit'><IoSearch /></button>

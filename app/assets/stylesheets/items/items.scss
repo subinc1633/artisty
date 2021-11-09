@@ -1,6 +1,13 @@
+.item-show-container {
+    height: 100%;
+    display: block;
+}
+
 .item-show-page {
     display: flex;
     justify-content: space-evenly;
+    position: relative;
+    margin-top: 20px;
 }
 
 .carousel-container {
@@ -15,13 +22,17 @@
 
 .item-image {
     width: 40vw;
+    height: 35vw;
+    object-fit: cover;
 }
 
 .left-item-column {
-
+    display: block;
+    z-index: 1;
 }
 
 .right-item-column {
+    line-height: 30px;
     h1 {
         font-family: $sec-font;
         font-size: 25px;
