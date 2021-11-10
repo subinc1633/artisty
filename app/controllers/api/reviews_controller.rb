@@ -4,7 +4,7 @@ class Api::ReviewsController < ApplicationController
     def create
         @review = Review.new(review_params)
 
-        if @review.save!
+        if @review.save
             render 'api/reviews/show'
         else
             render json: @review.errors.full_messages, status: 422
@@ -24,7 +24,7 @@ class Api::ReviewsController < ApplicationController
     def destroy
         @review = Review.find(params[:id])
         @review.destroy
-        render 'api/reviews/show'
+        render json: ['deleted'], status: 200
     end
 
     private

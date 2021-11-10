@@ -26,6 +26,7 @@ class ItemShow extends React.Component {
             currency: 'USD',
         });
 
+
         return (
             <div className='item-show-container'>
                 { !item ? null :
@@ -42,18 +43,18 @@ class ItemShow extends React.Component {
                                 <img className='item-image' src={`${item.photoUrl[0].url}`} />
                             </div>
                             <div className='reviews'>
-                                <ReviewIndexContainer item={item} />
+                                <ReviewIndexContainer item={item} reviews={item.reviews} />
                             </div>
                         </div>
                         <div className='right-item-column'>
                             {item.shop_id}
                             <h1>{item.title}</h1> 
-                            <p>{currencyFormat.format(item.price)}</p>
+                            <p className='item-show-price'>{currencyFormat.format(item.price)}</p>
                             <form>
                                 { item.options ? 
                                     Object.entries(item.options).map(([key, val], idx) => (
                                     <label key={idx}>{key}<br/>
-                                        <select className='' name={key}>
+                                        <select className='item-select' name={key}>
                                             <option value='Select an option'>Select an option</option>
                                             <OptionValueItem val={val} />
                                         </select>
@@ -77,7 +78,7 @@ class ItemShow extends React.Component {
                                 <br/><br/>
                                 <button>Add to cart</button><br/>
                             </form>
-                            Description<br/>
+                            <button>Description</button><br/>
                             {item.description}
                         </div>
                     </div>

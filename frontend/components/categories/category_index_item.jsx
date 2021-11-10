@@ -1,15 +1,13 @@
 import React from 'react';
 
 const CategoryIndexItem = (props) => {
-    
-    
     return (
-        <li>
-            <span className='category-index-image'>
-                <img src={`${props.category.photoUrl[0].url}`} />
+        <li className='category-index-item'>
+            <span className='category-picture'>
+                <img className='category-index-image' src={`${props.category.photoUrl[0].url}`} />
             </span>
             <span className='category-index-title'>
-                {props.title}
+                {props.category.title}
             </span>
         </li>
     )

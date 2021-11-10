@@ -27,8 +27,11 @@ class CategoryShow extends React.Component {
             <div>
                 { action ? (
                     <div>
-                        <h1 className='page-header'>{action.category.title}</h1>
-                        <h2 className='category-description'>{action.category.description}</h2>
+                        <div className='category-header'>
+                            <h1>{action.category.title}</h1>
+                            {action.category.description}
+                        </div>
+                        
                         <h3>Find something you love</h3>
                         
                     </div>

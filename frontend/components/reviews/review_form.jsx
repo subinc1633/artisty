@@ -5,7 +5,6 @@ const ReviewForm = props => {
     const [rating, setRating] = useState(props.rating);
     const [hover, setHover] = useState(0);
     const [content, setContent] = useState(props.content);
-    const [openForm, setOpenForm] = useState(true);
     const [state, setState] = useState(props.review);
     
     const handleSubmit = e => {
@@ -17,25 +16,24 @@ const ReviewForm = props => {
             item_id: props.item.id
         };
 
-        console.log(props.review)
-
         const updatedReview = () => {
-            props.review ? ({id: props.review.id,
-            content: content,
-            rating: rating,
-            reviewer_id: props.currentUser.id,
-            item_id: props.item.id}) : null
+            return props.review ? ({
+                id: props.review.id,
+                content: content,
+                rating: rating,
+                reviewer_id: props.currentUser.id,
+                item_id: props.item.id}) : ''
         };
 
         if (props.formType === 'Create') {
             props.createReview(props.item.id, review)
-            .then(() => setState(review));
+            .then(() => setState(review))
+            .then(() => props.toggleOpen(e));
         } else if (props.formType === 'Update') {
             props.updateReview(props.item.id, updatedReview())
-            .then(() => setState(updatedReview()));
+            .then(() => setState(updatedReview()))
+            .then(() => props.toggleOpen(e));
         }
-        
-        setOpenForm(false);
     }
 
     const updateContent = () => {
@@ -56,7 +54,7 @@ const ReviewForm = props => {
         )
     }
 
-    return openForm ? (
+    return (
         <div>
             <form className='review-form' onSubmit={(e) => handleSubmit(e)}>
                 {renderErrors()}
@@ -81,15 +79,13 @@ const ReviewForm = props => {
                 }<br/><br/>
                 <textarea
                     className='content'
-                    rows='10'
-                    cols='60'
                     onChange={updateContent()}
                     defaultValue={content}>
                 </textarea><br/>
-                <button>Submit</button> or <span className='review-form-link' onClick={() => setOpenForm(false)}>Close</span>
+                <button>Submit</button> OR <span className='review-form-toggle' onClick={(e) => props.toggleOpen(e)}>Close</span>
             </form>
         </div>
-    ) : null;
+    )
 };
 
 export default ReviewForm;

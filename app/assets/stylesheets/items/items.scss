@@ -3,6 +3,7 @@
 .item-show-container {
     height: 100%;
     display: block;
+    font-size: 14px;
 }
 
 .item-show-page {
@@ -40,18 +41,35 @@
         font-family: $sec-font;
         font-size: 25px;
     }
+    .item-show-price {
+        font-size: 26px;
+        font-weight: 500;
+        padding: 15px 0;
+    }
+    label {
+        font-weight: 300;
+    }
     select {
         @include form-input;
+        margin: 5px 0;
+        padding-right: 10px;
         width: 80%;
         height: 45px;
         border-radius: 5px;
-        box-shadow: 0 0 10px $lightest-gray;
+        box-shadow: 0 0 5px $lightest-gray;
         &:hover {
-            box-shadow: 0 0 10px #d4d4d4;
+            box-shadow: 0 0 5px #d4d4d4;
+        }
+        &::after {
+            content: '\25be';
+            position: absolute;
+            top: 0;
+            right: 0;
         }
     }
     button {
         @include dark-button;
         width: 80%;
+        margin-bottom: 20px;
     }
 }

@@ -10,7 +10,7 @@ class ReviewIndexItem extends React.Component {
             openForm: false
         }
 
-        this.updateReview = this.updateReview.bind(this);
+        this.toggleOpen = this.toggleOpen.bind(this);
         this.removeReview = this.removeReview.bind(this);
     }
 
@@ -20,12 +20,16 @@ class ReviewIndexItem extends React.Component {
 
     removeReview(e) {
         e.preventDefault;
-        this.props.deleteReview(this.props.item.id, this.props.review.id);
+        this.props.deleteReview(this.props.review.itemId, this.props.review.id);
     }
 
-    updateReview(e) {
-        e.preventDefault();
-        this.setState({ openForm: true });
+    toggleOpen(e) {
+        e.preventDefault;
+        if (this.state.openForm) {
+            this.setState({ openForm: false });
+        } else {
+            this.setState({ openForm: true });
+        }
     }
     
     render() {
@@ -43,9 +47,9 @@ class ReviewIndexItem extends React.Component {
         const currentDate = date.toLocaleDateString(undefined, options);
         
         if (reviewer()) {
-            return this.state.openForm ? (<UpdateFormContainer item={item} currentUser={currentUser} content={review.content} review={review} />) : (
+            return this.state.openForm ? (<UpdateFormContainer toggleOpen={this.toggleOpen} item={item} currentUser={currentUser} content={review.content} review={review} />) : (
             <div className='review-item'>
-                <Link to={`/users/${reviewer().id}`}>{reviewer().name}</Link> {currentDate}
+                <span className='review-name-date'><Link to={`/users/${reviewer().id}`}>{reviewer().name}</Link> {currentDate}</span>
                 <p className='review-rating'>
                     {
                         [...Array(5)].map((star, idx) => (
@@ -54,15 +58,12 @@ class ReviewIndexItem extends React.Component {
                     }
                 </p>
                 <p className='review-content'>{review.content}</p>
-                <br/>
-                <p>Purchased item:</p>
-                <img className='review-thumbnail' src={`${reviewedItem.photoUrl[0].url}`} /> <Link to={`/items/${reviewedItem.id}`}>{reviewedItem.title}</Link>
-                <br/>
+                <br/><br/>
                     <button className='helpful-button'><IoThumbsUpSharp/> Helpful?</button>
                     {currentUser === reviewer() ?
-                        <p>
-                            <span className='edit-delete-link' onClick={this.updateReview}>Edit</span> | <span className='edit-delete-link' onClick={this.removeReview}>Delete</span>
-                        </p> : null }
+                        <span>
+                            <span className='edit-delete-link' onClick={this.toggleOpen}>Edit</span> | <span className='edit-delete-link' onClick={this.removeReview}>Delete</span>
+                        </span> : null }
             </div>
         )} else { return null }
     }

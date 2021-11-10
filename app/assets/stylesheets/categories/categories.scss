@@ -1,12 +1,69 @@
-.category-index {
-    .category-index-image {
-        width: 20%;
-        height: 20%;
-        object-fit: cover;
-        border-radius: 50%;
-        background-color: $color;
-        &:hover {
-            opacity: 0.8;
+.category-header {
+    @include page-header;
+    text-align: left;
+    font-size: 30px;
+    height: 100px;
+    background-color: #f6ebe7;
+    padding-left: 5%;
+}
+
+.category-index-categories {
+    margin-left: 30vw;
+    position: relative;
+    ul {
+        width: 60vw;
+        height: auto;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-evenly;
+        z-index: 2;
+        margin-top: -120px;
+        position: absolute;
+    }
+}
+
+.category-index-item {
+    margin: 30px 40px;
+    width: 180px;
+    height: 180px;
+    cursor: pointer;
+    .category-picture {
+        background: #ffffff;
+        .category-index-image {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            object-fit: cover;
+            &:hover {
+                opacity: 0.7;
+            }
+            // &::after {
+            //     content: '';
+            //     position: absolute;
+            //     width: 100%;
+            //     height: 100%;
+            //     top: 0;
+            //     left: 0;
+            //     background: rgba(0,0,0,0.2);
+            //     opacity: 0;
+            // }
+    }
+    }
+    .category-index-title {
+        display: inline-block;
+        text-align: center;
+        font-weight: 600;
+        margin-top: 20px;
+        width: 100%;
+    }
+    &:hover {
+        a {
+            text-decoration: underline;
+            color: $light-gray;
         }
     }
+}
+
+.category-content {
+    height: 100vh;
 }

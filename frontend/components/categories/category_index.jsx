@@ -9,13 +9,23 @@ class CategoryIndex extends React.Component {
     render() {
         return (
             <div>
-                <ul>
-                    {
-                        this.props.categories.map((category, idx) => (
-                            <CategoryIndexItem key={idx} category={category} />
-                        ))
-                    }
-                </ul>
+                <div className='category-header'>
+                    All Categories
+                </div>
+                <div className='category-index-categories'>
+                    <ul>
+                        {
+                            this.props.categories.map((category, idx) => (
+                                <CategoryIndexItem key={idx} category={category} />
+                            ))
+                        }
+                    </ul>
+                </div>
+                <div className='category-index-fanart'>
+                    {/* <h1>Fanart</h1> */}
+                </div>
+                <div className='category-content'>
+                </div>
             </div>
         )
     }

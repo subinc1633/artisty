@@ -1,14 +1,13 @@
 import React from 'react';
 import ReviewIndexItem from './review_index_item';
-import ReviewForm from './review_form';
 import CreateFormContainer from './create_form_container';
+import { IoStar, IoStarOutline } from 'react-icons/io5';
 
 class ReviewIndex extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            openForm: false,
-            avgRating: 0
+            openForm: false
         }
 
         this.toggleOpen = this.toggleOpen.bind(this);
@@ -24,36 +23,29 @@ class ReviewIndex extends React.Component {
     }
 
     componentDidMount() {
-        this.props.fetchReviews(this.props.item.id);
         this.props.fetchUsers();
     }
 
-    componentDidUpdate(prevProps) {
-        if (this.props.reviews !== prevProps.reviews) {
-            this.props.fetchReviews(this.props.item.id);
-        }
-    }
-    
     render() {
-        const { reviews, currentUser, reviewers, item, fetchReviews, deleteReview } = this.props;
+        const { reviews, currentUser, reviewers, item, deleteReview } = this.props;
 
         const reviewIndexItems = [];
         
-        reviews ? reviews.forEach((review, idx) => (
-            reviewIndexItems.unshift(<ReviewIndexItem 
-                key={idx}
-                review={review}
-                reviewers={reviewers}
-                fetchReviews={fetchReviews}
-                item={item}
-                currentUser={currentUser}
-                deleteReview={deleteReview}
-            />)
-        )) : null;
+        if (reviews) { for (let [key, review] of Object.entries(reviews)) {
+                reviewIndexItems.unshift(<ReviewIndexItem
+                    key={key}
+                    review={review}
+                    reviewers={reviewers}
+                    toggleOpen={this.toggleOpen}
+                    item={item}
+                    currentUser={currentUser}
+                    deleteReview={deleteReview}
+                />)
+        }} else { return null }
 
         const checkOpen = () => {
             if (this.state.openForm) {
-                return <CreateFormContainer item={item} currentUser={currentUser} />
+                return <CreateFormContainer toggleOpen={this.toggleOpen} item={item} currentUser={currentUser} />
             } else {
                 return null;
             }
@@ -62,11 +54,25 @@ class ReviewIndex extends React.Component {
         const noReviews = <h4>There are no reviews for this item.</h4>
         const checkForReview = reviewIndexItems.length === 0 ? noReviews : reviewIndexItems;
 
+        const ratings = []
+        item ? Object.values(item.reviews).forEach(review => {
+            ratings.push(review.rating)
+        }) : null;
+        const avgRating = item && ratings.length > 0 ? Math.round(ratings.reduce((acc, el) => acc + el, 0) / ratings.length) : 0;
+
         return (
             <div className='review-index'>
-                <h1>{reviewIndexItems.length} Reviews</h1>
+                <h3 className='review-total-count'>{reviewIndexItems.length} Reviews</h3>
+                <span className='review-rating'>
+                    {
+                        [...Array(5)].map((star, idx) => (
+                            idx + 1 <= avgRating ? <IoStar key={idx} /> : <IoStarOutline key={idx} />)
+                        )
+                    }
+                </span><br/>
                 {currentUser ? <button className='create-review-button' onClick={this.toggleOpen}>Create a review</button> : null}
                 {checkOpen()}
+                <hr/>
                 <ul>
                     {checkForReview}
                 </ul>

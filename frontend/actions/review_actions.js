@@ -1,28 +1,19 @@
 import * as ReviewApiUtil from '../util/review_api_util';
 import { receiveErrors, clearErrors } from './error_actions';
 
-export const RECEIVE_ALL_REVIEWS = 'RECEIVE_ALL_REVIEWS';
 export const RECEIVE_REVIEW = 'RECEIVE_REVIEW';
 export const REMOVE_REVIEW = 'REMOVE_REVIEW';
-
-export const receiveAllReviews = reviews => ({
-    type: RECEIVE_ALL_REVIEWS,
-    reviews
-});
 
 export const receiveReview = review => ({
     type: RECEIVE_REVIEW,
     review
 });
 
-export const removeReview = reviewId => ({
+export const removeReview = (itemId, reviewId) => ({
     type: REMOVE_REVIEW,
+    itemId,
     reviewId
 });
-
-export const fetchReviews = itemId => dispatch => (
-    ReviewApiUtil.fetchReviews(itemId).then(reviews => dispatch(receiveAllReviews(reviews)))
-);
 
 export const createReview = (itemId, review) => dispatch => (
     ReviewApiUtil.createReview(itemId, review)
@@ -30,12 +21,13 @@ export const createReview = (itemId, review) => dispatch => (
         err => dispatch(receiveErrors(err.responseJSON)))
 );
 
-export const updateReview = (itemId, review) => dispatch => (
+export const updateReview = (itemId, review) => dispatch => {
+    return (
     ReviewApiUtil.updateReview(itemId, review)
     .then(review => { dispatch(receiveReview(review)); dispatch(clearErrors()) },
         err => dispatch(receiveErrors(err.responseJSON)))
-);
+)};
 
 export const deleteReview = (itemId, reviewId) => dispatch => (
-    ReviewApiUtil.deleteReview(itemId, reviewId).then(() => dispatch(removeReview(reviewId)))
+    ReviewApiUtil.deleteReview(itemId, reviewId).then(() => dispatch(removeReview(itemId, reviewId)))
 );

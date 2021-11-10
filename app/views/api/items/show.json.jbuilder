@@ -6,6 +6,10 @@ json.photoUrl @item.photos.map do |photo|
     json.url url_for(photo)
 end
 
-json.reviews @reviews.each do |review|
-    json.extract! review, :id, :rating, :content, :reviewer_id, :item_id
+json.set! :reviews do
+    @item.reviews.each do |review|
+        json.set! review.id do
+            json.extract! review, :id, :rating, :content, :reviewer_id, :item_id
+        end
+    end
 end
