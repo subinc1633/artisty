@@ -13,6 +13,81 @@
 }
 
 .splash-header {
+    margin-top: 180px;
     font-family: $sec-font;
-    font-size: 35px;
+    font-size: 45px;
+    text-align: center;
+}
+
+.our-picks {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.left-splash-text {
+    font-size: 25px;
+    line-height: 40px;
+    font-weight: 500;
+    margin-left: 1%;
+}
+
+.splash-fanart-container {
+    margin-top: 80px;
+    .splash-fanart-arrow {
+        font-size: 20px;
+        margin-left: 10px;
+    }
+    .splash-fanart-description {
+        font-size: 16px;
+        font-weight: 300;
+        line-height: 25px;
+        color: $lighter-gray;
+    }
+}
+
+.random-items {
+    display: flex;
+    justify-content: flex-end;
+    ul {
+        display: flex;
+        margin-right: 1%;
+        .splash-item {
+            margin: 0 5px;
+            width: 16vw;
+            height: 26vh;
+            border-radius: 10px;
+            transition: $transition;
+            position: relative;
+            .splash-item-image {
+                width: 100%;
+                height: 100%;
+                border-radius: 10px;
+                object-fit: cover;
+            }
+            .splash-item-price-container {
+                position: absolute;
+                bottom: 0;
+                left: 0;
+                .splash-item-price {
+                    display: inline-block;
+                    font-size: 12px;
+                    font-weight: 500;
+                    background: #ffffff;
+                    padding: 7px;
+                    border-radius: 20px;
+                    border: 1px solid $lightest-gray;
+                    margin-left: 10px;
+                    margin-bottom: 10px;
+                }
+            }
+            &:hover {
+                box-shadow: $splash-item-shadow;
+            }
+        }
+    }
+}
+
+.splash-fanart-items {
+
 }

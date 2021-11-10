@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   
   namespace :api, defaults: { format: :json } do
     resources :users, only: [:index, :show, :create]
-    resources :items, only: [:show] do
+    resources :items, only: [:index, :show] do
       resources :reviews, only: [:create, :update, :destroy]
     end
     resources :shops, only: [:show]

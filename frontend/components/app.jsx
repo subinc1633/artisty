@@ -1,5 +1,5 @@
 import React from 'react';
-import Splash from './splash/splash';
+import SplashContainer from './splash/splash_container';
 import { Route, Switch, Redirect } from 'react-router';
 import { AuthRoute, ProtectedRoute } from '../util/route_util';
 import UserShowContainer from './users/user_show_container';
@@ -16,7 +16,7 @@ const App = () => {
             <NavBarContainer />
             <Modal />
             <Switch>
-                <Route exact path='/' component={Splash} />
+                <Route exact path='/' component={SplashContainer} />
                 <Route path='/users/:userId' component={UserShowContainer} />
                 <Route path='/categories/:categoryId' component={CategoryShowContainer} />
                 <Route path='/items/:itemId' component={ItemShowContainer} />

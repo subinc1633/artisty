@@ -60,12 +60,6 @@
         &:hover {
             box-shadow: 0 0 5px #d4d4d4;
         }
-        &::after {
-            content: '\25be';
-            position: absolute;
-            top: 0;
-            right: 0;
-        }
     }
     button {
         @include dark-button;

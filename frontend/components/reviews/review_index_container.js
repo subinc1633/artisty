@@ -3,7 +3,7 @@ import { deleteReview } from '../../actions/review_actions';
 import { fetchUsers } from '../../actions/user_actions';
 import ReviewIndex from './review_index';
 
-const mSTP = (state, ownProps) => ({
+const mSTP = (state) => ({
     reviewers: Object.values(state.entities.users),
     currentUser: state.entities.users[state.session.id]
 });

@@ -1,4 +1,4 @@
-import { RECEIVE_ITEM } from '../actions/item_actions';
+import { RECEIVE_ALL_ITEMS, RECEIVE_ITEM } from '../actions/item_actions';
 import {
     RECEIVE_REVIEW,
     REMOVE_REVIEW
@@ -9,6 +9,8 @@ const itemsReducer = (state = {}, action) => {
     let item;
     let nextState;
     switch (action.type) {
+        case RECEIVE_ALL_ITEMS:
+            return action.items;
         case RECEIVE_ITEM:
             return Object.assign({}, state, { [action.item.id]: action.item});
         case RECEIVE_REVIEW:
