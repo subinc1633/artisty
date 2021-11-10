@@ -19,20 +19,20 @@ const ReviewForm = props => {
 
         console.log(props.review)
 
-        const updatedReview = {
-            id: props.review.id,
+        const updatedReview = () => {
+            props.review ? ({id: props.review.id,
             content: content,
             rating: rating,
             reviewer_id: props.currentUser.id,
-            item_id: props.item.id
+            item_id: props.item.id}) : null
         };
 
         if (props.formType === 'Create') {
             props.createReview(props.item.id, review)
             .then(() => setState(review));
         } else if (props.formType === 'Update') {
-            props.updateReview(props.item.id, updatedReview)
-            .then(() => setState(updatedReview));
+            props.updateReview(props.item.id, updatedReview())
+            .then(() => setState(updatedReview()));
         }
         
         setOpenForm(false);

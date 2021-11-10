@@ -1,0 +1,12 @@
+.category-index {
+    .category-index-image {
+        width: 20%;
+        height: 20%;
+        object-fit: cover;
+        border-radius: 50%;
+        background-color: $color;
+        &:hover {
+            opacity: 0.8;
+        }
+    }
+}

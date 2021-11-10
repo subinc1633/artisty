@@ -1,9 +1,9 @@
 import { connect } from 'react-redux';
-import { fetchCategories } from '../../util/category_api_util';
+import { fetchCategories } from '../../actions/category_actions';
 import CategoryIndex from './category_index';
 
-const mSTP = ({entities: categories}) => ({
-    categories
+const mSTP = (state) => ({
+    categories: Object.values(state.entities.categories)
 });
 
 const mDTP = dispatch => ({
