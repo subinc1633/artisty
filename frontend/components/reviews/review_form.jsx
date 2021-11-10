@@ -17,8 +17,14 @@ const ReviewForm = props => {
             item_id: props.item.id
         };
 
-        const updatedReview = () => {
-            state ? Object.assign({}, review, { id: state.id }) : null
+        console.log(props.review)
+
+        const updatedReview = {
+            id: props.review.id,
+            content: content,
+            rating: rating,
+            reviewer_id: props.currentUser.id,
+            item_id: props.item.id
         };
 
         if (props.formType === 'Create') {
@@ -26,7 +32,7 @@ const ReviewForm = props => {
             .then(() => setState(review));
         } else if (props.formType === 'Update') {
             props.updateReview(props.item.id, updatedReview)
-            .then(() => setState(updatedReview()));
+            .then(() => setState(updatedReview));
         }
         
         setOpenForm(false);
