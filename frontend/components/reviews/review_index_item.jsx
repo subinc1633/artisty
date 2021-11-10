@@ -1,5 +1,5 @@
 import React from 'react';
-import ReviewForm from './review_form';
+import UpdateFormContainer from './update_form_container';
 import { Link } from 'react-router-dom';
 import { IoStar, IoStarOutline, IoThumbsUpSharp } from 'react-icons/io5';
 
@@ -26,7 +26,6 @@ class ReviewIndexItem extends React.Component {
     updateReview(e) {
         e.preventDefault();
         this.setState({ openForm: true });
-        this.props.updateReview(this.props.item.id, this.props.review.id);
     }
     
     render() {
@@ -44,7 +43,7 @@ class ReviewIndexItem extends React.Component {
         const currentDate = date.toLocaleDateString(undefined, options);
         
         if (reviewer()) {
-            return this.state.openForm ? (<ReviewForm content={review.content} reviewedItem={reviewedItem} review={review} />) : (
+            return this.state.openForm ? (<UpdateFormContainer item={item} currentUser={currentUser} content={review.content} review={review} />) : (
             <div className='review-item'>
                 <Link to={`/users/${reviewer().id}`}>{reviewer().name}</Link> {currentDate}
                 <p className='review-rating'>
@@ -62,8 +61,7 @@ class ReviewIndexItem extends React.Component {
                     <button className='helpful-button'><IoThumbsUpSharp/> Helpful?</button>
                     {currentUser === reviewer() ?
                         <p>
-                            <span className='edit-delete-link' onClick={this.updateReview}>Edit</span> | 
-                            <span className='edit-delete-link' onClick={this.removeReview}>Delete</span>
+                            <span className='edit-delete-link' onClick={this.updateReview}>Edit</span> | <span className='edit-delete-link' onClick={this.removeReview}>Delete</span>
                         </p> : null }
             </div>
         )} else { return null }

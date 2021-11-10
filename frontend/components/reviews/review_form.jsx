@@ -2,11 +2,11 @@ import React, { useEffect, useState } from 'react';
 import { IoStar, IoStarOutline } from 'react-icons/io5';
 
 const ReviewForm = props => {
-    const [rating, setRating] = useState(0);
+    const [rating, setRating] = useState(props.rating);
     const [hover, setHover] = useState(0);
     const [content, setContent] = useState(props.content);
     const [openForm, setOpenForm] = useState(true);
-    const [state, setState] = useState({});
+    const [state, setState] = useState(props.review);
     
     const handleSubmit = e => {
         e.preventDefault();
@@ -14,10 +14,21 @@ const ReviewForm = props => {
             content: content,
             rating: rating,
             reviewer_id: props.currentUser.id,
-            item_id: props.itemId
+            item_id: props.item.id
         };
-        props.createReview(props.itemId, review)
-        .then(() => setState(review));
+
+        const updatedReview = () => {
+            state ? Object.assign({}, review, { id: state.id }) : null
+        };
+
+        if (props.formType === 'Create') {
+            props.createReview(props.item.id, review)
+            .then(() => setState(review));
+        } else if (props.formType === 'Update') {
+            props.updateReview(props.item.id, updatedReview)
+            .then(() => setState(updatedReview()));
+        }
+        
         setOpenForm(false);
     }
 
@@ -67,7 +78,7 @@ const ReviewForm = props => {
                     rows='10'
                     cols='60'
                     onChange={updateContent()}
-                    defaultValue='Write your review here!'>
+                    defaultValue={content}>
                 </textarea><br/>
                 <button>Submit</button> or <span className='review-form-link' onClick={() => setOpenForm(false)}>Close</span>
             </form>

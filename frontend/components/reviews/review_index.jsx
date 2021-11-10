@@ -1,6 +1,7 @@
 import React from 'react';
 import ReviewIndexItem from './review_index_item';
 import ReviewForm from './review_form';
+import CreateFormContainer from './create_form_container';
 
 class ReviewIndex extends React.Component {
     constructor(props) {
@@ -28,13 +29,13 @@ class ReviewIndex extends React.Component {
     }
 
     componentDidUpdate(prevProps) {
-        if (this.props.item.reviews !== prevProps.item.reviews) {
+        if (this.props.reviews !== prevProps.reviews) {
             this.props.fetchReviews(this.props.item.id);
         }
     }
     
     render() {
-        const { reviews, currentUser, reviewers, item, errors, fetchReviews, createReview, updateReview, deleteReview } = this.props;
+        const { reviews, currentUser, reviewers, item, fetchReviews, deleteReview } = this.props;
 
         const reviewIndexItems = [];
         
@@ -46,22 +47,13 @@ class ReviewIndex extends React.Component {
                 fetchReviews={fetchReviews}
                 item={item}
                 currentUser={currentUser}
-                updateReview={updateReview}
                 deleteReview={deleteReview}
             />)
         )) : null;
 
         const checkOpen = () => {
             if (this.state.openForm) {
-                return <ReviewForm
-                    fetchReviews={fetchReviews} 
-                    createReview={createReview}
-                    itemId={item.id}
-                    content=''
-                    currentUser={currentUser}
-                    errors={errors}
-                    onChange={this.toggleOpen}
-                />
+                return <CreateFormContainer item={item} currentUser={currentUser} />
             } else {
                 return null;
             }

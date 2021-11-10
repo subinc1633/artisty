@@ -11,8 +11,12 @@ const itemsReducer = (state = {}, action) => {
         case RECEIVE_ITEM:
             return Object.assign({}, state, { [action.item.id]: action.item});
         case RECEIVE_ALL_REVIEWS:
-            const reviewedItem = state[action.reviews[0].itemId];
-            return Object.assign({}, state, { [reviewedItem.id]: reviewedItem });
+            if (action.reviews.length > 0) {
+                const reviewedItem = state[action.reviews[0].itemId];
+                return Object.assign({}, state, { [reviewedItem.id]: reviewedItem });
+            } else {
+                return Object.assign({}, state);
+            }
         case RECEIVE_REVIEW:
             const item = state[action.review.itemId];
             item.reviews.push(action.review);
