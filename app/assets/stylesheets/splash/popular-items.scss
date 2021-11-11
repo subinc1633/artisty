@@ -1,5 +1,5 @@
 .popular-items-list {
-    margin-top: 180px;
+    margin-top: 160px;
     display: flex;
     align-items: center;
     flex-wrap: wrap;
@@ -19,8 +19,8 @@
         li {
             margin: 20px 10px;
             position: relative;
-            max-width: 5%;
-            max-height: auto;
+            max-width: 7%;
+            height: 240px;
             border-radius: 20px;
             transition: ease-in-out 0.3s;
             .popular-item {
@@ -46,13 +46,11 @@
                     color: rgba(55, 61, 55, 0.3);
                 }
             }
-            &:first-child {
-                max-width: 30%;
-                margin-right: 30px;
-            }
             &:hover {
                 box-shadow: $splash-item-shadow;
+                max-width: 350px;
                 .popular-item {
+                    max-height: 240px;
                     opacity: 1;
                 }
             }

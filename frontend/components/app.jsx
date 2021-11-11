@@ -4,6 +4,7 @@ import { Route, Switch, Redirect } from 'react-router';
 import { AuthRoute, ProtectedRoute } from '../util/route_util';
 import UserShowContainer from './users/user_show_container';
 import Modal from './modal/modal';
+import ScrollToTop from './scroll/scroll_to_top';
 import ItemShowContainer from './items/item_show_container';
 import NavBarContainer from './nav_bar/nav_bar_container';
 import CategoryIndexContainer from './categories/category_index_container';
@@ -13,6 +14,7 @@ import Footer from './footer/footer';
 const App = () => {
     return (
         <div className='app'>
+            <ScrollToTop />
             <NavBarContainer />
             <Modal />
             <Switch>
