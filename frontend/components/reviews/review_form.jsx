@@ -77,11 +77,19 @@ const ReviewForm = props => {
                         );
                     })
                 }<br/><br/>
-                <textarea
-                    className='content'
-                    onChange={updateContent()}
-                    >{content}
-                </textarea><br/>
+                { props.formType === 'Update' ?
+                    <textarea
+                        className='content'
+                        onChange={updateContent()}
+                        defaultValue={content}
+                        >
+                    </textarea> :
+                    <textarea
+                        className='content'
+                        onChange={updateContent()}
+                        placeholder={content}
+                        >
+                    </textarea> }<br />
                 <button className='review-form-button'>Submit</button> <span className='or'>OR</span> <span className='review-form-toggle' onClick={(e) => props.toggleOpen(e)}>Close</span>
             </form>
         </div>

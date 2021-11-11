@@ -55,7 +55,7 @@ class ReviewIndexItem extends React.Component {
                     <p className='review-content'>{review.content}</p>
                     <br /><br />
                     <button className='helpful-button'><IoThumbsUpSharp /> Helpful?</button>
-                    {currentUser === reviewer() ?
+                    {currentUser && (currentUser.id === reviewer().id) ?
                         <span>
                             <span className='edit-delete-link' onClick={this.toggleOpen}>Edit</span> | <span className='edit-delete-link' onClick={this.removeReview}>Delete</span>
                         </span> : null}

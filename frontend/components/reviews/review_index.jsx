@@ -76,7 +76,7 @@ class ReviewIndex extends React.Component {
                 <hr />
                 <ul>
                     {reviewIndexItems.length === 0 ?
-                    <h4>There are no reviews for this item.</h4>
+                    <h4 className='no-reviews'>There are no reviews for this item.</h4>
                     : reviewIndexItems}
                 </ul>
             </div>

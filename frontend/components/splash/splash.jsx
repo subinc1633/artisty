@@ -67,6 +67,8 @@ const Splash = props => {
             </div>
 
             <div className='artisty-definition-container'>
+                <h2>What is Artisty?</h2>
+                <p>Artisty is an online marketplace where <i>artists</i> can showcase and sell their work, </p>
             </div>
         </section>
 )};

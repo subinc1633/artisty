@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const footer = () => (
     <footer>
@@ -6,7 +7,7 @@ const footer = () => (
             <div>
                 <ul>
                     <li><b>Site</b></li>
-                    <li>Sitemap</li>
+                    <li><Link to='/'>Sitemap</Link></li>
                 </ul>
             </div>
             <div>
@@ -24,8 +25,8 @@ const footer = () => (
             <div>
                 <ul>
                     <li><b>Contact</b></li>
-                    <li>GitHub</li>
-                    <li>Linkedin</li>
+                    <li><Link to='https://github.com/subinc1633/artisty'>GitHub</Link></li>
+                    <li><Link to='https://www.linkedin.com/in/sc1633/'>Linkedin</Link></li>
                 </ul>
             </div>
         </div>
@@ -36,8 +37,8 @@ const footer = () => (
             <div className='self-info'>
                 <ul>
                     <li>© 2021 Subin Cho</li>
-                    <li>GitHub</li>
-                    <li>LinkedIn</li>
+                    <li><Link to='https://github.com/subinc1633/artisty'>GitHub</Link></li>
+                    <li><Link to='https://www.linkedin.com/in/sc1633/'>Linkedin</Link></li>
                 </ul>
                 
             </div>

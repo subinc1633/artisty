@@ -2,6 +2,12 @@ footer {
     bottom: 0;
     width: 100%;
     position: relative;
+    a {
+        color: #ffffff;
+        &:hover {
+            text-decoration: underline;
+        }
+    }
     .middle {
         display: flex;
         justify-content: space-around;

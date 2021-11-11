@@ -9,8 +9,8 @@
 require 'open-uri'
 
 User.delete_all
-Shop.destroy_all
-Category.destroy_all
+Shop.delete_all
+Category.delete_all
 Item.delete_all
 Review.delete_all
 
@@ -87,8 +87,8 @@ category5file = open('https://artisty-seeds.s3.amazonaws.com/todoroki.jpeg')
 category5.photo.attach(io: category5file, filename: 'todoroki.jpeg')
 
 item1 = Item.create!(
-    shop_id: 1,
-    category_id: 2,
+    shop_id: shop1.id,
+    category_id: category2.id,
     title: 'Fried Chicken',
     description: 'Because chicken',
     price: 11.00,
@@ -102,8 +102,8 @@ item1file = open('https://artisty-seeds.s3.amazonaws.com/chicken.png')
 item1.photos.attach(io: item1file, filename: 'chicken.png')
 
 item2 = Item.create!(
-    shop_id: 1,
-    category_id: 1,
+    shop_id: shop1.id,
+    category_id: category1.id,
     title: 'Weathering With You - Blue Sky',
     description: '10/10 movie with one of my favorite lines that takes my breath away.',
     price: 15.00,
@@ -117,8 +117,8 @@ item2file = open('https://artisty-seeds.s3.amazonaws.com/wwy.png')
 item2.photos.attach(io: item2file, filename: 'wwy.png')
 
 item3 = Item.create!(
-    shop_id: 1,
-    category_id: 4,
+    shop_id: shop1.id,
+    category_id: category4.id,
     title: 'Star Goddess',
     description: 'Some Naiad or goddess',
     price: 20.00,
@@ -132,8 +132,8 @@ item3file = open('https://artisty-seeds.s3.amazonaws.com/star.jpeg')
 item3.photos.attach(io: item3file, filename: 'star.jpeg')
 
 item4 = Item.create!(
-    shop_id: 2,
-    category_id: 5,
+    shop_id: shop2.id,
+    category_id: category5.id,
     title: 'MHA Stickers',
     description: 'Cute My Hero Academia stickers!! Each set contains 20 stickers.',
     price: 5.00,
@@ -155,8 +155,8 @@ item4file4 = open('https://artisty-seeds.s3.amazonaws.com/tsuyu.jpeg')
 item4.photos.attach(io: item4file4, filename: 'tsuyu.jpeg')
 
 item5 = Item.create!(
-    shop_id: 2,
-    category_id: 1,
+    shop_id: shop2.id,
+    category_id: category1.id,
     title: 'Get Out Portrait',
     description: 'A scene from the movie "Get Out."',
     price: 20.50,
@@ -167,8 +167,8 @@ item5file = open('https://artisty-seeds.s3.amazonaws.com/get-out.jpeg')
 item5.photos.attach(io: item5file, filename: 'get-out.jpeg')
 
 item6 = Item.create!(
-    shop_id: 3,
-    category_id: 4,
+    shop_id: shop3.id,
+    category_id: category4.id,
     title: 'Pepero',
     description: 'Pepero is gr8',
     price: 17.50,
@@ -179,8 +179,8 @@ item6file = open('https://artisty-seeds.s3.amazonaws.com/pepero.jpeg')
 item6.photos.attach(io: item6file, filename: 'pepero.jpeg')
 
 item7 = Item.create!(
-    shop_id: 3,
-    category_id: 1,
+    shop_id: shop3.id,
+    category_id: category1.id,
     title: 'Power Fanart',
     description: 'Power best gril',
     price: 14.00,
@@ -191,8 +191,8 @@ item7file = open('https://artisty-seeds.s3.amazonaws.com/power.jpeg')
 item7.photos.attach(io: item7file, filename: 'power.jpeg')
 
 item8 = Item.create!(
-    shop_id: 3,
-    category_id: 1,
+    shop_id: shop3.id,
+    category_id: category1.id,
     title: 'Schwoop',
     description: '<3 mj',
     price: 18.00,
@@ -203,8 +203,8 @@ item8file = open('https://artisty-seeds.s3.amazonaws.com/mj.jpeg')
 item8.photos.attach(io: item8file, filename: 'mj.jpeg')
 
 item9 = Item.create!(
-    shop_id: 3,
-    category_id: 1,
+    shop_id: shop3.id,
+    category_id: category1.id,
     title: 'Jujutsu Kaisen Fanart',
     description: 'Salmon',
     price: 21.00,
@@ -215,8 +215,8 @@ item9file = open('https://artisty-seeds.s3.amazonaws.com/jjk.jpeg')
 item9.photos.attach(io: item9file, filename: 'jjk.jpeg')
 
 item10 = Item.create!(
-    shop_id: 3,
-    category_id: 3,
+    shop_id: shop3.id,
+    category_id: category3.id,
     title: 'Clouds',
     description: 'Wow clouds',
     price: 15.00,
@@ -227,8 +227,8 @@ item10file = open('https://artisty-seeds.s3.amazonaws.com/clouds.jpeg')
 item10.photos.attach(io: item10file, filename: 'clouds.jpeg')
 
 item11 = Item.create!(
-    shop_id: 4,
-    category_id: 1,
+    shop_id: shop4.id,
+    category_id: category1.id,
     title: 'One Sky One Destiny',
     description: 'KH best game evr',
     price: 10.00,
@@ -239,8 +239,8 @@ item11file = open('https://artisty-seeds.s3.amazonaws.com/kh.png')
 item11.photos.attach(io: item11file, filename: 'kh.png')
 
 item12 = Item.create!(
-    shop_id: 4,
-    category_id: 1,
+    shop_id: shop4.id,
+    category_id: category1.id,
     title: 'Zed',
     description: '"The unseen blade is the deadliest."',
     price: 15.00,
@@ -251,8 +251,8 @@ item12file = open('https://artisty-seeds.s3.amazonaws.com/zed.jpeg')
 item12.photos.attach(io: item12file, filename: 'zed.jpeg')
 
 item13 = Item.create!(
-    shop_id: 4,
-    category_id: 4,
+    shop_id: shop4.id,
+    category_id: category4.id,
     title: 'Some dude',
     description: 'Idk who u r',
     price: 15.00,
@@ -263,8 +263,8 @@ item13file = open('https://artisty-seeds.s3.amazonaws.com/some-dude.jpeg')
 item13.photos.attach(io: item13file, filename: 'some-dude.jpeg')
 
 item14 = Item.create!(
-    shop_id: 4,
-    category_id: 1,
+    shop_id: shop4.id,
+    category_id: category1.id,
     title: 'Ez',
     description: 'u belong in a museum!!!',
     price: 100.00,
@@ -275,8 +275,8 @@ item14file = open('https://artisty-seeds.s3.amazonaws.com/ez.jpeg')
 item14.photos.attach(io: item14file, filename: 'ez.jpeg')
 
 item15 = Item.create!(
-    shop_id: 4,
-    category_id: 1,
+    shop_id: shop4.id,
+    category_id: category1.id,
     title: 'Leeg ADCs',
     description: 'Pick a character pls',
     price: 5.00,
@@ -296,8 +296,8 @@ item15file3 = open('https://artisty-seeds.s3.amazonaws.com/cait.jpeg')
 item15.photos.attach(io: item15file3, filename: 'cait.jpeg')
 
 item16 = Item.create!(
-    shop_id: 4,
-    category_id: 4,
+    shop_id: shop4.id,
+    category_id: category4.id,
     title: 'Tomato',
     description: 'This is a tomato',
     price: 15.00,
@@ -308,104 +308,104 @@ item16file = open('https://artisty-seeds.s3.amazonaws.com/tomato.jpeg')
 item16.photos.attach(io: item16file, filename: 'tomato.jpeg')
 
 review1 = Review.create!(
-    reviewer_id: 4,
-    item_id: 16,
+    reviewer_id: user4.id,
+    item_id: item16.id,
     rating: 4,
     content: 'I love tomatoes!!',
 )
 review2 = Review.create!(
-    reviewer_id: 2,
-    item_id: 15,
+    reviewer_id: user6.id,
+    item_id: item15.id,
     rating: 5,
     content: 'This drawing was perfect for me as an ADC main.',
 )
 review3 = Review.create!(
-    reviewer_id: 6,
-    item_id: 14,
+    reviewer_id: user6.id,
+    item_id: item14.id,
     rating: 1,
     content: 'Are you serious?? What a ripoff',
 )
 review4 = Review.create!(
-    reviewer_id: 9,
-    item_id: 14,
+    reviewer_id: user9.id,
+    item_id: item14.id,
     rating: 5,
     content: 'u belong in a museum',
 )
 review5 = Review.create!(
-    reviewer_id: 7,
-    item_id: 13,
+    reviewer_id: user7.id,
+    item_id: item13.id,
     rating: 4,
     content: 'I like his hair',
 )
 review6 = Review.create!(
-    reviewer_id: 1,
-    item_id: 12,
+    reviewer_id: user1.id,
+    item_id: item12.id,
     rating: 2,
     content: 'Zed sux',
 )
 review7 = Review.create!(
-    reviewer_id: 8,
-    item_id: 11,
+    reviewer_id: user8.id,
+    item_id: item11.id,
     rating: 5,
     content: 'KH is the best',
 )
 review8 = Review.create!(
-    reviewer_id: 5,
-    item_id: 10,
+    reviewer_id: user5.id,
+    item_id: item10.id,
     rating: 5,
     content: 'Clouds are so beautiful',
 )
 review9 = Review.create!(
-    reviewer_id: 10,
-    item_id: 9,
+    reviewer_id: user10.id,
+    item_id: item9.id,
     rating: 5,
     content: 'JJK best anime 2021',
 )
 review10 = Review.create!(
-    reviewer_id: 9,
-    item_id: 8,
+    reviewer_id: user9.id,
+    item_id: item8.id,
     rating: 4,
     content: 'mj <3',
 )
 review11 = Review.create!(
-    reviewer_id: 5,
-    item_id: 7,
+    reviewer_id: user5.id,
+    item_id: item7.id,
     rating: 5,
     content: 'best gril',
 )
 review12 = Review.create!(
-    reviewer_id: 7,
-    item_id: 6,
+    reviewer_id: user7.id,
+    item_id: item6.id,
     rating: 3,
     content: 'i dont rly like pepero',
 )
 review13 = Review.create!(
-    reviewer_id: 8,
-    item_id: 5,
+    reviewer_id: user8.id,
+    item_id: item5.id,
     rating: 2,
     content: 'get out scared me ):',
 )
 review14 = Review.create!(
-    reviewer_id: 6,
-    item_id: 4,
+    reviewer_id: user6.id,
+    item_id: item4.id,
     rating: 3,
     content: 'stickers were not sticky enough ):<',
 )
 review15 = Review.create!(
-    reviewer_id: 8,
-    item_id: 3,
+    reviewer_id: user8.id,
+    item_id: item3.id,
     rating: 5,
     content: 'I LOVE IT WOWWWWW',
 )
 review16 = Review.create!(
-    reviewer_id: 3,
-    item_id: 2,
+    reviewer_id: user3.id,
+    item_id: item2.id,
     rating: 5,
     content: 'i love this movie!!!',
 )
 review17 = Review.create!(
-    reviewer_id: 2,
-    item_id: 1,
+    reviewer_id: user2.id,
+    item_id: item1.id,
     rating: 5,
     content: 'CHIMKEN',
 )

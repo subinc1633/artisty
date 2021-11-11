@@ -19,18 +19,18 @@
         li {
             margin: 20px 10px;
             position: relative;
-            max-width: 7%;
+            max-width: 9%;
             height: 240px;
             border-radius: 20px;
             transition: ease-in-out 0.3s;
             .popular-item {
                 @include display-splash-item-image;
-                border-radius: 20px;
                 opacity: 0.75;
                 transition: ease-in-out 0.3s;
             }
             .splash-item-price-container {
                 @include display-splash-item-price-container;
+                width: 100%;
                 .splash-item-price {
                     @include display-splash-item-price;
                 }
@@ -45,6 +45,9 @@
                     font-weight: 500;
                     color: rgba(55, 61, 55, 0.3);
                 }
+            }
+            &:first-child:before {
+                max-width: 30%;
             }
             &:hover {
                 box-shadow: $splash-item-shadow;
