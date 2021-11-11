@@ -96,8 +96,7 @@ item1 = Item.create!(
         Size: ['10 x 10', '15 x 15', '20 x 20']
     },
     favorite: false,
-    fav_count: 1003,
-    avg_rating: 0
+    fav_count: 1003
 )
 item1file = open('https://artisty-seeds.s3.amazonaws.com/chicken.png')
 item1.photos.attach(io: item1file, filename: 'chicken.png')
@@ -112,8 +111,7 @@ item2 = Item.create!(
         Size: ['10 x 10', '15 x 15', '20 x 20']
     },
     favorite: false,
-    fav_count: 3023,
-    avg_rating: 0
+    fav_count: 3023
 )
 item2file = open('https://artisty-seeds.s3.amazonaws.com/wwy.png')
 item2.photos.attach(io: item2file, filename: 'wwy.png')
@@ -128,8 +126,7 @@ item3 = Item.create!(
         Size: ['10 x 10', '15 x 15', '20 x 20']
     },
     favorite: false,
-    fav_count: 1083,
-    avg_rating: 0
+    fav_count: 1083
 )
 item3file = open('https://artisty-seeds.s3.amazonaws.com/star.jpeg')
 item3.photos.attach(io: item3file, filename: 'star.jpeg')
@@ -144,8 +141,7 @@ item4 = Item.create!(
         Character: ['Bakugou', 'Deku', 'Todoroki', 'Ochako', 'Tsuyu']
     },
     favorite: false,
-    fav_count: 3934,
-    avg_rating: 0
+    fav_count: 3934
 )
 item4file = open('https://artisty-seeds.s3.amazonaws.com/bakugou.jpeg')
 item4.photos.attach(io: item4file, filename: 'bakugou.jpeg')
@@ -165,8 +161,7 @@ item5 = Item.create!(
     description: 'A scene from the movie "Get Out."',
     price: 20.50,
     favorite: false,
-    fav_count: 1134,
-    avg_rating: 0
+    fav_count: 1134
 )
 item5file = open('https://artisty-seeds.s3.amazonaws.com/get-out.jpeg')
 item5.photos.attach(io: item5file, filename: 'get-out.jpeg')
@@ -178,8 +173,7 @@ item6 = Item.create!(
     description: 'Pepero is gr8',
     price: 17.50,
     favorite: false,
-    fav_count: 2012,
-    avg_rating: 0
+    fav_count: 2012
 )
 item6file = open('https://artisty-seeds.s3.amazonaws.com/pepero.jpeg')
 item6.photos.attach(io: item6file, filename: 'pepero.jpeg')
@@ -191,8 +185,7 @@ item7 = Item.create!(
     description: 'Power best gril',
     price: 14.00,
     favorite: false,
-    fav_count: 2304,
-    avg_rating: 0
+    fav_count: 2304
 )
 item7file = open('https://artisty-seeds.s3.amazonaws.com/power.jpeg')
 item7.photos.attach(io: item7file, filename: 'power.jpeg')
@@ -204,8 +197,7 @@ item8 = Item.create!(
     description: '<3 mj',
     price: 18.00,
     favorite: false,
-    fav_count: 1049,
-    avg_rating: 0
+    fav_count: 1049
 )
 item8file = open('https://artisty-seeds.s3.amazonaws.com/mj.jpeg')
 item8.photos.attach(io: item8file, filename: 'mj.jpeg')
@@ -217,8 +209,7 @@ item9 = Item.create!(
     description: 'Salmon',
     price: 21.00,
     favorite: false,
-    fav_count: 4895,
-    avg_rating: 0
+    fav_count: 4895
 )
 item9file = open('https://artisty-seeds.s3.amazonaws.com/jjk.jpeg')
 item9.photos.attach(io: item9file, filename: 'jjk.jpeg')
@@ -230,8 +221,7 @@ item10 = Item.create!(
     description: 'Wow clouds',
     price: 15.00,
     favorite: false,
-    fav_count: 2393,
-    avg_rating: 0
+    fav_count: 2393
 )
 item10file = open('https://artisty-seeds.s3.amazonaws.com/clouds.jpeg')
 item10.photos.attach(io: item10file, filename: 'clouds.jpeg')
@@ -243,8 +233,7 @@ item11 = Item.create!(
     description: 'KH best game evr',
     price: 10.00,
     favorite: false,
-    fav_count: 233,
-    avg_rating: 0
+    fav_count: 233
 )
 item11file = open('https://artisty-seeds.s3.amazonaws.com/kh.png')
 item11.photos.attach(io: item11file, filename: 'kh.png')
@@ -256,8 +245,7 @@ item12 = Item.create!(
     description: '"The unseen blade is the deadliest."',
     price: 15.00,
     favorite: false,
-    fav_count: 2354,
-    avg_rating: 0
+    fav_count: 2354
 )
 item12file = open('https://artisty-seeds.s3.amazonaws.com/zed.jpeg')
 item12.photos.attach(io: item12file, filename: 'zed.jpeg')
@@ -269,8 +257,7 @@ item13 = Item.create!(
     description: 'Idk who u r',
     price: 15.00,
     favorite: false,
-    fav_count: 2093,
-    avg_rating: 0
+    fav_count: 2093
 )
 item13file = open('https://artisty-seeds.s3.amazonaws.com/some-dude.jpeg')
 item13.photos.attach(io: item13file, filename: 'some-dude.jpeg')
@@ -282,8 +269,7 @@ item14 = Item.create!(
     description: 'u belong in a museum!!!',
     price: 100.00,
     favorite: false,
-    fav_count: 23,
-    avg_rating: 0
+    fav_count: 23
 )
 item14file = open('https://artisty-seeds.s3.amazonaws.com/ez.jpeg')
 item14.photos.attach(io: item14file, filename: 'ez.jpeg')
@@ -298,8 +284,7 @@ item15 = Item.create!(
         Character: ['Jinx', 'MF', 'Graves', 'Caitlyn']
     },
     favorite: false,
-    fav_count: 3133,
-    avg_rating: 0
+    fav_count: 3133
 )
 item15file = open('https://artisty-seeds.s3.amazonaws.com/jinx.jpeg')
 item15.photos.attach(io: item15file, filename: 'jinx.jpeg')
@@ -317,8 +302,110 @@ item16 = Item.create!(
     description: 'This is a tomato',
     price: 15.00,
     favorite: false,
-    fav_count: 2305,
-    avg_rating: 0
+    fav_count: 2305
 )
 item16file = open('https://artisty-seeds.s3.amazonaws.com/tomato.jpeg')
 item16.photos.attach(io: item16file, filename: 'tomato.jpeg')
+
+review1 = Review.create!(
+    reviewer_id: 4,
+    item_id: 16,
+    rating: 4,
+    content: 'I love tomatoes!!',
+)
+review2 = Review.create!(
+    reviewer_id: 2,
+    item_id: 15,
+    rating: 5,
+    content: 'This drawing was perfect for me as an ADC main.',
+)
+review3 = Review.create!(
+    reviewer_id: 6,
+    item_id: 14,
+    rating: 1,
+    content: 'Are you serious?? What a ripoff',
+)
+review4 = Review.create!(
+    reviewer_id: 9,
+    item_id: 14,
+    rating: 5,
+    content: 'u belong in a museum',
+)
+review5 = Review.create!(
+    reviewer_id: 7,
+    item_id: 13,
+    rating: 4,
+    content: 'I like his hair',
+)
+review6 = Review.create!(
+    reviewer_id: 1,
+    item_id: 12,
+    rating: 2,
+    content: 'Zed sux',
+)
+review7 = Review.create!(
+    reviewer_id: 8,
+    item_id: 11,
+    rating: 5,
+    content: 'KH is the best',
+)
+review8 = Review.create!(
+    reviewer_id: 5,
+    item_id: 10,
+    rating: 5,
+    content: 'Clouds are so beautiful',
+)
+review9 = Review.create!(
+    reviewer_id: 10,
+    item_id: 9,
+    rating: 5,
+    content: 'JJK best anime 2021',
+)
+review10 = Review.create!(
+    reviewer_id: 9,
+    item_id: 8,
+    rating: 4,
+    content: 'mj <3',
+)
+review11 = Review.create!(
+    reviewer_id: 5,
+    item_id: 7,
+    rating: 5,
+    content: 'best gril',
+)
+review12 = Review.create!(
+    reviewer_id: 7,
+    item_id: 6,
+    rating: 3,
+    content: 'i dont rly like pepero',
+)
+review13 = Review.create!(
+    reviewer_id: 8,
+    item_id: 5,
+    rating: 2,
+    content: 'get out scared me ):',
+)
+review14 = Review.create!(
+    reviewer_id: 6,
+    item_id: 4,
+    rating: 3,
+    content: 'stickers were not sticky enough ):<',
+)
+review15 = Review.create!(
+    reviewer_id: 8,
+    item_id: 3,
+    rating: 5,
+    content: 'I LOVE IT WOWWWWW',
+)
+review16 = Review.create!(
+    reviewer_id: 3,
+    item_id: 2,
+    rating: 5,
+    content: 'i love this movie!!!',
+)
+review17 = Review.create!(
+    reviewer_id: 2,
+    item_id: 1,
+    rating: 5,
+    content: 'CHIMKEN',
+)

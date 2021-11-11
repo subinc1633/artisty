@@ -4,8 +4,6 @@ import { fetchItem } from "../../actions/item_actions";
 import ReviewForm from "./review_form";
 
 const mSTP = ({errors}, ownProps) => ({
-    item: ownProps.item,
-    currentUser: ownProps.currentUser,
     errors: errors.review,
     formType: 'Create'
 });

@@ -1,11 +1,11 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { IoStar, IoStarOutline } from 'react-icons/io5';
 
 const ReviewForm = props => {
     const [rating, setRating] = useState(props.rating);
     const [hover, setHover] = useState(0);
     const [content, setContent] = useState(props.content);
-    const [state, setState] = useState({});
+    const [state, setState] = useState(props.review);
     
     const handleSubmit = e => {
         e.preventDefault();
@@ -24,10 +24,10 @@ const ReviewForm = props => {
                 reviewer_id: props.currentUser.id,
                 item_id: props.item.id}) : ''
         };
-        
+
         if (props.formType === 'Create') {
             props.createReview(props.item.id, review)
-            .then(() => props.fetchItem())
+            .then(() => setState(review))
             .then(() => props.toggleOpen(e));
         } else if (props.formType === 'Update') {
             props.updateReview(props.item.id, updatedReview())
@@ -82,7 +82,7 @@ const ReviewForm = props => {
                     onChange={updateContent()}
                     defaultValue={content}>
                 </textarea><br/>
-                <button>Submit</button> OR <span className='review-form-toggle' onClick={props.toggleOpen}>Close</span>
+                <button>Submit</button> OR <span className='review-form-toggle' onClick={(e) => props.toggleOpen(e)}>Close</span>
             </form>
         </div>
     )
