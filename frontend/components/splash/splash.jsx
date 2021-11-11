@@ -66,8 +66,7 @@ const Splash = props => {
                 <PopularItems fetchItems={fetchItems} items={items} />
             </div>
 
-            <div>
-                <h2>What is Artisty?</h2>
+            <div className='artisty-definition-container'>
             </div>
         </section>
 )};

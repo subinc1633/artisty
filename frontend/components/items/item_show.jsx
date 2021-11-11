@@ -1,6 +1,5 @@
 import React from 'react';
 import OptionValueItem from './option_value_item';
-import Carousel from './carousel';
 import ReviewIndexContainer from '../reviews/review_index_container';
 import { IoChevronDownSharp } from 'react-icons/io5'
 
@@ -44,13 +43,7 @@ class ItemShow extends React.Component {
                 (
                     <div className='item-show-page'>
                         <div className='left-item-column'>
-                            {/* <Carousel key={item.id} item={item} /> */}
                             <div className='item-thumbnail'>
-                                {/* {
-                                    item.photoUrl.map((photo, idx) => (
-                                        <img className='item-image' key={idx} src={`${photo.url}`} />
-                                    ))
-                                } */}
                                 <img className='item-image' src={`${item.photoUrl[0].url}`} />
                             </div>
                             <div className='reviews'>

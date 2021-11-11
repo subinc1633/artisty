@@ -22,7 +22,7 @@ class CategoryIndex extends React.Component {
                     </ul>
                 </div>
                 <div className='category-index-fanart'>
-                    {/* <h1>Fanart</h1> */}
+                    
                 </div>
                 <div className='category-content'>
                 </div>
