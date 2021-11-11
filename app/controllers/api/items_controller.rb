@@ -8,9 +8,4 @@ class Api::ItemsController < ApplicationController
     @item = Item.with_attached_photos.find(params[:id])
     render :show
   end
-
-  private
-  def item_params
-    params.require(:item).permit(:photos)
-  end
 end

@@ -9,8 +9,8 @@
 require 'open-uri'
 
 User.delete_all
-Shop.delete_all
-Category.delete_all
+Shop.destroy_all
+Category.destroy_all
 Item.delete_all
 Review.delete_all
 
