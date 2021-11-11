@@ -5,6 +5,6 @@ class Item < ApplicationRecord
 
     has_many_attached :photos
     has_many :reviews
-    belongs_to :shop
-    belongs_to :category
+    belongs_to :shop, optional: true
+    belongs_to :category, optional: true
 end
