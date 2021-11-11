@@ -19,7 +19,6 @@ class NavigationBar extends React.Component {
         
         const loggingOut = () => {
             logout();
-            this.props.history.push('/');
         };
         
         return (

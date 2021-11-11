@@ -19,7 +19,6 @@ class SessionForm extends React.Component {
         this.props.processForm(currentUser).then(
             () => {
                 this.props.closeModal();
-                this.props.history.push('/');
             },
             () => null
         );
@@ -33,7 +32,6 @@ class SessionForm extends React.Component {
         });
         this.props.processForm(demoUser);
         this.props.closeModal();
-        this.props.history.push('/');
     }
 
     update(field) {
