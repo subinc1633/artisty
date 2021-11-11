@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import CategorySplash from './category_splash';
 import SplashItem from './splash_item';
 import SplashFanartItem from './splash_fanart_item';
+import PopularItems from './popular_items';
 import { IoArrowForwardSharp } from 'react-icons/io5';
 import { sampleSize } from 'lodash';
 
@@ -39,28 +40,35 @@ const Splash = props => {
                     <h1 className='welcome'>Find new pieces of art from artists worldwide.</h1>
                 </div>
             )}
-                {
-                    sampleSize(categories, 1).map((category, idx) => (
-                        <div key={idx} className='splash-fanart-container'>
-                            <div className='left-splash-text'>
-                                    {category.title}<span className='splash-fanart-arrow'><IoArrowForwardSharp /></span><br />
-                                    <p className='splash-fanart-description'>{category.description}</p>
-                                </div>
-                            <div className='splash-fanart-items'>
-                                <ul>
-                                    {
-                                        category.items ? sampleSize(Object.values(category.items), 4).map((item, idx) => (
-                                            <SplashFanartItem key={idx} item={item} />
-                                        )) : null
-                                    }
-                                </ul>
-                            </div>
+
+            {
+                sampleSize(categories, 1).map((category, idx) => (
+                    <div key={idx} className='splash-fanart-container'>
+                        <div className='left-splash-text'>
+                            <Link to={`/categories/${category.id}`}>{category.title}<span className='splash-fanart-arrow'><IoArrowForwardSharp /></span></Link><br />
+                            <p className='splash-fanart-description'>{category.description}</p>
                         </div>
-                    ))
-                }
+                        <div className='splash-fanart-items'>
+                            <ul>
+                                {
+                                    category.items ? sampleSize(Object.values(category.items), 4).map((item, idx) => (
+                                        <SplashFanartItem key={idx} item={item} />
+                                    )) : null
+                                }
+                            </ul>
+                        </div>
+                    </div>
+                ))
+            }
                 
-            <h2 className='splash-header'>Popular works right now</h2>
-            <section>one two three four five</section>
+            <div className='popular-items-list'>
+                <h2 className='popular-item-header'>Popular works right now</h2>
+                <PopularItems fetchItems={fetchItems} items={items} />
+            </div>
+
+            <div>
+                <h2>What is Artisty?</h2>
+            </div>
         </section>
 )};
 

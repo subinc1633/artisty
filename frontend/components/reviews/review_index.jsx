@@ -49,7 +49,7 @@ class ReviewIndex extends React.Component {
 
         const checkOpen = () => {
             if (this.state.openForm) {
-                return <CreateFormContainer toggleOpen={this.toggleOpen} item={item} currentUser={currentUser} />
+                return <CreateFormContainer content='Write your review here!' toggleOpen={this.toggleOpen} item={item} currentUser={currentUser} />
             } else {
                 return null;
             }

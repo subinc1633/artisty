@@ -3,11 +3,11 @@ import { Link } from 'react-router-dom';
 
 const NavBarLink = ({ category }) => {
     return (
-    <li>
-        <Link to={`/categories/${category.id}`}>
+    <Link className='nav-bar-link' to={`/categories/${category.id}`}>
+        <li>
             {category.title}
-        </Link>
-    </li>
+        </li>
+    </Link>
 )};
 
 export default NavBarLink;

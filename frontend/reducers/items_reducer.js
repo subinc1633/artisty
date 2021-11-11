@@ -15,11 +15,8 @@ const itemsReducer = (state = {}, action) => {
             return Object.assign({}, state, { [action.item.id]: action.item});
         case RECEIVE_REVIEW:
             nextState = Object.assign({}, state);
-            debugger
             item = nextState[action.review.itemId];
-            debugger
             item.reviews[action.review.id] = action.review
-            debugger
             return nextState;
         case REMOVE_REVIEW:
             nextState = Object.assign({}, state);

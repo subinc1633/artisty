@@ -45,7 +45,7 @@ const ReviewForm = props => {
             props.errors ? (
                 <ul className='form-errors'>
                     {props.errors.map((error, i) => (
-                        <li key={`${i}`}>
+                        <li key={`${i}`} className='errors-list'>
                             {error}
                         </li>
                     ))}
@@ -58,7 +58,7 @@ const ReviewForm = props => {
         <div>
             <form className='review-form' onSubmit={(e) => handleSubmit(e)}>
                 {renderErrors()}
-                <label>Choose a star rating:</label><br/>
+                <p className='choose-rating'>Choose a star rating:</p>
                 {
                     [...Array(5)].map((star, idx) => {
                         const ratingValue = idx + 1
@@ -80,9 +80,9 @@ const ReviewForm = props => {
                 <textarea
                     className='content'
                     onChange={updateContent()}
-                    defaultValue={content}>
+                    >{content}
                 </textarea><br/>
-                <button>Submit</button> OR <span className='review-form-toggle' onClick={(e) => props.toggleOpen(e)}>Close</span>
+                <button className='review-form-button'>Submit</button> <span className='or'>OR</span> <span className='review-form-toggle' onClick={(e) => props.toggleOpen(e)}>Close</span>
             </form>
         </div>
     )

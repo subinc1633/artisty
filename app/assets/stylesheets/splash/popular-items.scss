@@ -1,0 +1,40 @@
+.popular-items-list {
+    margin-top: 180px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    align-content: stretch;
+    width: 100%;
+    background-color: #dfeae3;
+    .popular-item-header {
+        @include splash-header;
+        margin: 20px 0;
+    }
+    ul {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        width: 70%;
+        li {
+            margin: 20px 30px;
+            position: relative;
+            max-width: 200px;
+            max-height: 200px;
+            border-radius: 20px;
+            transition: $transition;
+            .popular-item {
+                @include display-splash-item-image;
+                border-radius: 20px;
+            }
+            .splash-item-price-container {
+                @include display-splash-item-price-container;
+                .splash-item-price {
+                    @include display-splash-item-price;
+                }
+            }
+            &:hover {
+                box-shadow: $splash-item-shadow;
+            }
+        }
+    }
+}

@@ -3,8 +3,9 @@
     letter-spacing: 0.5px;
     padding: 10px 5px 10px 10px;
     border: 1px solid #dbdbdb;
-    box-shadow: inset 0px 0px 2px #dbdbdb;
+    box-shadow: inset 0px 0px 2px hsl(0, 0%, 86%);
     transition: ease-in 0.2s;
+    font-weight: 200;
     &::placeholder {
         color: $light-gray;
     }
@@ -35,7 +36,7 @@
     width: 50px;
     height:42px;
     margin-left: -50px;
-    padding-top: 4px;
+    padding-top: 5px;
     border: none;
     font-size: 17px;
     &:hover {
@@ -53,7 +54,13 @@
     background-color: $yellow-background;
     height: 150px;
     padding-top: 35px;
-    border-top: 2px solid rgb(222, 222, 222);
+}
+
+@mixin splash-header {
+    margin-top: 180px;
+    font-family: $sec-font;
+    font-size: 45px;
+    text-align: center;
 }
 
 @mixin dark-button {
@@ -103,10 +110,10 @@
 
 @mixin display-splash-item-price {
     display: inline-block;
-    font-size: 12px;
+    font-size: 14px;
     font-weight: 500;
     background: #ffffff;
-    padding: 7px;
+    padding: 5px 7px;
     border-radius: 20px;
     border: 1px solid $lightest-gray;
     margin-left: 10px;

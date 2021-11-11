@@ -60,7 +60,7 @@ class ItemShow extends React.Component {
                         <div className='right-item-column'>
                             {item.shop_id}
                             <h1>{item.title}</h1> 
-                            <span className='item-show-price'>{currencyFormat.format(item.price)}</span>
+                            <span className='item-show-price'>{currencyFormat.format(item.price)}</span><br/>
                             <form className='request-form'>
                                 { item.options ? 
                                     Object.entries(item.options).map(([key, val], idx) => (

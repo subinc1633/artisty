@@ -2,6 +2,7 @@
 @import '../navigation/footer.scss';
 @import './welcome.scss';
 @import './splash-category.scss';
+@import './popular-items.scss';
 
 .artisty {
     font-size: 35px;
@@ -13,10 +14,7 @@
 }
 
 .splash-header {
-    margin-top: 180px;
-    font-family: $sec-font;
-    font-size: 45px;
-    text-align: center;
+    @include splash-header;
 }
 
 .our-picks {
@@ -33,16 +31,34 @@
 }
 
 .splash-fanart-container {
-    margin: 80px 0 40px 20px;
-    .splash-fanart-arrow {
-        font-size: 20px;
-        margin-left: 10px;
-    }
-    .splash-fanart-description {
-        font-size: 16px;
-        font-weight: 300;
-        line-height: 25px;
-        color: $lighter-gray;
+    margin-top: 150px;
+
+    .left-splash-text {
+        margin-left: 7%;
+        margin-bottom: 20px;
+
+        .splash-fanart-arrow {
+            font-size: 16px;
+            margin-left: 10px;
+            transition: ease-out 0.1s;
+        }
+    
+        .splash-fanart-description {
+            font-size: 16px;
+            font-weight: 300;
+            line-height: 25px;
+            letter-spacing: 0.5px;
+            color: $lighter-gray;
+        }
+
+        a {
+            &:hover {
+                cursor: pointer;
+                .splash-fanart-arrow {
+                    margin-left: 20px;
+                }
+            }
+        }
     }
 }
 

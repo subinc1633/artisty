@@ -21,12 +21,11 @@ export const createReview = (itemId, review) => dispatch => (
         err => dispatch(receiveErrors(err.responseJSON)))
 );
 
-export const updateReview = (itemId, review) => dispatch => {
-    return (
+export const updateReview = (itemId, review) => dispatch => (
     ReviewApiUtil.updateReview(itemId, review)
     .then(review => { dispatch(receiveReview(review)); dispatch(clearErrors()) },
         err => dispatch(receiveErrors(err.responseJSON)))
-)};
+);
 
 export const deleteReview = (itemId, reviewId) => dispatch => (
     ReviewApiUtil.deleteReview(itemId, reviewId).then(() => dispatch(removeReview(itemId, reviewId)))

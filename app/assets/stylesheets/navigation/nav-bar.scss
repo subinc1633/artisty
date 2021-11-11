@@ -1,8 +1,8 @@
 .nav-bar {
     width: 100%;
-    margin: 10px 0 5px 0;
     font-weight: $font-weight;
-    ul {
+    ul.top-nav {
+        margin-top: 20px;
         display: flex;
         justify-content: space-evenly;
         align-items: center;
@@ -24,14 +24,9 @@
             width: 70%;
             input {
                 @include search-bar-input;
-                font-weight: 200;
-                width: 75%;
+                width: 80%;
                 background-color: #f4f4f4;
-                border: 2px solid $color;
                 padding-left: 20px;
-                &:hover {
-                    border: 2px solid $color;
-                }
                 &:focus {
                     background-color: #ffffff;
                     box-shadow: inset 0px 0px 4px #dbdbdb;
@@ -44,12 +39,33 @@
         }
     }
     ul.bottom-nav {
+        display: flex;
+        justify-content: space-evenly;
         font-size: 14px;
         font-weight: 300;
         letter-spacing: 0.5px;
         font-family: $font;
         text-align: center;
-        padding-top: 5px;
-        padding-bottom: 10px;
+        padding-top: 3px;
+        border-bottom: 2px solid rgb(222, 222, 222);
+        
+        a.nav-bar-link {
+            display:inline-block;
+            margin: 0;
+            &:after {
+                content: '';
+                display: block;
+                padding-bottom: 16px;
+                border-bottom: 2px solid $color;
+                transform: scaleX(0);
+                transition: transform ease-in-out 0.2;
+            }
+            &:hover:after {
+                transform: scaleX(1);
+            }
+            &:hover {
+                cursor: pointer;
+            }
+        }
     }
 }
