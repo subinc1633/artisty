@@ -4,7 +4,7 @@ const CategoryIndexItem = (props) => {
     return (
         <li className='category-index-item'>
             <span className='category-picture'>
-                <img className='category-index-image' src={`${props.category.photoUrl[0].url}`} />
+                <img className='category-index-image' src={`${props.category.photo.url}`} />
             </span>
             <span className='category-index-title'>
                 {props.category.title}

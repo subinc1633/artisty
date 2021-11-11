@@ -2,10 +2,16 @@ import React from 'react';
 import OptionValueItem from './option_value_item';
 import Carousel from './carousel';
 import ReviewIndexContainer from '../reviews/review_index_container';
+import { IoChevronDownSharp } from 'react-icons/io5'
 
 class ItemShow extends React.Component {
     constructor(props) {
         super(props);
+        this.state = {
+            active: false
+        };
+
+        this.toggleDescription = this.toggleDescription.bind(this);
     }
     
     componentDidMount() {
@@ -16,6 +22,11 @@ class ItemShow extends React.Component {
         if (this.props.itemId !== prevProps.itemId) {
             this.props.fetchItem(this.props.itemId);
         }
+    }
+
+    toggleDescription(e) {
+        e.preventDefault();
+        this.state.active ? this.setState({ active: false }) : this.setState({ active: true });
     }
 
     render() {
@@ -49,8 +60,8 @@ class ItemShow extends React.Component {
                         <div className='right-item-column'>
                             {item.shop_id}
                             <h1>{item.title}</h1> 
-                            <p className='item-show-price'>{currencyFormat.format(item.price)}</p>
-                            <form>
+                            <span className='item-show-price'>{currencyFormat.format(item.price)}</span>
+                            <form className='request-form'>
                                 { item.options ? 
                                     Object.entries(item.options).map(([key, val], idx) => (
                                     <label key={idx}>{key}<br/>
@@ -78,8 +89,8 @@ class ItemShow extends React.Component {
                                 <br/><br/>
                                 <button>Add to cart</button><br/>
                             </form>
-                            <button>Description</button><br/>
-                            {item.description}
+                            <button className='item-desc-toggler' onClick={this.toggleDescription}>Description <IoChevronDownSharp className='down-arrow' /></button>
+                            {this.state.active ? (<div className='item-desc'>{item.description}</div>) : null}
                         </div>
                     </div>
                     

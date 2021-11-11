@@ -3,5 +3,5 @@ class Category < ApplicationRecord
     validates :description, presence: true
     
     has_many :items
-    has_many_attached :photos
+    has_one_attached :photo
 end

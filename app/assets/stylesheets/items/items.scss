@@ -24,7 +24,7 @@
 }
 
 .item-image {
-    width: 45vw;
+    width: 40vw;
     height: 60vh;
     object-fit: cover;
 }
@@ -39,31 +39,48 @@
     width: 30%;
     h1 {
         font-family: $sec-font;
-        font-size: 25px;
+        font-size: 30px;
     }
     .item-show-price {
         font-size: 26px;
         font-weight: 500;
+        display: inline-block;
         padding: 15px 0;
     }
-    label {
-        font-weight: 300;
-    }
-    select {
-        @include form-input;
-        margin: 5px 0;
-        padding-right: 10px;
-        width: 80%;
-        height: 45px;
-        border-radius: 5px;
-        box-shadow: 0 0 5px $lightest-gray;
-        &:hover {
-            box-shadow: 0 0 5px #d4d4d4;
+    .request-form {
+        display: inline;
+        label {
+            font-weight: 300;
+        }
+        select {
+            @include form-input;
+            margin: 5px 0;
+            padding-right: 10px;
+            width: 80%;
+            height: 45px;
+            border-radius: 5px;
+            box-shadow: 0 0 5px $lightest-gray;
+            &:hover {
+                box-shadow: 0 0 5px #d4d4d4;
+            }
+        }
+        button {
+            @include dark-button;
+            width: 80%;
+            margin-bottom: 20px;
         }
     }
-    button {
-        @include dark-button;
+    .item-desc-toggler {
+        @include white-button;
+        background-color: #ffffff;
+        font-size: 15px;
         width: 80%;
-        margin-bottom: 20px;
+        height: 45px;
+        .down-arrow {
+            padding-left: 65%;
+        }
+    }
+    .item-desc {
+        margin-left: 10px;
     }
 }
