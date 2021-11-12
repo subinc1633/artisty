@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { FaPencilAlt } from 'react-icons/fa';
 
 class UserShow extends React.Component {
     constructor(props) {
@@ -20,10 +21,13 @@ class UserShow extends React.Component {
         return (
             action ?
             (
-                <div>
-                    <h1>{action.user.name}</h1>
-                    <button>Edit Profile</button><br/>
-                    <Link to='/'>Favorite items</Link> <Link to='/'>Favorite shops</Link> <Link to='/'>Create collection</Link>
+                <div id='user-profile'>
+                    <h1 className='user-header'>{action.user.name}</h1><button className='edit-profile'><FaPencilAlt /> Edit Profile</button><br/>
+                    <span className='favorites'>
+                        <Link to='/'><button className='favorite-items'>Favorite items</button></Link>
+                        <Link to='/'><button className='favorite-shops'>Favorite shops</button></Link>
+                        <Link to='/'><button className='create-collection'>Create collection</button></Link>
+                    </span>
                 </div>
             ) : null
         );

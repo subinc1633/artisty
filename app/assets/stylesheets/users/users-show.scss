@@ -1,0 +1,30 @@
+#user-profile {
+    margin-top: 40px;
+    margin-left: 60px;
+    height: 100vh;
+    .user-header {
+        font-family: $sec-font;
+        font-size: 30px;
+        display: inline-block;
+    }
+    .edit-profile {
+        @include white-button;
+        font-size: 14px;
+        font-weight: 500;
+        width: 120px;
+        white-space: nowrap;
+        margin-left: 20px;
+    }
+    .favorites {
+        display: flex;
+        margin-top: 50px;
+        button {
+            width: 10vw;
+            height: 10vh;
+            background-color: $lightest-gray;
+            border-radius: 10px;
+            border: none;
+            margin-right: 10px;
+        }
+    }
+}
