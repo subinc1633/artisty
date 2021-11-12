@@ -47,6 +47,11 @@
                 color: #6d6d6d;
             }
         }
+        &:hover {
+            .category-show-item-image {
+                box-shadow: $splash-item-shadow;
+            }
+        }
     }
 }
 

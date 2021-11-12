@@ -1,5 +1,4 @@
 import React from 'react';
-import CategoryShowForm from './category_show_form';
 import CategoryShowItem from './category_show_item';
 
 class CategoryShow extends React.Component {
