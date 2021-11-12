@@ -17,6 +17,11 @@ class NavigationBar extends React.Component {
     render() {
         const { currentUser, navCategories, logout, openModal } = this.props;
         
+        const signIn = (e) => {
+            e.preventDefault();
+            openModal('sign in');
+        };
+
         const loggingOut = () => {
             logout();
         };
@@ -29,7 +34,7 @@ class NavigationBar extends React.Component {
                         <input type='text' placeholder='Search for anything' />
                         <button className='nav-search-button' type='submit'><span><IoSearch /></span></button>
                     </li>
-                <li>{currentUser ? <button onClick={() => loggingOut()}>Log out</button> : <button onClick={() => openModal('sign in')}>Sign in</button>}</li>
+                <li>{currentUser ? <button onClick={() => loggingOut()}>Log out</button> : <button onClick={(e) => signIn(e)}>Sign in</button>}</li>
                 <li><button className='cart'><IoCartOutline /></button></li>
             </ul><br/>
             <ul className='bottom-nav'>

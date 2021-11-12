@@ -104,14 +104,11 @@
                 height: 72%;
             }
             .splash-item-information {
+                @include item-description;
+                padding: 14px 15px 0 15px;
                 display: flex;
                 flex-direction: column;
                 justify-content: center;
-                font-weight: 300;
-                font-size: 14px;
-                letter-spacing: 0.5px;
-                line-height: 18px;
-                padding: 14px 15px 0 15px;
                 .splash-item-title {
                     overflow: hidden;
                     white-space: nowrap;

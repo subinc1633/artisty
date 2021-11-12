@@ -19,6 +19,7 @@ class SessionForm extends React.Component {
         this.props.processForm(currentUser).then(
             () => {
                 this.props.closeModal();
+                this.props.clearErrors()
             },
             () => null
         );

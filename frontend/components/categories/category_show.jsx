@@ -1,5 +1,6 @@
 import React from 'react';
 import CategoryShowForm from './category_show_form';
+import CategoryShowItem from './category_show_item';
 
 class CategoryShow extends React.Component {
     constructor(props) {
@@ -11,7 +12,7 @@ class CategoryShow extends React.Component {
 
     componentDidMount() {
         this.props.fetchCategory(this.props.categoryId)
-        .then(res => this.setState({ action: res }));
+            .then(res => this.setState({ action: res }));
     }
 
     componentDidUpdate(prevProps) {
@@ -20,29 +21,37 @@ class CategoryShow extends React.Component {
                 .then(res => this.setState({ action: res }));
         }
     }
-    
+
     render() {
         const { action } = this.state;
+        debugger
 
         return (
             <div>
-                { action ? (
+                {action ? (
                     <div>
                         <div className='category-header'>
                             <h1>{action.category.title}</h1>
                             <div className='category-description'>{action.category.description}</div>
                         </div>
-                        
+
                         <div className='category-show-container'>
                             <div className='category-show-form'>
-                                
+
                             </div>
-                            <div>
+                            <div className='item-list-container'>
                                 <h3 className='item-list-header'>Find something you love</h3>
+                                <div>
+                                    {
+                                        action.category.items.forEach(item => (
+                                            <CategoryShowItem item={item} />
+                                        ))
+                                    }
+                                </div>
                             </div>
                         </div>
 
-                        
+
                     </div>
                 ) : (
                     null

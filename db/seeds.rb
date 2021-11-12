@@ -9,10 +9,15 @@
 require 'open-uri'
 
 User.delete_all
+ApplicationRecord.connection.reset_pk_sequence!('users')
 Shop.delete_all
+ApplicationRecord.connection.reset_pk_sequence!('shops')
 Category.delete_all
+ApplicationRecord.connection.reset_pk_sequence!('categories')
 Item.delete_all
+ApplicationRecord.connection.reset_pk_sequence!('items')
 Review.delete_all
+ApplicationRecord.connection.reset_pk_sequence!('reviews')
 
 user1 = User.create!(email: 'peperoroll@gmail.com', password: 'peppero', name: 'Soybean')
 user2 = User.create!(email: 'ricenkimchi@gmail.com', password: 'aggressivehr', name: 'Lucas')
@@ -293,7 +298,7 @@ item16.photos.attach(io: item16file, filename: 'tomato.jpeg')
 
 item17 = Item.create!(
     shop_id: shop1.id,
-    category_id: category1.id,
+    category_id: category2.id,
     title: 'Delicious and refreshing bubble tea',
     price: 7.00,
     favorite: false,
