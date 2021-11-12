@@ -24,7 +24,6 @@ class CategoryShow extends React.Component {
 
     render() {
         const { action } = this.state;
-        debugger
 
         return (
             <div>
@@ -42,11 +41,13 @@ class CategoryShow extends React.Component {
                             <div className='item-list-container'>
                                 <h3 className='item-list-header'>Find something you love</h3>
                                 <div>
-                                    {
-                                        action.category.items.forEach(item => (
-                                            <CategoryShowItem item={item} />
-                                        ))
-                                    }
+                                    <ul className='category-show-items'>
+                                        {
+                                            Object.values(action.category.items).map((item, idx) => (
+                                                <CategoryShowItem key={idx} item={item} />
+                                            ))
+                                        }
+                                    </ul>
                                 </div>
                             </div>
                         </div>
