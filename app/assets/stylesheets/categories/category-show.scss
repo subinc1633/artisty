@@ -33,6 +33,7 @@
             height: inherit;
             object-fit: cover;
             border-radius: 2px;
+            transition: ease-out 0.2s;
         }
         .category-show-item-desc {
             @include item-description;
@@ -46,10 +47,14 @@
                 font-size: 12px;
                 color: #6d6d6d;
             }
+            .category-item-price {
+                font-size: 16px;
+                font-weight: 500;
+            }
         }
         &:hover {
             .category-show-item-image {
-                box-shadow: $splash-item-shadow;
+                box-shadow: 0 6px 10px rgba(0,0,0,0.1);
             }
         }
     }
