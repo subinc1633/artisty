@@ -47,7 +47,7 @@ class ItemShow extends React.Component {
                                 <img className='item-image' src={`${item.photoUrl[0].url}`} />
                             </div>
                             <div className='reviews'>
-                                <ReviewIndexContainer item={item} reviews={item.reviews} />
+                                <ReviewIndexContainer item={item} />
                             </div>
                         </div>
                         <div className='right-item-column'>
@@ -83,7 +83,7 @@ class ItemShow extends React.Component {
                                 <button>Add to cart</button><br/>
                             </form>
                             <button className='item-desc-toggler' onClick={this.toggleDescription}>Description <IoChevronDownSharp className='down-arrow' /></button>
-                            {this.state.active ? (<div className='item-desc'>{item.description}</div>) : null}
+                            {this.state.active ? (<div className='item-desc'></div>) : null}
                         </div>
                     </div>
                     

@@ -1,0 +1,44 @@
+.artisty-info-container {
+    margin-top: 130px;
+    padding-bottom: 60px;
+    width: 100%;
+    background-color: $yellow-background;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    .artisty-info-header {
+        @include splash-header;
+        padding: 60px 0 30px;
+    }
+    .artisty-info-para-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        .artisty-info-para {
+            width: 50%;
+            text-align: center;
+            font-size: 19px;
+            font-weight: 300;
+            line-height: 38px;
+            .artisty-name {
+                font-family: $sec-font;
+                font-size: 22px;
+            }
+        }
+        .artisty-info-question {
+            width: 30%;
+            text-align: center;
+            font-size: 22px;
+            line-height: 42px;
+            button {
+                margin-top: 10px;
+                width:30%;
+                height: 6vh;
+                font-size: 16px;
+                &:hover {
+                    font-size: 16px;
+                }
+            }
+        }
+    }
+}

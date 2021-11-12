@@ -1,4 +1,5 @@
 import React from 'react';
+import CategoryShowForm from './category_show_form';
 
 class CategoryShow extends React.Component {
     constructor(props) {
@@ -32,7 +33,15 @@ class CategoryShow extends React.Component {
                             <div className='category-description'>{action.category.description}</div>
                         </div>
                         
-                        <h3 className='item-list-header'>Find something you love</h3>
+                        <div className='category-show-container'>
+                            <div className='category-show-form'>
+                                
+                            </div>
+                            <div>
+                                <h3 className='item-list-header'>Find something you love</h3>
+                            </div>
+                        </div>
+
                         
                     </div>
                 ) : (

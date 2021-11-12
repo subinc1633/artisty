@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import CategorySplash from './category_splash';
 import SplashItem from './splash_item';
@@ -10,11 +10,9 @@ import { sampleSize } from 'lodash';
 const Splash = props => {
     const { items, categories, currentUser, fetchCategories, fetchItems } = props;
 
-    const [allCategories, setAllCategories] = useState([]);
-
     useEffect(() => {
         fetchCategories();
-    }, [setAllCategories]);
+    }, []);
 
     return (
         <section>
@@ -66,9 +64,17 @@ const Splash = props => {
                 <PopularItems fetchItems={fetchItems} items={items} />
             </div>
 
-            <div className='artisty-definition-container'>
-                <h2>What is Artisty?</h2>
-                <p>Artisty is an online marketplace where <i>artists</i> can showcase and sell their work, </p>
+            <div className='artisty-info-container'>
+                <h2 className='artisty-info-header'>What is Artisty?</h2>
+                <div className='artisty-info-para-container'>
+                    <p className='artisty-info-para'><span className='artisty-name'>Artisty</span> is an online marketplace where artists can showcase, share and sell their work.
+                        We aim to promote artists all around the world and offer an outlet of creativity.
+                        If you are interested in sharing your artwork or reviewing the amazing art of others, come join our community!<br/>
+                    </p><br/><br/>
+                    <p className='artisty-info-question'><b>Have a question?</b><br/>
+                        <a href='https://www.linkedin.com/in/sc1633/'><button className='contact-button'>Contact Us</button></a>
+                    </p>
+                </div>
             </div>
         </section>
 )};

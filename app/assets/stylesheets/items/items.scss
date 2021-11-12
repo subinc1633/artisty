@@ -14,7 +14,6 @@
 }
 
 .carousel-container {
-    
     position: relative;
     margin: auto;
 }
@@ -26,7 +25,7 @@
 .item-image {
     width: 50vw;
     height: 70vh;
-    object-fit: cover;
+    object-fit: contain;
 }
 
 .left-item-column {

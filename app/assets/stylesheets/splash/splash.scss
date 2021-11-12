@@ -3,6 +3,7 @@
 @import './welcome.scss';
 @import './splash-category.scss';
 @import './popular-items.scss';
+@import './artisty-container.scss';
 
 .artisty {
     font-size: 35px;
@@ -15,6 +16,8 @@
 
 .splash-header {
     @include splash-header;
+    margin-top: 180px;
+    margin-bottom: 20px;
 }
 
 .our-picks {
@@ -31,7 +34,7 @@
 }
 
 .splash-fanart-container {
-    margin-top: 150px;
+    margin-top: 100px;
     margin-left: 7%;
     margin-right: 7%;
 
@@ -91,18 +94,35 @@
         display: flex;
         li {
             @include display-splash-item;
-            width: 22vw;
+            width: 20vw;
             height: 35vh;
             border-radius: 20px;
+            box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.2);
             .splash-category-image {
                 @include display-splash-item-image;
-                border-radius: 20px;
+                border-radius: 10px 10px 0 0;
+                height: 72%;
             }
-            .splash-category-price-container {
-                @include display-splash-item-price-container;
-                .splash-category-price {
-                    @include display-splash-item-price;
+            .splash-item-information {
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                font-weight: 300;
+                font-size: 14px;
+                letter-spacing: 0.5px;
+                line-height: 18px;
+                padding: 14px 15px 0 15px;
+                .splash-item-title {
+                    overflow: hidden;
+                    white-space: nowrap;
+                    text-overflow: ellipsis;
                 }
+                .splash-item-shop-name {
+                    color: $light-gray;
+                }
+            }
+            &:hover {
+                box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.4);
             }
         }
     }

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_11_11_041147) do
+ActiveRecord::Schema.define(version: 2021_11_12_015034) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -48,7 +48,6 @@ ActiveRecord::Schema.define(version: 2021_11_11_041147) do
     t.integer "shop_id", null: false
     t.integer "category_id", null: false
     t.string "title", null: false
-    t.text "description", null: false
     t.decimal "price", null: false
     t.boolean "favorite", default: false, null: false
     t.integer "fav_count", null: false

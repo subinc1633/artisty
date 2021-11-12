@@ -25,8 +25,8 @@ const footer = () => (
             <div>
                 <ul>
                     <li><b>Contact</b></li>
-                    <li><Link to='https://github.com/subinc1633/artisty'>GitHub</Link></li>
-                    <li><Link to='https://www.linkedin.com/in/sc1633/'>Linkedin</Link></li>
+                    <li><a href='https://github.com/subinc1633/artisty'>GitHub</a></li>
+                    <li><a href='https://www.linkedin.com/in/sc1633/'>Linkedin</a></li>
                 </ul>
             </div>
         </div>
@@ -37,8 +37,8 @@ const footer = () => (
             <div className='self-info'>
                 <ul>
                     <li>© 2021 Subin Cho</li>
-                    <li><Link to='https://github.com/subinc1633/artisty'>GitHub</Link></li>
-                    <li><Link to='https://www.linkedin.com/in/sc1633/'>Linkedin</Link></li>
+                    <li><a href='https://github.com/subinc1633/artisty'>GitHub</a></li>
+                    <li><a href='https://www.linkedin.com/in/sc1633/'>Linkedin</a></li>
                 </ul>
                 
             </div>

@@ -15,7 +15,7 @@ end
 json.set! :items do
     @category.items.each do |item|
         json.set! item.id do
-            json.extract! item, :id, :title, :description, :price, :options, :favorite, :fav_count
+            json.extract! item, :id, :title, :price, :options, :favorite, :fav_count
             json.photoUrl item.photos.map do |photo|
                 json.id photo.id
                 json.filename photo.filename

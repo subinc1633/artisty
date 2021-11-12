@@ -3,9 +3,10 @@ import { deleteReview } from '../../actions/review_actions';
 import { fetchUsers } from '../../actions/user_actions';
 import ReviewIndex from './review_index';
 
-const mSTP = (state) => ({
+const mSTP = (state, ownProps) => ({
     users: Object.values(state.entities.users),
-    currentUser: state.entities.users[state.session.id]
+    currentUser: state.entities.users[state.session.id],
+    reviews: state.entities.items[ownProps.item.id].reviews
 });
 
 const mDTP = dispatch => ({

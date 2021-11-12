@@ -7,5 +7,6 @@
 }
 
 .item-list-header {
-    
+    @include splash-header;
+    font-size: 35px;
 }

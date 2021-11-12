@@ -1,5 +1,6 @@
 .popular-items-list {
-    margin-top: 160px;
+    margin-top: 130px;
+    padding-bottom: 20px;
     display: flex;
     align-items: center;
     flex-wrap: wrap;
@@ -8,7 +9,7 @@
     .popular-item-header {
         @include splash-header;
         width: 40%;
-        margin: 30px 0;
+        margin: 30px 0 10px 0;
     }
     ul {
         display: flex;
@@ -19,10 +20,11 @@
         li {
             margin: 20px 10px;
             position: relative;
-            max-width: 9%;
+            max-width: 7%;
             height: 240px;
             border-radius: 20px;
             transition: ease-in-out 0.3s;
+            text-align: left;
             .popular-item {
                 @include display-splash-item-image;
                 opacity: 0.75;
@@ -41,20 +43,24 @@
                 right: 0;
                 .splash-item-popularity {
                     display: inline-block;
-                    font-size: 7vw;
+                    font-size: 5vw;
+                    font-family: $sec-font;
                     font-weight: 500;
-                    color: rgba(55, 61, 55, 0.3);
+                    color: rgba(59, 59, 59, 0.3);
+                    transition: $transition;
                 }
             }
-            &:first-child:before {
+            &:first-child {
                 max-width: 30%;
             }
             &:hover {
                 box-shadow: $splash-item-shadow;
-                max-width: 350px;
                 .popular-item {
                     max-height: 240px;
                     opacity: 1;
+                }
+                .splash-item-popularity {
+                    color: rgba(59, 59, 59, 0.6)
                 }
             }
         }
