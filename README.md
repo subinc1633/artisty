@@ -1,5 +1,7 @@
 # artisty
 
+![Screen Recording Gif](https://user-images.githubusercontent.com/78716708/141491278-e0246cdb-3176-4f1b-b674-b71c7081f9e8.gif)
+
 ## About
 Artisty is a fullstack Etsy clone that displays various artworks for sale. Users are able to search for items, either via searchbar or category listing, and place them in their cart for purchase. They may also leave reviews and favorite artworks if desired.
 
