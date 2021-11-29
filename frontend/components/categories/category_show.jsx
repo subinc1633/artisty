@@ -28,19 +28,19 @@ class CategoryShow extends React.Component {
             <div>
                 {action ? (
                     <div>
-                        <div className='category-header'>
+                        <div className="category-header">
                             <h1>{action.category.title}</h1>
-                            <div className='category-description'>{action.category.description}</div>
+                            <div className="category-description">{action.category.description}</div>
                         </div>
 
-                        <div className='category-show-container'>
-                            <div className='category-show-form'>
+                        <div className="category-show-container">
+                            <div className="category-show-form">
 
                             </div>
-                            <div className='item-list-container'>
-                                <h3 className='item-list-header'>Find something you love</h3>
+                            <div className="item-list-container">
+                                <h3 className="item-list-header">Find something you love</h3>
                                 <div>
-                                    <ul className='category-show-items'>
+                                    <ul className="category-show-items">
                                         {
                                             Object.values(action.category.items).map((item, idx) => (
                                                 <CategoryShowItem key={idx} item={item} />

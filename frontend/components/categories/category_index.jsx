@@ -10,10 +10,10 @@ class CategoryIndex extends React.Component {
     render() {
         return (
             <div>
-                <div className='category-header'>
+                <div className="category-header">
                     All Categories
                 </div>
-                <div className='category-index-categories'>
+                <div className="category-index-categories">
                     <ul>
                         {
                             this.props.categories.map((category, idx) => (
@@ -22,10 +22,10 @@ class CategoryIndex extends React.Component {
                         }
                     </ul>
                 </div>
-                <div className='category-index-fanart'>
+                <div className="category-index-fanart">
                     
                 </div>
-                <div className='category-content'>
+                <div className="category-content">
                 </div>
             </div>
         )

@@ -190,7 +190,7 @@ item7.photos.attach(io: item7file, filename: 'power.jpeg')
 
 item8 = Item.create!(
     shop_id: shop3.id,
-    category_id: category1.id,
+    category_id: category5.id,
     title: 'Schwoop',
     price: 18.00,
     favorite: false,
@@ -408,7 +408,7 @@ item26.photos.attach(io: item26file, filename: 'spam.jpeg')
 
 item27 = Item.create!(
     shop_id: shop1.id,
-    category_id: category3.id,
+    category_id: category1.id,
     title: 'Suga or Suga ????',
     price: 12.00,
     favorite: false,
@@ -430,7 +430,7 @@ item28.photos.attach(io: item28file, filename: 'sushi.jpeg')
 
 item29 = Item.create!(
     shop_id: shop1.id,
-    category_id: category3.id,
+    category_id: category1.id,
     title: 'Genshin Impact - Venti',
     price: 11.00,
     favorite: false,

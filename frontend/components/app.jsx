@@ -9,6 +9,7 @@ import ItemShowContainer from './items/item_show_container';
 import NavBarContainer from './nav_bar/nav_bar_container';
 import CategoryIndexContainer from './categories/category_index_container';
 import CategoryShowContainer from './categories/category_show_container';
+import SearchPage from './search_page/search_page';
 import Footer from './footer/footer';
 
 const App = () => {
@@ -23,6 +24,7 @@ const App = () => {
                 <Route path='/categories/:categoryId' component={CategoryShowContainer} />
                 <Route path='/items/:itemId' component={ItemShowContainer} />
                 <Route path='/categories' component={CategoryIndexContainer} />
+                <Route path='/search' component={SearchPage} />
                 <Redirect to='/404' />
             </Switch>
             <Footer />

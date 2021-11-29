@@ -23,8 +23,7 @@ export const login = formUser => dispatch => (
     SessionApiUtil.login(formUser)
     .then(user => {
         dispatch(receiveCurrentUser(user)); dispatch(clearErrors())},
-    err => {
-        dispatch(receiveErrors(err.responseJSON))})
+    err => dispatch(receiveErrors(err.responseJSON)))
 );
 
 export const logout = () => dispatch => (

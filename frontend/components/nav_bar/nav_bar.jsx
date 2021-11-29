@@ -27,23 +27,24 @@ class NavigationBar extends React.Component {
         };
         
         return (
-        <nav className='nav-bar'>
-            <ul className='top-nav'>
-                <li><Link to="/"><h2 className='artisty'>Artisty</h2></Link></li>
-                    <li className='nav-searchbar'>
-                        <input type='text' placeholder='Search for anything' />
-                        <button className='nav-search-button' type='submit'><span><IoSearch /></span></button>
+        <nav className="nav-bar">
+            <ul className="top-nav">
+                <li><Link to="/"><h2 className="artisty">Artisty</h2></Link></li>
+                    <li className="nav-searchbar">
+                        <label className="hide-label" htmlFor="searchbar">Search for anything</label>
+                        <input type="text" id="searchbar" placeholder="Search for anything" />
+                        <button className="nav-search-button" type="submit"><span><IoSearch /></span></button>
                     </li>
                 <li>{currentUser ? <button onClick={() => loggingOut()}>Log out</button> : <button onClick={(e) => signIn(e)}>Sign in</button>}</li>
-                <li><button className='cart'><IoCartOutline /></button></li>
+                <li><button className="cart"><IoCartOutline /></button></li>
             </ul><br/>
-            <ul className='bottom-nav'>
+            <ul className="bottom-nav">
                 {
                     navCategories.map((category, idx) => (
                         <NavBarLink key={idx} category={category}/>
                     ))
                 }
-                    <Link className='nav-bar-link' to='/categories'><li>All Categories</li></Link>
+                    <Link className="nav-bar-link" to="/categories"><li>All Categories</li></Link>
             </ul>
         </nav>
         )
