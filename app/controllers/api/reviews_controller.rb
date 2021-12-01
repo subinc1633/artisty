@@ -1,11 +1,11 @@
 class Api::ReviewsController < ApplicationController
     before_action :ensure_logged_in, only: [:create, :update, :destroy]
 
-    def index 
+    def index
         @reviews = Review.all
         render 'api/reviews/index'
     end
-
+    
     def show
         @review = Review.find(params[:id])
         render 'api/reviews/show'

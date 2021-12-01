@@ -11,8 +11,7 @@ const mSTP = (state, ownProps) => ({
 
 const mDTP = dispatch => ({
     fetchUsers: () => dispatch(fetchUsers()),
-    deleteReview: (reviewId) => dispatch(deleteReview(reviewId)),
-    fetchReviews: () => dispatch(fetchReviews())
+    deleteReview: (reviewId) => dispatch(deleteReview(reviewId))
 });
 
 export default connect(mSTP, mDTP)(ReviewIndex);

@@ -20,6 +20,7 @@ class ItemShow extends React.Component {
     componentDidUpdate(prevProps) {
         if (this.props.itemId !== prevProps.itemId) {
             this.props.fetchItem(this.props.itemId);
+            this.props.fetchReviews();
         }
     }
 
