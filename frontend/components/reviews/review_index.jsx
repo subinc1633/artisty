@@ -55,7 +55,7 @@ class ReviewIndex extends React.Component {
             }
         };
 
-        const ratings = []
+        const ratings = [];
         item.reviews ? Object.values(item.reviews).forEach(review => {
             ratings.push(review.rating)
         }) : null;

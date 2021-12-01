@@ -36,7 +36,6 @@ class ItemShow extends React.Component {
             currency: 'USD',
         });
 
-
         return (
             <div className='item-show-container'>
                 { !item ? null :

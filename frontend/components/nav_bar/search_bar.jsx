@@ -10,8 +10,6 @@ const SearchBar = () => {
         fetchItems();
     }, [data]);
 
-    debugger
-
     const handleSubmit = e => {
         e.preventDefault();
     }

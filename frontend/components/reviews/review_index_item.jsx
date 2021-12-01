@@ -16,7 +16,7 @@ class ReviewIndexItem extends React.Component {
 
     removeReview(e) {
         e.preventDefault;
-        this.props.deleteReview(this.props.review.itemId, this.props.review.id);
+        this.props.deleteReview(this.props.review.id);
     }
 
     toggleOpen(e) {

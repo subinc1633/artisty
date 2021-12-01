@@ -7,7 +7,7 @@ json.photoUrl @item.photos.map do |photo|
 end
 
 json.set! :avg_rating do
-    @item.avg_rating
+    @item.reviews.average(:rating)
 end
 
 json.set! :reviews do
