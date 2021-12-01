@@ -6,6 +6,10 @@ json.photoUrl @item.photos.map do |photo|
     json.url url_for(photo)
 end
 
+json.set! :avg_rating do
+    @item.avg_rating
+end
+
 json.set! :reviews do
     @item.reviews.each do |review|
         json.set! review.id do

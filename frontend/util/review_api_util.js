@@ -1,3 +1,17 @@
+export const fetchReviews = () => (
+    $.ajax({
+        method: 'GET',
+        url: '/api/reviews'
+    })
+);
+
+export const fetchReview = (reviewId) => (
+    $.ajax({
+        method: 'GET',
+        url: `/api/reviews/${reviewId}`
+    })
+);
+
 export const createReview = (itemId, review) => (
     $.ajax({
         method: 'POST',
@@ -6,18 +20,17 @@ export const createReview = (itemId, review) => (
     })
 );
 
-export const updateReview = (itemId, review) => {
-    return (
+export const updateReview = (itemId, review) => (
     $.ajax({
         method: 'PATCH',
         url: `/api/items/${itemId}/reviews/${review.id}`,
         data: { review }
     })
-)};
+);
 
-export const deleteReview = (itemId, reviewId) => (
+export const deleteReview = (reviewId) => (
     $.ajax({
         method: 'DELETE',
-        url: `/api/items/${itemId}/reviews/${reviewId}`
+        url: `/api/reviews/${reviewId}`
     })
 );

@@ -15,4 +15,8 @@
         @include search-button;
         padding-bottom: 8px;
     }
+    .searched-items {
+        background-color: #fff;
+        color: $color;
+    }
 }
