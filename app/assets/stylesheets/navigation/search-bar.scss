@@ -1,0 +1,18 @@
+.nav-searchbar {
+    @include search-bar;
+    width: 70%;
+    input {
+        @include search-bar-input;
+        width: 80%;
+        background-color: #f4f4f4;
+        padding-left: 20px;
+        &:focus {
+            background-color: #ffffff;
+            box-shadow: inset 0px 0px 4px #dbdbdb;
+        }
+    }
+    button {
+        @include search-button;
+        padding-bottom: 8px;
+    }
+}

@@ -1,9 +1,17 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { IoCartOutline, IoSearch } from 'react-icons/io5';
+import { IoCartOutline } from 'react-icons/io5';
 import NavBarLink from './nav_bar_links';
+import SearchBar from './search_bar';
 
 class NavigationBar extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            searchVal: ''
+        }
+    }
+
     componentDidMount() {
         this.props.fetchCategories();
     }
@@ -30,11 +38,7 @@ class NavigationBar extends React.Component {
         <nav className="nav-bar">
             <ul className="top-nav">
                 <li><Link to="/"><h2 className="artisty">Artisty</h2></Link></li>
-                    <li className="nav-searchbar">
-                        <label className="hide-label" htmlFor="searchbar">Search for anything</label>
-                        <input type="text" id="searchbar" placeholder="Search for anything" />
-                        <button className="nav-search-button" type="submit"><span><IoSearch /></span></button>
-                    </li>
+                <SearchBar />
                 <li>{currentUser ? <button onClick={() => loggingOut()}>Log out</button> : <button onClick={(e) => signIn(e)}>Sign in</button>}</li>
                 <li><button className="cart"><IoCartOutline /></button></li>
             </ul><br/>
