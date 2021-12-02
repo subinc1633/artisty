@@ -1,6 +1,5 @@
 import { connect } from 'react-redux';
 import Splash from './splash';
-import { fetchCategories } from '../../actions/category_actions';
 import { fetchItems } from '../../actions/item_actions';
 
 const mSTP = ({ session, entities: { users, items, categories } }) => ({
@@ -10,7 +9,6 @@ const mSTP = ({ session, entities: { users, items, categories } }) => ({
 });
 
 const mDTP = dispatch => ({
-    fetchCategories: () => dispatch(fetchCategories()),
     fetchItems: () => dispatch(fetchItems())
 });
 

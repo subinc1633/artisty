@@ -15,13 +15,7 @@ class ItemShow extends React.Component {
     
     componentDidMount() {
         this.props.fetchItem(this.props.itemId);
-    }
-
-    componentDidUpdate(prevProps) {
-        if (this.props.itemId !== prevProps.itemId) {
-            this.props.fetchItem(this.props.itemId);
-            this.props.fetchReviews();
-        }
+        this.props.fetchReviews();
     }
 
     toggleDescription(e) {
@@ -30,7 +24,8 @@ class ItemShow extends React.Component {
     }
 
     render() {
-        const { item } = this.props;
+        const { item, reviews } = this.props;
+        console.log(reviews)
 
         const currencyFormat = new Intl.NumberFormat('en-US', {
             style: 'currency',
@@ -47,7 +42,7 @@ class ItemShow extends React.Component {
                                 <img className='item-image' src={`${item.photoUrl[0].url}`} />
                             </div>
                             <div className='reviews'>
-                                <ReviewIndexContainer item={item} />
+                                <ReviewIndexContainer item={item} reviews={reviews} />
                             </div>
                         </div>
                         <div className='right-item-column'>

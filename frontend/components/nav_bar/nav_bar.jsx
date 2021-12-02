@@ -15,12 +15,6 @@ class NavigationBar extends React.Component {
     componentDidMount() {
         this.props.fetchCategories();
     }
-    
-    componentDidUpdate(prevProps) {
-        if (this.props.categoryId !== prevProps.categoryId) {
-            this.props.fetchCategories();
-        }
-    }
 
     render() {
         const { currentUser, navCategories, logout, openModal } = this.props;

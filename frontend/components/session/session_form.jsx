@@ -19,7 +19,7 @@ class SessionForm extends React.Component {
         this.props.processForm(currentUser).then(
             () => {
                 this.props.closeModal();
-                this.props.clearErrors()
+                this.props.clearErrors();
             },
             () => null
         );
@@ -99,6 +99,8 @@ class SessionForm extends React.Component {
                     <button className='process'>{this.props.formType}</button>
                     <br/><br/>
                     { loggingIn() }
+                    <br/><br/>
+                    By clicking Sign in or Login as Demo User, you agree to Artisty's Terms of Use and Privacy Policy. Artisty may send you communications; you may change your preferences in your account settings. We'll never post without your permission.
                 </form>
             </div>
         );

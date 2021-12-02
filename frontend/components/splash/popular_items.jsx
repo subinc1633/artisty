@@ -1,12 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 
-const PopularItems = ({fetchItems, items}) => {
-    const [allItems, setAllItems] = useState([]);
-
-    useEffect(() => {
-        fetchItems();
-    }, [setAllItems]);
+const PopularItems = ({items}) => {
 
     const sortedItems = items
         .sort((a, b) => {

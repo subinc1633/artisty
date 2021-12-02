@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
 import CategorySplash from './category_splash';
 import SplashItem from './splash_item';
@@ -8,11 +8,7 @@ import { IoArrowForwardSharp } from 'react-icons/io5';
 import { sampleSize } from 'lodash';
 
 const Splash = props => {
-    const { items, categories, currentUser, fetchCategories, fetchItems } = props;
-
-    useEffect(() => {
-        fetchCategories();
-    }, []);
+    const { items, categories, currentUser, fetchItems } = props;
 
     return (
         <section>
@@ -61,7 +57,7 @@ const Splash = props => {
                 
             <div className='popular-items-list'>
                 <h2 className='popular-item-header'>Popular works right now</h2>
-                <PopularItems fetchItems={fetchItems} items={items} />
+                <PopularItems items={items} />
             </div>
 
             <div className='artisty-info-container'>

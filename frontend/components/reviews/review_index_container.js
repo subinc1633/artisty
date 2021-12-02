@@ -5,13 +5,12 @@ import ReviewIndex from './review_index';
 
 const mSTP = (state, ownProps) => ({
     users: Object.values(state.entities.users),
-    currentUser: state.entities.users[state.session.id],
-    reviews: ownProps.item.reviews
+    currentUser: state.entities.users[state.session.id]
 });
 
 const mDTP = dispatch => ({
     fetchUsers: () => dispatch(fetchUsers()),
-    deleteReview: (reviewId) => dispatch(deleteReview(reviewId))
+    deleteReview: reviewId => dispatch(deleteReview(reviewId))
 });
 
 export default connect(mSTP, mDTP)(ReviewIndex);

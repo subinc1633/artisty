@@ -1,14 +1,10 @@
-import React, { useEffect, useState } from 'react';
-import { fetchItems } from '../../actions/item_actions';
+import React, { useState } from 'react';
+import { useSelector } from 'react-redux';
 import { IoSearch } from 'react-icons/io5';
 
 const SearchBar = () => {
     const [data, setData] = useState([]);
     const [query, setQuery] = useState('');
-
-    useEffect(() => {
-        fetchItems();
-    }, [data]);
 
     const handleSubmit = e => {
         e.preventDefault();
@@ -16,10 +12,9 @@ const SearchBar = () => {
 
     const handleChange = e => {
         setQuery(e.currentTarget.value);
-        // if (data.length > 0) {
-        //     fetchItems().then()
-        // }
     };
+
+    const allItems = useSelector((state) => state['entities'].items);
     
     return (
         <form className="nav-searchbar" onSubmit={handleSubmit}>
@@ -28,7 +23,7 @@ const SearchBar = () => {
             <button className="nav-search-button" type="submit"><span><IoSearch /></span></button>
             <div className="nav-searched-items">
                 {
-                    data.filter(item => {
+                    Object.values(allItems).filter(item => {
                         if (query === '') {
                             return item;
                         } else if (item.title.toLowerCase().includes(query.toLowerCase())) {
@@ -43,5 +38,7 @@ const SearchBar = () => {
         </form>
     );
 }
+
+// const mSTP
 
 export default SearchBar;

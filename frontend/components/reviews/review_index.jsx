@@ -31,10 +31,12 @@ class ReviewIndex extends React.Component {
     render() {
         const { reviews, currentUser, item, deleteReview } = this.props;
 
+        const filteredReviews = Object.values(reviews).filter(review => review.itemId === this.props.item.id);
+
         const reviewIndexItems = [];
 
-        if (reviews) {
-            for (let [key, review] of Object.entries(reviews)) {
+        if (filteredReviews) {
+            for (let [key, review] of Object.entries(filteredReviews)) {
                 reviewIndexItems.unshift(<ReviewIndexItem
                     key={key}
                     review={review}

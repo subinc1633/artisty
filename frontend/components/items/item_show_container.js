@@ -1,10 +1,12 @@
 import { connect } from 'react-redux';
 import ItemShow from './item_show';
 import { fetchItem } from '../../actions/item_actions';
+import { fetchReviews } from '../../actions/review_actions';
 
 const mSTP = (state, { match }) => ({
     itemId: match.params.itemId,
-    item: state.entities.items[match.params.itemId]
+    item: state.entities.items[match.params.itemId],
+    reviews: state.entities.reviews
 });
 
 const mDTP = dispatch => ({
