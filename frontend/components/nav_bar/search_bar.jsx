@@ -1,13 +1,20 @@
 import React, { useState } from 'react';
 import { useSelector } from 'react-redux';
 import { IoSearch } from 'react-icons/io5';
+import { Redirect, useHistory } from 'react-router';
 
 const SearchBar = () => {
-    const [data, setData] = useState([]);
     const [query, setQuery] = useState('');
+    let history = useHistory();
+
+    let searchParams = new URLSearchParams(history.location.search);
+    searchParams.set('q', query);
+    let searchVal = searchParams.toString();
+
 
     const handleSubmit = e => {
         e.preventDefault();
+        history.push(`/search?${searchVal}`);
     }
 
     const handleChange = e => {
@@ -20,7 +27,7 @@ const SearchBar = () => {
         <form className="nav-searchbar" onSubmit={handleSubmit}>
             <label className="hide-label" htmlFor="searchbar">Search for anything</label>
             <input type="text" id="searchbar" placeholder="Search for anything" value={query} onChange={e => handleChange(e)} />
-            <button className="nav-search-button" type="submit"><span><IoSearch /></span></button>
+            <button className="nav-search-button"><span><IoSearch /></span></button>
             <div className="nav-searched-items">
                 {
                     Object.values(allItems).filter(item => {
@@ -34,11 +41,8 @@ const SearchBar = () => {
                     ))
                 }
             </div>
-            
         </form>
     );
 }
-
-// const mSTP
 
 export default SearchBar;
