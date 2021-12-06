@@ -21,7 +21,7 @@ const SearchBar = () => {
         setQuery(e.currentTarget.value);
     };
 
-    const allItems = useSelector((state) => state['entities'].items);
+    const allItems = useSelector((state) => state.entities.items);
     
     return (
         <form className="nav-searchbar" onSubmit={handleSubmit}>
@@ -38,7 +38,7 @@ const SearchBar = () => {
                         }
                     }).map((item, idx) => (
                         <li key={idx}>{item.title}</li>
-                    ))
+                    )).slice(0,7)
                 }
             </div>
         </form>
