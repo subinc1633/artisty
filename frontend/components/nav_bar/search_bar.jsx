@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useSelector } from 'react-redux';
 import { IoSearch } from 'react-icons/io5';
-import { Redirect, useHistory } from 'react-router';
+import { useHistory } from 'react-router';
 
 const SearchBar = () => {
     const [query, setQuery] = useState('');
@@ -11,10 +11,10 @@ const SearchBar = () => {
     searchParams.set('q', query);
     let searchVal = searchParams.toString();
 
-
     const handleSubmit = e => {
         e.preventDefault();
         history.push(`/search?${searchVal}`);
+        setQuery('');
     }
 
     const handleChange = e => {

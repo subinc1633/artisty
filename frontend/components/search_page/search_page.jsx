@@ -18,7 +18,6 @@ const SearchPage = () => {
 
     return (
         <div className="item-list-container">
-            <p>You searched for {query}</p>
             <ul className="category-show-items">
                 {
                     Object.values(items).map((item, idx) => {
