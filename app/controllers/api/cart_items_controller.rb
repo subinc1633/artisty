@@ -1,6 +1,7 @@
 class CartItemsController < ApplicationController
     def show
         @cart_item = CartItem.find(params[:id])
+        render 'api/cart_items/show'
     end
 
     def create
@@ -32,6 +33,6 @@ class CartItemsController < ApplicationController
     private
 
     def cart_item_params
-        params.require(:user_id)
+        params.require(:item_id, :cart_id, :quantity)
     end
 end
