@@ -11,11 +11,21 @@ class ItemShow extends React.Component {
         };
 
         this.toggleDescription = this.toggleDescription.bind(this);
+        this.handleSubmit = this.handleSubmit.bind(this);
     }
     
     componentDidMount() {
         this.props.fetchItem(this.props.itemId);
         this.props.fetchReviews();
+    }
+
+    handleSubmit(e) {
+        e.preventDefault();
+        this.props.createCartItem(this.props.item).then(() => {
+            return (
+                <p>Item added to cart</p>
+            )
+        });
     }
 
     toggleDescription(e) {
@@ -25,7 +35,6 @@ class ItemShow extends React.Component {
 
     render() {
         const { item, reviews } = this.props;
-        console.log(reviews)
 
         const currencyFormat = new Intl.NumberFormat('en-US', {
             style: 'currency',
@@ -49,7 +58,7 @@ class ItemShow extends React.Component {
                             {item.shop_id}
                             <h1>{item.title}</h1> 
                             <span className='item-show-price'>{currencyFormat.format(item.price)}</span><br/>
-                            <form className='request-form'>
+                            <form className='request-form' onSubmit={this.handleSubmit}>
                                 { item.options ? 
                                     Object.entries(item.options).map(([key, val], idx) => (
                                     <label key={idx}>{key}<br/>
