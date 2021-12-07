@@ -11,11 +11,12 @@ const ItemShow = props => {
     });
     const [quantity, setQuantity] = useState(1);
 
-    const { item, itemId, reviews, currentUserId, users, fetchItem, fetchReviews, fetchCart, createCartItem } = props
+    const { item, itemId, reviews, currentUserId, users, cart, fetchItem, fetchReviews, fetchCart, createCartItem } = props
 
     useEffect(() => {
         fetchItem(itemId);
         fetchReviews();
+        fetchCart();
     }, []);
 
     const handleSubmit = e => {
@@ -28,7 +29,8 @@ const ItemShow = props => {
             })
         } else {
             setCartItem({
-                cartId: 
+                cartId: cart.id,
+                itemId: itemId
             })
         }
         createCartItem(cartItem).then(() => {
@@ -76,7 +78,7 @@ const ItemShow = props => {
                                     </label>))
                                 }<br/>
                                 <label>Quantity<br/>
-                                    <select id='quantity' name='quantity' value={quantity}>
+                                    <select id='quantity' name='quantity' defaultValue={quantity}>
                                         <option value='1'>1</option>
                                         <option value='2'>2</option>
                                         <option value='3'>3</option>

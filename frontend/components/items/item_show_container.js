@@ -10,7 +10,8 @@ const mSTP = (state, { match }) => ({
     item: state.entities.items[match.params.itemId],
     reviews: state.entities.reviews,
     currentUserId: state.session.id,
-    users: state.entities.users
+    users: state.entities.users,
+    cart: state.entities.cart
 });
 
 const mDTP = dispatch => ({

@@ -34,7 +34,7 @@ class NavigationBar extends React.Component {
                 <li><Link to="/"><h2 className="artisty">Artisty</h2></Link></li>
                 <SearchBar />
                 <li>{currentUser ? <button onClick={() => loggingOut()}>Log out</button> : <button onClick={(e) => signIn(e)}>Sign in</button>}</li>
-                <li><button className="cart"><Link to="/cart"><IoCartOutline /></Link></button></li>
+                <li><Link to="/cart"><button className="cart"><IoCartOutline /></button></Link></li>
             </ul><br/>
             <ul className="bottom-nav">
                 {

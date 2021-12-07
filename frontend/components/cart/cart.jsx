@@ -4,6 +4,7 @@ import CartItem from './cart_item';
 
 const Cart = () => {
     const [cart, setCart] = useState({});
+    const [total, setTotal] = useState(0);
 
     useEffect(() => {
         fetchCart();
