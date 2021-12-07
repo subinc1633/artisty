@@ -18,6 +18,8 @@ Item.delete_all
 ApplicationRecord.connection.reset_pk_sequence!('items')
 Review.delete_all
 ApplicationRecord.connection.reset_pk_sequence!('reviews')
+Cart.delete_all
+ApplicationRecord.connection.reset_pk_sequence!('carts')
 
 user1 = User.create!(email: 'peperoroll@gmail.com', password: 'peppero', name: 'Soybean')
 user2 = User.create!(email: 'ricenkimchi@gmail.com', password: 'aggressivehr', name: 'Lucas')
@@ -97,7 +99,7 @@ item1 = Item.create!(
     title: 'Two Pieces of Fried Chicken',
     price: 11.00,
     options: {
-        Size: ['10 x 10', '15 x 15', '20 x 20']
+        Size: {'10 x 10': 11.00, '15 x 15': 14.00, '20 x 20': 16.00}
     },
     favorite: false,
     fav_count: 1003
@@ -111,7 +113,7 @@ item2 = Item.create!(
     title: 'Weathering With You - Blue Sky',
     price: 15.00,
     options: {
-        Size: ['10 x 10', '15 x 15', '20 x 20']
+        Size: {'10 x 10': 11.00, '15 x 15': 14.00, '20 x 20': 16.00}
     },
     favorite: false,
     fav_count: 3023
@@ -125,7 +127,7 @@ item3 = Item.create!(
     title: 'Star Goddess',
     price: 20.00,
     options: {
-        Size: ['10 x 10', '15 x 15', '20 x 20']
+        Size: {'10 x 10': 11.00, '15 x 15': 14.00, '20 x 20': 16.00}
     },
     favorite: false,
     fav_count: 1083
@@ -356,6 +358,9 @@ item22 = Item.create!(
     category_id: category2.id,
     title: 'Do you like phở?',
     price: 6.00,
+    options: {
+        Size: {'10 x 10': 11.00, '15 x 15': 14.00, '20 x 20': 16.00}
+    },
     favorite: false,
     fav_count: 4523
 )
@@ -367,6 +372,9 @@ item23 = Item.create!(
     category_id: category2.id,
     title: 'I do not like pineapples',
     price: 8.00,
+    options: {
+        Size: {'10 x 10': 11.00, '15 x 15': 14.00, '20 x 20': 16.00}
+    },
     favorite: false,
     fav_count: 304
 )
@@ -389,6 +397,9 @@ item25 = Item.create!(
     category_id: category5.id,
     title: 'A guitarist singing while sitting on a chair',
     price: 18.50,
+    options: {
+        Size: {'10 x 10': 11.00, '15 x 15': 14.00, '20 x 20': 16.00}
+    },
     favorite: false,
     fav_count: 8234
 )
@@ -400,6 +411,9 @@ item26 = Item.create!(
     category_id: category2.id,
     title: 'SPAM in a can open and ready to eat',
     price: 7.00,
+    options: {
+        Size: {'10 x 10': 11.00, '15 x 15': 14.00, '20 x 20': 16.00}
+    },
     favorite: false,
     fav_count: 4243
 )
@@ -411,6 +425,9 @@ item27 = Item.create!(
     category_id: category1.id,
     title: 'Suga or Suga ????',
     price: 12.00,
+    options: {
+        Size: {'10 x 10': 11.00, '15 x 15': 14.00, '20 x 20': 16.00}
+    },
     favorite: false,
     fav_count: 8345
 )
@@ -422,6 +439,9 @@ item28 = Item.create!(
     category_id: category2.id,
     title: 'Sushi is sooooooooo good',
     price: 9.00,
+    options: {
+        Size: {'10 x 10': 11.00, '15 x 15': 14.00, '20 x 20': 16.00}
+    },
     favorite: false,
     fav_count: 4562
 )
@@ -433,6 +453,9 @@ item29 = Item.create!(
     category_id: category1.id,
     title: 'Genshin Impact - Venti',
     price: 11.00,
+    options: {
+        Size: {'10 x 10': 11.00, '15 x 15': 14.00, '20 x 20': 16.00}
+    },
     favorite: false,
     fav_count: 6352
 )
@@ -444,6 +467,9 @@ item30 = Item.create!(
     category_id: category4.id,
     title: 'Weathering With You - Teru Teru Bozu',
     price: 7.00,
+    options: {
+        Size: {'10 x 10': 11.00, '15 x 15': 14.00, '20 x 20': 16.00}
+    },
     favorite: false,
     fav_count: 3345
 )
@@ -644,3 +670,17 @@ review30 = Review.create!(
     content: 'Spam is so good. I love this drawing.',
 )
 
+cart1 = Cart.create!(user_id: user1.id)
+cart2 = Cart.create!(user_id: user2.id)
+cart3 = Cart.create!(user_id: user3.id)
+cart4 = Cart.create!(user_id: user4.id)
+cart5 = Cart.create!(user_id: user5.id)
+cart6 = Cart.create!(user_id: user6.id)
+cart7 = Cart.create!(user_id: user7.id)
+cart8 = Cart.create!(user_id: user8.id)
+cart9 = Cart.create!(user_id: user9.id)
+cart10 = Cart.create!(user_id: user10.id)
+cart11 = Cart.create!(user_id: user11.id)
+cart12 = Cart.create!(user_id: user12.id)
+
+cart_item1 = CartItem.create!(item_id: item12.id, cart_id: cart1.id, quantity: 1)

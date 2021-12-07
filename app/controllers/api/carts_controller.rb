@@ -1,4 +1,4 @@
-class CartsController < ApplicationController
+class Api::CartsController < ApplicationController
     def show
         @cart = Cart.find(params[:id])
         render 'api/carts/show'

@@ -1,4 +1,4 @@
-import RECEIVE_CART from '../actions/cart_actions';
+import { RECEIVE_CART } from '../actions/cart_actions';
 
 const cartReducer = (state = {}, action) => {
     switch (action.type) {

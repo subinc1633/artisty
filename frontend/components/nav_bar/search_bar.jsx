@@ -9,7 +9,7 @@ const SearchBar = () => {
 
     let searchParams = new URLSearchParams(history.location.search);
     searchParams.set('q', query);
-    let searchVal = searchParams.toString();
+    let searchVal = searchParams.toString(); // 'q=query'
 
     const handleSubmit = e => {
         e.preventDefault();

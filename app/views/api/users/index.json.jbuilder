@@ -3,7 +3,7 @@
         json.partial! 'api/users/user', user: user
         json.set! :cart do
             json.set! user.cart.id do
-                json.extract! cart, :id, :cart_id, :item_id, :quantity
+                json.extract! user.cart, :id, :user_id
             end
         end
     end
