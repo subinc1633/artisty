@@ -1,36 +1,50 @@
 import React, { useEffect, useState } from 'react';
-import CartItem from './cart_item';
 import { useDispatch } from 'react-redux';
 import { useSelector } from 'react-redux';
+import CartItem from './cart_item';
 import { fetchCart } from '../../actions/cart_actions';
+import { fetchUser } from '../../actions/user_actions';
 
 const CartPage = () => {
-    const [total, setTotal] = useState(0);
+    const [cart, setCart] = useState({});
     const dispatch = useDispatch();
     const userId = useSelector(state => state.session.id);
-
-    useEffect(() => {
-        fetchCart(userId, )
-    })
     
-    // const userId = useSelector(state => state.session.id);
-    // const cart = useSelector(state => {
-    //     debugger
-    //     Object.values(state.entities.users[userId].cart)
-    // });
+    useEffect(() => {
+        dispatch(fetchUser(userId)).then(
+            (res) => {
+                let cart = Object.values(res.user.cart)[0];
+                if (cart) {
+                    dispatch(fetchCart(userId, cart.id)).then((res) => {
+                        setCart(res.cart)
+                    });
+                }
+            }
+        );
+    }, []);
+
+    const itemQuantity = () => {
+        if (cart.cartItems) {
+            let count = Object.values(cart.cartItems).length;
+            if (count === 1) {
+                return <h1>1 item in your cart</h1>
+             } else {
+                 return <h1>{count} items in your cart</h1>
+             } 
+        }
+    }
 
     return (
         <div>
             <div>
-                {
-                    // Object.values(cart.cartItems).length === 0 ?
-                    // <div>Your cart is empty.</div> :
-                
+                {   
+                    cart.cartItems ?
                     <div>
-                        <p>x items in your cart</p>
+                        {itemQuantity()}
                         <button>Keep shopping</button>
                         <CartItem />
-                    </div>
+                    </div> :
+                    <div>Your cart is empty.</div>
                 }
             </div>
             <div>
@@ -40,4 +54,4 @@ const CartPage = () => {
     );
 };
 
-export default Cart;
+export default CartPage;

@@ -10,7 +10,7 @@ import NavBarContainer from './nav_bar/nav_bar_container';
 import CategoryIndexContainer from './categories/category_index_container';
 import CategoryShowContainer from './categories/category_show_container';
 import SearchPage from './search_page/search_page';
-import Cart from './cart/cart';
+import CartPage from './cart/cart_page';
 import Footer from './footer/footer';
 
 const App = () => {
@@ -26,7 +26,7 @@ const App = () => {
                 <Route path='/items/:itemId' component={ItemShowContainer} />
                 <Route path='/categories' component={CategoryIndexContainer} />
                 <Route path='/search' component={SearchPage} />
-                <Route path='/cart' component={Cart} />
+                <ProtectedRoute path='/cart' component={CartPage} />
                 <Redirect to='/404' />
             </Switch>
             <Footer />
