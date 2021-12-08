@@ -30,7 +30,7 @@ const Modal = ({ modal, signInForm, signUpForm, closeModal }) => {
         <div>
             <div className='modal-background' onClick={closeModal}>
                 <div className='modal-close-section'>
-                    <span className='modal-close' onClick={closeModal}>&times;</span>
+                    <span className='modal-close'>&times;</span>
                     <div className='modal-content' onClick={e => e.stopPropagation()}>
                         <div className='modal-header'>
                             <h3 className='modal-title'>{title}</h3>

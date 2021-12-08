@@ -1,7 +1,6 @@
 import {
     RECEIVE_CURRENT_USER,
-    LOGOUT_CURRENT_USER,
-    RECEIVE_CART
+    LOGOUT_CURRENT_USER
 } from '../actions/session_actions';
 
 const _nullUser = {
@@ -15,8 +14,6 @@ const sessionReducer = (state = {}, action) => {
             return { id: action.currentUser.id };
         case LOGOUT_CURRENT_USER:
             return _nullUser;
-        case RECEIVE_CART:
-            debugger
         default:
             return state;
     }

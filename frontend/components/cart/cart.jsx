@@ -1,14 +1,19 @@
 import React, { useEffect, useState } from 'react';
-import { fetchCart } from '../../actions/cart_actions';
 import CartItem from './cart_item';
+import { fetchCart } from '../../actions/cart_actions';
+import { useDispatch } from 'react-redux';
+import { useSelector } from 'react-redux';
 
 const Cart = () => {
-    const [cart, setCart] = useState({});
     const [total, setTotal] = useState(0);
+    const cartId = useSelector(state => {
+        debugger
+        state.entities.cart.id});
+    const dispatch = useDispatch();
 
     useEffect(() => {
-        fetchCart();
-    }, [cart]);
+        dispatch(fetchCart(cartId));
+    })
 
     return (
         <div>

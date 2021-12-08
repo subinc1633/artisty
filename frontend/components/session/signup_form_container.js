@@ -11,7 +11,8 @@ const mSTP = ({ errors }) => ({
 
 const mDTP = dispatch => ({
     processForm: user => dispatch(signup(user)),
-    closeModal: () => dispatch(closeModal())
+    closeModal: () => dispatch(closeModal()),
+    createCart: cart => dispatch(createCart(cart))
 });
 
 export default withRouter(connect(mSTP, mDTP)(SessionForm));

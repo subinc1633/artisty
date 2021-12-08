@@ -20,10 +20,3 @@ export const logout = () => (
         url: '/api/session'
     })
 );
-
-export const fetchCart = cartId => (
-    $.ajax({
-        method: 'GET',
-        url: `/api/carts/${cartId}`
-    })
-);

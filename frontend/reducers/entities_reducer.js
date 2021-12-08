@@ -11,7 +11,7 @@ const entitiesReducer = combineReducers({
     items,
     categories,
     reviews,
-    // cart,
+    cart,
     cartItems
 });
 

@@ -22,6 +22,12 @@ class SessionForm extends React.Component {
                 this.props.clearErrors();
             },
             () => null
+        ).then(
+            () => {
+                if (currentUser.id && this.props.formType === 'Sign up') {
+                    this.props.createCart({ userId: currentUser.id });
+                }
+            }
         );
     }
 

@@ -9,7 +9,7 @@ Rails.application.routes.draw do
     resources :shops, only: [:show]
     resources :categories, only: [:index, :show]
     resources :reviews, only: [:index, :show, :destroy]
-    resources :carts, only: [:show]
+    resources :carts, only: [:show, :create]
     resources :cart_items, only: [:show, :create, :update, :destroy]
     resource :session, only: [:create, :destroy]
   end
