@@ -17,8 +17,7 @@ const mSTP = (state, { match }) => ({
 const mDTP = dispatch => ({
     fetchItem: itemId => dispatch(fetchItem(itemId)),
     fetchReviews: () => dispatch(fetchReviews()),
-    createCartItem: cartItem => dispatch(createCartItem(cartItem)),
-    fetchCart: cartId => dispatch(fetchCart(cartId))
+    createCartItem: cartItem => dispatch(createCartItem(cartItem))
 });
 
 export default connect(mSTP, mDTP)(ItemShow);

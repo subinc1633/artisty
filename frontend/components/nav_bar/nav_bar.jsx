@@ -6,11 +6,19 @@ import NavBarLink from './nav_bar_links';
 import SearchBar from './search_bar';
 
 const NavigationBar = (props) => {
-    const { currentUser, userId, navCategories, logout, openModal, fetchCategories, fetchCart } = props;
+    const { currentUser, userId, navCategories, logout, openModal, fetchCategories, fetchUser, fetchCart } = props;
     const history = useHistory();
 
     useEffect(() => {
         fetchCategories();
+        fetchUser(userId).then(
+            (res) => {
+                let cart = Object.values(res.user.cart)[0];
+                if (cart) {
+                    fetchCart(userId, cart.id);
+                }
+            }
+        );
     }, []);
 
     const signIn = () => {

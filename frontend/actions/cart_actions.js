@@ -7,10 +7,10 @@ export const receiveCart = cart => ({
     cart
 });
 
-export const fetchCart = cartId => dispatch => (
-    CartApiUtil.fetchCart(cartId).then(cart => dispatch(receiveCart(cart)))
+export const fetchCart = (userId, cartId) => dispatch => (
+    CartApiUtil.fetchCart(userId, cartId).then(cart => dispatch(receiveCart(cart)))
 );
 
-export const createCart = cart => dispatch => (
-    CartApiUtil.createCart(cart).then(cart => dispatch(receiveCart(cart)))
+export const createCart = (userId, cart) => dispatch => (
+    CartApiUtil.createCart(userId, cart).then(cart => dispatch(receiveCart(cart)))
 );

@@ -16,7 +16,6 @@ const ItemShow = props => {
     useEffect(() => {
         fetchItem(itemId);
         fetchReviews();
-        fetchCart(cart.id);
     }, []);
 
     const handleSubmit = e => {

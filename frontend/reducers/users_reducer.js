@@ -1,3 +1,4 @@
+import { RECEIVE_CART } from '../actions/cart_actions';
 import { RECEIVE_CURRENT_USER } from '../actions/session_actions';
 import { RECEIVE_USER_PROFILE, RECEIVE_ALL_USERS } from '../actions/user_actions';
 
@@ -10,6 +11,8 @@ const usersReducer = (state = {}, action) => {
             return Object.assign({}, state, { [action.user.id]: action.user });
         case RECEIVE_ALL_USERS:
             return action.users;
+        case RECEIVE_CART:
+            return Object.assign({}, state, { [action.cart.id]: action.cart});
         default:
             return state;
     }

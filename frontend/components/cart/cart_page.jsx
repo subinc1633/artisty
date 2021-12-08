@@ -1,25 +1,29 @@
 import React, { useEffect, useState } from 'react';
 import CartItem from './cart_item';
-import { fetchCart } from '../../actions/cart_actions';
 import { useDispatch } from 'react-redux';
 import { useSelector } from 'react-redux';
+import { fetchCart } from '../../actions/cart_actions';
 
-const Cart = () => {
+const CartPage = () => {
     const [total, setTotal] = useState(0);
-    const cartId = useSelector(state => {
-        debugger
-        state.entities.cart.id});
     const dispatch = useDispatch();
+    const userId = useSelector(state => state.session.id);
 
     useEffect(() => {
-        dispatch(fetchCart(cartId));
+        fetchCart(userId, )
     })
+    
+    // const userId = useSelector(state => state.session.id);
+    // const cart = useSelector(state => {
+    //     debugger
+    //     Object.values(state.entities.users[userId].cart)
+    // });
 
     return (
         <div>
             <div>
                 {
-                    // Object.values(Object.values(cart).cartItems).length === 0 ?
+                    // Object.values(cart.cartItems).length === 0 ?
                     // <div>Your cart is empty.</div> :
                 
                     <div>
