@@ -21,7 +21,7 @@ const CartPage = () => {
                 }
             }
         );
-    }, [setCart]);
+    }, []);
 
     const itemQuantity = () => {
         if (cart.cartItems) {
