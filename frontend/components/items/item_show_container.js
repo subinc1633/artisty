@@ -18,7 +18,7 @@ const mDTP = dispatch => ({
     fetchItem: itemId => dispatch(fetchItem(itemId)),
     fetchReviews: () => dispatch(fetchReviews()),
     createCartItem: cartItem => dispatch(createCartItem(cartItem)),
-    fetchCart: () => dispatch(fetchCart)
+    fetchCart: cartId => dispatch(fetchCart(cartId))
 });
 
 export default connect(mSTP, mDTP)(ItemShow);

@@ -14,6 +14,7 @@ class NavigationBar extends React.Component {
 
     componentDidMount() {
         this.props.fetchCategories();
+        this.props.fetchCart();
     }
 
     render() {

@@ -16,28 +16,29 @@ const ItemShow = props => {
     useEffect(() => {
         fetchItem(itemId);
         fetchReviews();
-        fetchCart();
+        fetchCart(cart.id);
     }, []);
 
     const handleSubmit = e => {
         e.preventDefault();
 
+        let product;
+
         if (currentUserId) {
-            setCartItem({
+            product = {
                 cartId: users.currentUserId.cart.id,
                 itemId: itemId
-            })
+            };
         } else {
-            setCartItem({
+            product = {
                 cartId: cart.id,
                 itemId: itemId
-            })
+            };
         }
-        createCartItem(cartItem).then(() => {
-            return (
-                <p>Item added to cart</p>
-            );
-        });
+        
+        createCartItem(product).then(
+            () => { setCartItem(product); }
+        );
     };
 
     const toggleDescription = e => {

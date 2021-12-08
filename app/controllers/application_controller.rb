@@ -1,22 +1,9 @@
 class ApplicationController < ActionController::Base
-    helper_method :current_user, :is_logged_in?, :current_cart
+    helper_method :current_user, :is_logged_in?
 
     def current_user
         return nil unless session[:session_token]
         @current_user ||= User.find_by(session_token: session[:session_token])
-    end
-
-    def current_cart
-        if is_logged_in?
-            @cart = @current_user.cart
-        else
-            if session[:cart]
-                @cart = Cart.find(session[:cart])
-            else
-                @cart = Cart.create
-                session[:cart] = @cart.id
-            end
-        end
     end
 
     def login!(user)

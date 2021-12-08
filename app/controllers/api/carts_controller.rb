@@ -1,6 +1,6 @@
 class Api::CartsController < ApplicationController
     def show
-        @cart = current_cart
+        @cart = Cart.find(params[:id])
         render 'api/carts/show'
     end
 end

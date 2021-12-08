@@ -1,6 +1,6 @@
-export const fetchCart = cartId => (
-    $.ajax({
-        method: 'GET',
-        url: `/api/carts/${cartId}`
-    })
-);
+// export const fetchCart = cartId => (
+//     $.ajax({
+//         method: 'GET',
+//         url: `/api/carts/${cartId}`
+//     })
+// );

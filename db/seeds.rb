@@ -20,6 +20,8 @@ Review.delete_all
 ApplicationRecord.connection.reset_pk_sequence!('reviews')
 Cart.delete_all
 ApplicationRecord.connection.reset_pk_sequence!('carts')
+CartItem.delete_all
+ApplicationRecord.connection.reset_pk_sequence!('cart_items')
 
 user1 = User.create!(email: 'peperoroll@gmail.com', password: 'peppero', name: 'Soybean')
 user2 = User.create!(email: 'ricenkimchi@gmail.com', password: 'aggressivehr', name: 'Lucas')
