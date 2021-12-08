@@ -13,18 +13,18 @@ export const removeCartItem = cartItemId => ({
     cartItemId
 });
 
-export const fetchCartItem = cartItemId => dispatch => (
-    CartItemApiUtil.fetchCartItem(cartItemId).then(cartItem => dispatch(receiveCartItem(cartItem)))
+export const fetchCartItem = (cartId, cartItemId) => dispatch => (
+    CartItemApiUtil.fetchCartItem(cartId, cartItemId).then(cartItem => dispatch(receiveCartItem(cartItem)))
 );
 
-export const createCartItem = cartItem => dispatch => (
-    CartItemApiUtil.createCartItem(cartItem).then(cartItem => dispatch(receiveCartItem(cartItem)))
+export const createCartItem = (cartId, cartItem) => dispatch => (
+    CartItemApiUtil.createCartItem(cartId, cartItem).then(cartItem => dispatch(receiveCartItem(cartItem)))
 );
 
-export const updateCartItem = cartItem => dispatch => (
-    CartItemApiUtil.updateCartItem(cartItem).then(cartItem => dispatch(receiveCartItem(cartItem)))
+export const updateCartItem = (cartId, cartItem) => dispatch => (
+    CartItemApiUtil.updateCartItem(cartId, cartItem).then(cartItem => dispatch(receiveCartItem(cartItem)))
 );
 
-export const deleteCartItem = cartItemId => dispatch => (
-    CartItemApiUtil.deleteCartItem(cartItemId).then(cartItemId => dispatch(removeCartItem(cartItemId)))
+export const deleteCartItem = (cartId, cartItemId) => dispatch => (
+    CartItemApiUtil.deleteCartItem(cartId, cartItemId).then(cartItemId => dispatch(removeCartItem(cartItemId)))
 );

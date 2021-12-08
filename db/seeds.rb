@@ -275,7 +275,7 @@ item15 = Item.create!(
     title: 'Leeg ADCs',
     price: 5.00,
     options: {
-        Character: ['Jinx', 'MF', 'Graves', 'Caitlyn']
+        Character: {'Jinx': 5, 'MF': 5, 'Graves': 5, 'Caitlyn': 5}
     },
     favorite: false,
     fav_count: 3133

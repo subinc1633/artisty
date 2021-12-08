@@ -38,11 +38,13 @@ const CartPage = () => {
                  return (
                     <div>
                         <h1>{count} items in your cart</h1>
-                        {
-                            items.map((cartItem, idx) => {
-                                <CartItem key={idx} cartItem={cartItem} />
-                            })
-                        }
+                        <ul>
+                            {
+                                items.map((cartItem, idx) => (
+                                    <CartItem key={idx} cartItem={cartItem} />
+                                ))
+                            }
+                        </ul>
                     </div>
                  )
              } 

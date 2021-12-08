@@ -1,20 +1,40 @@
 import React, { useEffect, useState } from 'react';
 import { fetchItem } from '../../actions/item_actions';
-import { fetchCartItem, updateCartItem, removeCartItem } from '../../actions/cart_item_actions';
+import { updateCartItem, deleteCartItem } from '../../actions/cart_item_actions';
 import { useDispatch } from 'react-redux';
 
 const CartItem = ({ cartItem }) => {
     const [item, setItem] = useState({});
-    const [quantity, setQuantity] = useState(0);
+    const [product, setProduct] = useState(cartItem);
+    const [quantity, setQuantity] = useState(cartItem.quantity);
     const dispatch = useDispatch();
 
     useEffect(() => {
+        setProduct({
+            id: cartItem.id,
+            cart_id: cartItem.cartId,
+            item_id: cartItem.itemId,
+            quantity: parseInt(quantity)
+        })
+    }, [quantity])
+
+    useEffect(() => {
         dispatch(fetchItem(cartItem.itemId))
-            .then(res => setItem(res.item))
-    }, []);
+            .then(res => setItem(res.item));
+    }, [product]);
+
+    const handleClick = e => {
+        dispatch(deleteCartItem(cartItem.cartId, cartItem.id))
+            .then(() => setProduct({}));
+    }
+
+    const handleChange = e => {
+        setQuantity(e.target.value);
+        dispatch(updateCartItem(cartItem.cartId, product));
+    }
 
     return (
-        <div>
+        <li>
             { item ? 
                 <div>
                     <p>Shop Name</p>
@@ -22,9 +42,9 @@ const CartItem = ({ cartItem }) => {
                     <p>{item.title}</p>
                     <p>option</p>
                     <p>edit</p>
-                    <button>remove</button>
+                    <button onClick={handleClick}>remove</button>
                     <form>
-                        <select name="quantity">
+                        <select name="quantity" value={quantity} onChange={handleChange}>
                             <option value='1'>1</option>
                             <option value='2'>2</option>
                             <option value='3'>3</option>
@@ -37,10 +57,10 @@ const CartItem = ({ cartItem }) => {
                             <option value='10'>10</option>
                         </select>
                     </form>
-                    <p>${(item.price * 100 / 100).toFixed(2)}</p>
+                    <p>${(item.price * quantity * 100 / 100).toFixed(2)}</p>
                 </div>
                 : null }
-        </div>
+        </li>
     );
 };
 
