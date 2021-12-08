@@ -21,32 +21,39 @@ const CartPage = () => {
                 }
             }
         );
-    }, []);
+    }, [setCart]);
 
     const itemQuantity = () => {
         if (cart.cartItems) {
-            let count = Object.values(cart.cartItems).length;
+            let items = Object.values(cart.cartItems);
+            let count = items.length;
             if (count === 1) {
-                return <h1>1 item in your cart</h1>
+                return (
+                    <div>
+                        <h1>1 item in your cart</h1>
+                        <CartItem cartItem={items[0]} />
+                    </div>
+                )
              } else {
-                 return <h1>{count} items in your cart</h1>
+                 return (
+                    <div>
+                        <h1>{count} items in your cart</h1>
+                        {
+                            items.map((cartItem, idx) => {
+                                <CartItem key={idx} cartItem={cartItem} />
+                            })
+                        }
+                    </div>
+                 )
              } 
+        } else {
+            return <h1>Your cart is empty</h1>
         }
     }
 
     return (
         <div>
-            <div>
-                {   
-                    cart.cartItems ?
-                    <div>
-                        {itemQuantity()}
-                        <button>Keep shopping</button>
-                        <CartItem />
-                    </div> :
-                    <div>Your cart is empty.</div>
-                }
-            </div>
+            {itemQuantity()}
             <div>
                 
             </div>
