@@ -1,1 +1,1 @@
-json.extract! @cart_item, :id, :cart_id, :item_id, :quantity, :price, :option
+json.partial! 'api/cart_items/cart_item', cart_item: @cart_item

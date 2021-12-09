@@ -28,7 +28,7 @@ const SearchBar = () => {
             <label className="hide-label" htmlFor="searchbar">Search for anything</label>
             <input type="text" id="searchbar" placeholder="Search for anything" value={query} onChange={e => handleChange(e)} />
             <button className="nav-search-button"><span><IoSearch /></span></button>
-            <div className="nav-searched-items">
+            {/* <div className="nav-searched-items">
                 {
                     Object.values(allItems).filter(item => {
                         if (query === '') {
@@ -40,7 +40,7 @@ const SearchBar = () => {
                         <li key={idx}>{item.title}</li>
                     )).slice(0,7)
                 }
-            </div>
+            </div> */}
         </form>
     );
 }

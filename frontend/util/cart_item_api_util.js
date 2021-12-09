@@ -1,3 +1,10 @@
+export const fetchCartItems = (cartId) => (
+    $.ajax({
+        method: 'GET',
+        url: `/api/carts/${cartId}/cart_items`
+    })
+);
+
 export const fetchCartItem = (cartId, cartItemId) => (
     $.ajax({
         method: 'GET',

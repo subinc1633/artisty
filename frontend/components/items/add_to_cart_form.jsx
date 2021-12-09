@@ -72,7 +72,7 @@ const AddToCartForm = ({ item, itemId, userId, createCartItem, updateCartItem, f
         }
 
         const hasCartItem = (obj) => {
-            return obj.some(cartItem => cartItem.option === option || cartItem.itemId === itemId);
+            return obj.some(cartItem => cartItem.itemId === itemId);
         };
 
         const filteredCartItems = (obj) => {
@@ -80,7 +80,7 @@ const AddToCartForm = ({ item, itemId, userId, createCartItem, updateCartItem, f
         };
 
         if (userId) {
-            if ((cartItems && product) && hasCartItem(cartItems)) {
+            if ((cart.cartItems && product) && hasCartItem(cartItems)) {
                 let productId = filteredCartItems(cartItems)[0].id;
 
                 let total = filteredCartItems(cartItems).reduce((acc, item) => {
@@ -95,8 +95,6 @@ const AddToCartForm = ({ item, itemId, userId, createCartItem, updateCartItem, f
                     price: price,
                     option: option
                 };
-
-                debugger
                 
                 updateCartItem(cart.id, updatedProduct).then(
                     () => setProduct(updatedProduct)
