@@ -16,6 +16,16 @@ const Splash = props => {
             {currentUser ? (
                 <div>
                     <h1 className='welcome'>Welcome back, <Link to={`/users/${currentUser.id}`}>{currentUser.name}</Link>!</h1>
+                    <div>
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                    </div>
                     <h2 className='splash-header'>Our picks for you</h2>
                     <br/><br/>
                     <div className='our-picks'>

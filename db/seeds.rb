@@ -43,7 +43,7 @@ shop1 = Shop.create!(
 )
 
 shop2 = Shop.create!(
-    name: 'Geeeeee',
+    name: 'Eggeu',
     description: "I'm Gee",
     ig_handle: 'img_ee'
 )
@@ -115,7 +115,7 @@ item2 = Item.create!(
     title: 'Weathering With You - Blue Sky',
     price: 15.00,
     options: {
-        Size: {'17 x 11': 15.00, '24 x 18': 20.00, '36 x 24': 25.00}
+        Size: {'11 x 17': 15.00, '18 x 24': 20.00, '24 x 36': 25.00}
     },
     favorite: false,
     fav_count: 3023

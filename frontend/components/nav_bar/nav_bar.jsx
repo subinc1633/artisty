@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { useHistory } from 'react-router';
 import { Link } from 'react-router-dom';
-import { IoCartOutline } from 'react-icons/io5';
+import { IoCartOutline, IoPersonCircle, IoCaretDown } from 'react-icons/io5';
 import NavBarLink from './nav_bar_links';
 import SearchBar from './search_bar';
 
@@ -33,10 +33,16 @@ const NavigationBar = (props) => {
         <nav className="nav-bar">
             <ul className="top-nav">
                 <li><Link to="/"><h2 className="artisty">Artisty</h2></Link></li>
-                <SearchBar />
-                <li>{currentUser ? <button onClick={() => loggingOut()}>Log out</button> : <button onClick={() => signIn()}>Sign in</button>}</li>
-                <li><button className="cart" onClick={() => checkIfLoggedIn()}><IoCartOutline /></button></li>
+                <li className="nav-searchbar"><SearchBar /></li>
+                <li>{currentUser ? <button className="user-button" onClick={() => loggingOut()}><IoPersonCircle /> <IoCaretDown className="caret-button" /></button> : <button onClick={() => signIn()}>Sign in</button>}</li>
+                <li><button className="cart-button" onClick={() => checkIfLoggedIn()}><IoCartOutline /></button></li>
             </ul><br/>
+            <div className="user-nav-button dropdown">
+                <ul className="dropdown-list">
+                    <li>My Favorites</li>
+                    <li onClick={() => loggingOut}>Log Out</li>
+                </ul>
+            </div>
             <ul className="bottom-nav">
                 {
                     navCategories.map((category, idx) => (

@@ -10,16 +10,24 @@
         align-items: center;
         li button {
             border: none;
+            font-size: 27px;
             &:hover {
                 transform: none;
                 box-shadow: none;
                 background-color: $lightest-gray;
             }
         }
-        .cart {
-            font-size: 25px;
-            padding-top: 7px;
-            width: 38px;   
+        .user-button {
+            display: flex;
+            justify-content: space-evenly;
+            align-items: center;
+        }
+        .caret-button {
+            font-size: 16px;
+        }
+        .cart-button {
+            width: 38px;  
+            padding-top: 7px; 
         }
     }
     ul.bottom-nav {

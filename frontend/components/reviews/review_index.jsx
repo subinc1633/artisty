@@ -41,7 +41,6 @@ class ReviewIndex extends React.Component {
                     key={key}
                     review={review}
                     reviewers={this.state.users}
-                    toggleOpen={this.toggleOpen}
                     item={item}
                     currentUser={currentUser}
                     deleteReview={deleteReview}

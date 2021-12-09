@@ -7,7 +7,7 @@ const footer = () => (
             <div>
                 <ul>
                     <li><b>Site</b></li>
-                    <li><Link to='/'>Sitemap</Link></li>
+                    <li><Link to='/'>Main Site</Link></li>
                 </ul>
             </div>
             <div>
@@ -20,6 +20,14 @@ const footer = () => (
                     <li>React</li>
                     <li>Redux</li>
                     <li>PostgreSQL</li>
+                </ul>
+            </div>
+            <div>
+                <ul>
+                    <li><b>Projects</b></li>
+                    <li><Link to="/">Artisty</Link></li>
+                    <li><a href="">Feline Fever</a></li>
+                    <li><a href="">PharmAssist</a></li>
                 </ul>
             </div>
             <div>

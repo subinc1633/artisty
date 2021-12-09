@@ -1,5 +1,7 @@
 import React from 'react';
+import CategoryFilter from './category_filter';
 import CategoryShowItem from './category_show_item';
+import { IoArrowBack } from 'react-icons/io5';
 
 class CategoryShow extends React.Component {
     constructor(props) {
@@ -35,7 +37,9 @@ class CategoryShow extends React.Component {
 
                         <div className="category-show-container">
                             <div className="category-show-form">
-
+                                <p><span><IoArrowBack /></span> All Categories</p>
+                                <p>{action.category.title}</p>
+                                <CategoryFilter />
                             </div>
                             <div className="item-list-container">
                                 <h3 className="item-list-header">Find something you love</h3>
@@ -50,8 +54,6 @@ class CategoryShow extends React.Component {
                                 </div>
                             </div>
                         </div>
-
-
                     </div>
                 ) : (
                     null

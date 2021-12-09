@@ -24,10 +24,10 @@ const SearchBar = () => {
     const allItems = useSelector((state) => state.entities.items);
     
     return (
-        <form className="nav-searchbar" onSubmit={handleSubmit}>
+        <form onSubmit={handleSubmit}>
             <label className="hide-label" htmlFor="searchbar">Search for anything</label>
             <input type="text" id="searchbar" placeholder="Search for anything" value={query} onChange={e => handleChange(e)} />
-            <button className="nav-search-button"><span><IoSearch /></span></button>
+            <button className="nav-search-button"><IoSearch /></button>
             {/* <div className="nav-searched-items">
                 {
                     Object.values(allItems).filter(item => {

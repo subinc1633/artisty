@@ -1,11 +1,17 @@
 .nav-searchbar {
+    margin-top: 10px;
     @include search-bar;
-    width: 70%;
+    width: 50%;
+    form {
+    width: 100%;
+    height: 42px;
+    display: flex;
     input {
         @include search-bar-input;
-        width: 80%;
+        width: 100%;
         background-color: #f4f4f4;
         padding-left: 20px;
+        padding-right: 50px;
         &:focus {
             background-color: #ffffff;
             box-shadow: inset 0px 0px 4px #dbdbdb;
@@ -19,4 +25,5 @@
         background-color: #fff;
         color: $color;
     }
+}
 }

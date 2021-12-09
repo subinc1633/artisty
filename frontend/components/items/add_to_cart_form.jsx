@@ -35,7 +35,7 @@ const AddToCartForm = ({ item, itemId, userId, createCartItem, updateCartItem, f
             if (option === 'Select an option') {
                 setPrice === item.price;
             } else {
-                setPrice(parseInt(Object.values(item.options)[0][option] * quantity * 100 / 100))
+                setPrice(Object.values(item.options)[0][option] * quantity * 100 / 100);
             }
         }
     }, [option]);
@@ -92,7 +92,7 @@ const AddToCartForm = ({ item, itemId, userId, createCartItem, updateCartItem, f
                     cart_id: cart.id,
                     item_id: itemId,
                     quantity: total,
-                    price: price,
+                    price: item.price,
                     option: option
                 };
                 
@@ -104,7 +104,7 @@ const AddToCartForm = ({ item, itemId, userId, createCartItem, updateCartItem, f
                     cart_id: cart.id,
                     item_id: itemId,
                     quantity: quantity,
-                    price: price,
+                    price: item.price,
                     option: option
                 };
     
@@ -122,9 +122,9 @@ const AddToCartForm = ({ item, itemId, userId, createCartItem, updateCartItem, f
             {item.shop_id}
             <h1>{item.title}</h1> 
             { option && item.options ? 
-                <span className='item-show-price'>${(price * quantity * 100 / 100).toFixed(2)}</span>
+                <span className='item-show-price'>${(Object.values(item.options)[0][option] * quantity * 100 / 100).toFixed(2)}</span>
                 :
-                <span className='item-show-price'>${(price * quantity * 100 / 100).toFixed(2)}</span>
+                <span className='item-show-price'>${(item.price * 100 / 100).toFixed(2)}</span>
             }
             <br/>
             <form className="request-form" onSubmit={handleSubmit}>
