@@ -6,7 +6,8 @@ import { fetchCart } from '../../actions/cart_actions';
 import { fetchUser } from '../../actions/user_actions';
 
 const CartPage = () => {
-    const [cart, setCart] = useState({});
+    const [cart, setCart] = useState('');
+    const [items, setItems] = useState('');
     const dispatch = useDispatch();
     const userId = useSelector(state => state.session.id);
     
@@ -16,40 +17,45 @@ const CartPage = () => {
                 let cart = Object.values(res.user.cart)[0];
                 if (cart) {
                     dispatch(fetchCart(userId, cart.id)).then((res) => {
-                        setCart(res.cart)
+                        setCart(res.cart);
                     });
                 }
             }
         );
     }, []);
 
+    useEffect(() => {
+        cart.cartItems ? setItems(cart.cartItems) : null
+    }, [items])
+
     const itemQuantity = () => {
         if (cart.cartItems) {
-            let items = Object.values(cart.cartItems);
-            let count = items.length;
-            if (count === 1) {
-                return (
-                    <div>
-                        <h1>1 item in your cart</h1>
-                        <CartItem cartItem={items[0]} />
-                    </div>
-                )
-             } else {
-                 return (
-                    <div>
-                        <h1>{count} items in your cart</h1>
-                        <ul>
-                            {
-                                items.map((cartItem, idx) => (
-                                    <CartItem key={idx} cartItem={cartItem} />
-                                ))
-                            }
-                        </ul>
-                    </div>
-                 )
-             } 
+            let cartItems = Object.values(cart.cartItems);
+            let count = cartItems.length;
+            switch (count) {
+                case 1:
+                    return (
+                        <div>
+                            <h1>{count} item in your cart</h1>
+                            <CartItem cartItem={cartItems[0]} />
+                        </div>
+                    )
+                default:
+                    return (
+                        <div>
+                            <h1>{count} items in your cart</h1>
+                            <ul>
+                                {
+                                    cartItems.map((cartItem, idx) => (
+                                        <CartItem key={idx} cartItem={cartItem} />
+                                    ))
+                                }
+                            </ul>
+                        </div>
+                    );
+            }
         } else {
-            return <h1>Your cart is empty</h1>
+            return <h1>Your cart is empty.</h1>
         }
     }
 

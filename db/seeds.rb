@@ -101,7 +101,7 @@ item1 = Item.create!(
     title: 'Two Pieces of Fried Chicken',
     price: 11.00,
     options: {
-        Size: {'10 x 10': 11.00, '15 x 15': 14.00, '20 x 20': 16.00}
+        Size: {'15 x 15': 11.00, '24 x 24': 16.00, '30 x 30': 21.00}
     },
     favorite: false,
     fav_count: 1003
@@ -115,7 +115,7 @@ item2 = Item.create!(
     title: 'Weathering With You - Blue Sky',
     price: 15.00,
     options: {
-        Size: {'10 x 10': 11.00, '15 x 15': 14.00, '20 x 20': 16.00}
+        Size: {'17 x 11': 15.00, '24 x 18': 20.00, '36 x 24': 25.00}
     },
     favorite: false,
     fav_count: 3023
@@ -129,7 +129,7 @@ item3 = Item.create!(
     title: 'Star Goddess',
     price: 20.00,
     options: {
-        Size: {'10 x 10': 11.00, '15 x 15': 14.00, '20 x 20': 16.00}
+        Size: {'11 x 17': 20.00, '18 x 24': 24.00, '24 x 36': 28.00}
     },
     favorite: false,
     fav_count: 1083
@@ -143,7 +143,7 @@ item4 = Item.create!(
     title: 'My Hero Academia Stickers !!',
     price: 5.00,
     options: {
-        Character: ['Bakugou', 'Deku', 'Todoroki', 'Ochako', 'Tsuyu']
+        Character: {'Bakugou': 5.00, 'Deku': 5.00, 'Todoroki': 5.00, 'Ochako': 5.00, 'Tsuyu': 5.00}
     },
     favorite: false,
     fav_count: 3934
@@ -275,7 +275,7 @@ item15 = Item.create!(
     title: 'Leeg ADCs',
     price: 5.00,
     options: {
-        Character: {'Jinx': 5, 'MF': 5, 'Graves': 5, 'Caitlyn': 5}
+        Character: {'Jinx': 5.00, 'MF': 5.00, 'Graves': 5.00, 'Caitlyn': 5.00}
     },
     favorite: false,
     fav_count: 3133
@@ -361,7 +361,7 @@ item22 = Item.create!(
     title: 'Do you like phở?',
     price: 6.00,
     options: {
-        Size: {'10 x 10': 11.00, '15 x 15': 14.00, '20 x 20': 16.00}
+        Size: {'15 x 15': 6.00, '24 x 24': 12.00, '30 x 30': 16.00}
     },
     favorite: false,
     fav_count: 4523
@@ -373,9 +373,9 @@ item23 = Item.create!(
     shop_id: shop1.id,
     category_id: category2.id,
     title: 'I do not like pineapples',
-    price: 8.00,
+    price: 11.00,
     options: {
-        Size: {'10 x 10': 11.00, '15 x 15': 14.00, '20 x 20': 16.00}
+        Size: {'15 x 15': 11.00, '24 x 24': 14.00, '30 x 30': 18.00}
     },
     favorite: false,
     fav_count: 304
@@ -400,7 +400,7 @@ item25 = Item.create!(
     title: 'A guitarist singing while sitting on a chair',
     price: 18.50,
     options: {
-        Size: {'10 x 10': 11.00, '15 x 15': 14.00, '20 x 20': 16.00}
+        Size: {'11 x 17': 18.50, '18 x 24': 23.00, '24 x 36': 28.00}
     },
     favorite: false,
     fav_count: 8234
@@ -414,7 +414,7 @@ item26 = Item.create!(
     title: 'SPAM in a can open and ready to eat',
     price: 7.00,
     options: {
-        Size: {'10 x 10': 11.00, '15 x 15': 14.00, '20 x 20': 16.00}
+        Size: {'10 x 10': 7.00, '15 x 15': 12.00, '20 x 20': 17.00}
     },
     favorite: false,
     fav_count: 4243
@@ -428,7 +428,7 @@ item27 = Item.create!(
     title: 'Suga or Suga ????',
     price: 12.00,
     options: {
-        Size: {'10 x 10': 11.00, '15 x 15': 14.00, '20 x 20': 16.00}
+        Size: {'11 x 17': 12.00, '18 x 24': 18.00, '24 x 36': 25.00}
     },
     favorite: false,
     fav_count: 8345
@@ -442,7 +442,7 @@ item28 = Item.create!(
     title: 'Sushi is sooooooooo good',
     price: 9.00,
     options: {
-        Size: {'10 x 10': 11.00, '15 x 15': 14.00, '20 x 20': 16.00}
+        Size: {'10 x 10': 9.00, '15 x 15': 13.00, '20 x 20': 17.00}
     },
     favorite: false,
     fav_count: 4562
@@ -454,9 +454,9 @@ item29 = Item.create!(
     shop_id: shop1.id,
     category_id: category1.id,
     title: 'Genshin Impact - Venti',
-    price: 11.00,
+    price: 15.00,
     options: {
-        Size: {'10 x 10': 11.00, '15 x 15': 14.00, '20 x 20': 16.00}
+        Size: {'11 x 17': 15.00, '18 x 24': 22.00, '24 x 36': 28.00}
     },
     favorite: false,
     fav_count: 6352
@@ -685,4 +685,4 @@ cart10 = Cart.create!(user_id: user10.id)
 cart11 = Cart.create!(user_id: user11.id)
 cart12 = Cart.create!(user_id: user12.id)
 
-cart_item1 = CartItem.create!(item_id: item12.id, cart_id: cart1.id, quantity: 1)
+cart_item1 = CartItem.create!(item_id: item12.id, cart_id: cart1.id, quantity: 1, price: item12[price], option: '')

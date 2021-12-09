@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { fetchItem } from '../../actions/item_actions';
-import { updateCartItem, deleteCartItem } from '../../actions/cart_item_actions';
+import { fetchCartItem, updateCartItem, deleteCartItem } from '../../actions/cart_item_actions';
 import { useDispatch } from 'react-redux';
 
 const CartItem = ({ cartItem }) => {
@@ -8,34 +8,41 @@ const CartItem = ({ cartItem }) => {
     const [product, setProduct] = useState(cartItem);
     const [quantity, setQuantity] = useState(cartItem.quantity);
     const dispatch = useDispatch();
-
-    useEffect(() => {
-        setProduct({
-            id: cartItem.id,
-            cart_id: cartItem.cartId,
-            item_id: cartItem.itemId,
-            quantity: parseInt(quantity)
-        })
-    }, [quantity])
+    let itemTotal = item.price * quantity;
 
     useEffect(() => {
         dispatch(fetchItem(cartItem.itemId))
             .then(res => setItem(res.item));
-    }, [product]);
+
+        dispatch(fetchCartItem(cartItem.cartId, cartItem.id))
+            .then(res => {
+                setProduct(res.cartItem)
+            });
+    }, []);
 
     const handleClick = e => {
         dispatch(deleteCartItem(cartItem.cartId, cartItem.id))
-            .then(() => setProduct({}));
+            .then(() => setProduct(''));
     }
 
     const handleChange = e => {
-        setQuantity(e.target.value);
-        dispatch(updateCartItem(cartItem.cartId, product));
+        let num = parseInt(e.target.value);
+        setQuantity(num);
+        let updated = {
+            id: product.id,
+            cart_id: product.cartId,
+            item_id: product.itemId,
+            quantity: num,
+            price: parseInt(item.price),
+            option: product.option
+        };
+        
+        dispatch(updateCartItem(cartItem.cartId, updated));
     }
 
     return (
         <li>
-            { item ? 
+            { item && product ? 
                 <div>
                     <p>Shop Name</p>
                     <img src=""/>
@@ -57,7 +64,8 @@ const CartItem = ({ cartItem }) => {
                             <option value='10'>10</option>
                         </select>
                     </form>
-                    <p>${(item.price * quantity * 100 / 100).toFixed(2)}</p>
+                    <p>{cartItem.option}</p>
+                    <p>${(itemTotal * 100 / 100).toFixed(2)}</p>
                 </div>
                 : null }
         </li>

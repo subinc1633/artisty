@@ -8,10 +8,11 @@ import { fetchUser } from '../../actions/user_actions';
 import { openModal } from '../../actions/modal_actions';
 
 const AddToCartForm = ({ item, itemId, userId, createCartItem, updateCartItem, fetchUser, fetchCart, openModal }) => {
-    const [product, setProduct] = useState({});
+    const [product, setProduct] = useState(null);
     const [option, setOption] = useState('');
     const [active, setActive] = useState(false);
     const [quantity, setQuantity] = useState(1);
+    const [price, setPrice] = useState(item.price);
     const [cart, setCart] = useState({});
 
     useEffect(() => {
@@ -27,7 +28,17 @@ const AddToCartForm = ({ item, itemId, userId, createCartItem, updateCartItem, f
                 }
             );
         };
-    }, [product]);
+    }, [userId, product]);
+
+    useEffect(() => {
+        if (option && item.options) {
+            if (option === 'Select an option') {
+                setPrice === item.price;
+            } else {
+                setPrice(parseInt(Object.values(item.options)[0][option] * quantity * 100 / 100))
+            }
+        }
+    }, [option]);
 
     const toggleDescription = () => {
         active ? setActive(false) : setActive(true);
@@ -42,28 +53,36 @@ const AddToCartForm = ({ item, itemId, userId, createCartItem, updateCartItem, f
         });
     }
 
+    const handleOptionChange = e => {
+        setOption(e.target.value);
+    }
+
     const handleSubmit = e => {
         e.preventDefault();
         let updatedProduct;
         let newProduct;
         let cartItems;
 
+        if (option && option === 'Select an option') {
+            return <div></div>
+        }
+
         if (cart.cartItems) {
             cartItems = Object.values(cart.cartItems);
         }
 
         const hasCartItem = (obj) => {
-            obj.some(item => item.itemId === itemId)
-        }
+            return obj.some(cartItem => cartItem.option === option || cartItem.itemId === itemId);
+        };
 
         const filteredCartItems = (obj) => {
             return obj.filter(cartItem => cartItem.itemId === itemId);
-        }
+        };
 
         if (userId) {
-            if (cartItems && product && hasCartItem(cartItems)) {
+            if ((cartItems && product) && hasCartItem(cartItems)) {
                 let productId = filteredCartItems(cartItems)[0].id;
-                
+
                 let total = filteredCartItems(cartItems).reduce((acc, item) => {
                     return acc + item.quantity;
                 }, product.quantity);
@@ -72,8 +91,12 @@ const AddToCartForm = ({ item, itemId, userId, createCartItem, updateCartItem, f
                     id: productId,
                     cart_id: cart.id,
                     item_id: itemId,
-                    quantity: total
-                }
+                    quantity: total,
+                    price: price,
+                    option: option
+                };
+
+                debugger
                 
                 updateCartItem(cart.id, updatedProduct).then(
                     () => setProduct(updatedProduct)
@@ -82,8 +105,10 @@ const AddToCartForm = ({ item, itemId, userId, createCartItem, updateCartItem, f
                 newProduct = {
                     cart_id: cart.id,
                     item_id: itemId,
-                    quantity: quantity
-                }
+                    quantity: quantity,
+                    price: price,
+                    option: option
+                };
     
                 createCartItem(cart.id, newProduct).then(
                     () => setProduct(newProduct)
@@ -99,16 +124,16 @@ const AddToCartForm = ({ item, itemId, userId, createCartItem, updateCartItem, f
             {item.shop_id}
             <h1>{item.title}</h1> 
             { option && item.options ? 
-                <span className='item-show-price'>${(Object.values(item.options)[0][option] * quantity * 100 / 100).toFixed(2)}</span>
+                <span className='item-show-price'>${(price * quantity * 100 / 100).toFixed(2)}</span>
                 :
-                <span className='item-show-price'>${(item.price * quantity * 100 / 100).toFixed(2)}</span>
+                <span className='item-show-price'>${(price * quantity * 100 / 100).toFixed(2)}</span>
             }
             <br/>
             <form className="request-form" onSubmit={handleSubmit}>
                 { item.options &&
                     Object.entries(item.options).map(([key, val], idx) => (
                     <label key={idx}>{key}<br/>
-                        <select className="item-select" name={key} value={option} onChange={(e) => setOption(e.target.value)}>
+                        <select className="item-select" name={key} value={option} onChange={handleOptionChange}>
                             <option value="Select an option">Select an option</option>
                             <OptionValueItem val={val} />
                         </select>

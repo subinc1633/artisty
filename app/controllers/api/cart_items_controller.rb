@@ -1,4 +1,9 @@
 class Api::CartItemsController < ApplicationController
+    def index
+        @filtered_cart_items = CartItem.where(cartId: params[:id]).all
+        render 'api/cart_items/index'
+    end
+    
     def show
         @cart_item = CartItem.find(params[:id])
         render 'api/cart_items/show'
@@ -33,6 +38,6 @@ class Api::CartItemsController < ApplicationController
     private
 
     def cart_item_params
-        params.require(:cart_item).permit(:cart_id, :item_id, :quantity)
+        params.require(:cart_item).permit(:cart_id, :item_id, :quantity, :price, :option)
     end
 end
