@@ -15,7 +15,6 @@ button {
     transition: ease 0.2s;
     &:hover {
         transform: scale(1.02) perspective(4px);
-        font-size: $font-size;
         box-shadow: $shadow;
     }
 }

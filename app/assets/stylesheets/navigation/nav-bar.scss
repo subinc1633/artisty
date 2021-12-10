@@ -1,39 +1,55 @@
 @import './search-bar.scss';
+@import './tooltip.scss';
 
 .nav-bar {
     width: 100%;
     font-weight: $font-weight;
     ul.top-nav {
-        margin-top: 20px;
+        margin-top: 10px;
         display: flex;
         justify-content: space-evenly;
         align-items: center;
         li button {
             border: none;
-            font-size: 27px;
+            transform: none;
+            font-size: 30px;
             &:hover {
                 transform: none;
                 box-shadow: none;
+            }
+        }
+        .sign-in-button {
+            font-size: 16px;
+            &:hover {
                 background-color: $lightest-gray;
+                transform: none;
             }
         }
         .user-button {
             display: flex;
             justify-content: space-evenly;
             align-items: center;
+            &:hover {
+                background-color: $lightest-gray;
+                transform: none;
+            }
         }
         .caret-button {
             font-size: 16px;
         }
         .cart-button {
-            width: 38px;  
-            padding-top: 7px; 
+            width: 40px;  
+            padding-top: 4px; 
+            &:hover {
+                background-color: $lightest-gray;
+                transform: none;
+            }
         }
     }
     ul.bottom-nav {
         display: flex;
         justify-content: space-evenly;
-        font-size: 14px;
+        font-size: 13px;
         font-weight: 300;
         letter-spacing: 0.5px;
         font-family: $font;
@@ -47,12 +63,13 @@
             &:after {
                 content: '';
                 display: block;
+                transform: scaleX(0);
                 padding-bottom: 16px;
                 border-bottom: 2px solid $color;
-                transform: scaleX(0);
-                transition: transform ease-in-out 0.2;
             }
             &:hover:after {
+                content: '';
+                display: block;
                 transform: scaleX(1);
             }
             &:hover {
@@ -69,4 +86,73 @@
     height: 1px;
     overflow: hidden;
     position: absolute;
+}
+
+.dropdown-background {
+    
+}
+
+.user-nav-dropdown {
+    position: absolute;
+    z-index: 10;
+    border-radius: 10px;
+    top: 70px;
+    right: 16%;
+    width: 230px;
+    padding: 10px 0;
+    background-color: #fff;
+    border: 1px solid #dadada;
+    li {
+        display: block;
+        padding: 10px 20px;
+        font-size: 13px;
+        &:hover {
+            background-color: #eee;
+            cursor: pointer;
+        }  
+    }
+    .user-nav-profile {
+        display: flex;
+        align-items: center;
+        background-color: #eee;
+        .person-circle-icon {
+            font-size: 27px;
+        }
+        .user-nav-info {
+            line-height: 20px;
+            padding-left: 10px;
+        }
+        .user-nav-name {
+            font-size: 16px;
+            font-weight: 500;
+        }
+    }
+    &:before {
+        content: '';
+        position: absolute;
+        right: 40px;
+        bottom: 100%;
+        margin-left: 10px;
+        border-width: 10px;
+        border-style: solid;
+        border-color: transparent transparent #dadada transparent;
+    }
+    &:after {
+        content: '';
+        position: absolute;
+        bottom: 100%;
+        right: 41px;
+        margin-left: 9px;
+        border-width: 9px;
+        border-style: solid;
+        border-color: transparent transparent #fff transparent;
+    }
+}
+
+.hide-dropdown {
+    display: none;
+}
+
+.show-dropdown {
+    display: block;
 }

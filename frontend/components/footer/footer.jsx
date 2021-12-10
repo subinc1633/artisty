@@ -26,8 +26,8 @@ const footer = () => (
                 <ul>
                     <li><b>Projects</b></li>
                     <li><Link to="/">Artisty</Link></li>
-                    <li><a href="">Feline Fever</a></li>
-                    <li><a href="">PharmAssist</a></li>
+                    <li><a href="https://subinc1633.github.io/feline-fever/">Feline Fever</a></li>
+                    <li><a href="https://pharm4ssist.herokuapp.com/#/">PharmAssist</a></li>
                 </ul>
             </div>
             <div>
@@ -35,6 +35,8 @@ const footer = () => (
                     <li><b>Contact</b></li>
                     <li><a href='https://github.com/subinc1633/artisty'>GitHub</a></li>
                     <li><a href='https://www.linkedin.com/in/sc1633/'>Linkedin</a></li>
+                    <li><a href='https://angel.co/u/subin-cho'>AngelList</a></li>
+                    <li><a href='https://subincho.net'>Portfolio</a></li>
                 </ul>
             </div>
         </div>

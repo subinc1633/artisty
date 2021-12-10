@@ -28,19 +28,6 @@ const SearchBar = () => {
             <label className="hide-label" htmlFor="searchbar">Search for anything</label>
             <input type="text" id="searchbar" placeholder="Search for anything" value={query} onChange={e => handleChange(e)} />
             <button className="nav-search-button"><IoSearch /></button>
-            {/* <div className="nav-searched-items">
-                {
-                    Object.values(allItems).filter(item => {
-                        if (query === '') {
-                            return item;
-                        } else if (item.title.toLowerCase().includes(query.toLowerCase())) {
-                            return item;
-                        }
-                    }).map((item, idx) => (
-                        <li key={idx}>{item.title}</li>
-                    )).slice(0,7)
-                }
-            </div> */}
         </form>
     );
 }

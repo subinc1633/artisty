@@ -50,21 +50,21 @@ class ReviewIndex extends React.Component {
 
         const checkOpen = () => {
             if (this.state.openForm) {
-                return <CreateFormContainer content='Write your review here!' toggleOpen={this.toggleOpen} item={item} currentUser={currentUser} />
+                return <CreateFormContainer content='' toggleOpen={this.toggleOpen} item={item} currentUser={currentUser} />
             } else {
                 return null;
             }
         };
 
         const ratings = [];
-        item.reviews ? Object.values(item.reviews).forEach(review => {
+        filteredReviews ? Object.values(filteredReviews).forEach(review => {
             ratings.push(review.rating)
         }) : null;
         const avgRating = item && ratings.length > 0 ? Math.round(ratings.reduce((acc, el) => acc + el, 0) / ratings.length) : 0;
 
         return (
             <div className='review-index'>
-                <h3 className='review-total-count'>{reviewIndexItems.length} Reviews</h3>
+                <h3 className='review-total-count'>{reviewIndexItems.length} Review(s)</h3>
                 <span className='review-rating'>
                     {
                         [...Array(5)].map((star, idx) => (

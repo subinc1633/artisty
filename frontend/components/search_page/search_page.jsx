@@ -17,14 +17,18 @@ const SearchPage = () => {
     }, []);
 
     return (
-        <div className="item-list-container">
-            <ul className="category-show-items">
-                {
-                    Object.values(items).map((item, idx) => {
-                        if (item.title.toLowerCase().includes(query)) return <CategoryShowItem key={idx} item={item} />
-                    })
-                }
-            </ul>
+        <div>
+            <div className="search-page-container">
+                <div className="item-list-container">
+                    <ul className="category-show-items">
+                        {
+                            Object.values(items).map((item, idx) => {
+                                if (item.title.toLowerCase().includes(query)) return <CategoryShowItem key={idx} item={item} />
+                            })
+                        }
+                    </ul>
+                </div>
+            </div>
         </div>
     );
 }
