@@ -11,7 +11,8 @@ const mSTP = (state, { match }) => ({
 
 const mDTP = dispatch => ({
     fetchItem: itemId => dispatch(fetchItem(itemId)),
-    fetchReviews: () => dispatch(fetchReviews())
+    fetchReviews: () => dispatch(fetchReviews()),
+    fetchShops: () => dispatch(fetchShops())
 });
 
 export default connect(mSTP, mDTP)(ItemShow);

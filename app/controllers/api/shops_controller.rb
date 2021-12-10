@@ -1,6 +1,6 @@
 class Api::ShopsController < ApplicationController
-  def show
-    @shop = Shop.find(params[:id])
-    render 'api/shops/show'
+  def index
+    @shops = Shop.all
+    render 'api/shops/index'
   end
 end
