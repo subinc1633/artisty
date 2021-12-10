@@ -7,7 +7,7 @@ import { fetchCart } from '../../actions/cart_actions';
 import { fetchUser } from '../../actions/user_actions';
 import { openModal } from '../../actions/modal_actions';
 
-const AddToCartForm = ({ item, itemId, userId, shops, createCartItem, updateCartItem, fetchUser, fetchCart, openModal }) => {
+const AddToCartForm = ({ item, itemId, userId, shop, createCartItem, updateCartItem, fetchUser, fetchCart, openModal }) => {
     const [product, setProduct] = useState(null);
     const [option, setOption] = useState('');
     const [active, setActive] = useState(false);
@@ -39,14 +39,6 @@ const AddToCartForm = ({ item, itemId, userId, shops, createCartItem, updateCart
             }
         }
     }, [option]);
-
-    const findShop = () => {
-        for (let shop of shops) {
-            if (shop.id === item.shopId) {
-                return <p>shop.name</p>;
-            }
-        }
-    }
 
     const toggleDescription = () => {
         active ? setActive(false) : setActive(true);
@@ -127,7 +119,7 @@ const AddToCartForm = ({ item, itemId, userId, shops, createCartItem, updateCart
 
     return (
         <div className='right-item-column'>
-            { shops ? findShop() : null }
+            { shop ? <p>{shop.name}</p> : null }<br/>
             <h1>{item.title}</h1> 
             { option && item.options ? 
                 <span className='item-show-price'>${(Object.values(item.options)[0][option] * quantity * 100 / 100).toFixed(2)}</span>

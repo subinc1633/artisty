@@ -1,16 +1,19 @@
-import React, { useEffect } from 'react';
-import { fetchAllShops } from '../../actions/shop_actions';
+import React, { useEffect, useState } from 'react';
 import ReviewIndexContainer from '../reviews/review_index_container';
 import AddToCartForm from './add_to_cart_form';
 
 const ItemShow = props => {
-    const { item, itemId, reviews, currentUserId, fetchItem, fetchAllShops, fetchReviews } = props;
-    const [shops, setShops]
+    const { item, itemId, reviews, fetchItem, fetchShop, fetchReviews } = props;
+    const [shop, setShop] = useState(null)
 
     useEffect(() => {
-        fetchItem(itemId);
+        fetchItem(itemId)
+        .then(res => {
+            let shopId = res.item.shopId;
+            fetchShop(shopId)
+            .then(res => setShop(res.shop));
+        });
         fetchReviews();
-        fetchAllShops().then(res => setShops(res.shops));
     }, []);
 
     return (
@@ -29,7 +32,7 @@ const ItemShow = props => {
                         <AddToCartForm
                             item={item}
                             itemId={itemId}
-                            shops={shops} />
+                            shop={shop} />
                     </div>
                 )}
         </div>

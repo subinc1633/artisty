@@ -1,7 +1,15 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+import { useState } from 'react';
 import { Link } from 'react-router-dom';
+import { fetchShop } from '../../actions/shop_actions';
 
 const CategoryShowItem = ({ item }) => {
+    const [shop, setShop] = useState(null);
+
+    useEffect(() => {
+        if (item) fetchShop(item.shopId).then(res => setShop(res.shop));
+    }, [])
+
     if (item) {
         return (
             <Link to={`/items/${item.id}`}>
