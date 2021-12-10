@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from 'react';
-import { useDispatch } from 'react-redux';
-import { useSelector } from 'react-redux';
-import CartItem from './cart_item';
-import { fetchCart } from '../../actions/cart_actions';
+import { useDispatch, useSelector } from 'react-redux';
+import Cart from './cart';
 import { fetchUser } from '../../actions/user_actions';
+import { fetchCart } from '../../actions/cart_actions';
 import { fetchCartItems } from '../../actions/cart_item_actions';
+import { IoLeaf } from 'react-icons/io5';
 
 const CartPage = () => {
     const [cart, setCart] = useState('');
@@ -65,25 +65,28 @@ const CartPage = () => {
     //     }
     // }
 
-    const allCartItems = [];
+    // const allCartItems = [];
 
-    if (items) {
-        for (let [key, cartItem] of Object.entries(items)) {
-            allCartItems.unshift(<CartItem
-                key={key}
-                cartItem={cartItem}
-            />)
-        }
-    }
+    // if (items) {
+    //     for (let [key, cartItem] of Object.entries(items)) {
+    //         allCartItems.unshift(<CartItem
+    //             key={key}
+    //             cartItem={cartItem}
+    //         />)
+    //     }
+    // }
 
     return (
         <div>
-            { allCartItems.length === 0 ?
-                <h1>Your cart is empty.</h1>
-            : allCartItems }
             <div>
-                <h3>Total</h3>
+                <div>
+                    <Cart cart={cart} cartItems={items} />
+                </div>
+                <div>
+                    <h3>Total</h3>
+                </div>
             </div>
+            <p><IoLeaf /> Artisty offsets carbon emissions from every delivery</p>
         </div>
     );
 };

@@ -43,21 +43,21 @@ class ReviewIndexItem extends React.Component {
 
         if (reviewer()) {
             return this.state.openForm ? (<UpdateFormContainer toggleOpen={this.toggleOpen} item={item} currentUser={currentUser} content={review.content} review={review} />) : (
-                <div className='review-item'>
-                    <span className='review-name-date'><Link to={`/users/${reviewer().id}`}>{reviewer().name}</Link> {currentDate}</span>
-                    <p className='review-rating'>
+                <div className="review-item">
+                    <span className="review-name-date"><Link className="reviewer-name" to={`/users/${reviewer().id}`}>{reviewer().name}</Link> {currentDate}</span>
+                    <p className="review-rating">
                         {
                             [...Array(5)].map((star, idx) => (
                                 idx + 1 <= review.rating ? <IoStar key={idx} /> : <IoStarOutline key={idx} />)
                             )
                         }
                     </p>
-                    <p className='review-content'>{review.content}</p>
+                    <p className="review-content">{review.content}</p>
                     <br /><br />
-                    <button className='helpful-button'><IoThumbsUpSharp /> Helpful?</button>
+                    <button className="helpful-button"><IoThumbsUpSharp /> Helpful?</button>
                     {currentUser && (currentUser.id === reviewer().id) ?
                         <span>
-                            <span className='edit-delete-link' onClick={this.toggleOpen}>Edit</span> | <span className='edit-delete-link' onClick={this.removeReview}>Delete</span>
+                            <span className="edit-delete-link" onClick={this.toggleOpen}>Edit</span> | <span className="edit-delete-link" onClick={this.removeReview}>Delete</span>
                         </span> : null}
                 </div>
             )

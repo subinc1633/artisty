@@ -3,7 +3,7 @@ import { fetchItem } from '../../actions/item_actions';
 import { fetchCartItem, updateCartItem, deleteCartItem } from '../../actions/cart_item_actions';
 import { useDispatch } from 'react-redux';
 
-const CartItem = ({ cartItem }) => {
+const CartItem = ({ cart, cartItem, idx, removeCartItem }) => {
     const [item, setItem] = useState({});
     const [product, setProduct] = useState(cartItem);
     const [quantity, setQuantity] = useState(cartItem.quantity);
@@ -21,10 +21,11 @@ const CartItem = ({ cartItem }) => {
     }, []);
 
     const handleClick = () => {
-        dispatch(deleteCartItem(cartItem.cartId, cartItem.id))
-            .then(() => {
-                setProduct('');
-            });
+        if (cartItem) {
+            removeCartItem(idx);
+            dispatch(deleteCartItem(cartItem.cartId, cartItem.id))
+            .then(() => setProduct(''));
+        }
     }
 
     const handleChange = e => {
@@ -49,7 +50,7 @@ const CartItem = ({ cartItem }) => {
                     <p>Shop Name</p>
                     <img src=""/>
                     <p>{item.title}</p>
-                    <p>option</p>
+                    <p>{cartItem.option}</p>
                     <p>edit</p>
                     <button onClick={handleClick}>remove</button>
                     <form>
@@ -66,8 +67,12 @@ const CartItem = ({ cartItem }) => {
                             <option value='10'>10</option>
                         </select>
                     </form>
-                    <p>{cartItem.option}</p>
                     <p>${(itemTotal * 100 / 100).toFixed(2)}</p>
+                    {
+                        Math.round(itemTotal) !== Math.round(item.price) ?
+                            <p>(${(item.price * 100 / 100).toFixed(2)} each)</p>
+                        : null
+                    }
                 </div>
                 : null }
         </li>

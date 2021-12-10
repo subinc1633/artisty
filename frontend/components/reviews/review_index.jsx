@@ -49,10 +49,10 @@ class ReviewIndex extends React.Component {
         }
 
         const checkOpen = () => {
-            if (this.state.openForm) {
+            if (currentUser && this.state.openForm) {
                 return <CreateFormContainer content='' toggleOpen={this.toggleOpen} item={item} currentUser={currentUser} />
             } else {
-                return null;
+                return <button className='create-review-button' onClick={this.toggleOpen}>Create a review</button>;
             }
         };
 
@@ -68,11 +68,10 @@ class ReviewIndex extends React.Component {
                 <span className='review-rating'>
                     {
                         [...Array(5)].map((star, idx) => (
-                            idx + 1 <= avgRating ? <IoStar key={idx} /> : <IoStarOutline key={idx} />)
+                            idx < avgRating && idx + 1 <= avgRating ? <IoStar key={idx} /> : <IoStarOutline key={idx} />)
                         )
                     }
                 </span><br />
-                {currentUser ? <button className='create-review-button' onClick={this.toggleOpen}>Create a review</button> : null}
                 {checkOpen()}
                 <hr />
                 <ul>
