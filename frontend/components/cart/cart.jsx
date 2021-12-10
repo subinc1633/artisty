@@ -6,11 +6,9 @@ import CartItem from './cart_item';
 const Cart = ({ cart, cartItems }) => {
     const allCartItems = Object.values(cartItems);
     const [items, setItems] = useState([]);
-    console.log(items)
 
-    const removeCartItem = (idx) => {
-        let newItems = [...allCartItems];
-        newItems.splice(idx, 1);
+    const removeCartItem = (cartItemId) => {
+        let newItems = items.filter((item) => item.id !== cartItemId);
         setItems(newItems);
     }
 

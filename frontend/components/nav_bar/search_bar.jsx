@@ -9,7 +9,7 @@ const SearchBar = () => {
 
     let searchParams = new URLSearchParams(history.location.search);
     searchParams.set('q', query);
-    let searchVal = searchParams.toString(); // 'q=query'
+    let searchVal = searchParams.toString();
 
     const handleSubmit = e => {
         e.preventDefault();
@@ -20,8 +20,6 @@ const SearchBar = () => {
     const handleChange = e => {
         setQuery(e.currentTarget.value);
     };
-
-    const allItems = useSelector((state) => state.entities.items);
     
     return (
         <form onSubmit={handleSubmit}>

@@ -20,12 +20,9 @@ const CartItem = ({ cart, cartItem, idx, removeCartItem }) => {
             });
     }, []);
 
-    const handleClick = () => {
-        if (cartItem) {
-            removeCartItem(idx);
-            dispatch(deleteCartItem(cartItem.cartId, cartItem.id))
-            .then(() => setProduct(''));
-        }
+    const handleClick = (e) => {
+        removeCartItem(cartItem.id);
+        dispatch(deleteCartItem(cartItem.cartId, cartItem.id));
     }
 
     const handleChange = e => {
