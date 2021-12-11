@@ -20,7 +20,7 @@ const SplashFanartItem = ({ item }) => {
                     <img className='splash-category-image' src={`${item.photoUrl[0].url}`} />
                     <p className='splash-item-information'>
                         <span className='splash-item-title'>{item.title}</span>
-                        <span className='splash-item-shop-name'>{shop.name}</span>
+                        <span className='splash-item-shop-name'>{shop.igHandle}</span>
                     </p>
                 </Link>
             ) : null}

@@ -19,14 +19,17 @@ const Cart = ({ cartItems }) => {
     return (
         <div>
             { items && items.length > 0 ?
-                <div className="cart">
-                    <div>
-                    <h1>{items.length} item(s) in your cart</h1>
-                    {
-                        items.map((item, idx) => (
-                            <CartItem key={item.id} cartItem={item} idx={idx} removeCartItem={removeCartItem} />
-                        ))
-                    }
+                <div className="cart-container">
+                    <div className="cart">
+                        { items.length === 1 ? 
+                            <h1>{items.length} item in your cart</h1> :
+                            <h1>{items.length} items in your cart</h1>
+                        }
+                        {
+                            items.map((item, idx) => (
+                                <CartItem key={item.id} cartItem={item} idx={idx} removeCartItem={removeCartItem} />
+                            ))
+                        }
                     </div>
                     <div className="payment">
                         <h3>Total</h3>

@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import { connect } from 'react-redux';
 import OptionValueItem from './option_value_item';
-import { IoChevronDownSharp } from 'react-icons/io5';
+import { IoChevronDownSharp, IoCheckmarkSharp } from 'react-icons/io5';
 import { createCartItem, updateCartItem } from '../../actions/cart_item_actions';
 import { fetchCart } from '../../actions/cart_actions';
 import { fetchUser } from '../../actions/user_actions';
 import { openModal } from '../../actions/modal_actions';
+import { useHistory } from 'react-router-dom';
 
 const AddToCartForm = ({ item, itemId, userId, shop, createCartItem, updateCartItem, fetchUser, fetchCart, openModal }) => {
     const [product, setProduct] = useState(null);
@@ -14,6 +15,10 @@ const AddToCartForm = ({ item, itemId, userId, shop, createCartItem, updateCartI
     const [quantity, setQuantity] = useState(1);
     const [price, setPrice] = useState(item.price);
     const [cart, setCart] = useState({});
+    const history = useHistory();
+
+    let shopUrl;
+    if (shop) shopUrl = `https://www.instagram.com/${shop.igHandle}/`;
 
     useEffect(() => {
         if (userId) {
@@ -112,6 +117,7 @@ const AddToCartForm = ({ item, itemId, userId, shop, createCartItem, updateCartI
                     () => setProduct(newProduct)
                 );
             }
+            history.push('/cart');
         } else {
             openModal('sign in');
         }
@@ -119,13 +125,16 @@ const AddToCartForm = ({ item, itemId, userId, shop, createCartItem, updateCartI
 
     return (
         <div className="right-item-column">
-            { shop ? <p className="item-show-shop">{shop.name}</p> : null }<br/>
+            { shop ? <p className="item-show-shop"><a href={shopUrl} target="_blank">{shop.igHandle}</a></p> : null }<br/>
             <h1>{item.title}</h1> 
-            { option && item.options ? 
-                <span className="item-show-price">${(Object.values(item.options)[0][option] * quantity * 100 / 100).toFixed(2)}</span>
-                :
-                <span className="item-show-price">${(item.price * 100 / 100).toFixed(2)}</span>
-            }
+            <div className="price-in-stock">
+                { option && item.options ? 
+                    <span className="item-show-price">${(Object.values(item.options)[0][option] * quantity * 100 / 100).toFixed(2)}</span>
+                    :
+                    <span className="item-show-price">${(item.price * 100 / 100).toFixed(2)}</span>
+                }
+                <span className="in-stock"><IoCheckmarkSharp className="item-checkmark"/> In stock</span>
+            </div>
             <br/>
             <form className="request-form" onSubmit={handleSubmit}>
                 { item.options &&

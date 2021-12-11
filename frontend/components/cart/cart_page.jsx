@@ -11,6 +11,8 @@ import { IoLeaf } from 'react-icons/io5';
 const CartPage = () => {
     const [cart, setCart] = useState('');
     const [cartItems, setCartItems] = useState('');
+    const [num1, setNum1] = useState('');
+    const [num2, setNum2] = useState('');
     const [items, setItems] = useState('');
     const dispatch = useDispatch();
     const userId = useSelector(state => state.session.id);
@@ -37,6 +39,14 @@ const CartPage = () => {
         .then(res => setItems(res.items));
     }, []);
 
+    useEffect(() => {
+        setNum2(Math.floor(Math.random() * Object.values(items).length + 5));
+    }, [items]);
+
+    useEffect(() => {
+        setNum1(num2 - 5);
+    }, [num2]);
+
     return (
         <>
             <div className="cart-page-container">
@@ -45,17 +55,6 @@ const CartPage = () => {
             <br/><br/>
             <p className="carbon"><IoLeaf /> Artisty offsets carbon emissions from every delivery</p>
             <br/><br/>
-            <h3>You may also like</h3>
-            <div className="shop-recommendations">
-                {
-                    items ? Object.values(items).slice(11, 15).map(item => (
-                        <div className="recommended-items">
-                            <CategoryShowItem key={item.id} item={item} />
-                            <button onClick={() => cartItems.push(item)}>Add to cart</button>
-                        </div>
-                    )) : null
-                }
-            </div>
         </>
     );
 };

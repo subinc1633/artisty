@@ -1,1 +1,1 @@
-json.extract! @shop, :id, :name
+json.extract! @shop, :id, :name, :ig_handle

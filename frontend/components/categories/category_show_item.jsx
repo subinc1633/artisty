@@ -21,7 +21,7 @@ const CategoryShowItem = ({ item }) => {
                     <img className="category-show-item-image" src={`${item.photoUrl[0].url}`} alt="" />
                     <p className="category-show-item-desc">
                         <span className="category-item-title">{item.title}</span><br/>
-                        <span className="category-item-shop">{shop.name}</span><br/>
+                        <span className="category-item-shop">{shop.igHandle}</span><br/>
                         <span className="category-item-price">${(item.price * 100 / 100).toFixed(2)}</span><br/>
                     </p>
                 </li>

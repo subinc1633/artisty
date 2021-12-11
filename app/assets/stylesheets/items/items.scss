@@ -36,16 +36,43 @@
 .right-item-column {
     line-height: 30px;
     width: 28%;
-    // .item-show-
+    .item-show-shop {
+        font-size: 16px;
+        font-weight: 300;
+        letter-spacing: 0.5px;
+        a {
+            &:hover {
+                text-decoration: underline;
+            }
+        }
+    }
+    .price-in-stock {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        .in-stock {
+            display: flex;
+            align-items: center;
+        }
+        span {
+            display: inline-block;
+            line-height: 14px;
+            font-weight: 500;
+        }
+        .item-checkmark {
+            font-size: 20px;
+            padding-right: 4px;
+        }
+    }
     h1 {
         font-family: $sec-font;
         font-size: 30px;
     }
     .item-show-price {
-        font-size: 26px;
+        font-size: 30px;
         font-weight: 500;
         display: inline-block;
-        padding: 15px 0;
+        padding: 25px 0;
     }
     .request-form {
         display: inline;

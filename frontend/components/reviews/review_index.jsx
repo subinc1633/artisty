@@ -64,7 +64,9 @@ class ReviewIndex extends React.Component {
 
         return (
             <div className='review-index'>
-                <h3 className='review-total-count'>{reviewIndexItems.length} Review(s)</h3>
+                { reviewIndexItems.length === 1 ?
+                    <h3 className='review-total-count'>{reviewIndexItems.length} Review</h3>
+                : <h3 className='review-total-count'>{reviewIndexItems.length} Reviews</h3> }
                 <span className='review-rating'>
                     {
                         [...Array(5)].map((star, idx) => (
