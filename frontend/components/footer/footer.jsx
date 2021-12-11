@@ -22,7 +22,6 @@ const Footer = () => {
                                 <li><a href="https://angel.co/u/subin-cho" target="_blank">AngelList</a></li>
                                 <li><a href="https://subincho.net" target="_blank">Portfolio</a></li>
                             </ul>
-                            
                         </div>
                     </div>
                 </div>

@@ -4,30 +4,39 @@
     margin-top: 40px;
     width: 100vw;
     .cart {
-        width: 80%;
+        width: 60%;
         list-style: none;
         h1 {
             font-size: 35px;
             font-family: $sec-font;
         }
         .cart-item {
-            margin-top: 40px;
+            margin: 40px 0;
             .cart-shop-name {
                 font-weight: 500;
-                font-size: 18px;
+                font-size: 16px;
+                a {
+                    &:hover {
+                        text-decoration: underline;
+                    }
+                }
             }
             img {
                 width: 15vw;
                 height: 26vh;
                 object-fit: cover;
+                display: block;
                 float: left;
                 border-radius: 7px;
                 margin-right: 20px;
+                margin-bottom: 40px;
             }
             .cart-item-info {
-                line-height: 25px;
+                line-height: 28px;
                 font-weight: 300;
                 letter-spacing: 0.5px;
+                display: flex;
+                justify-content: space-between;
                 .cart-item-title {
                     &:hover {
                         text-decoration: underline;
@@ -36,18 +45,41 @@
                 button {
                     @include white-button;
                 }
+                .cart-quantity {
+                    select {
+                        @include form-input;
+                        margin: 5px 0;
+                        padding-right: 10px;
+                        width: 120%;
+                        height: 45px;
+                        border-radius: 5px;
+                        box-shadow: 0 0 5px $lightest-gray;
+                        &:hover {
+                            box-shadow: 0 0 5px #d4d4d4;
+                        }
+                    }
+                }
             }
             .cart-item-option {
-
+                font-size: 13px;
             }
-            .cart-item-divider {
-                margin: 40px;
-                background-color: #d1d1d1;
-                border: none;
+            .cart-item-price {
+                font-weight: 500;
+            }
+            .cart-item-price-each {
+                font-size: 14px;
+                color: $lighter-gray;
             }
         }
     }
     .payment {
-
+        width: 25%;
     }
+}
+
+hr.cart-item-divider {
+    clear: left;
+    height: 1px;
+    background-color: #d1d1d1;
+    border: none;
 }

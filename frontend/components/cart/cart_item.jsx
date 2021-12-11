@@ -12,6 +12,9 @@ const CartItem = ({ cartItem, removeCartItem }) => {
     const [quantity, setQuantity] = useState(cartItem.quantity);
     const dispatch = useDispatch();
 
+    let shopUrl;
+    if (shop) shopUrl = `https://www.instagram.com/${shop.igHandle}/`;
+
     let itemTotal = cartItem.price * quantity;
 
     useEffect(() => {
@@ -53,13 +56,26 @@ const CartItem = ({ cartItem, removeCartItem }) => {
         <li>
             { item && product && shop ? 
                 <div className="cart-item">
-                    <p className="cart-shop-name">{shop.igHandle}</p><br/>
+                    <p className="cart-shop-name"><a href={shopUrl} target="_blank">{shop.igHandle}</a></p><br/>
                     <Link to={`/items/${item.id}`}><img src={item.photoUrl[0].url} /></Link>
                     <div className="cart-item-info">
-                        <Link to={`/items/${item.id}`}><p className="cart-item-title">{item.title}</p></Link>
-                        <p className="cart-item-option">{cartItem.option}</p>
-                        <button onClick={handleClick}>Remove</button>
-                        <form>
+                        <div>
+                            <Link to={`/items/${item.id}`}><p className="cart-item-title">{item.title}</p></Link>
+                            { cartItem.option ?
+                            <div className="cart-item-option">
+                                {
+                                    Object.entries(item.options).map(([key, val], idx) => {
+                                        if (Object.keys(val).includes(cartItem.option)) {
+                                            return (
+                                                <span key={idx}>{key}: </span>
+                                            )
+                                        }
+                                    })
+                                } <span>{cartItem.option}</span><br/>
+                            </div> : null }
+                            <button onClick={handleClick}>Remove</button>
+                        </div>
+                        <form className="cart-quantity">
                             <select name="quantity" value={quantity} onChange={handleChange}>
                                 <option value='1'>1</option>
                                 <option value='2'>2</option>
@@ -73,15 +89,15 @@ const CartItem = ({ cartItem, removeCartItem }) => {
                                 <option value='10'>10</option>
                             </select>
                         </form>
-                        <p>${(itemTotal * 100 / 100).toFixed(2)}</p>
-                        {
-                            Math.round(itemTotal) !== Math.round(item.price) ?
-                                <p>(${(item.price * 100 / 100).toFixed(2)} each)</p>
-                            : null
-                        }
+                        <div>
+                            <p className="cart-item-price">${(itemTotal * 100 / 100).toFixed(2)}</p>
+                            {
+                                Math.round(itemTotal) !== Math.round(item.price) ?
+                                    <p className="cart-item-price-each">(${(item.price * 100 / 100).toFixed(2)} each)</p>
+                                : null
+                            }
+                        </div>
                     </div>
-                    <br/><br/>
-                    <hr className="cart-item-divider" />
                 </div>
                 : null }
         </li>

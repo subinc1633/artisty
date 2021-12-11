@@ -27,7 +27,10 @@ const Cart = ({ cartItems }) => {
                         }
                         {
                             items.map((item, idx) => (
-                                <CartItem key={item.id} cartItem={item} idx={idx} removeCartItem={removeCartItem} />
+                                <div>
+                                    <CartItem key={item.id} cartItem={item} idx={idx} removeCartItem={removeCartItem} />
+                                    { idx === items.length - 1 ? null : <hr className="cart-item-divider" /> }
+                                </div>
                             ))
                         }
                     </div>
