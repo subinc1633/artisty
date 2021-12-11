@@ -3,7 +3,7 @@ import { fetchItem } from '../../actions/item_actions';
 import { fetchCartItem, updateCartItem, deleteCartItem } from '../../actions/cart_item_actions';
 import { useDispatch } from 'react-redux';
 
-const CartItem = ({ cart, cartItem, idx, removeCartItem }) => {
+const CartItem = ({ cartItem, removeCartItem }) => {
     const [item, setItem] = useState({});
     const [product, setProduct] = useState(cartItem);
     const [quantity, setQuantity] = useState(cartItem.quantity);

@@ -118,13 +118,13 @@ const AddToCartForm = ({ item, itemId, userId, shop, createCartItem, updateCartI
     };
 
     return (
-        <div className='right-item-column'>
-            { shop ? <p>{shop.name}</p> : null }<br/>
+        <div className="right-item-column">
+            { shop ? <p className="item-show-shop">{shop.name}</p> : null }<br/>
             <h1>{item.title}</h1> 
             { option && item.options ? 
-                <span className='item-show-price'>${(Object.values(item.options)[0][option] * quantity * 100 / 100).toFixed(2)}</span>
+                <span className="item-show-price">${(Object.values(item.options)[0][option] * quantity * 100 / 100).toFixed(2)}</span>
                 :
-                <span className='item-show-price'>${(item.price * 100 / 100).toFixed(2)}</span>
+                <span className="item-show-price">${(item.price * 100 / 100).toFixed(2)}</span>
             }
             <br/>
             <form className="request-form" onSubmit={handleSubmit}>
@@ -154,8 +154,8 @@ const AddToCartForm = ({ item, itemId, userId, shop, createCartItem, updateCartI
                 <br/><br/>
                 <button>Add to cart</button><br/>
             </form>
-            <button className='item-desc-toggler' onClick={toggleDescription}>Description <IoChevronDownSharp className='down-arrow' /></button>
-            {active && <div className='item-desc'>{item.description}</div>}
+            <button className="item-desc-toggler" onClick={toggleDescription}>Description <IoChevronDownSharp className="down-arrow" /></button>
+            {active && <div className="item-desc">{item.description}</div>}
         </div>
     )
 }

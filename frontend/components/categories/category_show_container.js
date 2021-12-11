@@ -1,7 +1,6 @@
 import { connect } from 'react-redux';
 import { fetchCategory } from '../../actions/category_actions';
 import { fetchItem } from '../../actions/item_actions';
-import { fetchShop } from '../../actions/shop_actions';
 import CategoryShow from './category_show';
 
 const mSTP = (state, ownProps) => ({
@@ -10,8 +9,7 @@ const mSTP = (state, ownProps) => ({
 
 const mDTP = dispatch => ({
     fetchCategory: categoryId => dispatch(fetchCategory(categoryId)),
-    fetchItem: itemId => dispatch(fetchItem(itemId)),
-    fetchShop: shopId => dispatch(fetchShop(shopId))
+    fetchItem: itemId => dispatch(fetchItem(itemId))
 });
 
 export default connect(mSTP, mDTP)(CategoryShow);

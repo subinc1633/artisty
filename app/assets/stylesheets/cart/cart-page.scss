@@ -1,0 +1,33 @@
+.cart-page-container {
+    display: flex;
+    justify-content: center;
+}
+
+
+.empty-cart {
+    text-align: center;
+    margin-top: 60px;
+    h1 {
+        font-size: 35px;
+        font-family: $sec-font;
+    }
+    a {
+        text-decoration: underline;
+        font-weight: 300;
+    }
+}
+
+.shop-recommendations {
+    display: flex;
+    .recommended-items {
+        display: flex;
+        flex-direction: column;
+    }
+}
+
+.carbon {
+    font-size: 13px;
+    letter-spacing: 0.5px;
+    font-weight: 300;
+    text-align: center;
+}

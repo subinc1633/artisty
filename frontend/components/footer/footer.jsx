@@ -1,13 +1,14 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { FaGithub, FaLinkedin, FaAngellist, FaUserTie } from 'react-icons/fa'
 
 const footer = () => (
     <footer>
-        <div className='middle'>
+        <div className="middle">
             <div>
                 <ul>
                     <li><b>Site</b></li>
-                    <li><Link to='/'>Main Site</Link></li>
+                    <li><Link to="/">Main Site</Link></li>
                 </ul>
             </div>
             <div>
@@ -26,29 +27,35 @@ const footer = () => (
                 <ul>
                     <li><b>Projects</b></li>
                     <li><Link to="/">Artisty</Link></li>
-                    <li><a href="https://subinc1633.github.io/feline-fever/">Feline Fever</a></li>
-                    <li><a href="https://pharm4ssist.herokuapp.com/#/">PharmAssist</a></li>
+                    <li><a href="https://subinc1633.github.io/feline-fever/" target="_blank">Feline Fever</a></li>
+                    <li><a href="https://pharm4ssist.herokuapp.com/#/" target="_blank">PharmAssist</a></li>
                 </ul>
             </div>
             <div>
                 <ul>
                     <li><b>Contact</b></li>
-                    <li><a href='https://github.com/subinc1633/artisty'>GitHub</a></li>
-                    <li><a href='https://www.linkedin.com/in/sc1633/'>Linkedin</a></li>
-                    <li><a href='https://angel.co/u/subin-cho'>AngelList</a></li>
-                    <li><a href='https://subincho.net'>Portfolio</a></li>
+                    <li><a href="https://github.com/subinc1633/artisty" target="_blank">GitHub</a></li>
+                    <li><a href="https://www.linkedin.com/in/sc1633/" target="_blank">Linkedin</a></li>
+                    <li><a href="https://angel.co/u/subin-cho" target="_blank">AngelList</a></li>
+                    <li><a href="https://subincho.net" target="_blank">Portfolio</a></li>
                 </ul>
+                <br/>
+                <span className="contact-icons">
+                    <a href="https://github.com/subinc1633/artisty" target="_blank"><FaGithub /></a> <a href="https://www.linkedin.com/in/sc1633/" target="_blank"><FaLinkedin /></a> <a href="https://angel.co/u/subin-cho" target="_blank"><FaAngellist /></a> <a href="https://subincho.net" target="_blank"><FaUserTie /></a>
+                </span>
             </div>
         </div>
-        <div className='bottom'>
-            <div className='currency'>
+        <div className="bottom">
+            <div className="currency">
                 <b>United States | English (US) | $ (USD)</b>
             </div>
-            <div className='self-info'>
+            <div className="self-info">
                 <ul>
                     <li>© 2021 Subin Cho</li>
-                    <li><a href='https://github.com/subinc1633/artisty'>GitHub</a></li>
-                    <li><a href='https://www.linkedin.com/in/sc1633/'>Linkedin</a></li>
+                    <li><a href="https://github.com/subinc1633/artisty" target="_blank">GitHub</a></li>
+                    <li><a href="https://www.linkedin.com/in/sc1633/" target="_blank">Linkedin</a></li>
+                    <li><a href="https://angel.co/u/subin-cho" target="_blank">AngelList</a></li>
+                    <li><a href="https://subincho.net" target="_blank">Portfolio</a></li>
                 </ul>
                 
             </div>

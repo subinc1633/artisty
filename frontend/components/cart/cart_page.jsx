@@ -1,17 +1,17 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import Cart from './cart';
+import CategoryShowItem from '../categories/category_show_item';
 import { fetchUser } from '../../actions/user_actions';
 import { fetchCart } from '../../actions/cart_actions';
+import { fetchItems } from '../../actions/item_actions';
 import { fetchCartItems } from '../../actions/cart_item_actions';
 import { IoLeaf } from 'react-icons/io5';
 
 const CartPage = () => {
     const [cart, setCart] = useState('');
+    const [cartItems, setCartItems] = useState('');
     const [items, setItems] = useState('');
-    const [state, setState] = useState({
-        present: true
-    })
     const dispatch = useDispatch();
     const userId = useSelector(state => state.session.id);
     
@@ -26,68 +26,37 @@ const CartPage = () => {
                     .then (
                         dispatch(fetchCartItems(cart.id)).then((res) => {
                             let cartItems = Object.values(res.cartItems);
-                            setItems(cartItems);
+                            setCartItems(cartItems);
                         })
                     );
                 }
             }
-        )
+        );
+
+        dispatch(fetchItems())
+        .then(res => setItems(res.items));
     }, []);
 
-    // const itemQuantity = () => {
-    //     if (items) {
-    //         switch (items.length) {
-    //             case 0:
-    //                 return <h1>Your cart is empty.</h1>
-    //             case 1:
-    //                 return (
-    //                     <div>
-    //                         <h1>{items.length} item in your cart</h1>
-    //                         <CartItem cartItem={items[0]} />
-    //                     </div>
-    //                 )
-    //             default:
-    //                 return (
-    //                     <div>
-    //                         <h1>{items.length} items in your cart</h1>
-    //                         <ul>
-    //                             {
-    //                                 items.map((cartItem, idx) => (
-    //                                     <CartItem key={idx} cartItem={cartItem} />
-    //                                 ))
-    //                             }
-    //                         </ul>
-    //                     </div>
-    //                 );
-    //         }
-    //     } else {
-    //         return <h1>Your cart is empty.</h1>
-    //     }
-    // }
-
-    // const allCartItems = [];
-
-    // if (items) {
-    //     for (let [key, cartItem] of Object.entries(items)) {
-    //         allCartItems.unshift(<CartItem
-    //             key={key}
-    //             cartItem={cartItem}
-    //         />)
-    //     }
-    // }
-
     return (
-        <div>
-            <div>
-                <div>
-                    <Cart cart={cart} cartItems={items} />
-                </div>
-                <div>
-                    <h3>Total</h3>
-                </div>
+        <>
+            <div className="cart-page-container">
+                <Cart cart={cart} cartItems={cartItems} />
             </div>
-            <p><IoLeaf /> Artisty offsets carbon emissions from every delivery</p>
-        </div>
+            <br/><br/>
+            <p className="carbon"><IoLeaf /> Artisty offsets carbon emissions from every delivery</p>
+            <br/><br/>
+            <h3>You may also like</h3>
+            <div className="shop-recommendations">
+                {
+                    items ? Object.values(items).slice(11, 15).map(item => (
+                        <div className="recommended-items">
+                            <CategoryShowItem key={item.id} item={item} />
+                            <button onClick={() => cartItems.push(item)}>Add to cart</button>
+                        </div>
+                    )) : null
+                }
+            </div>
+        </>
     );
 };
 

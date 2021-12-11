@@ -468,7 +468,7 @@ item30 = Item.create!(
     shop_id: shop1.id,
     category_id: category4.id,
     title: 'Weathering With You - Teru Teru Bozu',
-    price: 7.00,
+    price: 11.00,
     options: {
         Size: {'10 x 10': 11.00, '15 x 15': 14.00, '20 x 20': 16.00}
     },

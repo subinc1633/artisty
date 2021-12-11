@@ -2,10 +2,12 @@ import React from 'react';
 import { connect } from 'react-redux';
 import LoginFormContainer from '../session/login_form_container';
 import SignupFormContainer from '../session/signup_form_container';
+import Dropdown from '../nav_bar/dropdown';
 import { clearErrors } from '../../actions/error_actions';
+import { logout } from '../../actions/session_actions';
 import { closeModal, openModal } from '../../actions/modal_actions';
 
-const Modal = ({ modal, signInForm, signUpForm, closeModal }) => {
+const Modal = ({ modal, currentUser, logout, signInForm, signUpForm, closeModal }) => {
     if (!modal) {
         return null
     }
@@ -47,7 +49,8 @@ const Modal = ({ modal, signInForm, signUpForm, closeModal }) => {
 };
 
 const mSTP = state => ({
-    modal: state.ui.modal
+    modal: state.ui.modal,
+    currentUser: state.entities.users[state.session.id]
 });
 
 const mDTP = dispatch => ({
