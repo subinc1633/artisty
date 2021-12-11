@@ -1,16 +1,20 @@
-import React, { useState } from 'react';
-import { useSelector } from 'react-redux';
+import React, { useEffect, useState } from 'react';
 import { IoSearch } from 'react-icons/io5';
-import { useHistory } from 'react-router';
+import { useLocation, useHistory } from 'react-router';
 
 const SearchBar = () => {
     const [query, setQuery] = useState('');
     const [buttonClass, setButtonClass] = useState('nav-search-button');
     let history = useHistory();
+    let location = useLocation();
 
-    let searchParams = new URLSearchParams(history.location.search);
+    let searchParams = new URLSearchParams(location.search);
     searchParams.set('q', query);
     let searchVal = searchParams.toString();
+
+    useEffect(() => {
+        setButtonClass('nav-search-button');
+    }, [location])
 
     const handleSubmit = e => {
         e.preventDefault();
@@ -42,7 +46,7 @@ const SearchBar = () => {
                 onFocus={() => toggleButtonClass()}
                 onBlur={() => toggleButtonClass()}
             />
-            <button className={buttonClass}><IoSearch /></button>
+            <button className={buttonClass}><span><IoSearch /></span></button>
         </form>
     );
 }

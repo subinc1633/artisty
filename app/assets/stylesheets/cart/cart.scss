@@ -1,3 +1,17 @@
+.cart-items-shopping {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    h1 {
+        font-size: 35px;
+        font-family: $sec-font;
+    }
+    button {
+        @include white-button;
+        white-space: nowrap;
+        width: 100px;
+    }
+}
 .cart-container {
     display: flex;
     justify-content: space-evenly;
@@ -6,10 +20,6 @@
     .cart {
         width: 60%;
         list-style: none;
-        h1 {
-            font-size: 35px;
-            font-family: $sec-font;
-        }
         .cart-item {
             margin: 40px 0;
             .cart-shop-name {
@@ -74,6 +84,38 @@
     }
     .payment {
         width: 25%;
+        height: 40%;
+        border-radius: 20px;
+        box-shadow: 0 6px 15px rgba(0,0,0,0.2);
+        padding: 20px;
+        h3 {
+            font-weight: 500;
+            padding-bottom: 15px;
+        }
+        .payment-method {
+            display: flex;
+            align-items: center;
+            .paypal {
+                border-radius: 5px;
+                border: 1px solid #d1d1d1;
+                margin-left: 2px;
+            }
+            
+            .klarna-payment {
+                display: flex;
+                align-items: center;
+                .klarna {
+                    border-radius: 5px;
+                    margin-left: 2px;
+                }
+                span {
+                    margin-left: 5px;
+                    font-size: 13px;
+                    font-weight: 300;
+                }
+            }
+        
+        }
     }
 }
 
@@ -83,3 +125,4 @@ hr.cart-item-divider {
     background-color: #d1d1d1;
     border: none;
 }
+

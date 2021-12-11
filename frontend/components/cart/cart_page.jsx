@@ -49,6 +49,13 @@ const CartPage = () => {
 
     return (
         <>
+            <div className="cart-items-shopping">
+                { cartItems.length === 1 ? 
+                    <h1>{cartItems.length} item in your cart</h1> :
+                    <h1>{cartItems.length} items in your cart</h1>
+                }
+                <button>Keep shopping</button>
+            </div>
             <div className="cart-page-container">
                 <Cart cart={cart} cartItems={cartItems} />
             </div>

@@ -1,5 +1,10 @@
 import React, { useEffect, useState } from 'react';
-import { useDispatch } from 'react-redux';
+import mastercard from '../../../app/assets/images/mastercard.png';
+import visa from '../../../app/assets/images/visa.png';
+import amex from '../../../app/assets/images/american-express.png';
+import discover from '../../../app/assets/images/discover.png';
+import paypal from '../../../app/assets/images/paypal.png';
+import klarna from '../../../app/assets/images/klarna.png';
 import { Link } from 'react-router-dom';
 import CartItem from './cart_item';
 
@@ -17,14 +22,10 @@ const Cart = ({ cartItems }) => {
     }, [cartItems])
     
     return (
-        <div>
+        <>
             { items && items.length > 0 ?
                 <div className="cart-container">
                     <div className="cart">
-                        { items.length === 1 ? 
-                            <h1>{items.length} item in your cart</h1> :
-                            <h1>{items.length} items in your cart</h1>
-                        }
                         {
                             items.map((item, idx) => (
                                 <div>
@@ -35,7 +36,31 @@ const Cart = ({ cartItems }) => {
                         }
                     </div>
                     <div className="payment">
-                        <h3>Total</h3>
+                        <h3>How you'll pay</h3>
+                        <div className="payment-method">
+                            <input type="radio" name="payment" value="card" />
+                            <label >
+                                <img src={mastercard} alt="mastercard logo" width="48" />
+                                <img src={visa} alt="visa logo" width="48" />
+                                <img src={amex} alt="american express logo" width="48" />
+                                <img src={discover} alt="discover logo" width="48" />
+                            </label>
+                        </div>
+                            <br/>
+                        <div className="payment-method">
+                            <input type="radio" name="payment" value="paypal" />
+                            <label>
+                                <img className="paypal" src={paypal} alt="paypal logo" width="42" height="29" />
+                            </label>
+                        </div>
+                            <br/>
+                        <div className="payment-method">
+                            <input type="radio" name="payment" value="klarna"  />
+                            <label className="klarna-payment">
+                                <img className="klarna" src={klarna} alt="klarna logo" width="44" height="31" />
+                                <span>4 interest free installments</span>
+                            </label>
+                        </div>
                     </div>
                 </div>
                 :
@@ -44,7 +69,7 @@ const Cart = ({ cartItems }) => {
                     <Link to="/">Discover something unique to fill it up</Link>
                 </div>
             }
-        </div>
+        </>
     )
 };
 
