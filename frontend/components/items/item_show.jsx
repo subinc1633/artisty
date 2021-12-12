@@ -1,10 +1,19 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 import ReviewIndexContainer from '../reviews/review_index_container';
 import AddToCartForm from './add_to_cart_form';
 
+const usePrevProps = val => {
+    const ref = useRef();
+    useEffect(() => {
+        ref.current = val;
+    });
+    return ref.current
+}
+
 const ItemShow = props => {
     const { item, itemId, reviews, fetchItem, fetchShop, fetchReviews } = props;
-    const [shop, setShop] = useState(null)
+    const [shop, setShop] = useState(null);
+    const prevId = usePrevProps(itemId);
 
     useEffect(() => {
         fetchItem(itemId)
@@ -15,6 +24,12 @@ const ItemShow = props => {
         });
         fetchReviews();
     }, []);
+
+    useEffect(() => {
+        if (prevId !== itemId) {
+            fetchItem(itemId);
+        }
+    })
 
     return (
         <div className='item-show-container'>

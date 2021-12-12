@@ -1,25 +1,20 @@
-.cart-items-shopping {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    h1 {
-        font-size: 35px;
-        font-family: $sec-font;
-    }
-    button {
-        @include white-button;
-        white-space: nowrap;
-        width: 100px;
-    }
-}
 .cart-container {
     display: flex;
-    justify-content: space-evenly;
+    justify-content: center;
     margin-top: 40px;
     width: 100vw;
     .cart {
-        width: 60%;
+        width: 50%;
         list-style: none;
+        .cart-items-shopping {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            h1 {
+                font-size: 35px;
+                font-family: $sec-font;
+            }
+        }
         .cart-item {
             margin: 40px 0;
             .cart-shop-name {
@@ -73,6 +68,9 @@
             .cart-item-option {
                 font-size: 13px;
             }
+            .cart-item-title-option {
+                width: 50%;
+            }
             .cart-item-price {
                 font-weight: 500;
             }
@@ -82,9 +80,16 @@
             }
         }
     }
+    .keep-shopping {
+        @include white-button;
+        white-space: nowrap;
+        width: 140px;
+        font-size: 16px;
+        font-weight: 500;
+        display: inline-block;
+    }
     .payment {
-        width: 25%;
-        height: 40%;
+        width: 80%;
         border-radius: 20px;
         box-shadow: 0 6px 15px rgba(0,0,0,0.2);
         padding: 20px;
@@ -95,12 +100,17 @@
         .payment-method {
             display: flex;
             align-items: center;
+            input {
+                cursor: pointer;
+            }
+            label {
+                cursor: pointer;
+            }
             .paypal {
                 border-radius: 5px;
                 border: 1px solid #d1d1d1;
                 margin-left: 2px;
             }
-            
             .klarna-payment {
                 display: flex;
                 align-items: center;
@@ -116,6 +126,38 @@
             }
         
         }
+        .total-fee {
+            div:first-child {
+                margin-bottom: 15px;
+            }
+            .payment-items-total {
+                display: flex;
+                justify-content: space-between;
+                font-weight: 300;
+                font-size: 16px;
+                line-height: 20px;
+                .free-shipping {
+                    color: #44833f;
+                }
+            }
+            .shipping-destination {
+                font-size: 13px;
+                font-weight: 300;
+                letter-spacing: 0.25px;
+                display: inline-block;
+                line-height: 16px;
+                padding-top: 5px;
+                color: #575757;
+            }
+            .total-amount {
+                font-weight: 500;
+                margin-top: 15px;
+            }
+        }
+        button {
+            @include dark-button;
+            width: 100%;
+        }
     }
 }
 
@@ -126,3 +168,10 @@ hr.cart-item-divider {
     border: none;
 }
 
+
+.payment-container {
+display: flex;
+align-items: flex-end;
+flex-direction: column;
+width: 30%;
+}

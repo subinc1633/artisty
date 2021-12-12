@@ -14,6 +14,13 @@ class UserShow extends React.Component {
         this.props.fetchUser(this.props.userId)
         .then(res => this.setState({ action: res }));
     }
+
+    componentDidUpdate(prevProps) {
+        if (prevProps.match.params.userId !== this.props.match.params.userId) {
+            this.props.fetchUser(this.props.match.params.userId)
+            .then(res => this.setState({ action: res }));
+        }
+    }
     
     render() {
         const { action } = this.state;
@@ -22,7 +29,7 @@ class UserShow extends React.Component {
             action ?
             (
                 <div id='user-profile'>
-                    <h1 className='user-header'>{action.user.name}</h1>{this.props.currentUser ? <button className='edit-profile'><FaPencilAlt /> Edit Profile</button> : null}<br/>
+                    <h1 className='user-header'>{action.user.name}</h1>{action.user.id === this.props.currentUser.id ? <button className='edit-profile'><FaPencilAlt /> Edit Profile</button> : null}<br/>
                     <span className='favorites'>
                         <Link to='/'><button className='favorite-items'>Favorite items</button></Link>
                         <Link to='/'><button className='favorite-shops'>Favorite shops</button></Link>

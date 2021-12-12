@@ -5,7 +5,7 @@ import { fetchCartItem, updateCartItem, deleteCartItem } from '../../actions/car
 import { useDispatch } from 'react-redux';
 import { fetchShop } from '../../actions/shop_actions';
 
-const CartItem = ({ cartItem, removeCartItem }) => {
+const CartItem = ({ cartItem, removeCartItem, receivePrice }) => {
     const [item, setItem] = useState(null);
     const [shop, setShop] = useState(null);
     const [product, setProduct] = useState(cartItem);
@@ -30,7 +30,11 @@ const CartItem = ({ cartItem, removeCartItem }) => {
             dispatch(fetchShop(item.shopId))
             .then(res => setShop(res.shop))
         }
-    }, [item])
+    }, [item]);
+
+    useEffect(() => {
+        if (itemTotal) receivePrice(itemTotal);
+    })
 
     const handleClick = (e) => {
         removeCartItem(cartItem.id);
@@ -45,7 +49,7 @@ const CartItem = ({ cartItem, removeCartItem }) => {
             cart_id: product.cartId,
             item_id: product.itemId,
             quantity: num,
-            price: parseInt(item.price),
+            price: parseFloat(item.price),
             option: product.option
         };
         
@@ -59,7 +63,7 @@ const CartItem = ({ cartItem, removeCartItem }) => {
                     <p className="cart-shop-name"><a href={shopUrl} target="_blank">{shop.igHandle}</a></p><br/>
                     <Link to={`/items/${item.id}`}><img src={item.photoUrl[0].url} /></Link>
                     <div className="cart-item-info">
-                        <div>
+                        <div className="cart-item-title-option">
                             <Link to={`/items/${item.id}`}><p className="cart-item-title">{item.title}</p></Link>
                             { cartItem.option ?
                             <div className="cart-item-option">
@@ -92,8 +96,8 @@ const CartItem = ({ cartItem, removeCartItem }) => {
                         <div>
                             <p className="cart-item-price">${(itemTotal * 100 / 100).toFixed(2)}</p>
                             {
-                                Math.round(itemTotal) !== Math.round(item.price) ?
-                                    <p className="cart-item-price-each">(${(item.price * 100 / 100).toFixed(2)} each)</p>
+                                Math.floor(itemTotal) !== Math.floor(cartItem.price) ?
+                                    <p className="cart-item-price-each">(${(cartItem.price * 100 / 100).toFixed(2)} each)</p>
                                 : null
                             }
                         </div>

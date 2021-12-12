@@ -64,6 +64,7 @@ const AddToCartForm = ({ item, itemId, userId, shop, createCartItem, updateCartI
 
     const handleSubmit = e => {
         e.preventDefault();
+
         let updatedProduct;
         let newProduct;
         let cartItems;
@@ -85,19 +86,17 @@ const AddToCartForm = ({ item, itemId, userId, shop, createCartItem, updateCartI
         };
 
         if (userId) {
-            if ((cart.cartItems && product) && hasCartItem(cartItems)) {
+            if ((cart.cartItems && hasCartItem(cartItems))) {
                 let productId = filteredCartItems(cartItems)[0].id;
 
-                let total = filteredCartItems(cartItems).reduce((acc, item) => {
-                    return acc + item.quantity;
-                }, product.quantity);
+                let total = filteredCartItems(cartItems)[0].quantity + parseInt(quantity);
                 
                 updatedProduct = {
                     id: productId,
                     cart_id: cart.id,
                     item_id: itemId,
                     quantity: total,
-                    price: item.price,
+                    price: parseFloat(item.price),
                     option: option
                 };
                 
