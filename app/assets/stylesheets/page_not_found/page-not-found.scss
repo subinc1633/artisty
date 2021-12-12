@@ -26,6 +26,15 @@
             input {
                 @include search-bar-input;
                 width: 40%;
+                border-radius: 30px;
+                background-color: #f4f4f4;
+                padding-left: 20px;
+                padding-right: 50px;
+                z-index: 1;
+                &:focus {
+                    background-color: #ffffff;
+                    box-shadow: inset 0px 0px 4px #dbdbdb;
+                }
             }
 
             button {

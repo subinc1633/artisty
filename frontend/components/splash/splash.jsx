@@ -78,7 +78,7 @@ const Splash = props => {
                         If you are interested in sharing your artwork or reviewing the amazing art of others, come join our community!<br/>
                     </p><br/><br/>
                     <p className='artisty-info-question'><b>Have a question?</b><br/>
-                        <a href='https://www.linkedin.com/in/sc1633/'><button className='contact-button'>Contact Us</button></a>
+                        <a href='https://www.linkedin.com/in/sc1633/'><button>Contact Us</button></a>
                     </p>
                 </div>
             </div>
