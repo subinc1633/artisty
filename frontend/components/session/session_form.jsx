@@ -41,9 +41,9 @@ class SessionForm extends React.Component {
     renderErrors() {
         return (
             this.props.errors ? (
-                <ul className='form-errors'>
+                <ul className="form-errors">
                     {this.props.errors.map((error, i) => (
-                        <li key={`error-${i}`}>
+                        <li key={`error-${i}`} className="session-errors">
                             {error}
                         </li>
                     ))}
@@ -70,9 +70,9 @@ class SessionForm extends React.Component {
             if (this.props.formType === 'Sign in') {
                 return (
                 <div>
-                    <h3 className='line'><span>OR</span></h3>
+                    <h3 className="line"><span>OR</span></h3>
                     <br /><br />
-                    <button className='demo' onClick={this.loginDemo}>Login as Demo User</button>
+                    <button className="demo" onClick={this.loginDemo}>Login as Demo User</button>
                 </div>
             )}
         };
@@ -80,7 +80,7 @@ class SessionForm extends React.Component {
         return (
             <div>
                 { this.renderErrors() }
-                <form className='session-form' onSubmit={this.handleSubmit}>
+                <form className="session-form" onSubmit={this.handleSubmit}>
                     <label>Email address<br/>
                         <input
                             type="email"
@@ -95,11 +95,10 @@ class SessionForm extends React.Component {
                     </label>
                     { signingUp() }
                     <br /><br />
-                    <button className='process'>{this.props.formType}</button>
+                    <button className="process">{this.props.formType}</button>
                     <br/><br/>
                     { loggingIn() }
                     <br/><br/>
-                    By clicking Sign in or Login as Demo User, you agree to Artisty's Terms of Use and Privacy Policy. Artisty may send you communications; you may change your preferences in your account settings. We'll never post without your permission.
                 </form>
             </div>
         );

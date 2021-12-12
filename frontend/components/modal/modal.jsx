@@ -7,7 +7,7 @@ import { clearErrors } from '../../actions/error_actions';
 import { logout } from '../../actions/session_actions';
 import { closeModal, openModal } from '../../actions/modal_actions';
 
-const Modal = ({ modal, currentUser, logout, signInForm, signUpForm, closeModal }) => {
+const Modal = ({ modal, signInForm, signUpForm, closeModal }) => {
     if (!modal) {
         return null
     }
@@ -30,15 +30,15 @@ const Modal = ({ modal, currentUser, logout, signInForm, signUpForm, closeModal 
 
     return (
         <div>
-            <div className='modal-background' onClick={closeModal}>
-                <div className='modal-close-section'>
-                    <span className='modal-close'>&times;</span>
-                    <div className='modal-content' onClick={e => e.stopPropagation()}>
-                        <div className='modal-header'>
-                            <h3 className='modal-title'>{title}</h3>
+            <div className="modal-background" onClick={closeModal}>
+                <div className="modal-close-section">
+                    <span className="modal-close" onClick={closeModal}>&times;</span>
+                    <div className="modal-content" onClick={e => e.stopPropagation()}>
+                        <div className="modal-header">
+                            <h3 className="modal-title">{title}</h3>
                             { otherForm }
                         </div>
-                        <div className='modal-body'>
+                        <div className="modal-body">
                             { component }
                         </div>
                     </div>

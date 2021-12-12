@@ -28,7 +28,9 @@ const CartItem = ({ cartItem, removeCartItem, receivePrice }) => {
     useEffect(() => {
         if (item) {
             dispatch(fetchShop(item.shopId))
-            .then(res => setShop(res.shop))
+            .then(res => {
+                setShop(res.shop)
+            })
         }
     }, [item]);
 

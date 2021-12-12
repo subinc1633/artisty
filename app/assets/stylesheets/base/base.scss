@@ -26,3 +26,8 @@ a {
 b {
     font-weight: 500;
 }
+
+body {
+    font-family: $font;
+    color: $color;
+}

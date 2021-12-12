@@ -10,6 +10,11 @@
     display: flex;
     flex-direction: column;
     padding-bottom: 200px;
+    width: 60%;
+    h5 {
+        font-family: $sec-font;
+        font-size: 25px;
+    }
 }
 .item-list-header {
     @include splash-header;
@@ -20,7 +25,7 @@
 
 .category-show-container {
     display: flex;
-    justify-content: space-evenly;
+    justify-content: center;
 }
 
 .category-show-filter {
@@ -41,11 +46,25 @@
     .indent {
         text-indent: 20px;
     }
+    .hide-bullets {
+        list-style: none;
+    }
 }
 
 .category-filter-container {
     div {
         padding: 10px 0;
+    }
+    .category-filter-form {
+        input {
+            cursor: pointer;
+        }
+        label {
+            cursor: pointer;
+            &:hover {
+                text-decoration: underline;
+            }
+        }
     }
 }
 
@@ -61,7 +80,7 @@
         height: 25vh;
         &:hover {
             .category-show-item-image {
-                box-shadow: 0 6px 10px rgba(0,0,0,0.1);
+                box-shadow: 0 0px 10px rgba(0,0,0,0.18);
             }
         }
     }

@@ -29,7 +29,7 @@ const ItemShow = props => {
         if (prevId !== itemId) {
             fetchItem(itemId);
         }
-    })
+    });
 
     return (
         <div className='item-show-container'>

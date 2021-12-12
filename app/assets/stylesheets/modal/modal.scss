@@ -30,10 +30,12 @@
 .modal-close {
     color: #ffffff;
     cursor: pointer;
-    font-size: 40px;
-    line-height: 45px;
+    position: absolute;
+    margin-left: -35px;
+    margin-top: -45px;
+    font-size: 45px;
+    line-height: 49px;
     border-radius: 50%;
-    opacity: 0;
     transition: ease-out 0.15s;
     &:hover {
         color: $lighter-gray;

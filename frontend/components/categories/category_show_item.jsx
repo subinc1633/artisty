@@ -1,23 +1,16 @@
 import React, { useEffect, useState } from 'react';
-import { useDispatch } from 'react-redux';
-import { fetchShop } from '../../actions/shop_actions';
 import { Link } from 'react-router-dom';
 
-const CategoryShowItem = ({ item, changeItemShop }) => {
-    const [shop, setShop] = useState('');
-    const dispatch = useDispatch();
+const CategoryShowItem = ({ item, fetchShop }) => {
+    const [shop, setShop] = useState(null);
 
     useEffect(() => {
         if (item) {
-            dispatch(fetchShop(item.shopId))
-            .then(res => {
-                setShop(res.shop);
-                changeItemShop(res.shop);
-            });
+            fetchShop(item.shopId).then(res => setShop(res.shop));
         };
-    }, []);
+    }, [item]);
 
-    if (item) {
+    if (item && shop) {
         return (
             <Link to={`/items/${item.id}`}>
                 <li className="category-show-item-container">

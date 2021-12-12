@@ -1,1 +1,1 @@
-json.extract! @shop, :id, :name, :ig_handle
+json.partial! 'api/shops/shop', shop: @shop
