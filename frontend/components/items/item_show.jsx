@@ -38,9 +38,7 @@ const ItemShow = props => {
                 (
                     <div className='item-show-page'>
                         <div className='left-item-column'>
-                            <div className='item-thumbnail'>
-                                <Carousel item={item} />
-                            </div>
+                            <Carousel item={item} />
                             <div className='reviews'>
                                 <ReviewIndexContainer item={item} reviews={reviews} />
                             </div>

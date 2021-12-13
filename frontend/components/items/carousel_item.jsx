@@ -1,8 +1,8 @@
 import React from 'react';
 
 const CarouselItem = ({ photo }) => (
-    <div>
-        <img className='carousel-item' key={idx} src={`${photo.url}`} />
+    <div className="carousel-item fade">
+        <img className='item-image' src={`${photo.url}`} />
     </div>
 );
 

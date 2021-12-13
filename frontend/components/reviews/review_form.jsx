@@ -28,12 +28,10 @@ const ReviewForm = props => {
         if (props.formType === 'Create') {
             props.createReview(props.item.id, review)
             .then(() => setState(review))
-            .then(() => props.clearErrors())
             .then(() => props.toggleOpen(e));
         } else if (props.formType === 'Update') {
             props.updateReview(props.item.id, updatedReview())
             .then(() => setState(updatedReview()))
-            .then(() => props.clearErrors())
             .then(() => props.toggleOpen(e));
         }
     }

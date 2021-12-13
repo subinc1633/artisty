@@ -37,26 +37,18 @@ user11 = User.create!(email: 'lowkeysavage@gmail.com', password: 'gentlegiant', 
 user12 = User.create!(email: 'cherryberry@gmail.com', password: 'winterx3', name: 'Churro')
 
 shop1 = Shop.create!(
-    name: 'Yuzuland',
-    description: 'a place where yuzu thrives',
     ig_handle: 'little.whitepeach'
 )
 
 shop2 = Shop.create!(
-    name: 'Eggeu',
-    description: "I'm Gee",
     ig_handle: 'img_ee'
 )
 
 shop3 = Shop.create!(
-    name: 'YH',
-    description: 'Hello',
     ig_handle: 'youngha1m'
 )
 
 shop4 = Shop.create!(
-    name: '8eanie',
-    description: 'doodl',
     ig_handle: '8eanie_'
 )
 

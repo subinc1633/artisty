@@ -21,9 +21,6 @@ const CategoryShow = ({ categoryId, fetchCategory, fetchShops, fetchShop }) => {
         if (category && filter) {
             let categoryItems = Object.values(category.items);
             switch (filter) {
-                case 'any':
-                    setFilteredItems(categoryItems);
-                    break;
                 case 'under':
                     setFilteredItems(categoryItems.filter(item => item.price < 15));
                     break;
@@ -34,12 +31,11 @@ const CategoryShow = ({ categoryId, fetchCategory, fetchShops, fetchShop }) => {
                     setFilteredItems(categoryItems.filter(item => item.price > 25));
                     break;
                 default:
-                    setFilteredItems(categoryItems.filter(item => item.shopId === parseInt(filter)));
+                    setFilteredItems(categoryItems);
                     break;
             }
         };
     }, [filter]);
-    
     
     return (
         <div>

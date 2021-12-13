@@ -22,8 +22,10 @@ class ReviewIndexItem extends React.Component {
     toggleOpen(e) {
         e.preventDefault;
         if (this.state.openForm) {
+            this.props.clearErrors();
             this.setState({ openForm: false });
         } else {
+            this.props.clearErrors();
             this.setState({ openForm: true });
         }
     }

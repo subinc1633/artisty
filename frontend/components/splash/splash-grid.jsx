@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 const SplashGrid = ({ items }) => {
     const splashGridItems = [];
 
-    if (items) {
+    if (items.length) {
         splashGridItems.push(items[11], items[16], items[5], items[9], items[2], items[8], items[22], items[10]);
 
         return (

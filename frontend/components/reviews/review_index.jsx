@@ -17,8 +17,10 @@ class ReviewIndex extends React.Component {
     toggleOpen(e) {
         e.preventDefault();
         if (this.state.openForm) {
+            this.props.clearErrors();
             this.setState({ openForm: false });
         } else {
+            this.props.clearErrors();
             this.setState({ openForm: true });
         }
     }
@@ -29,7 +31,7 @@ class ReviewIndex extends React.Component {
     }
 
     render() {
-        const { reviews, currentUser, item, deleteReview } = this.props;
+        const { reviews, currentUser, item, deleteReview, clearErrors } = this.props;
 
         const filteredReviews = Object.values(reviews).filter(review => review.itemId === this.props.item.id);
 
@@ -50,8 +52,8 @@ class ReviewIndex extends React.Component {
 
         const checkOpen = () => {
             if (currentUser && this.state.openForm) {
-                return <CreateFormContainer content='' toggleOpen={this.toggleOpen} item={item} currentUser={currentUser} />
-            } else {
+                return <CreateFormContainer content='' toggleOpen={this.toggleOpen} clearErrors={clearErrors} item={item} currentUser={currentUser} />
+            } else if (currentUser) {
                 return <button className='create-review-button' onClick={this.toggleOpen}>Create a review</button>;
             }
         };

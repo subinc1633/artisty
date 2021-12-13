@@ -1,22 +1,83 @@
 .carousel-container {
-    max-width: 795px;
-    min-width: 550px;
-    max-height: 100%;
-    overflow: hidden;
+    margin: auto;
+    .carousel-inner {
+        display: flex;
+        justify-content: center;
+        position: relative;
+        .carousel-item {
+            display: block;
+            top: 50%;
+            left: 50%;
+        }
+    }
 }
 
-.carousel-inner {
-    white-space: nowrap;
-    animation: fadeIn ease-in 0.5s;
+.thumbnail-container {
+    display: flex;
+    flex-direction: column;
+}
+.item-thumbnail {
+    width: 80px;
+    height: 80px;
+    border-radius: 7px;
+    margin: 15px 0;
+    img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        border-radius: 7px;
+        border: 2px solid rgb(92, 92, 92);
+    }
+}
+
+.item-image {
+    width: 50vw;
+    height: 70vh;
+    object-fit: contain;
+}
+
+.left-carousel-button, .right-carousel-button {
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    font-size: 32px;
+    padding-top: 8px;
+    border-radius: 100%;
+    border: none;
     background-color: #ffffff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    &:hover {
+        transform: none;
+        background-color: #eeeeee;
+    }
 }
 
-@keyframes fadeIn {
-    0% { opacity: 1 }
-    100% { opacity: 0 }
+.left-carousel-button {
+    left: 15%;
+    top: 50%;
 }
 
-.carousel-item {
-    display: inline-block;
-    width: 100%;
+.left-carousel-button:focus {
+
+}
+
+.right-carousel-button {
+    right: 5%;
+    top: 50%;
+}
+
+.fade {
+    animation-name: fade;
+    animation-timing-function: 0.2s ease-in;
+
+}
+
+@keyframes fade {
+    from {
+        opacity: 1;
+    }
+
+    to {
+        opacity: 0;
+    }
 }
