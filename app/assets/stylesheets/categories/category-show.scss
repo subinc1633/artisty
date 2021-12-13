@@ -76,20 +76,30 @@
                 width: 14px;
                 height: 14px;
                 border: 2px solid #ddd;
-                border-radius: 50%;
+                border-radius: 100%;
                 background-color: #fff;
             }
-            [type="radio"]:checked {
-                content: '';
-                position: absolute;
-                width: 10px;
-                height: 10px;
-                background-color: #bbdae7;
-                top: 4px;
-                left: 4px;
-                border-radius: 50%;
-                transition: 0.2s ease-in;
-            }
+        }
+        [type="radio"]:checked + label:after {
+            content: '';
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            background-color: #bbdae7;
+            top: 4px;
+            left: 4px;
+            border-radius: 100%;
+            transition: all 0.2s ease-in;
+        }
+
+        [type="radio"]:not(:checked) + label:after {
+            opacity: 0;
+            transform: scale(0);
+        }
+
+        [type="radio"]:checked + label:after {
+            opacity: 1;
+            transform: scale(1);
         }
     }
 }

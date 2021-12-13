@@ -1,6 +1,7 @@
 import React, { useEffect, useState, useRef } from 'react';
 import ReviewIndexContainer from '../reviews/review_index_container';
 import AddToCartForm from './add_to_cart_form';
+import Carousel from './carousel';
 
 const usePrevProps = val => {
     const ref = useRef();
@@ -38,7 +39,7 @@ const ItemShow = props => {
                     <div className='item-show-page'>
                         <div className='left-item-column'>
                             <div className='item-thumbnail'>
-                                <img className='item-image' src={`${item.photoUrl[0].url}`} />
+                                <Carousel item={item} />
                             </div>
                             <div className='reviews'>
                                 <ReviewIndexContainer item={item} reviews={reviews} />

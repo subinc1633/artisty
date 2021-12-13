@@ -2,13 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { sampleSize } from 'lodash';
 
-const SplashItem = ({items, fetchItems}) => {
-    const [splashItems, setSplashItems] = useState([]);
-    
-    useEffect(() => {
-        fetchItems()
-    }, [setSplashItems]);
-
+const SplashItem = ({items}) => {
     return (
         <ul>
             {

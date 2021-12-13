@@ -1,3 +1,11 @@
 .search-page-container {
     margin-top: 40px;
+    display: flex;
+    justify-content: center;
+}
+
+.search-query {
+    font-size: 20px;
+    font-family: $sec-font;
+    margin-bottom: 40px;
 }

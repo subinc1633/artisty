@@ -20,6 +20,7 @@ const SearchPage = () => {
         <div>
             <div className="search-page-container">
                 <div className="item-list-container">
+                    <h1 className="search-query">You searched for "{query}"</h1>
                     <ul className="category-show-items">
                         {
                             Object.values(items).map((item, idx) => {

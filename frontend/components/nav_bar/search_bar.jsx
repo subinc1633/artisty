@@ -39,7 +39,6 @@ const SearchBar = () => {
             <label className="hide-label" htmlFor="searchbar">Search for anything</label>
             <input
                 type="text"
-                id="searchbar"
                 placeholder="Search for anything"
                 value={query}
                 onChange={e => handleChange(e)}

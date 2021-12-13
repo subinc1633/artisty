@@ -16,14 +16,14 @@ const Carousel = ({ item }) => {
 
     return (
         <div className='carousel-container'>
-            <div className='carousel-inner'>
                 {
-                    item.photoUrl.map((photo, idx) => (
-                        <CarouselItem key={idx} photo={photo} />
+                    item.photoUrl.map(photo => (
+                        <div className='carousel-inner'>
+                            <CarouselItem key={photo.id} photo={photo} />
+                        </div>
                     ))
                 }
 
-            </div>
         </div>
     )
 }

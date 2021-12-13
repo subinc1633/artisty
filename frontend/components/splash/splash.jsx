@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import SplashGrid from './splash-grid';
 import CategorySplash from './category_splash';
@@ -11,6 +11,10 @@ import { sampleSize } from 'lodash';
 const Splash = props => {
     const { items, categories, currentUser, fetchItems } = props;
 
+    useEffect(() => {
+        fetchItems();
+    }, []);
+
     return (
         <section>
             <CategorySplash categories={categories} />
@@ -18,7 +22,7 @@ const Splash = props => {
                 <div>
                     <h1 className="welcome">Welcome back, <Link to={`/users/${currentUser.id}`}>{currentUser.name}</Link>!</h1>
                     <div className="grid-container">
-                        <SplashGrid fetchItems={fetchItems} />
+                        <SplashGrid items={items} />
                     </div>
                     <h2 className="splash-header">Our picks for you</h2>
                     <br/><br/>
@@ -29,7 +33,7 @@ const Splash = props => {
                             you'll love
                         </div>
                         <div className="random-items">
-                            <SplashItem fetchItems={fetchItems} items={items} />
+                            <SplashItem items={items} />
                         </div>
                     </div>
                 </div>) : 
