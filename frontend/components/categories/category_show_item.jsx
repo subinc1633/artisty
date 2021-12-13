@@ -1,12 +1,15 @@
 import React, { useEffect, useState } from 'react';
+import { useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
+import { fetchShop } from '../../actions/shop_actions';
 
-const CategoryShowItem = ({ item, fetchShop }) => {
+const CategoryShowItem = ({ item }) => {
     const [shop, setShop] = useState(null);
+    const dispatch = useDispatch();
 
     useEffect(() => {
         if (item) {
-            fetchShop(item.shopId).then(res => setShop(res.shop));
+            dispatch(fetchShop(item.shopId)).then(res => setShop(res.shop));
         };
     }, [item]);
 

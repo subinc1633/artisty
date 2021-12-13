@@ -70,25 +70,34 @@
         padding-top: 3px;
         border-bottom: 2px solid rgb(222, 222, 222);
         
-        a.nav-bar-link {
+        a {
             display:inline-block;
             margin: 0;
             &:after {
                 content: '';
                 display: block;
                 transform: scaleX(0);
-                padding-bottom: 16px;
+                margin-bottom: -2px;
+                padding-bottom: 12px;
                 border-bottom: 2px solid $color;
+                transition: 0.2s ease-in-out;
             }
             &:hover:after {
                 content: '';
                 display: block;
-                // transform: scaleX(1);
+                transform: scaleX(1);
+                transition: 0.2s ease-in;
             }
             &:hover {
                 cursor: pointer;
             }
         }
+    }
+}
+
+.nav-bar-link-2 {
+    &:hover:after {
+        right: 4em;
     }
 }
 

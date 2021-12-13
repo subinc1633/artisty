@@ -58,11 +58,37 @@
     .category-filter-form {
         input {
             cursor: pointer;
+            opacity: 0;
+            position: absolute;
         }
         label {
             cursor: pointer;
+            position: relative;
+            padding-left: 25px;
             &:hover {
                 text-decoration: underline;
+            }
+            &:before {
+                content: '';
+                position: absolute;
+                left: 0;
+                top: 0;
+                width: 14px;
+                height: 14px;
+                border: 2px solid #ddd;
+                border-radius: 50%;
+                background-color: #fff;
+            }
+            [type="radio"]:checked {
+                content: '';
+                position: absolute;
+                width: 10px;
+                height: 10px;
+                background-color: #bbdae7;
+                top: 4px;
+                left: 4px;
+                border-radius: 50%;
+                transition: 0.2s ease-in;
             }
         }
     }

@@ -47,8 +47,8 @@ const NavigationBar = (props) => {
             <ul className="top-nav">
                 <li><Link to="/"><h2 className="artisty">Artisty</h2></Link></li>
                 <li className="nav-searchbar"><SearchBar /></li>
-                <button className="nav-contact-button"><IoLogoGithub /></button>
-                <button className="nav-contact-button"><IoLogoLinkedin /></button>
+                <a href="https://github.com/subinc1633"><button className="nav-contact-button"><IoLogoGithub /></button></a>
+                <a href="https://www.linkedin.com/in/sc1633/"><button className="nav-contact-button"><IoLogoLinkedin /></button></a>
                 <li>{currentUser ? <button className="user-button" onClick={() => toggleDropdown()}><IoPersonCircle /> <IoCaretDown className="caret-button" /></button> : <button className="sign-in-button" onClick={() => signIn()}>Sign in</button>}</li>
                 <li><button className="cart-button" onClick={() => checkIfLoggedIn()}><IoCartOutline /></button></li>
             </ul><br/>
@@ -56,10 +56,10 @@ const NavigationBar = (props) => {
             <ul className="bottom-nav">
                 {
                     navCategories.map((category, idx) => (
-                        <NavBarLink key={idx} category={category}/>
+                        <NavBarLink key={category.id} category={category} numNav={idx + 1} />
                     ))
                 }
-                    <Link className="nav-bar-link" to="/categories"><li>All Categories</li></Link>
+                    <Link className="nav-bar-link-6" to="/categories"><li>All Categories</li></Link>
             </ul>
         </nav>
     )

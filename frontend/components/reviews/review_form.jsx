@@ -28,10 +28,12 @@ const ReviewForm = props => {
         if (props.formType === 'Create') {
             props.createReview(props.item.id, review)
             .then(() => setState(review))
+            .then(() => props.clearErrors())
             .then(() => props.toggleOpen(e));
         } else if (props.formType === 'Update') {
             props.updateReview(props.item.id, updatedReview())
             .then(() => setState(updatedReview()))
+            .then(() => props.clearErrors())
             .then(() => props.toggleOpen(e));
         }
     }
@@ -45,7 +47,7 @@ const ReviewForm = props => {
             props.errors ? (
                 <ul className='form-errors'>
                     {props.errors.map((error, i) => (
-                        <li key={`${i}`} className='errors-list'>
+                        <li key={`${i}`} className='session-errors'>
                             {error}
                         </li>
                     ))}
@@ -56,8 +58,8 @@ const ReviewForm = props => {
 
     return (
         <div>
+            {renderErrors()}
             <form className='review-form' onSubmit={(e) => handleSubmit(e)}>
-                {renderErrors()}
                 <p className='choose-rating'>Choose a star rating:</p>
                 {
                     [...Array(5)].map((star, idx) => {
@@ -76,7 +78,8 @@ const ReviewForm = props => {
                             </label>
                         );
                     })
-                }<br/><br/>
+                }
+                <br/><br/>
                 <p className='choose-rating'>Comment:</p>
                 { props.formType === 'Update' ?
                     <textarea

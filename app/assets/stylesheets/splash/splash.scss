@@ -4,6 +4,7 @@
 @import './splash-category.scss';
 @import './popular-items.scss';
 @import './artisty-container.scss';
+@import './splash-grid.scss';
 
 .artisty {
     font-size: 35px;
@@ -16,7 +17,7 @@
 
 .splash-header {
     @include splash-header;
-    margin-top: 180px;
+    margin-top: 100px;
     margin-bottom: 20px;
 }
 
@@ -95,7 +96,7 @@
         li {
             @include display-splash-item;
             width: 20vw;
-            height: 35vh;
+            height: 30vh;
             border-radius: 20px;
             box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
             .splash-category-image {
@@ -113,9 +114,6 @@
                     overflow: hidden;
                     white-space: nowrap;
                     text-overflow: ellipsis;
-                }
-                .splash-item-shop-name {
-                    color: $light-gray;
                 }
             }
             &:hover {

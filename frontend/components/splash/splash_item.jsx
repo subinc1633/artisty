@@ -14,10 +14,10 @@ const SplashItem = ({items, fetchItems}) => {
             {
                 sampleSize(items, 4).map((item, idx) => (
                     <Link to={`/items/${item.id}`} key={idx}>
-                        <li className='splash-item'>
-                                <img className='splash-item-image' src={`${item.photoUrl[0].url}`} />
-                                <p className='splash-item-price-container'>
-                                    <span className='splash-item-price'>${(item.price * 100 / 100).toFixed(2)}</span>
+                        <li className="splash-item">
+                                <img className="splash-item-image" src={`${item.photoUrl[0].url}`} />
+                                <p className="splash-item-price-container">
+                                    <span className="splash-item-price">${(item.price * 100 / 100).toFixed(2)}</span>
                                 </p>
                         </li>
                     </Link>
