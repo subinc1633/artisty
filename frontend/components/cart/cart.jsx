@@ -50,7 +50,7 @@ const Cart = ({ cartItems }) => {
                     </div>
                     <div className="payment-container">
                         <Link to="/categories"><button className="keep-shopping">Keep shopping</button></Link><br/>
-                        <Payment total={total} numItems={items.length} />
+                        <Payment total={total} cartItems={items} numItems={items.length} removeCartItem={removeCartItem} />
                     </div>
                 </div>
                 :

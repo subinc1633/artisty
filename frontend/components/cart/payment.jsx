@@ -1,12 +1,19 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import { deleteCartItem } from '../../actions/cart_item_actions';
 
-const Payment = ({ total, numItems }) => {
+const Payment = ({ total, numItems, cartItems, removeCartItem }) => {
     const [showModal, setShowModal] = useState(false);
-    const [value, setValue] = useState("card")
+    const [value, setValue] = useState("card");
+    const dispatch = useDispatch();
 
     const toggleModal = () => {
         if (showModal) {
+            for (let cartItem of cartItems) {
+                removeCartItem(cartItem.id);
+                dispatch(deleteCartItem(cartItem.cartId, cartItem.id));
+            };
             setShowModal(false);
         } else {
             setShowModal(true);
