@@ -1,5 +1,5 @@
 class Shop < ApplicationRecord
-    validates :name, :description, presence: true
+    validates :ig_handle, presence: true
     
     has_many :items
 end

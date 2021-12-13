@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
 import { IoArrowBack } from 'react-icons/io5';
 import SearchBar from '../nav_bar/search_bar';

@@ -1,5 +1,5 @@
 .not-found-background {
-    width: 100%;
+    width: 100vw;
     height: 100vh;
     background-color: $yellow-background;
     z-index: 5;
@@ -11,8 +11,8 @@
         position: absolute;
         top: 50%;
         transform: translateY(-50%);
-        margin-left: 50px;
-        width: 100%;
+        padding-left: 50px;
+        width: 80%;
         h1 {
             font-family: $sec-font;
             font-size: 35px;

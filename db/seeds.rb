@@ -392,7 +392,7 @@ item25 = Item.create!(
     title: 'A guitarist singing while sitting on a chair',
     price: 18.50,
     options: {
-        Size: {'11 x 17': 18.50, '18 x 24': 23.00, '24 x 36': 28.00}
+        Size: {'16 x 12': 18.50, '24 x 20': 23.00, '36 x 32': 28.00}
     },
     favorite: false,
     fav_count: 8234
@@ -677,4 +677,4 @@ cart10 = Cart.create!(user_id: user10.id)
 cart11 = Cart.create!(user_id: user11.id)
 cart12 = Cart.create!(user_id: user12.id)
 
-cart_item1 = CartItem.create!(item_id: item12.id, cart_id: cart1.id, quantity: 1, price: item12[price], option: '')
+cart_item1 = CartItem.create!(item_id: item12.id, cart_id: cart1.id, quantity: 1, price: item12.price, option: '')
