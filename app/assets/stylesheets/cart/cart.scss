@@ -73,9 +73,11 @@
             }
             .cart-item-price {
                 font-weight: 500;
+                text-align: right;
             }
             .cart-item-price-each {
                 font-size: 14px;
+                text-align: right;
                 color: $lighter-gray;
             }
         }

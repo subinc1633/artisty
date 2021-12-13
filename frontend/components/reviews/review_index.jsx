@@ -46,6 +46,7 @@ class ReviewIndex extends React.Component {
                     item={item}
                     currentUser={currentUser}
                     deleteReview={deleteReview}
+                    clearErrors={clearErrors}
                 />)
             }
         }
