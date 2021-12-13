@@ -24,7 +24,6 @@ Users may search for artworks through the search bar and find the item they wish
 ![Untitled](https://user-images.githubusercontent.com/78716708/145897950-6417e7d1-cc62-4d2c-98e0-db04dcba895a.gif)
 
 ```
-//
 const SearchPage = () => {
     const items = useSelector(state => state.entities.items);
 
