@@ -82,3 +82,4 @@ On the item's show page, users can add the item to their cart with the number of
 ## Future directions
 * Allow users to favorite items and shops
 * Implement filter function for categories
+* Add image carousel functionality
