@@ -1,9 +1,9 @@
 # artisty
 
-![Screen Recording Gif](https://user-images.githubusercontent.com/78716708/141491278-e0246cdb-3176-4f1b-b674-b71c7081f9e8.gif)
+![Screen Shot 2021-12-13 at 4 54 58 PM](https://user-images.githubusercontent.com/78716708/145895084-5fe1de6d-28f8-4483-bf57-9a7795735327.png)
 
 ## About
-Artisty is a fullstack Etsy clone that displays various artworks for sale. Users are able to search for items, either via searchbar or category listing, and place them in their cart for purchase. They may also leave reviews and favorite artworks if desired.
+Artisty is a full stack Etsy clone that displays various artworks for sale. Users are able to search for items, either via search bar or category listing, and place them in their cart for purchase.
 
 [Live Demo](https://artistyy.herokuapp.com/#/)
 
@@ -18,8 +18,41 @@ Artisty is a fullstack Etsy clone that displays various artworks for sale. Users
 * PostgreSQL
 
 ## Features
+### Search
+Users may search for artworks through the search bar and find the item they wish to look up. The use of URLSearchParams allowed for faster procurement of the search queries.
+
+![Untitled](https://user-images.githubusercontent.com/78716708/145897950-6417e7d1-cc62-4d2c-98e0-db04dcba895a.gif)
+
+```
+const SearchPage = () => {
+    const items = useSelector(state => state.entities.items);
+
+    let location = useLocation();
+    let params = new URLSearchParams(location.search);
+    let query = params.get('q').replace('+', ' ').toLowerCase();
+    
+    ...
+    
+    return (
+        ...
+        <div className="item-list-container">
+            <h1 className="search-query">You searched for "{query}"</h1>
+            <ul className="category-show-items">
+                {
+                    Object.values(items).map((item, idx) => {
+                        if (item.title.toLowerCase().includes(query)) return <CategoryShowItem key={idx} item={item} />
+                    })
+                }
+            </ul>
+        </div>
+    );
+}
+```
+
 ### Reviews
-Users may leave reviews and set a rating for an item if they are logged in. After a review is created, the item page re-renders and updates the star rating. Initially, I had difficulty having the stars display properly when updating, but compiling the ratings and finding the average made it work.
+Users may leave reviews and set a rating for an item if they are logged in. After a review is created, the item page re-renders and updates the star rating.
+
+![reviews](https://user-images.githubusercontent.com/78716708/145904310-cb6ebbb7-f880-475f-bfb9-df8f7ed9b86b.gif)
 
 ```
 const ratings = []
@@ -41,23 +74,12 @@ return (
 ...
 ```
 
-### Randomized splash images
-On the splash page, there are images randomized when the page re-renders. To allow for randomization, I used the `_.sampleSize()` method from Lodash to retrieve four items from my database.
+### Cart
+On the item's show page, users can add the item to their cart with the number of items. Users may delete the item from their cart and update the quantity. Upon checkout, the cart refreshes and users may continue shopping if desired.
 
-```
-sampleSize(items, 4).map((item, idx) => (
-    <Link to={`/items/${item.id}`} key={idx}>
-         <li className='splash-item'>
-              <img className='splash-item-image' src={`${item.photoUrl[0].url}`} />
-              <p className='splash-item-price-container'>
-                  <span className='splash-item-price'>${(item.price * 100 / 100).toFixed(2)}</span>
-              </p>
-         </li>
-    </Link>
-))
-```
+![cart](https://user-images.githubusercontent.com/78716708/145905738-da06d873-4899-4f03-abc9-8d972ef15fd7.gif)
 
 ## Future directions
-* Implement shops, search bar and shopping cart functionality
 * Allow users to favorite items and shops
-* Improve accessibility
+* Implement filter function for categories
+* Add image carousel functionality
