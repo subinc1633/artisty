@@ -47,8 +47,8 @@ const NavigationBar = (props) => {
             <ul className="top-nav">
                 <li><Link to="/"><h2 className="artisty">Artisty</h2></Link></li>
                 <li className="nav-searchbar"><SearchBar /></li>
-                <a href="https://github.com/subinc1633"><button className="nav-contact-button"><IoLogoGithub /></button></a>
-                <a href="https://www.linkedin.com/in/sc1633/"><button className="nav-contact-button"><IoLogoLinkedin /></button></a>
+                <a href="https://github.com/subinc1633" target="_blank"><button className="nav-contact-button"><IoLogoGithub /></button></a>
+                <a href="https://www.linkedin.com/in/sc1633/" target="_blank"><button className="nav-contact-button"><IoLogoLinkedin /></button></a>
                 <li>{currentUser ? <button className="user-button" onClick={() => toggleDropdown()}><IoPersonCircle /> <IoCaretDown className="caret-button" /></button> : <button className="sign-in-button" onClick={() => signIn()}>Sign in</button>}</li>
                 <li><button className="cart-button" onClick={() => checkIfLoggedIn()}><IoCartOutline /></button></li>
             </ul><br/>
