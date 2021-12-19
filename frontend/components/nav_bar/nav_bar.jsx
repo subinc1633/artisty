@@ -59,7 +59,6 @@ const NavigationBar = (props) => {
                         <NavBarLink key={category.id} category={category} numNav={idx + 1} />
                     ))
                 }
-                    <Link className="nav-bar-link-6" to="/categories"><li>All Categories</li></Link>
             </ul>
         </nav>
     )

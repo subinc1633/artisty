@@ -33,7 +33,7 @@ class UserShow extends React.Component {
                     <span className='favorites'>
                         <Link to='/'><button className='favorite-items'>Favorite items</button></Link>
                         <Link to='/'><button className='favorite-shops'>Favorite shops</button></Link>
-                        {this.props.currentUser ? <Link to='/'><button className='create-collection'>Create collection</button></Link> : null }
+                        {this.props.currentUser && action.user.id === this.props.currentUser.id ? <Link to='/'><button className='create-collection'>Create collection</button></Link> : null }
                     </span>
                 </div>
             ) : null

@@ -1,16 +1,22 @@
 import React, { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import { IoArrowBack } from 'react-icons/io5';
 
 const CategoryFilter = ({ category, changePriceFilter, changeShopFilter, fetchShops }) => {
     const [shops, setShops] = useState(null);
     const [firstCheck, setFirstCheck] = useState('any');
     const [secondCheck, setSecondCheck] = useState('any');
+    const location = useLocation();
     
     useEffect(() => {
         fetchShops()
         .then(res => setShops(Object.values(res.shops)));
-    }, [])
+    }, []);
+
+    useEffect(() => {
+        setFirstCheck('any');
+        setSecondCheck('any')
+    }, [location]);
     
     const handlePriceChange = (e) => {
         setFirstCheck(e.target.value);

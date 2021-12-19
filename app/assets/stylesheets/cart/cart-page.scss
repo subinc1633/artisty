@@ -15,6 +15,9 @@
     a {
         text-decoration: underline;
         font-weight: 300;
+        &:hover {
+            color: $light-gray;
+        }
     }
 }
 
