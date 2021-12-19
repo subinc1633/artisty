@@ -38,7 +38,7 @@ const AddToCartForm = ({ item, itemId, userId, shop, createCartItem, updateCartI
     useEffect(() => {
         if (option && item.options) {
             if (option === 'Select an option') {
-                setPrice === item.price;
+                setPrice(parseFloat(item.price) * 100 / 100);
             } else {
                 setPrice(Object.values(item.options)[0][option] * quantity * 100 / 100);
             }
@@ -128,6 +128,9 @@ const AddToCartForm = ({ item, itemId, userId, shop, createCartItem, updateCartI
             <h1>{item.title}</h1> 
             <div className="price-in-stock">
                 { option && item.options ? 
+                    option === 'Select an option' ?
+                    <span className="item-show-price">${(item.price * 100 / 100).toFixed(2)}</span>
+                    :
                     <span className="item-show-price">${(Object.values(item.options)[0][option] * quantity * 100 / 100).toFixed(2)}</span>
                     :
                     <span className="item-show-price">${(item.price * 100 / 100).toFixed(2)}</span>
