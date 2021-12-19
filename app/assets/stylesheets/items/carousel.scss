@@ -16,6 +16,7 @@
     display: flex;
     flex-direction: column;
 }
+
 .item-thumbnail {
     width: 80px;
     height: 80px;
@@ -28,6 +29,13 @@
         border-radius: 7px;
         border: 2px solid rgb(92, 92, 92);
     }
+    &:hover {
+        cursor: pointer;
+    }
+}
+
+.unselected-thumbnail {
+    
 }
 
 .item-image {

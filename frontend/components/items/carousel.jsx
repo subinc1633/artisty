@@ -27,7 +27,7 @@ const Carousel = ({ item }) => {
                 <div className="thumbnail-container">
                     {
                         item.photoUrl.map((photo, idx) => (
-                            <div className="item-thumbnail" key={photo.id} onClick={() => handleThumbnailClick(idx)} >
+                            <div className={"item-thumbnail"} key={photo.id} onClick={() => handleThumbnailClick(idx)} >
                                 <img src={photo.url} alt={item.title} />
                             </div>
                         ))

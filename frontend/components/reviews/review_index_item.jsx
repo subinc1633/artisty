@@ -7,11 +7,13 @@ class ReviewIndexItem extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            openForm: false
+            openForm: false,
+            counter: 0
         }
 
         this.toggleOpen = this.toggleOpen.bind(this);
         this.removeReview = this.removeReview.bind(this);
+        this.handleHelpfulClick = this.handleHelpfulClick.bind(this);
     }
 
     removeReview(e) {
@@ -28,6 +30,10 @@ class ReviewIndexItem extends React.Component {
             this.props.clearErrors();
             this.setState({ openForm: true });
         }
+    }
+
+    handleHelpfulClick() {
+        this.setState({counter: this.state.counter += 1});
     }
 
     render() {
@@ -56,7 +62,8 @@ class ReviewIndexItem extends React.Component {
                     </p>
                     <p className="review-content">{review.content}</p>
                     <br /><br />
-                    <button className="helpful-button"><IoThumbsUpSharp /> Helpful?</button>
+                    { this.state.counter === 0 ? <button className="helpful-button" onClick={this.handleHelpfulClick}><IoThumbsUpSharp /> Helpful?</button>
+                    : <button className="helpful-button" onClick={this.handleHelpfulClick}><IoThumbsUpSharp /> {this.state.counter} Helpful</button> }
                     {currentUser && (currentUser.id === reviewer().id) ?
                         <span>
                             <span className="edit-delete-link" onClick={this.toggleOpen}>Edit</span> | <span className="edit-delete-link" onClick={this.removeReview}>Delete</span>
