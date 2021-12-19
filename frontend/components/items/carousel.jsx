@@ -27,24 +27,25 @@ const Carousel = ({ item }) => {
                 <div className="thumbnail-container">
                     {
                         item.photoUrl.map((photo, idx) => (
-                            <div className={"item-thumbnail"} key={photo.id} onClick={() => handleThumbnailClick(idx)} >
+                            <div
+                                className="item-thumbnail"
+                                key={photo.id}
+                                onClick={() => handleThumbnailClick(idx)}
+                            >
                                 <img src={photo.url} alt={item.title} />
                             </div>
                         ))
                     }
                 </div>
-                {/* {
-                    images.map((photo, idx) => (
-                        <div className="carousel-item fade">
-                            <img className="item-image" src={`${photo.url}`} alt={photo.filename} />
-                        </div>
-                    ))
-                } */}
-                <img className="item-image" src={currImg.url} alt={currImg.filename} />
-                { item.photoUrl.length > 1 ? 
-                <div><button className="left-carousel-button" onClick={handleLeftClick}><IoChevronBack /></button>
-                <button className="right-carousel-button" onClick={handleRightClick}><IoChevronForward /></button></div>
-                : null }
+                <div className="image-container">
+                    <img className="item-image" src={currImg.url} alt={currImg.filename} />
+                    { item.photoUrl.length > 1 ? 
+                    <div>
+                        <button className="left-carousel-button" onClick={handleLeftClick}><IoChevronBack /></button>
+                        <button className="right-carousel-button" onClick={handleRightClick}><IoChevronForward /></button>
+                    </div>
+                    : null }
+                </div>
             </div>
             
         </div>
