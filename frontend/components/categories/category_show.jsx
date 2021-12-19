@@ -5,7 +5,8 @@ import CategoryShowItem from './category_show_item';
 
 const CategoryShow = ({ categoryId, fetchCategory, fetchShops, fetchShop }) => {
     const [category, setCategory] = useState(null);
-    const [filter, setFilter] = useState(null);
+    const [priceFilter, setPriceFilter] = useState('any');
+    const [shopFilter, setShopFilter] = useState('any');
     const [filteredItems, setFilteredItems] = useState(null);
     const location = useLocation();
     
@@ -18,24 +19,40 @@ const CategoryShow = ({ categoryId, fetchCategory, fetchShops, fetchShop }) => {
     }, [location]);
 
     useEffect(() => {
-        if (category && filter) {
+        if (category) {
             let categoryItems = Object.values(category.items);
-            switch (filter) {
+
+            const applyShopFilter = (item) => {
+                if (shopFilter === 'any') {
+                    return true;
+                } else {
+                    return item.shopId === parseInt(shopFilter);
+                }
+            };
+
+            switch (priceFilter) {
                 case 'under':
-                    setFilteredItems(categoryItems.filter(item => item.price < 15));
+                    setFilteredItems(categoryItems
+                        .filter(item => item.price < 15)
+                        .filter(item => applyShopFilter(item)));
                     break;
                 case 'between':
-                    setFilteredItems(categoryItems.filter(item => item.price > 15 && item.price <= 25));
+                    setFilteredItems(categoryItems
+                        .filter(item => item.price >= 15 && item.price <= 25)
+                        .filter(item => applyShopFilter(item)));
                     break;
                 case 'over':
-                    setFilteredItems(categoryItems.filter(item => item.price > 25));
+                    setFilteredItems(categoryItems
+                        .filter(item => item.price > 25)
+                        .filter(item => applyShopFilter(item)));
                     break;
                 default:
-                    setFilteredItems(categoryItems);
+                    setFilteredItems(categoryItems
+                        .filter(item => applyShopFilter(item)));
                     break;
             }
         };
-    }, [filter]);
+    }, [priceFilter, shopFilter]);
     
     return (
         <div>
@@ -48,7 +65,7 @@ const CategoryShow = ({ categoryId, fetchCategory, fetchShops, fetchShop }) => {
 
                     <div className="category-show-container">
                         <div className="category-show-filter">
-                            <CategoryFilter category={category} changeFilter={setFilter} fetchShops={fetchShops} />
+                            <CategoryFilter category={category} changePriceFilter={setPriceFilter} changeShopFilter={setShopFilter} fetchShops={fetchShops} />
                         </div>
                         <div className="item-list-container">
                             <h3 className="item-list-header">Find something you love</h3>

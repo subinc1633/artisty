@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { IoArrowBack } from 'react-icons/io5';
 
-const CategoryFilter = ({ category, changeFilter, changeShopFilter, fetchShops }) => {
+const CategoryFilter = ({ category, changePriceFilter, changeShopFilter, fetchShops }) => {
     const [shops, setShops] = useState(null);
     const [firstCheck, setFirstCheck] = useState('any');
     const [secondCheck, setSecondCheck] = useState('any');
@@ -14,11 +14,12 @@ const CategoryFilter = ({ category, changeFilter, changeShopFilter, fetchShops }
     
     const handlePriceChange = (e) => {
         setFirstCheck(e.target.value);
-        changeFilter(e.target.value);
+        changePriceFilter(e.target.value);
     }
 
     const handleShopChange = (e) => {
         setSecondCheck(e.target.value);
+        changeShopFilter(e.target.value);
     }
 
     return (
