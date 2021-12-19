@@ -102,7 +102,7 @@
             .splash-category-image {
                 @include display-splash-item-image;
                 border-radius: 10px 10px 0 0;
-                height: 72%;
+                height: 80%;
             }
             .splash-item-information {
                 @include item-description;
@@ -111,9 +111,7 @@
                 flex-direction: column;
                 justify-content: center;
                 .splash-item-title {
-                    overflow: hidden;
-                    white-space: nowrap;
-                    text-overflow: ellipsis;
+                    display: inline-block;
                 }
             }
             &:hover {

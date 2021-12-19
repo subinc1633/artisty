@@ -49,6 +49,7 @@
                 }
                 button {
                     @include white-button;
+                    margin-left: -13px;
                 }
                 .cart-quantity {
                     select {
@@ -221,7 +222,7 @@ hr.cart-item-divider {
     display: flex;
     align-items: flex-end;
     flex-direction: column;
-    width: 30%;
+    width: 25%;
 }
 
 .cart-modal-content {

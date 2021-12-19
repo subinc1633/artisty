@@ -11,9 +11,9 @@ const SplashFanartItem = ({ item }) => {
             <Link to={`/items/${item.id}`}>
                 <li>
                     <img className='splash-category-image' src={`${item.photoUrl[0].url}`} />
-                    <p className='splash-item-information'>
+                    <div className='splash-item-information'>
                         <span className='splash-item-title'>{item.title}</span>
-                    </p>
+                    </div>
                 </li>
             </Link>
         );
