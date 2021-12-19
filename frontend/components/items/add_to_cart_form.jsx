@@ -40,7 +40,7 @@ const AddToCartForm = ({ item, itemId, userId, shop, createCartItem, updateCartI
             if (option === 'Select an option') {
                 setPrice(parseFloat(item.price) * 100 / 100);
             } else {
-                setPrice(Object.values(item.options)[0][option] * quantity * 100 / 100);
+                setPrice(Object.values(item.options)[0][option] * quantity);
             }
         }
     }, [option]);
@@ -81,12 +81,17 @@ const AddToCartForm = ({ item, itemId, userId, shop, createCartItem, updateCartI
             return obj.some(cartItem => cartItem.itemId === itemId);
         };
 
+        const hasSameOption = (obj) => {
+            return obj.some(cartItem => option === cartItem.option);
+        };
+
         const filteredCartItems = (obj) => {
             return obj.filter(cartItem => cartItem.itemId === itemId);
         };
 
         if (userId) {
-            if ((cart.cartItems && hasCartItem(cartItems))) {
+            if ((cart.cartItems && hasCartItem(cartItems)) && hasSameOption(cartItems)) {
+                debugger
                 let productId = filteredCartItems(cartItems)[0].id;
 
                 let total = filteredCartItems(cartItems)[0].quantity + parseInt(quantity);
@@ -96,7 +101,7 @@ const AddToCartForm = ({ item, itemId, userId, shop, createCartItem, updateCartI
                     cart_id: cart.id,
                     item_id: itemId,
                     quantity: total,
-                    price: parseFloat(item.price),
+                    price: parseFloat(price),
                     option: option
                 };
                 
@@ -104,6 +109,7 @@ const AddToCartForm = ({ item, itemId, userId, shop, createCartItem, updateCartI
                     () => setProduct(updatedProduct)
                 );
             } else {
+                debugger
                 newProduct = {
                     cart_id: cart.id,
                     item_id: itemId,
