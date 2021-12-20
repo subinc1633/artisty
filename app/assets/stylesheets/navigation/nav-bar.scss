@@ -17,6 +17,12 @@
                 box-shadow: none;
             }
         }
+        .nav-buttons {
+            display: flex;
+            button {
+                margin: 0 10px;
+            }
+        }
         .sign-in-button {
             font-size: 16px;
             &:hover {
