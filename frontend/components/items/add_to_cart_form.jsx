@@ -91,7 +91,6 @@ const AddToCartForm = ({ item, itemId, userId, shop, createCartItem, updateCartI
 
         if (userId) {
             if ((cart.cartItems && hasCartItem(cartItems)) && hasSameOption(cartItems)) {
-                debugger
                 let productId = filteredCartItems(cartItems)[0].id;
 
                 let total = filteredCartItems(cartItems)[0].quantity + parseInt(quantity);
@@ -109,7 +108,6 @@ const AddToCartForm = ({ item, itemId, userId, shop, createCartItem, updateCartI
                     () => setProduct(updatedProduct)
                 );
             } else {
-                debugger
                 newProduct = {
                     cart_id: cart.id,
                     item_id: itemId,
@@ -131,7 +129,7 @@ const AddToCartForm = ({ item, itemId, userId, shop, createCartItem, updateCartI
     return (
         <div className="right-item-column">
             { shop ? <p className="item-show-shop"><a href={shopUrl} target="_blank">{shop.igHandle}</a></p> : null }<br/>
-            <h1>{item.title}</h1> 
+            <h1>{item.title}</h1>
             <div className="price-in-stock">
                 { option && item.options ? 
                     option === 'Select an option' ?

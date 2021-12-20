@@ -14,6 +14,7 @@ const usePrevProps = val => {
 const ItemShow = props => {
     const { item, itemId, reviews, fetchItem, fetchShop, fetchReviews } = props;
     const [shop, setShop] = useState(null);
+    const [rating, setRating] = useState(0);
     const prevId = usePrevProps(itemId);
 
     useEffect(() => {
@@ -40,13 +41,16 @@ const ItemShow = props => {
                         <div className='left-item-column'>
                             <Carousel item={item} />
                             <div className='reviews'>
-                                <ReviewIndexContainer item={item} reviews={reviews} />
+                                <ReviewIndexContainer item={item} reviews={reviews} changeRating={setRating} />
                             </div>
                         </div>
                         <AddToCartForm
                             item={item}
                             itemId={itemId}
                             shop={shop} />
+                        <div>
+
+                        </div>
                     </div>
                 )}
         </div>
